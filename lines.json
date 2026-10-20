@@ -1,0 +1,165 @@
+[
+ {
+  "id": "b1",
+  "who": "BENNY",
+  "text": "Ham? Or turkey? Ham. Or... turkey?!",
+  "sub": "Ham? Or turkey? Ham. Or… TURKEY?!",
+  "voice": "am_eric",
+  "speed": 1.12
+ },
+ {
+  "id": "o1",
+  "who": "OONA",
+  "text": "You've been staring at that fridge for forty minutes.",
+  "sub": "You've been staring at that fridge for 40 minutes.",
+  "voice": "bf_emma",
+  "speed": 1.04,
+  "tape": 0.88,
+  "asr": "You've been staring at that fridge for 40 minutes."
+ },
+ {
+  "id": "b2",
+  "who": "BENNY",
+  "text": "What if I pick the wrong one?!",
+  "voice": "am_eric",
+  "speed": 1.15
+ },
+ {
+  "id": "o2",
+  "who": "OONA",
+  "text": "Okay. More options.",
+  "voice": "bf_emma",
+  "speed": 0.95,
+  "tape": 0.88,
+  "sub": "Okay. More options.",
+  "asr": "OK more options"
+ },
+ {
+  "id": "b3",
+  "who": "BENNY",
+  "text": "Thirty sandwiches?!",
+  "sub": "30 sandwiches?!",
+  "voice": "am_eric",
+  "speed": 1.08,
+  "asr": "30 sandwiches"
+ },
+ {
+  "id": "o3",
+  "who": "OONA",
+  "text": "Just pick one.",
+  "voice": "bf_emma",
+  "speed": 0.95,
+  "tape": 0.88
+ },
+ {
+  "id": "b4",
+  "who": "BENNY",
+  "text": "But what if number twenty-nine is better?",
+  "sub": "But what if number 29 is better?",
+  "voice": "am_eric",
+  "speed": 1.15,
+  "asr": "But what if number 29 is better?"
+ },
+ {
+  "id": "b5",
+  "who": "BENNY",
+  "text": "Three thousand?!",
+  "sub": "3,000?!",
+  "voice": "am_eric",
+  "speed": 1.05,
+  "asr": "3000"
+ },
+ {
+  "id": "o4",
+  "who": "OONA",
+  "text": "That one's the special.",
+  "voice": "bf_emma",
+  "speed": 1.0,
+  "tape": 0.88
+ },
+ {
+  "id": "b6a",
+  "who": "BENNY",
+  "text": "Too many!",
+  "voice": "am_eric",
+  "speed": 1.15
+ },
+ {
+  "id": "b6b",
+  "who": "BENNY",
+  "text": "Too many!",
+  "voice": "am_eric",
+  "speed": 1.25
+ },
+ {
+  "id": "b6c",
+  "who": "BENNY",
+  "text": "Too many!",
+  "sub": "Too—",
+  "voice": "am_eric",
+  "speed": 1.3,
+  "cut": 0.24,
+  "asr": "-"
+ },
+ {
+  "id": "b6d",
+  "who": "BENNY",
+  "text": "Too many!",
+  "sub": "TOO—",
+  "voice": "am_eric",
+  "speed": 1.3,
+  "cut": 0.2,
+  "asr": "-"
+ },
+ {
+  "id": "b7",
+  "who": "BENNY",
+  "text": "Oh. It's perfect.",
+  "sub": "…Oh. It's perfect.",
+  "voice": "am_eric",
+  "speed": 0.95,
+  "gain": 0.7,
+  "asr": "Oh, it's perfect."
+ },
+ {
+  "id": "o5",
+  "who": "OONA",
+  "text": "It's egg salad. From last Tuesday.",
+  "voice": "bf_emma",
+  "speed": 1.0,
+  "tape": 0.88
+ },
+ {
+  "id": "b8",
+  "who": "BENNY",
+  "text": "I didn't have to choose.",
+  "voice": "am_eric",
+  "speed": 1.0
+ },
+ {
+  "id": "o6",
+  "who": "OONA",
+  "text": "More choices. Less happy. It's called the paradox of choice.",
+  "voice": "bf_emma",
+  "speed": 1.05,
+  "tape": 0.88
+ },
+ {
+  "id": "o7",
+  "who": "OONA",
+  "text": "You coming home, or what?",
+  "voice": "bf_emma",
+  "speed": 1.0,
+  "tape": 0.88,
+  "asr": "You coming home or what?"
+ },
+ {
+  "id": "b9",
+  "who": "BENNY",
+  "text": "Home has two sandwiches.",
+  "sub": "Home has 2 sandwiches.",
+  "voice": "am_eric",
+  "speed": 1.0,
+  "asr": "Home has two sandwiches."
+ }
+]

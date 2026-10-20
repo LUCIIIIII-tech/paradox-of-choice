@@ -1,0 +1,12 @@
+Paradox of Choice — Sci-Fi Sitcom Toon short · asset sources & licences
+
+Music        Original score, synthesized in code (music/score.py, numpy). No samples.
+Sound FX     Synthesized in code (mix.py + core/audio/sfx.py of the Lemo-Opuscar library, MIT). No samples.
+Voices       Kokoro TTS v1.0 (kokoro-onnx), Apache-2.0 — voices bf_emma (Oona, tape-slowed and pitched down), am_eric (Benny).
+Voice check  faster-whisper (MIT), model base.en.
+Fonts        Baloo 2 (Ek Type), VT323 (Peter Hull), Lilita One (Juan Montoreano) — Google Fonts, SIL Open Font License 1.1.
+             Files in fonts/ are unmodified copies from github.com/google/fonts (ofl/).
+Artwork      All characters, creatures, props and backgrounds drawn procedurally in code (chars.js / worlds.js).
+Engine       toon.js adapted from the Lemo-Opuscar library's scifi-toon engine (MIT License, github.com/lemomo-ai/lemo-opuscar).
+Fact         "The paradox of choice": Barry Schwartz, The Paradox of Choice: Why More Is Less (2004). Named on screen as a citation only.
+Style        Inspired by adult-swim-era sci-fi sitcom cartoons. No characters, names, catchphrases, logos or props from any existing show are used.
