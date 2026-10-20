@@ -2,7 +2,17 @@
 // The timeline (timeline.json) comes from the narrator: every shot starts when its line starts, so there is no dead air.
 const W = 1080, H = 1920, CX = W / 2, TAU = Math.PI * 2;
 const cv = document.getElementById('c'), g = cv.getContext('2d');
-const TL = await (await fetch('timeline.json')).json();
+const LANG = new URLSearchParams(location.search).get('lang') || 'tl';     // tl (default) | en
+const SUF = LANG === 'tl' ? '' : '.' + LANG;
+const TL = await (await fetch(`timeline${SUF}.json`)).json();
+const ANCH = SUF ? await (await fetch(`anchors${SUF}.json`)).json() : {};   // cue words are written in Tagalog; mapped per language
+// every word drawn on screen (besides the captions), per language
+const TX = {
+  tl: { move: 'GALAW...', shut: 'IPIPIKIT ANG MATA', look: 'TITINGNAN MO SIYA', ab: 'COMMENT  A  O  B', brain: 'UTAK: “HUWAG KANG GAGALAW”', mind: 'ISIP: GISING', body: 'KATAWAN: TULOG',
+        ph: 'PILIPINAS', jp: 'JAPAN', ca: 'CANADA', of: n => `${n} SA 100`, tips: ['1. HUWAG LUMABAN', '2. IGALAW ANG DALIRI NG PAA', '3. HUMINGA NANG DAHAN-DAHAN'], bin: 'HINGA...', bout: '...LABAS', yes: '“OO”', ifyou: 'KUNG NARANASAN MO NA' },
+  en: { move: 'MOVE...', shut: 'SHUT YOUR EYES', look: 'LOOK AT IT', ab: 'COMMENT  A  OR  B', brain: 'BRAIN: “DON’T MOVE”', mind: 'MIND: AWAKE', body: 'BODY: ASLEEP',
+        ph: 'PHILIPPINES', jp: 'JAPAN', ca: 'CANADA', of: n => `${n} IN 100`, tips: ['1. DON’T FIGHT IT', '2. WIGGLE YOUR TOES', '3. BREATHE SLOWLY'], bin: 'IN...', bout: '...OUT', yes: '“YES”', ifyou: 'IF IT HAPPENED TO YOU' },
+}[LANG];
 const LN = Object.fromEntries(TL.lines.map(l => [l.id, l]));
 window.DUR = TL.dur;
 
@@ -20,7 +30,7 @@ const fr = t => Math.floor(t * 24);
 const INK = '#eeece4', RED = '#e3122b', BG = '#05070c';
 const RIM = 'rgba(130,160,225,.75)';                     // moonlight rim glow on every stroke
 const wordAt = (id, t) => { const l = LN[id]; if (!l || !l.words) return -1; let k = -1; l.words.forEach((w, i) => { if (t >= w[1] - .02) k = i; }); return k; };
-const wordT = (id, w) => { const l = LN[id]; const x = l && l.words && l.words.find(v => v[0].toLowerCase().replace(/[^a-z']/g, '').startsWith(w.toLowerCase())); return x ? x[1] : (l ? l.t0 : 0); };
+const wordT = (id, w) => { w = ANCH[`${id}:${w}`] || w; const l = LN[id]; const x = l && l.words && l.words.find(v => v[0].toLowerCase().replace(/[^a-z']/g, '').startsWith(w.toLowerCase())); return x ? x[1] : (l ? l.t0 : 0); };
 
 function reset() { g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.shadowBlur = 0; g.shadowColor = 'transparent'; g.filter = 'none'; g.setLineDash([]); }
 function cam(cx, cy, z = 1, rot = 0, shake = 0, t = 0) {
@@ -256,7 +266,7 @@ S.eyes = (t, u) => {
 S.bed = (t, u) => { cam(560, 850, lerp(1.0, 1.15, ss(seg(u, 0, 1.4)))); room(t); sleeper(t, { eyes: 'wide', look: Math.sin(t * 8), sweat: .6 }); };
 // 3. the hand that will not move, then the scream with no sound
 S.struggle = (t, u) => {
-  const L = LN.l03, half = L.words[6] ? L.words[6][1] : L.t0 + 1.8;
+  const L = LN.l03, k2 = L.words.findIndex((w, i) => i && /[.!?]$/.test(L.words[i - 1][0])), half = k2 > 0 ? L.words[k2][1] : L.t0 + 1.8;
   if (t < half) {
     fill('#070a12'); cam(CX, 760, lerp(1.0, 1.08, seg(t, L.t0, half)), 0, 2, t);
     const bgr = g.createLinearGradient(0, 600, 0, 1300); bgr.addColorStop(0, '#22315a'); bgr.addColorStop(1, '#0c1222'); g.fillStyle = bgr; g.fillRect(-200, 600, W + 400, 900);
@@ -272,7 +282,7 @@ S.struggle = (t, u) => {
     }
     line([[px + 110, py - 10], [px + 190 + tr, py - 70], [px + 240 + tr, py - 130]], 14, INK, 10);
     for (let i = 0; i < 6; i++) line([[px + 40 + i * 12, py + 20], [px + 46 + i * 12, py + 34]], 3, 'rgba(238,236,228,.3)');
-    reset(); text('GALAW...', CX, 360, 120, 'rgba(238,236,228,.22)', 'Anton');
+    reset(); text(TX.move, CX, 360, 120, 'rgba(238,236,228,.22)', 'Anton');
   } else {
     fill('#000'); cam(CX, 700, lerp(1.0, 1.12, seg(t, half, L.t1)), 0, 6, t);
     glow(CX, 700, 700, '90,110,170', .15);
@@ -299,7 +309,7 @@ S.corner = (t, u) => {
 };
 // 6. it comes closer: one jump per word
 S.approach = (t, u) => {
-  const L = LN.l06, k = Math.max(0, wordAt('l06', t)), stage = k <= 1 ? 0 : k <= 2 ? 1 : 2;
+  const L = LN.l06, k = Math.max(0, wordAt('l06', t)), stage = Math.max(0, (L.stages || [0, 2, 3]).filter(x => k >= x).length - 1);
   const pos = [[260, 1170, 1150], [440, 1240, 1450], [600, 1700, 2300]][stage];
   cam(560, 850, 1 + stage * .06, 0, 4 + stage * 4, t);
   room(t, { flick: stage === 2 && fr(t) % 4 === 0 ? .5 : 0 });
@@ -335,7 +345,7 @@ S.choice = (t, u) => {
     else head(CX, 420, 210, { eyes: 'shut', sweat: .6, t });
     g.restore(); reset();
     text(i ? 'B' : 'A', 110, y0 + 110, 170, act ? RED : 'rgba(238,236,228,.45)', 'Anton', 'center', 10);
-    text(i ? 'TITINGNAN MO SIYA' : 'IPIPIKIT ANG MATA', CX + 60, y0 + 110, 72, act ? '#fff' : 'rgba(238,236,228,.45)', 'Anton', 'center', 8);
+    text(i ? TX.look : TX.shut, CX + 60, y0 + 110, 72, act ? '#fff' : 'rgba(238,236,228,.45)', 'Anton', 'center', 8);
     if (act) { g.save(); g.shadowColor = RED; g.shadowBlur = 30; g.strokeStyle = RED; g.lineWidth = 10; g.strokeRect(14, y0 + 14, W - 28, hh - 28); g.restore(); }
   }
   reset(); g.fillStyle = '#000'; g.fillRect(0, 740, W, 20);
@@ -346,7 +356,7 @@ S.count = (t, u) => {
   cam(CX, 760, lerp(1.25, 1, eo(v / .25)));
   glow(CX, 760, 520, '227,18,43', .3 * (1 - v / .6));
   g.save(); g.shadowColor = RED; g.shadowBlur = 60; text(String(3 - k), CX, 760, 560, RED, 'Anton'); g.restore();
-  reset(); text('COMMENT  A  O  B', CX, 1470, 84, '#fff', 'Anton', 'center', 12);
+  reset(); text(TX.ab, CX, 1470, 84, '#fff', 'Anton', 'center', 12);
 };
 // 10. only the eyes, closing in
 S.dark = (t, u) => {
@@ -441,13 +451,13 @@ S.brain = (t, u) => {
   fill('#06080f'); cam(CX, 760, lerp(1.08, 1, eo(seg(u, 0, .4))));
   wiredBody(t, { lock: ss(seg(t, wordT('l12', 'pinaparalisa'), wordT('l12', 'pinaparalisa') + .4)) });
   reset(); text('REM SLEEP', CX, 330, 130, '#fff', 'Anton', 'center', 10);
-  text('UTAK: “HUWAG KANG GAGALAW”', CX, 450, 56, '#f2a7b5', 'Anton', 'center', 6, ss(seg(t, wordT('l12', 'katawan'), wordT('l12', 'katawan') + .3)));
+  text(TX.brain, CX, 450, 56, '#f2a7b5', 'Anton', 'center', 6, ss(seg(t, wordT('l12', 'katawan'), wordT('l12', 'katawan') + .3)));
 };
 S.split = (t, u) => {
   fill('#06080f'); cam(CX, 760, 1);
   const wake = ss(seg(t, wordT('l13', 'nauunang'), wordT('l13', 'nauunang') + .4)), cold = ss(seg(t, wordT('l13', 'katawan'), wordT('l13', 'katawan') + .3));
   wiredBody(t, { lock: 1, headWarm: wake, bodyCold: cold, zzz: 1 });
-  reset(); text('ISIP: GISING', 280, 360, 80, '#ffb84d', 'Anton', 'center', 8, wake); text('KATAWAN: TULOG', 740, 1150, 80, '#78aaff', 'Anton', 'center', 8, cold);
+  reset(); text(TX.mind, 280, 360, 80, '#ffb84d', 'Anton', 'center', 8, wake); text(TX.body, 740, 1150, 80, '#78aaff', 'Anton', 'center', 8, cold);
 };
 // 14. the dream leaks into the room
 S.leak = (t, u) => {
@@ -476,7 +486,7 @@ S.world = (t, u) => {
 // 16. the names: batibat, kanashibari, old hag
 S.names = (t, u) => {
   fill('#04060c'); cam(CX, 760, 1);
-  const rows = [['PILIPINAS', 'BATIBAT', 'batibat'], ['JAPAN', 'KANASHIBARI', 'kanashibari'], ['CANADA', 'OLD HAG', 'Old']];
+  const rows = [[TX.ph, 'BATIBAT', 'batibat'], [TX.jp, 'KANASHIBARI', 'kanashibari'], [TX.ca, 'OLD HAG', 'Old']];
   rows.forEach(([c, n, w], i) => {
     const t0 = wordT('l16', w) - .5, a = eo(seg(t, t0, t0 + .25)); if (a <= 0) return;
     const y = 300 + i * 340;
@@ -502,13 +512,13 @@ S.stat = (t, u) => {
     circ(cx, cy - 22, 12, c, 4); line([[cx, cy - 10], [cx, cy + 16]], 5, c); line([[cx - 14, cy + 2], [cx, cy - 4], [cx + 14, cy + 2]], 4, c); line([[cx - 12, cy + 34], [cx, cy + 16], [cx + 12, cy + 34]], 4, c);
   }
   const n = t >= t0 ? Math.min(8, Math.floor((t - t0) / .12) + 1) : 0;
-  reset(); g.save(); g.shadowColor = RED; g.shadowBlur = 30; text(`${n} SA 100`, CX, 1240, 150, '#fff', 'Anton', 'center', 10); g.restore();
+  reset(); g.save(); g.shadowColor = RED; g.shadowBlur = 30; text(TX.of(n), CX, 1240, 150, '#fff', 'Anton', 'center', 10); g.restore();
 };
 // 18. what to do
 S.tips = (t, u) => {
   fill('#06080f'); cam(CX, 760, 1);
   const T2 = wordT('l18', 'Igalaw'), T3 = wordT('l18', 'huminga'), step = t >= T3 ? 2 : t >= T2 ? 1 : 0;
-  reset(); text(['1. HUWAG LUMABAN', '2. IGALAW ANG DALIRI NG PAA', '3. HUMINGA NANG DAHAN-DAHAN'][step], CX, 300, step ? 66 : 84, '#fff', 'Anton', 'center', 8);
+  reset(); text(TX.tips[step], CX, 300, step && LANG === 'tl' ? 66 : 84, '#fff', 'Anton', 'center', 8);
   cam(CX, 760, 1);
   if (step === 0) { head(CX, 700, 200, { eyes: 'shut', t }); for (const sg of [-1, 1]) line([[CX - 330, 700 - sg * 330], [CX + 330, 700 + sg * 330]], 20, RED); }
   if (step === 1) {
@@ -517,7 +527,7 @@ S.tips = (t, u) => {
     for (let i = 0; i < 5; i++) { const x = CX + 200 + i * 22, y = 620 + i * 18, w = Math.sin(t * 14 + i * 1.3) * .5; line([[x, y], [x + Math.cos(-1.2 + w) * 50, y + Math.sin(-1.2 + w) * 50]], 11, INK, 10); }
     for (let i = 0; i < 3; i++) { const p = (t * 2 + i / 3) % 1; g.save(); g.globalAlpha = 1 - p; g.beginPath(); g.arc(CX + 280, 560, 60 + p * 80, -1.6, -.4); g.strokeStyle = INK; g.lineWidth = 5; g.stroke(); g.restore(); }
   }
-  if (step === 2) { const b = .5 + .5 * Math.sin((t - T3) * 3); glow(CX, 700, 400, '120,170,255', .3 * b); circ(CX, 700, 130 + 110 * b, 'rgba(120,170,255,.18)'); circ(CX, 700, 130 + 110 * b, 'rgba(150,190,255,.95)', 8, 20); text(b > .5 ? 'HINGA...' : '...LABAS', CX, 700, 76, '#fff', 'Anton'); }
+  if (step === 2) { const b = .5 + .5 * Math.sin((t - T3) * 3); glow(CX, 700, 400, '120,170,255', .3 * b); circ(CX, 700, 130 + 110 * b, 'rgba(120,170,255,.18)'); circ(CX, 700, 130 + 110 * b, 'rgba(150,190,255,.95)', 8, 20); text(b > .5 ? TX.bin : TX.bout, CX, 700, 76, '#fff', 'Anton'); }
 };
 // 19. dawn: it passes
 S.tips2 = (t, u) => {
@@ -541,8 +551,8 @@ S.cta = (t, u) => {
   reset(); const k = back(seg(u, 0, .25), 2);
   g.save(); g.translate(CX, 760); g.scale(k, k);
   g.fillStyle = '#fff'; g.beginPath(); g.roundRect(-330, -150, 660, 260, 40); g.fill(); g.beginPath(); g.moveTo(-200, 100); g.lineTo(-250, 190); g.lineTo(-120, 100); g.fill();
-  text('“OO”', 0, -20, 190, RED, 'Anton'); g.restore();
-  text('KUNG NARANASAN MO NA', CX, 1000, 70, '#fff', 'Anton', 'center', 8, ss(seg(u, .2, .4)));
+  text(TX.yes, 0, -20, LANG === 'tl' ? 190 : 170, RED, 'Anton'); g.restore();
+  text(TX.ifyou, CX, 1000, 70, '#fff', 'Anton', 'center', 8, ss(seg(u, .2, .4)));
 };
 // 22. the eyes again (loops to frame 1)
 S.loop = (t, u) => {

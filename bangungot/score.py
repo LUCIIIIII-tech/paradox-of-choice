@@ -1,10 +1,14 @@
 """Sound for Bangungot -> out/mix.wav (48 kHz stereo): horror drone, heartbeat that speeds up, whispers, hits on every jump,
 a scream stinger on the scare, static, a music box under the explanation, and the narrator on top (music ducked under the voice).
 Everything is synthesised with numpy; every time comes from timeline.json, so the sound follows the narrator.
-Usage: python3 score.py"""
+Usage: python3 score.py [en]"""
 import os, json, wave, subprocess, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); SR = 48000
-TL = json.load(open(os.path.join(HERE, 'timeline.json'), encoding='utf-8')); DUR = TL['dur']; N = int(SR * DUR) + SR
+import sys
+LANG = sys.argv[1] if len(sys.argv) > 1 else 'tl'; SUF = '' if LANG == 'tl' else '.' + LANG
+VDIR = 'voices' if LANG == 'tl' else 'voices_' + LANG
+TL = json.load(open(os.path.join(HERE, f'timeline{SUF}.json'), encoding='utf-8')); DUR = TL['dur']; N = int(SR * DUR) + SR
+ANCH = json.load(open(os.path.join(HERE, f'anchors{SUF}.json'))) if SUF else {}
 LN = {l['id']: l for l in TL['lines']}
 rng = np.random.default_rng(3)
 L = np.zeros(N); R = np.zeros(N); REV = np.zeros(N); VO = np.zeros(N)
@@ -19,8 +23,8 @@ def tt(n): return np.arange(n) / SR
 def band(x, lo, hi):
     F = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1 / SR); F[(f < lo) | (f > hi)] = 0; return np.fft.irfft(F, len(x))
 def noise(d): return rng.standard_normal(int(d * SR))
-def wt(id, w):   # time a word starts
-    l = LN[id]
+def wt(id, w):   # time a word starts (cues are written with the Tagalog words; anchors{SUF}.json maps them per language)
+    w = ANCH.get(f'{id}:{w}', w); l = LN[id]
     for x in l.get('words', []):
         if x[0].lower().strip('.,?:!').startswith(w.lower()): return x[1]
     return l['t0']
@@ -235,7 +239,7 @@ SFX_L = np.tanh(SFX_L / pk * 2.2) / np.tanh(2.2) * .55; SFX_R = np.tanh(SFX_R / 
 L += SFX_L; R += SFX_R
 for l in TL['lines']:
     if 'wav0' not in l: continue
-    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', os.path.join(HERE, 'voices', l['id'] + '.wav'), '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'], capture_output=True, check=True).stdout
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', os.path.join(HERE, VDIR, l['id'] + '.wav'), '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'], capture_output=True, check=True).stdout
     y = np.frombuffer(raw, '<i2') / 32768; y = np.tanh(y / (np.abs(y).max() + 1e-9) * 1.6) / np.tanh(1.6) * .85   # gentle compression
     i = int(l['wav0'] * SR)
     if i < 0: y = y[-i:]; i = 0          # the line's leading silence starts before the film
@@ -246,6 +250,6 @@ outL = L * duck + VO; outR = R * duck + VO
 n = int(DUR * SR); outL, outR = outL[:n], outR[:n]
 pk = max(np.abs(outL).max(), np.abs(outR).max()); outL /= pk / .95; outR /= pk / .95
 os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
-with wave.open(os.path.join(HERE, 'out', 'mix.wav'), 'wb') as w:
+with wave.open(os.path.join(HERE, 'out', f'mix{SUF}.wav'), 'wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((np.stack([outL, outR], 1) * 32767).astype('<i2').tobytes())
-print('wrote out/mix.wav', round(DUR, 2), 's')
+print(f'wrote out/mix{SUF}.wav', round(DUR, 2), 's')

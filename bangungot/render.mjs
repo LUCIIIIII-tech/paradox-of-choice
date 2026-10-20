@@ -18,7 +18,8 @@ const browser = await chromium.launch({ executablePath: process.env.CHROME || un
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
 page.on('pageerror', e => console.error('PAGE ERROR', e.message));
 page.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });
-await page.goto(`http://localhost:${port}/index.html`);
+const LANG = arg('--lang', 'tl');
+await page.goto(`http://localhost:${port}/index.html${LANG === 'tl' ? '' : '?lang=' + LANG}`);
 await page.waitForFunction(() => window.renderAt && window.fontsReady);
 await page.evaluate(() => window.fontsReady);
 const grab = async t => {
