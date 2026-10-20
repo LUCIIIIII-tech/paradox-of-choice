@@ -5,7 +5,7 @@ set -e
 HERE=$(cd "$(dirname "$0")" && pwd); cd "$HERE"; mkdir -p out
 # 0. narrator (needs the Lemo-Opuscar library with its voice tier: sh setup.sh deps voice; online)
 LIB=${LIB:-$HOME/lemo-opuscar}
-python3 -c "import json,re; L=json.load(open('narration.json')); json.dump([{'id':l['id'],'text':l['text'],'say':l.get('say') or re.sub(r'\\bng\\b','nang',l['text']).replace(\"sa'yo\",'sayo').replace('T-shirt','tee-shirt'),'voice':'en-US-AndrewMultilingualNeural','rate':l.get('rate','-6%')} for l in L],open('out/tts_lines.json','w'),ensure_ascii=False)"
+python3 -c "import json; L=json.load(open('narration.json')); json.dump([{'id':l['id'],'text':l['text'],'voice':'fil-PH-AngeloNeural','rate':l.get('rate','+0%')} for l in L],open('out/tts_lines.json','w'),ensure_ascii=False)"
 "$LIB/.venv/bin/python" "$LIB/core/tts/tts_zh.py" out/tts_lines.json voices
 python3 score.py                                                    # 1. music + sound design -> out/mix.wav
 python3 voicemix.py                                                 # 1b. narrator over the ducked music -> out/mix_vo.wav

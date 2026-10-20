@@ -2,22 +2,26 @@
  {
   "id": "n01",
   "t": 0.6,
-  "text": "Nadapa ka. Sa harap ng lahat."
+  "text": "Nadapa ka. Sa harap ng lahat.",
+  "rate": "-8%"
  },
  {
   "id": "n02",
   "t": 3.7,
-  "text": "Gusto mo nang lamunin ng lupa."
+  "text": "Gusto mo nang lamunin ng lupa.",
+  "rate": "-8%"
  },
  {
   "id": "n03",
   "t": 6.5,
-  "text": "Pakiramdam mo, lahat nakatingin sa'yo."
+  "text": "Pakiramdam mo, lahat nakatingin sa'yo.",
+  "rate": "-8%"
  },
  {
   "id": "n04",
   "t": 12.5,
-  "text": "At iniisip nilang nakakahiya ka."
+  "text": "At iniisip nilang nakakahiya ka.",
+  "rate": "-8%"
  },
  {
   "id": "n05",
@@ -28,93 +32,103 @@
  {
   "id": "n06",
   "t": 24.3,
-  "text": "Pero ang totoo..."
+  "text": "Pero ang totoo...",
+  "rate": "-8%"
  },
  {
   "id": "n07",
   "t": 27.0,
-  "text": "halos walang nakapansin."
+  "text": "halos walang nakapansin.",
+  "rate": "-8%"
  },
  {
   "id": "n08",
   "t": 30.6,
-  "text": "Abala silang lahat sa sarili nilang spotlight."
+  "text": "Abala silang lahat sa sarili nilang spotlight.",
+  "rate": "-8%"
  },
  {
   "id": "n09",
   "t": 35.2,
-  "text": "Kasi pati sila, may sariling inaalala."
+  "text": "Kasi pati sila, may sariling inaalala.",
+  "rate": "-8%"
  },
  {
   "id": "n10",
   "t": 39.6,
-  "text": "Iniisip din nila kung ano ang tingin mo sa kanila."
+  "text": "Iniisip din nila kung ano ang tingin mo sa kanila.",
+  "rate": "-8%"
  },
  {
   "id": "n12",
   "t": 44.85,
   "text": "Sobra nating tinatantiya kung gaano tayo napapansin.",
-  "rate": "+16%"
+  "rate": "+0%"
  },
  {
   "id": "n13",
   "t": 48.1,
   "text": "Isang eksperimento sa Cornell, taong dalawang libo.",
-  "rate": "+24%",
-  "say": "Isang eksperimento sa Cornell, noong two thousand."
+  "rate": "+0%"
  },
  {
   "id": "n14",
   "t": 51.6,
   "text": "Pinasuot sa mga estudyante ang isang nakakahiyang T-shirt.",
-  "rate": "+16%"
+  "rate": "+0%"
  },
  {
   "id": "n15",
   "t": 54.8,
   "text": "Hula nila: ilan sa klase ang makakapansin?",
-  "rate": "+12%"
+  "rate": "+0%"
  },
  {
   "id": "n16",
   "t": 57.95,
-  "text": "Halos kalahati."
+  "text": "Halos kalahati.",
+  "rate": "-8%"
  },
  {
   "id": "n17",
   "t": 60.6,
   "text": "Ang totoo? Dalawampu't tatlong porsiyento lang.",
-  "rate": "+8%",
-  "say": "Ang totoo? Twenty-three percent lang."
+  "rate": "+0%"
  },
  {
   "id": "n18",
   "t": 64.2,
-  "text": "Mga isa sa bawat apat na tao."
+  "text": "Mga isa sa bawat apat na tao.",
+  "rate": "-8%"
  },
  {
   "id": "n19",
   "t": 68.6,
-  "text": "Hindi ka bida sa kuwento ng iba."
+  "text": "Hindi ka bida sa kuwento ng iba.",
+  "rate": "-8%"
  },
  {
   "id": "n20",
   "t": 72.8,
-  "text": "Bida sila sa sarili nilang kuwento."
+  "text": "Bida sila sa sarili nilang kuwento.",
+  "rate": "-8%"
  },
  {
   "id": "n21",
   "t": 77.3,
-  "text": "Kaya huminga ka. Tumayo. Ituloy ang sayaw."
+  "text": "Kaya huminga ka. Tumayo. Ituloy ang sayaw.",
+  "rate": "-8%"
  },
  {
   "id": "n22",
   "t": 84.7,
-  "text": "Spotlight Effect."
+  "text": "Spotlight Effect.",
+  "rate": "-8%"
  },
  {
   "id": "n23",
   "t": 86.0,
-  "text": "I-share sa kaibigan mong overthinker."
+  "text": "I-share sa kaibigan mong overthinker.",
+  "rate": "-8%"
  }
 ]

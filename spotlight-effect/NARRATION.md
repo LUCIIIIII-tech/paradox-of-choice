@@ -1,6 +1,6 @@
 # Narration script (Tagalog)
 
-Narrator: en-US-AndrewMultilingualNeural (Microsoft Edge TTS) via the Lemo-Opuscar tts_zh.py. Each line starts at the time shown. To replace it with a human recording, put `voices/<id>.wav` files in place and run `python3 voicemix.py`.
+Narrator: fil-PH-AngeloNeural (Microsoft Edge TTS, Filipino male) via the Lemo-Opuscar tts_zh.py. Each line starts at the time shown. To replace it with a human recording, put `voices/<id>.wav` files in place and run `python3 voicemix.py`.
 
 | id | start (s) | line |
 |---|---|---|
