@@ -3,15 +3,15 @@ Voice: fil-PH-AngeloNeural (Microsoft Edge online TTS via edge-tts). Run with th
   $LIB/.venv/bin/python tts.py [en]       (cached lines are reused; delete voices/<id>.wav to regenerate one)"""
 import os, json, asyncio, subprocess, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-LANG = sys.argv[1] if len(sys.argv) > 1 else 'tl'          # tl (default) | en
-SUF = '' if LANG == 'tl' else '.' + LANG
-V = os.path.join(HERE, 'voices' if LANG == 'tl' else 'voices_' + LANG); os.makedirs(V, exist_ok=True)
+LANG = sys.argv[1] if len(sys.argv) > 1 else 'en'          # en (default) | tl
+SUF = '' if LANG == 'en' else '.' + LANG
+V = os.path.join(HERE, 'voices' if LANG == 'en' else 'voices_' + LANG); os.makedirs(V, exist_ok=True)
 try:
     import certifi
     if os.path.exists('/root/.ccr/ca-bundle.crt'): certifi.where = lambda: '/root/.ccr/ca-bundle.crt'   # behind a TLS proxy
 except ImportError: pass
 import edge_tts
-VOICE, RATE, PITCH, SR = {'tl': ('fil-PH-AngeloNeural', '-4%', '-6Hz'), 'en': ('en-US-ChristopherNeural', '-4%', '-4Hz')}[LANG] + (48000,)
+VOICE, RATE, PITCH, SR = {'tl': ('fil-PH-AngeloNeural', '-4%', '-6Hz'), 'en': ('en-US-ChristopherNeural', '+2%', '-3Hz')}[LANG] + (48000,)
 L = json.load(open(os.path.join(HERE, f'lines{SUF}.json'), encoding='utf-8'))
 tpath = os.path.join(V, 'timing.json'); T = json.load(open(tpath)) if os.path.exists(tpath) else {}
 
@@ -68,7 +68,7 @@ for l in L:
         tl.append({'id': l['id'], 'shot': l['shot'], 't0': round(t, 3), 't1': round(t + l['beat'], 3)}); t += l['beat']; continue
     x = T[l['id']]; t0 = t - x['start']          # where the wav starts so that speech starts at t
     sp = x['end'] - x['start']
-    tl.append({'id': l['id'], 'shot': l['shot'], 't0': round(t, 3), 't1': round(t + sp, 3), 'wav0': round(t0, 3), 'key': l.get('key', []), **({'stages': l['stages']} if 'stages' in l else {}),
+    tl.append({'id': l['id'], 'shot': l['shot'], 't0': round(t, 3), 't1': round(t + sp, 3), 'wav0': round(t0, 3), 'key': l.get('key', []), **({'stages': l['stages']} if 'stages' in l else {}), **({'counter': l['counter']} if 'counter' in l else {}), **({'counter': l['counter']} if 'counter' in l else {}),
                'words': [[w, round(a - x['start'] + t, 3), round(b - x['start'] + t, 3)] for w, a, b in x['words']]})
     t += sp
 json.dump({'dur': round(t, 3), 'lines': tl}, open(os.path.join(HERE, f'timeline{SUF}.json'), 'w'), ensure_ascii=False, indent=1)

@@ -71,45 +71,7 @@ def drone(t0, t1, v=.3, f=(41.2, 55.0, 61.7), grit=.5):
     add(t0, y * env * swell * v, rev=.1)
 def m2f(m): return 440 * 2 ** ((m - 69) / 12)
 
-# ---------- the cue sheet ----------
 T = lambda id: LN[id]['t0']
-# hook: boom + heartbeat on frame 1, the eyes snap open
-boom(0.0, 1.1); heartbeat(0.02, 1.0); static(0.0, .12, .4)
-# the horror bed: drone from frame 1 to the dark beat, louder with every step closer
-drone(0.0, T('l09'), .28)
-drone(T('l05'), T('l09'), .2, f=(36.7, 49.0, 73.4), grit=.8)
-# heartbeat accelerating from 60 to 150 bpm until the dark beat
-t, bpm = 1.0, 60
-while t < T('l09') + .6:
-    heartbeat(t, .75); bpm = 60 + 90 * min(1, t / T('count')); t += 60 / bpm
-# cuts: a whoosh on every new shot
-for l in TL['lines'][1:]:
-    if l['shot'] not in ('scare', 'dark', 'count', 'hookback'): whoosh(l['t0'], .35, .22)
-whisper(wt('l04', 'nakatingin') - .2, 1.8, .25)
-whisper(T('l05') + .3, 1.6, .2)
-boom(wt('l05', 'nakatayo'), .7, 50)
-for w in LN['l06']['words']: hit(w[1], .55 if w[0].lower().startswith('siya') or w[0] == 'nang' else .8)
-boom(wt('l07', 'umupo'), .9, 40); whisper(T('l07'), 1.4, .18)
-for w in ('A', 'B'): hit(wt('l08', w), .5)
-for k in range(3): tick(T('count') + k * .6, .6); bell(T('count') + k * .6, m2f(81 + k * 2), .5, .15)
-# the dark beat: everything drops out; the scare
-scream(T('scare') + .05, 1.0, 1.0)
-static(T('l10'), .5, .55); tick(T('l10') + .45, .5)
-# the explanation: a slow music box in A minor (90 bpm), a soft pad, a hit on the title
-boom(wt('l11', 'sleep'), .8, 50); whoosh(wt('l11', 'sleep'), .6, .35)
-mb = [69, 72, 76, 72, 74, 71, 67, 71, 69, 72, 76, 79, 77, 76, 74, 71]
-t, i = T('l11') + .2, 0
-while t < T('l19') + 1.2:
-    bell(t, m2f(mb[i % 16] + 12), 1.4, .22, pan=.3 * np.sin(i)); t += 60 / 90 / 2; i += 1
-drone(T('l11'), T('l20'), .14, f=(55.0, 82.4, 110.0), grit=.15)
-for w in ('batibat', 'kanashibari', 'Old'): whoosh(wt('l16', w) - .5, .4, .3, rise=False)
-for k in range(8): tick(wt('l17', 'walo') + k * .12, .35)
-bell(T('l19'), m2f(81), 2.5, .35); bell(T('l19') + .2, m2f(88), 2.5, .25)
-# the end: back to the dark, the corner, the flicker
-drone(T('l20'), DUR, .3, grit=.8)
-for k in range(5): static(wt('l20', 'sulok') - .3 + k * .125, .05, .45)
-boom(wt('l20', 'sulok'), 1.0, 42); heartbeat(T('l21'), .8); heartbeat(T('l21') + .8, .8)
-boom(T('tail') + .85, 1.0)        # the eyes open again: the loop
 
 # ---------- SFX pass: a hook on frame 1 and a layer under every second, so nothing is ever silent ----------
 SFX_L = np.zeros(N); SFX_R = np.zeros(N)
@@ -192,40 +154,102 @@ def pulse_bed(t0, t1, bpm=90, v=.35):   # a soft sub pulse keeps the explanation
     while t < t1:
         n = int(.35 * SR); s = tt(n); sfx(t, np.sin(2 * np.pi * (45 + 20 * np.exp(-s * 20)) * s) * np.exp(-s * 9) * v); t += 60 / bpm
 
-# 1. the hook: BRAAM + glitch + sub drop + the eyelids
-braam(0.0, 1.0); stutter(0.0, 4, .7); eyelid(.06, .8); boom(.0, .6, 35)
-# 2. the paralysis bed: clock, ringing ears, panicked breathing, wind at the window
-clock_ticks(0.0, T('l09'), .25)
-tinnitus(T('l02'), T('l09'), .03)
-breathing(T('l02'), T('l07'), .2, 1.4); breathing(T('l07'), T('l09'), .28, 2.4)
-wind(0.0, T('l09'), .12)
-creak(T('l05') + .2, .8, .45); creak(T('l06') + .1, .6, .5); creak(wt('l06', 'palapit') - .1, .5, .55)
-for l in TL['lines']:      # caption pops on key words, a swish on every punch-in
-    keys = [k.lower().strip(':') for k in l.get('key', [])]
-    for w in l.get('words', []):
-        if any(w[0].lower().strip('.,?!:\'"').startswith(k) for k in keys if k): pop(w[1], .3)
-    if l['shot'] not in ('scare', 'count', 'dark'): swish(l['t0'], .2)
-# 3. the build into the scare: a riser that cuts to silence for 3 frames, then the scream
-riser(T('scare') - .12, 1.6, .6)
-# after the scream: ears ringing + a low rumble until the static comes in (no hole after the scare)
-n = int(1.0 * SR); s_ = tt(n); sfx(LN['scare']['t1'] - .15, (np.sin(2 * np.pi * 6800 * s_) * .25 + band(noise(1.0), 30, 140) * 1.2) * np.exp(-s_ * 2.2) * np.minimum(1, s_ / .03), .7)
-# 4. the explanation: pulse, locks, power down, warm power up, drips, pings, drums, blips
-pulse_bed(T('l10'), T('l20'), 90, .3)
-riser(wt('l11', 'sleep'), .8, .35)
-for k in range(4): lock(wt('l12', 'pinaparalisa') + .1 + k * .12, .5)
-powerdown(wt('l12', 'pinaparalisa') + .1, .5)
-powerup(wt('l13', 'nauunang'), .4); clock_ticks(T('l13'), T('l14'), .15)
-for k in range(9): drip(wt('l14', 'Kaya') + k * .17, .35)
-creak(wt('l14', 'anino'), .7, .4)
-for k in range(3): ping(wt('l15', 'iisang') + k * .25, .35)
-for w in ('batibat', 'kanashibari', 'Old'): taiko(wt('l16', w) - .5, .8)
-for k in range(8): pop(wt('l17', 'walo') + k * .12, .25)
-for w in ('huwag', 'Igalaw', 'huminga'): taiko(wt('l18', w), .5); swish(wt('l18', w), .25)
-birds(T('l19'), T('l20'), .16)
-# 5. the end: clock and breathing again, a creak, the flicker, the ding, the loop
-clock_ticks(T('l20'), DUR, .25); breathing(T('l20'), T('l21'), .25, 2.0); wind(T('l20'), DUR, .12)
-creak(T('l20') + .3, .9, .5); riser(wt('l20', 'sulok'), 1.0, .45); stutter(wt('l20', 'sulok'), 5, .6)
-ding(T('l21') + .1, .6); riser(T('tail') + .85, .8, .45); braam(T('tail') + .85, .8); eyelid(T('tail') + .9, .8)
+# ---------- more sounds for this story ----------
+def murmur(t0, t1, v=.25):      # a crowd: many band-limited voices that swell and overlap
+    n = int((t1 - t0) * SR); s_ = tt(n); y = np.zeros(n)
+    for k in range(6):
+        e = (.5 + .5 * np.sin(2 * np.pi * (2.5 + k * .7) * s_ + k)) ** 2
+        y += band(noise(t1 - t0), 250 + k * 120, 1800 + k * 250) * e
+    sfx(t0, y * np.minimum(1, s_ / .05) * v * .35)
+def footsteps(t0, t1, v=.25, rate=7):
+    t = t0
+    while t < t1: click(t + rng.uniform(0, .05), v * rng.uniform(.5, 1), 900 + 600 * rng.random()); t += 1 / rate * rng.uniform(.6, 1.2)
+def horn(t, v=.25):
+    n = int(.5 * SR); s_ = tt(n); sfx(t, np.tanh(2 * (np.sin(2 * np.pi * 410 * s_) + np.sin(2 * np.pi * 520 * s_))) * np.minimum(1, s_ / .02) * np.minimum(1, (.5 - s_) / .05) * v * .3, pan=rng.uniform(-.8, .8))
+def clatter(t, v=.4):           # a phone hitting the road
+    click(t, v, 2500 + 2000 * rng.random()); click(t + .06, v * .5, 3200); n = int(.15 * SR); sfx(t, band(noise(.15), 200, 2000) * np.exp(-tt(n) * 40) * v, pan=rng.uniform(-.7, .7))
+def sparkle(t, v=.2):
+    for k in range(8): n = int(.4 * SR); s_ = tt(n); sfx(t + k * .03, np.sin(2 * np.pi * (3000 + 3000 * rng.random()) * s_) * np.exp(-s_ * 12) * v, pan=rng.uniform(-.8, .8))
+def hum(t0, t1, v=.12):
+    n = int((t1 - t0) * SR); s_ = tt(n); sfx(t0, (np.sin(2 * np.pi * 60 * s_) + .5 * np.sin(2 * np.pi * 120 * s_) + .25 * np.sin(2 * np.pi * 180 * s_)) * np.minimum(1, s_ / .3) * np.minimum(1, (t1 - t0 - s_) / .05) * v)
+def alarm(t0, t1, v=.2):
+    t = t0
+    while t < t1: n = int(.18 * SR); sfx(t, np.sign(np.sin(2 * np.pi * 880 * tt(n))) * .3 * v); t += .45
+def breaker(t, v=.5): click(t, v, 1800); boom(t, .25 * v, 60)
+def sit_tones(t, v=.35):        # the "no service" three-tone
+    for k, f in enumerate((950, 1400, 1800)): n = int(.3 * SR); s_ = tt(n); sfx(t + k * .33, np.sin(2 * np.pi * f * s_) * np.minimum(1, s_ / .01) * np.minimum(1, (.3 - s_) / .01) * v)
+def water(t0, t1, v=.25):
+    n = int((t1 - t0) * SR); s_ = tt(n); sfx(t0, band(noise(t1 - t0), 80, 900) * (s_ / (t1 - t0)) * v * 1.4)
+def growl(t, d=1.0, v=.4):
+    n = int(d * SR); s_ = tt(n); y = band(noise(d), 60, 400) * (.6 + .4 * np.sin(2 * np.pi * 28 * s_)) * np.sin(np.pi * s_ / d)
+    sfx(t, y * v * 2, pan=rng.uniform(-.6, .6))
+def howl(t, v=.25):
+    n = int(2.2 * SR); s_ = tt(n); f = 520 + 260 * np.sin(np.pi * s_ / 2.2) + 8 * np.sin(2 * np.pi * 6 * s_)
+    sfx(t, np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * s_ / 2.2) ** 2 * v, pan=.6)
+def crickets(t0, t1, v=.08):
+    t = t0
+    while t < t1:
+        for k in range(3): n = int(.03 * SR); sfx(t + k * .05, np.sin(2 * np.pi * 4700 * tt(n)) * np.hanning(n) * v, pan=.5)
+        t += .5 + .2 * rng.random()
+def typing(t0, t1, n_keys):
+    for k in range(n_keys): click(lerp(t0, t1, k / max(1, n_keys - 1)) + rng.uniform(0, .02), .3, 4000 + 1000 * rng.random())
+def lerp(a, b, u): return a + (b - a) * u
+def melody(t0, t1, notes, step=.5, v=.25, oct_=12):
+    t, i = t0, 0
+    while t < t1: bell(t, m2f(notes[i % len(notes)] + oct_), 1.6, v, pan=.3 * np.sin(i)); t += step; i += 1
+
+TV = wt('l01', 'wala')
+# 1. the hook: a busy city... then everyone vanishes on "wala"
+murmur(0, TV + .05, .4); footsteps(0, TV, .3, 9); horn(.3, .25); horn(.9, .2); hum(0, TV, .05)
+riser(TV, .9, .55); braam(TV, 1.0); boom(TV, .9, 40); stutter(TV, 4, .6); sparkle(TV + .05, .25)
+for k in range(14): clatter(TV + .25 + k * .04 + rng.uniform(0, .05), .35)
+wind(TV, DUR, .1); drone(TV, T('l13'), .2, f=(41.2, 61.7, 82.4), grit=.3)
+# 2. the open loop
+heartbeat(T('l02') + .2, .7); heartbeat(T('l02') + 1.1, .7); riser(wt('l02', 'hindi'), .8, .4); boom(wt('l02', 'hindi'), .7, 45)
+# every time jump: a riser that lands on a counter hit
+for l in TL['lines']:
+    if l.get('counter') and l['id'] != 'l01': riser(l['t0'], .6, .35); taiko(l['t0'], .6); click(l['t0'], .5, 2600)
+# 3-4. hour one: the traffic light still clicks; then a warm morning
+for k in range(int((T('l04') - T('l03')) / 1.2) + 1): click(T('l03') + k * 1.2, .35, 1500)
+for k in range(4): click(T('l03') + .3 + k * .7, .15, 700)    # paper scraping along the road
+birds(T('l04'), T('l05'), .14); melody(T('l04'), T('l05'), [72, 76, 79, 84], .35, .2)
+# 5-6. the grid shuts down, block by block
+hum(T('l05'), wt('l05', 'nagsasara') + .3, .14); powerdown(wt('l05', 'nagsasara') + .2, .6); alarm(wt('l05', 'nagsasara') + .4, T('l06'), .18)
+for k in range(9): breaker(T('l06') + .5 + k * (LN['l06']['t1'] - T('l06')) / 9, .5)
+# 7. Earth goes dark
+boom(wt('l07', 'Didilim'), 1.0, 35); drone(T('l07'), T('l08'), .2, f=(32.7, 49.0, 65.4), grit=.1)
+# 8. the subway floods
+water(T('l08'), T('l09'), .35)
+for k in range(10): drip(T('l08') + .2 + k * .35, .3)
+# 9. no signal
+sit_tones(wt('l09', 'Walang'), .3); stutter(wt('l09', 'Putol'), 3, .5)
+# 10. the dogs
+for k in range(6): growl(T('l10') + .3 + k * .55, .8, .35)
+footsteps(T('l10'), T('l11'), .12, 14); howl(T('l10') + .6, .22)
+# 11. the rooftop: crickets and a lonely music box
+crickets(T('l11'), T('l13'), .07); melody(T('l11'), T('l12'), [69, 72, 76, 72, 74, 71, 67, 71], .45, .22)
+# 12. something answers... then the scare
+heartbeat(T('l12') + .1, .8); heartbeat(T('l12') + .8, .9); whisper(wt('l12', 'sumagot') - .1, 1.2, .35)
+riser(T('scare') - .12, 1.4, .6); scream(T('scare') + .05, 1.0, 1.0)
+n = int(1.0 * SR); s_ = tt(n); sfx(LN['scare']['t1'] - .15, (np.sin(2 * np.pi * 6800 * s_) * .25 + band(noise(1.0), 30, 140) * 1.2) * np.exp(-s_ * 2.2), .7)
+# 13-16. the truth: static, a ticking experiment, the brain making people, the reveal
+static(T('l13'), .5, .55); pulse_bed(T('l13'), T('l17'), 90, .3); drone(T('l13'), T('l17'), .14, f=(55.0, 82.4, 110.0), grit=.1)
+for k in range(int((LN['l14']['t1'] - T('l14')) / .25)): click(T('l14') + k * .25, .2 if k % 4 else .35, 2200)
+whisper(wt('l14', 'mukha') - .5, 1.6, .2)
+for k in range(6): pop(wt('l15', 'gumagawa') + k * .12, .3)
+taiko(wt('l16', 'Hindi'), .8); braam(wt('l16', 'pag-iisa'), .8); boom(wt('l16', 'pag-iisa'), .8, 40)
+# 17-20. years: birds and deer, rust, forest, the long quiet
+birds(T('l17'), T('l20'), .13)
+for k in range(5): click(T('l17') + 1.0 + k * .45, .15, 600)
+creak(wt('l18', 'Kalawang'), .9, .45); creak(wt('l18', 'Kalawang') + 1.0, .7, .35); boom(wt('l18', 'lahat'), .5, 50)
+drone(T('l20'), T('l22'), .18, f=(36.7, 55.0, 73.4), grit=.15)
+# 21-24. the last one who remembers; the twist; the message; the question
+melody(T('l21'), T('l23'), [69, 72, 76, 79, 77, 76, 72, 74], .4, .26)
+heartbeat(T('l22') + .1, .6); boom(wt('l22', 'Pero'), .6, 55); bell(wt('l22', 'Pero'), m2f(88), 2.5, .35)
+msg_n = len('Kumusta ka? Miss na kita.'); typing(T('l23'), LN['l23']['t1'] - .3, msg_n); swish(LN['l23']['t1'] - .3, .3); ding(LN['l23']['t1'] - .25, .5)
+pop(T('l24'), .4); ding(T('l24') + .2, .45)
+# loop: the crowd flickers back in -> frame 1
+heartbeat(T('tail') + .05, .7); riser(T('tail') + .45, .45, .4); murmur(T('tail') + .45, DUR, .35); stutter(T('tail') + .45, 3, .4)
 
 # ---------- master: room reverb, the narrator, ducking ----------
 irn = int(1.4 * SR); s = tt(irn); ir = rng.standard_normal(irn) * np.exp(-s / .35)
