@@ -25,7 +25,7 @@ if todo:
     ref_wav = os.path.join(RAW, '_ref.wav'); sf.write(ref_wav, load(REF_MP3, 16000), 16000)
     model = VoxCPM.from_pretrained("openbmb/VoxCPM2", load_denoiser=False)
     for l in todo:
-        torch.manual_seed(7)
+        torch.manual_seed(l.get('seed', 7))   # a line can ask for another take with its own seed
         wav = model.generate(text=l.get('say', l['text']), prompt_wav_path=ref_wav, prompt_text=REF_TEXT, cfg_value=2.0, inference_timesteps=10)
         sf.write(os.path.join(RAW, l['id'] + '.wav'), wav, model.tts_model.sample_rate)
         print('generated', l['id'], round(len(wav) / model.tts_model.sample_rate, 2), 's', flush=True)
@@ -83,7 +83,7 @@ for l in L:
     if 'beat' in l: tl.append({'id': l['id'], 'shot': l['shot'], 't0': round(t, 3), 't1': round(t + l['beat'], 3)}); t += l['beat']; continue
     x = T[l['id']]; sp = x['end'] - x['start']
     tl.append({'id': l['id'], 'shot': l['shot'], 't0': round(t, 3), 't1': round(t + sp, 3), 'wav0': round(t - x['start'], 3), 'key': l.get('key', []),
-               **{k: v for k, v in l.items() if k not in ('id', 'shot', 'text', 'say', 'gap', 'rate', 'key')},
+               **{k: v for k, v in l.items() if k not in ('id', 'shot', 'text', 'say', 'gap', 'rate', 'key', 'seed')},
                'words': [[w, round(s - x['start'] + t, 3), round(e - x['start'] + t, 3)] for w, s, e in x['words']]})
     t += sp
 json.dump({'dur': round(t, 3), 'lines': tl}, open(os.path.join(HERE, f'timeline{SUF}.json'), 'w'), ensure_ascii=False, indent=1)

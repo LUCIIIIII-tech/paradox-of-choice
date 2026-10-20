@@ -14,3 +14,5 @@ Look: every scene is drawn in full colour, then darkened; only the lights (lamp 
 **POV turn:** "Kaya kung gising ka pa ngayon, habang pinapanood mo 'to… ilang oras ka na bang gising?" A phone buzz, the reel on a phone at 2:47, an alarm clock rattling.
 **Comment bait:** the easter egg. For half a second at 0:19 a shadow stands in the sunrise window behind Nico; "Comment kung saang segundo." The magnifier sweeps the frozen frame: NASAAN?
 **CTA + loop:** "I-share mo 'to sa kaibigan mong laging puyat." Back in bed, his eyes snap open with a gasp, and the riser runs straight into frame 1's impact.
+
+**English version** (`sh build.sh en`, puyat_en.mp4, about 1:19): the same picture and sound, timed from lines.en.json; anchors.en.json maps each Tagalog cue word to its English word, so every hit, stamp and stat card lands on the English line.
