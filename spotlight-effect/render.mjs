@@ -31,7 +31,7 @@ if (stills) {
   for (const s of stills.split(',')) { const t = +s; fs.writeFileSync(path.join(HERE, 'out/stills', `t${t.toFixed(2)}.jpg`), await grab(t)); }
   console.log('stills done');
 } else {
-  const from = +arg('--from', 0), to = +arg('--to', 90), out = arg('--out', path.join(HERE, 'out/video.mp4'));
+  const from = +arg('--from', 0), to = +arg('--to', await page.evaluate(() => window.OUT_DUR)), out = arg('--out', path.join(HERE, 'out/video.mp4'));
   fs.mkdirSync(path.dirname(out), { recursive: true });
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', out], { stdio: ['pipe', 'inherit', 'inherit'] });
   const n0 = Math.round(from * FPS), n1 = Math.round(to * FPS);

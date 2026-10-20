@@ -5,7 +5,16 @@ Usage: python3 score.py"""
 import os, wave, numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SR = 48000; DUR = 90.0; N = int(SR * DUR)
+SR = 48000; DUR = 90.0
+# the film's dead-air cuts (story.js CUTS): events are written in story time and moved to film time here
+CUTS = [[9.5, 12.5], [15.5, 18.0], [22.0, 24.0], [25.5, 26.0], [31.5, 34.5], [41.0, 43.5], [58.5, 60.0], [66.5, 67.5], [71.0, 72.5], [75.0, 77.0], [82.0, 82.5]]
+def warp(ts):
+    d = 0
+    for a, b in CUTS:
+        if ts >= b: d += b - a
+        elif ts > a: return None          # inside a cut: dropped
+    return ts - d
+OUT = DUR - sum(b - a for a, b in CUTS); N = int(SR * OUT)
 rng = np.random.default_rng(7)
 L = np.zeros(N); R = np.zeros(N)
 REV = np.zeros(N)          # reverb send (mono)
@@ -18,6 +27,8 @@ def n(s):                  # 'F#4' / 'Bb3' -> midi
     return k + 12 * (int(s[i:]) + 1)
 
 def add(t, x, gain=1.0, pan=0.0, rev=0.25):
+    t = warp(t)
+    if t is None: return
     i = int(round(t * SR))
     if i >= N or i + len(x) <= 0: return
     if i < 0: x = x[-i:]; i = 0
@@ -193,13 +204,13 @@ for b, (root, ch) in enumerate(prog):
     add(t0, brush(.2, .35)); add(t0 + .75, brush(.15, .25)); add(t0 + 1.0, brush(.2, .3)); add(t0 + 1.5, brush(.15, .25))
 # bells: one per eye, climbing the D minor arpeggio
 arp = [n(x) for x in ['D5', 'F5', 'A5', 'D6', 'F6', 'A6', 'C7', 'D7']]
-for tt, m in zip([6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0], arp): add(tt, bell(m2f(m), 1.6, .4), pan=np.sin(tt * 3) * .5, rev=.4)
-for k in range(30): add(10.4 + rng.random() * 1.2, bell(m2f(n('A6') + rng.integers(-5, 6)), .5, .08), pan=rng.random() * 1.6 - .8)
+for tt, m in zip([6.4 + i * .3 for i in range(8)], arp): add(tt, bell(m2f(m), 1.6, .4), pan=np.sin(tt * 3) * .5, rev=.4)
+for k in range(30): add(8.7 + rng.random() * .8, bell(m2f(n('A6') + rng.integers(-5, 6)), .5, .08), pan=rng.random() * 1.6 - .8)
 # trumpet commentary (muted, wah) under the eyes
 for tt, m, d in [(8.0, 'A4', .45), (8.5, 'Bb4', .45), (9.0, 'A4', .9), (10.0, 'G4', .45), (10.5, 'F4', .45), (11.0, 'E4', .9)]: add(tt, trumpet(m2f(n(m)), d, .45, wah=1), pan=.35)
 # NAKAKAHIYA: one bell per letter on the beat, then a trill
 marq = [n(x) for x in ['D5', 'E5', 'F5', 'G5', 'A5', 'Bb5', 'C6', 'C#6', 'D6', 'F6']]
-for i, m in enumerate(marq): add(12.5 + i * .5, bell(m2f(m), 1.2, .38), pan=-.6 + i * .13, rev=.4); sfx_switch(12.5 + i * .5, .25)
+for i, m in enumerate(marq): add(12.5 + i * .3, bell(m2f(m), 1.2, .38), pan=-.6 + i * .13, rev=.4); sfx_switch(12.5 + i * .3, .25)
 for tt, m in [(12.0, 'A4'), (13.0, 'Bb4'), (14.0, 'A4'), (15.0, 'G4'), (16.0, 'F4'), (17.0, 'E4')]: add(tt, clarinet(m2f(n(m)), .95, .45), pan=-.25)
 add(17.0, strings(m2f(n('C#4')), 1.0, .3, trem=14, swell=.3)); add(17.0, strings(m2f(n('G4')), 1.0, .25, trem=14, swell=.3), pan=.3)
 chord(17.5, [n('A1'), n('A2')], .4, .5)
@@ -303,7 +314,7 @@ for b in range(1):
 chord(81.8, [n(x) for x in ['C3', 'E3', 'G3', 'Bb3']], .2, .3)
 
 # ---- END 82-90: the sign, the hit, one last note
-for i in range(9): add(82.5 + i * .25, bell(m2f(n(['F5', 'G5', 'A5', 'Bb5', 'C6', 'D6', 'E6', 'F6', 'A6'][i])), 1.4, .38), pan=-.6 + i * .15, rev=.45); sfx_switch(82.5 + i * .25, .2)
+for i in range(9): add(82.5 + i * .15, bell(m2f(n(['F5', 'G5', 'A5', 'Bb5', 'C6', 'D6', 'E6', 'F6', 'A6'][i])), 1.4, .38), pan=-.6 + i * .15, rev=.45); sfx_switch(82.5 + i * .15, .2)
 add(84.6, crash(2.4, .35)); add(84.6, kick(.6)); chord(84.6, [n(x) for x in ['F2', 'C3', 'F3', 'A3', 'C4', 'E4']], 2.5, .55)
 add(84.6, strings(m2f(n('A4')), 3.0, .3, swell=.05)); add(84.6, strings(m2f(n('F4')), 3.0, .3, swell=.05), pan=-.3); add(84.6, trumpet(m2f(n('C5')), 1.5, .4), pan=.3)
 for off, m, d in [(0, 'C5', 1), (1, 'A4', 1), (2, 'F4', 1.5), (3.5, 'G4', .5), (4, 'A4', 2)]: add(86.0 + off * B, clarinet(m2f(n(m)), d * B * .95, .45), pan=-.2, rev=.4)
@@ -332,4 +343,4 @@ pcm = (np.stack([outL, outR], 1) * 32767 * .95).astype('<i2')
 os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
 with wave.open(os.path.join(HERE, 'out', 'mix.wav'), 'wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
-print('wrote out/mix.wav', round(N / SR, 2), 's')
+print('wrote out/mix.wav', round(N / SR, 2), 's (film time)')

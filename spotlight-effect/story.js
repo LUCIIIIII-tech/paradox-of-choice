@@ -17,33 +17,41 @@ export const DOORS = [[26.5, .45], [44.0, .4], [68.0, .4]];
 
 // subtitle cards [start, end, text] (two lines split on '|')
 export const SUBS = [
-  [0.6, 3.4, 'Nadapa ka.|Sa harap ng LAHAT.'],
-  [3.7, 5.9, 'Gusto mo nang lamunin ng lupa.'],
-  [6.5, 11.8, 'Pakiramdam mo,|lahat nakatingin sa’yo.'],
-  [12.5, 17.8, 'At iniisip nilang|nakakahiya ka.'],
-  [18.6, 23.7, 'Alas-tres na ng madaling-araw…|iniisip mo pa rin.'],
-  [27.0, 30.4, 'Pero halos walang nakapansin.'],
-  [30.6, 34.3, 'Abala silang lahat|sa sarili nilang spotlight.'],
-  [35.2, 39.4, 'Kasi pati sila,|may sariling inaalala.'],
-  [39.6, 43.8, 'Iniisip din nila kung ano|ang tingin mo sa KANILA.'],
-  [45.0, 47.9, 'Sobra nating tinatantiya|kung gaano tayo napapansin.'],
-  [48.3, 51.2, 'Isang eksperimento sa Cornell,|taong 2000.'],
-  [51.3, 54.7, 'Pinasuot sa mga estudyante|ang isang nakakahiyang T-shirt.'],
-  [54.8, 57.6, 'Hula nila: ilan sa klase|ang makakapansin?'],
-  [57.95, 60.2, 'Halos KALAHATI.'],
-  [60.4, 63.9, 'Ang totoo? 23% lang.'],
-  [64.2, 67.8, 'Mga 1 sa bawat 4 na tao.'],
-  [68.6, 72.6, 'Hindi ka bida|sa kuwento ng iba.'],
-  [72.8, 76.8, 'Bida sila|sa sarili nilang kuwento.'],
-  [77.3, 81.8, 'Kaya huminga ka. Tumayo.|Ituloy ang sayaw.'],
-  [86.0, 89.8, 'I-share sa kaibigan mong|overthinker.'],
+  [0.6, 3.5, 'Nadapa ka.|Sa harap ng LAHAT.'],
+  [3.6, 6.1, 'Gusto mo nang lamunin ng lupa.'],
+  [6.3, 9.5, 'Pakiramdam mo,|lahat nakatingin sa’yo.'],
+  [12.6, 15.5, 'At iniisip nilang|nakakahiya ka.'],
+  [18.2, 22.0, 'Alas-tres na ng madaling-araw…|iniisip mo pa rin.'],
+  [26.6, 28.5, 'Pero halos walang nakapansin.'],
+  [28.6, 31.5, 'Abala silang lahat|sa sarili nilang spotlight.'],
+  [34.9, 37.7, 'Kasi pati sila,|may sariling inaalala.'],
+  [37.8, 41.0, 'Iniisip din nila kung ano|ang tingin mo sa KANILA.'],
+  [44.3, 47.5, 'Sobra nating tinatantiya|kung gaano tayo napapansin.'],
+  [47.6, 50.6, 'Isang eksperimento sa Cornell,|taong 2000.'],
+  [50.7, 53.9, 'Pinasuot sa mga estudyante|ang isang nakakahiyang T-shirt.'],
+  [54.0, 56.9, 'Hula nila: ilan sa klase|ang makakapansin?'],
+  [57.0, 58.5, 'Halos KALAHATI.'],
+  [60.5, 64.1, 'Ang totoo? 23% lang.'],
+  [64.2, 66.5, 'Mga 1 sa bawat 4 na tao.'],
+  [68.3, 71.0, 'Hindi ka bida|sa kuwento ng iba.'],
+  [72.6, 75.0, 'Bida sila|sa sarili nilang kuwento.'],
+  [77.3, 82.0, 'Kaya huminga ka. Tumayo.|Ituloy ang sayaw.'],
+  [84.9, 87.9, 'I-share sa kaibigan mong|overthinker.'],
 ];
 
 // beats where things are counted (bells in the score, light in the picture)
-export const EYE_T = [6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0];
+export const EYE_T = [...Array(8)].map((_, i) => 6.4 + i * .3);
 export const MARQ = 'NAKAKAHIYA';
-export const MARQ_T = [...MARQ].map((_, i) => 12.5 + i * .5);
+export const MARQ_T = [...MARQ].map((_, i) => 12.5 + i * .3);
 export const BUBBLE_T = [35.0, 36.0, 37.0, 38.0];
 export const DIAL = { up0: 55.0, up1: 57.5, drop: 60.5, oneIn4: 64.5 };
-export const END_T = [...'SPOTLIGHT'].map((_, i) => 82.5 + i * .25);
+export const END_T = [...'SPOTLIGHT'].map((_, i) => 82.5 + i * .15);
 export const HITS = { slam: 0.0, crash: 1.0, title: 44.5, clang: 60.5, bow: 79.5, last: 88.0 };
+
+// Dead air removed: [start, end] intervals of story time that are cut out of the final film (beat-aligned, so the score keeps its grid).
+export const CUTS = [[9.5, 12.5], [15.5, 18.0], [22.0, 24.0], [25.5, 26.0], [31.5, 34.5], [41.0, 43.5], [58.5, 60.0], [66.5, 67.5], [71.0, 72.5], [75.0, 77.0], [82.0, 82.5]];
+export const OUT_DUR = DUR - CUTS.reduce((a, [x, y]) => a + y - x, 0);
+// film time -> story time
+export const src = tf => { let t = tf; for (const [a, b] of CUTS) { if (t >= a) t += b - a; else break; } return t; };
+// story time -> film time (a time inside a cut lands on the cut)
+export const warp = ts => { let d = 0; for (const [a, b] of CUTS) { if (ts >= b) d += b - a; else if (ts > a) return a - d; } return ts - d; };

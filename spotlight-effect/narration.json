@@ -7,91 +7,91 @@
  },
  {
   "id": "n02",
-  "t": 3.7,
+  "t": 3.6,
   "text": "Gusto mo nang lamunin ng lupa.",
   "rate": "-8%"
  },
  {
   "id": "n03",
-  "t": 6.5,
+  "t": 6.3,
   "text": "Pakiramdam mo, lahat nakatingin sa'yo.",
   "rate": "-8%"
  },
  {
   "id": "n04",
-  "t": 12.5,
+  "t": 12.6,
   "text": "At iniisip nilang nakakahiya ka.",
   "rate": "-8%"
  },
  {
   "id": "n05",
-  "t": 18.6,
+  "t": 18.2,
   "text": "Alas-tres na ng madaling-araw... iniisip mo pa rin.",
   "rate": "-8%"
  },
  {
   "id": "n06",
-  "t": 24.3,
+  "t": 24.1,
   "text": "Pero ang totoo...",
   "rate": "-8%"
  },
  {
   "id": "n07",
-  "t": 27.0,
+  "t": 26.6,
   "text": "halos walang nakapansin.",
   "rate": "-8%"
  },
  {
   "id": "n08",
-  "t": 30.6,
+  "t": 28.6,
   "text": "Abala silang lahat sa sarili nilang spotlight.",
   "rate": "-8%"
  },
  {
   "id": "n09",
-  "t": 35.2,
+  "t": 34.9,
   "text": "Kasi pati sila, may sariling inaalala.",
   "rate": "-8%"
  },
  {
   "id": "n10",
-  "t": 39.6,
+  "t": 37.8,
   "text": "Iniisip din nila kung ano ang tingin mo sa kanila.",
   "rate": "-8%"
  },
  {
   "id": "n12",
-  "t": 44.85,
+  "t": 44.3,
   "text": "Sobra nating tinatantiya kung gaano tayo napapansin.",
   "rate": "+0%"
  },
  {
   "id": "n13",
-  "t": 48.1,
+  "t": 47.6,
   "text": "Isang eksperimento sa Cornell, taong dalawang libo.",
   "rate": "+0%"
  },
  {
   "id": "n14",
-  "t": 51.6,
+  "t": 50.7,
   "text": "Pinasuot sa mga estudyante ang isang nakakahiyang T-shirt.",
   "rate": "+0%"
  },
  {
   "id": "n15",
-  "t": 54.8,
+  "t": 54.0,
   "text": "Hula nila: ilan sa klase ang makakapansin?",
   "rate": "+0%"
  },
  {
   "id": "n16",
-  "t": 57.95,
+  "t": 57.0,
   "text": "Halos kalahati.",
   "rate": "-8%"
  },
  {
   "id": "n17",
-  "t": 60.6,
+  "t": 60.5,
   "text": "Ang totoo? Dalawampu't tatlong porsiyento lang.",
   "rate": "+0%"
  },
@@ -103,13 +103,13 @@
  },
  {
   "id": "n19",
-  "t": 68.6,
+  "t": 68.3,
   "text": "Hindi ka bida sa kuwento ng iba.",
   "rate": "-8%"
  },
  {
   "id": "n20",
-  "t": 72.8,
+  "t": 72.6,
   "text": "Bida sila sa sarili nilang kuwento.",
   "rate": "-8%"
  },
@@ -121,13 +121,13 @@
  },
  {
   "id": "n22",
-  "t": 84.7,
+  "t": 83.4,
   "text": "Spotlight Effect.",
   "rate": "-8%"
  },
  {
   "id": "n23",
-  "t": 86.0,
+  "t": 84.9,
   "text": "I-share sa kaibigan mong overthinker.",
   "rate": "-8%"
  }

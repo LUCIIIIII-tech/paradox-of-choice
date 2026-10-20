@@ -3,7 +3,7 @@ import { C, TAU, clamp, lerp, seg, ss, eo, ei, eio, back, hash, mix, rgba, goldG
 import { FONTS, goldText, measure, titleBar, decoDigits, yearBadge, dial, clockFace } from './engine/type.js';
 import { buildSign, drawSign, litSequence } from './engine/bulbs.js';
 import { mara, maraHead, guest, eye, tshirt, overhead, glovedHand, MC } from './chars.js';
-import { DUR, W, H, q, SHOTS, shotAt, DOORS, SUBS, EYE_T, MARQ, MARQ_T, BUBBLE_T, DIAL, END_T, HITS } from './story.js';
+import { DUR, W, H, q, SHOTS, shotAt, DOORS, SUBS, EYE_T, MARQ, MARQ_T, BUBBLE_T, DIAL, END_T, HITS, src, OUT_DUR } from './story.js';
 
 const cv = document.getElementById('c'), g = cv.getContext('2d');
 const CX = W / 2;
@@ -172,12 +172,12 @@ SH.face = (t) => {
 SH.eyes = (t) => {
   const z = lerp(1.25, 1, eio(seg(t, 6, 9))), tq = q(t);
   cam(CX, 960, z); ground('#0d0a08', '#030202');
-  const squeeze = ss(seg(t, 10.2, 11.8));
+  const squeeze = ss(seg(t, 8.6, 9.4));
   const cy = 900, R = lerp(400, 330, squeeze);
   sunburst(g, CX, cy, { rays: 64, r0: 120, r1: 1600, mode: 'lines', w: 1, alpha: .25, rot: t * .02 });
   // the escalation: dozens of small eyes behind, from 10.5
   for (let i = 0; i < 30; i++) {
-    const t0 = 10.4 + hash(i * 3.3) * 1.2; if (t < t0) continue;
+    const t0 = 8.7 + hash(i * 3.3) * .8; if (t < t0) continue;
     const a = hash(i) * TAU, rr = 560 + hash(i + 5) * 300;
     const x = CX + Math.cos(a) * rr * .9, y = cy + Math.sin(a) * rr * 1.15;
     eye(g, x, y, 34, ss(seg(t, t0, t0 + .12)), [(CX - x) / 600, (cy + 300 - y) / 600], .75);
@@ -203,8 +203,8 @@ SH.marquee = (t) => {
   // the sign's frame
   gline(g, rectPts(x - 30, y - 30, SIGN1.w * s + 60, SIGN1.h * s + 40), { w: 2.4 });
   gline(g, rectPts(x - 42, y - 42, SIGN1.w * s + 84, SIGN1.h * s + 64), { w: 1 });
-  drawSign(g, SIGN1, x, y, s, { lit: litSequence(t, MARQ_T, { chaseFrom: 17.4, chaseSpeed: 18 }), enamel: '#2a0a12' });
-  const shrink = lerp(.6, .42, ss(seg(t, 12.5, 17.5)));
+  drawSign(g, SIGN1, x, y, s, { lit: litSequence(t, MARQ_T, { chaseFrom: 15.4, chaseSpeed: 18 }), enamel: '#2a0a12' });
+  const shrink = lerp(.6, .42, ss(seg(t, 12.5, 15.5)));
   spotlight(CX, 820, CX, 1300, 160 * shrink / .6, 1);
   mara(g, CX, 1300, shrink, { knee: 1, rot: .05, hl: [-60, -640], hr: [60, -640], face: 'shut', tilt: .12 });
 };
@@ -407,7 +407,7 @@ SH.end = (t) => {
   sunburst(g, CX, 760, { rays: 48, r0: 380, r1: 1400, mode: 'lines', w: 1.2, alpha: .3 * ss(seg(t, 84.5, 85.5)) * (1 - seg(t, 89.0, 89.6)) });
   SIGN2 = SIGN2 || buildSign('SPOTLIGHT', { font: 'Limelight', size: 220, spacing: 20, track: .06 });
   const s = 960 / SIGN2.w, x = CX - SIGN2.w * s / 2, y = 600;
-  const seq = litSequence(t, END_T, { chaseFrom: 85.0, chaseSpeed: 16, chaseDim: .25 });
+  const seq = litSequence(t, END_T, { chaseFrom: 84.2, chaseSpeed: 16, chaseDim: .25 });
   const off = (li, bi, gi) => { const tOff = 89.0 + (SIGN2.count - gi) / SIGN2.count * .6; return gi === 0 ? 1 : t > tOff ? 0 : 1; };
   drawSign(g, SIGN2, x, y, s, { lit: (li, bi, gi) => seq(li, bi, gi) * off(li, bi, gi) });
   const k = 1 - seg(t, 89.0, 89.5);
@@ -421,7 +421,9 @@ SH.end = (t) => {
 };
 
 // ---------- frame ----------
-window.renderAt = (t) => {
+window.OUT_DUR = OUT_DUR;
+window.renderAt = (tf) => {
+  const t = src(tf);   // film time -> story time (dead air is cut out)
   reset(); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
   g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
   const [, , name] = shotAt(t);
