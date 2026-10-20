@@ -1,0 +1,23 @@
+[
+ {"id": "l01", "shot": "wake",    "text": "Nagising ka. Tahimik. Sobrang tahimik.", "gap": 0.15, "key": ["Tahimik.", "tahimik."]},
+ {"id": "l02", "shot": "house",   "text": "Wala si Nanay. Wala ang kapatid mo. Walang tao sa bahay.", "key": ["Nanay.", "Walang"]},
+ {"id": "l03", "shot": "street",  "text": "Lumabas ka. Walang tao sa kalsada.", "key": ["Walang", "kalsada."]},
+ {"id": "l04", "shot": "edsa",    "text": "Sa EDSA... walang kahit isang sasakyan.", "key": ["EDSA...", "sasakyan."]},
+ {"id": "l05", "shot": "mall",    "text": "Sa mall, bukas ang mga ilaw. Pero walang tao.", "key": ["walang", "tao."]},
+ {"id": "l06", "shot": "calls",   "text": "Tinawagan mo lahat. Walang sumasagot.", "key": ["Walang", "sumasagot."]},
+ {"id": "l07", "shot": "days",    "text": "Isang araw. Tatlong araw. Isang linggo.", "key": ["Isang", "Tatlong", "linggo."], "stages": [0, 2, 4]},
+ {"id": "l08", "shot": "voice",   "text": "Hanggang isang gabi... may tumawag sa pangalan mo.", "key": ["pangalan"]},
+ {"id": "l09", "shot": "ring",    "text": "Tumunog ang cellphone mo. Ang caller ID... pangalan mo.", "key": ["cellphone", "pangalan"]},
+ {"id": "l10", "shot": "answer",  "text": "Sinagot mo. At may bumulong: lumingon ka.", "gap": 0.1, "key": ["lumingon"]},
+ {"id": "scare", "shot": "scare", "beat": 1.0, "gap": 0.0},
+ {"id": "l11", "shot": "hookback","text": "Pero ito ang mas nakakatakot... totoo 'to.", "gap": 0.3, "key": ["totoo"]},
+ {"id": "l12", "shot": "title",   "text": "Kapag matagal kang mag-isa, gumagawa ng tao ang utak mo.", "key": ["mag-isa,", "utak"]},
+ {"id": "l13", "shot": "study",   "text": "Sa isang pag-aaral, labinlimang minuto lang sa ganap na dilim at katahimikan...", "key": ["labinlimang", "minuto"]},
+ {"id": "l14", "shot": "faces",   "text": "may mga nakakita na ng mukha, at nakarinig ng boses na wala naman doon.", "key": ["mukha,", "boses"]},
+ {"id": "l15", "shot": "brain",   "text": "Kasi ang utak natin, ginawa para sa ibang tao. Kapag walang tao... ginagawa niya sila.", "key": ["ibang", "tao.", "ginagawa"]},
+ {"id": "l16", "shot": "smoke",   "text": "At ang matagal na pag-iisa, kasing-delikado sa katawan ng paninigarilyo.", "key": ["kasing-delikado", "paninigarilyo."]},
+ {"id": "l17", "shot": "think",   "text": "Kaya kung may taong matagal mo nang hindi nakakausap...", "key": ["matagal"]},
+ {"id": "l18", "shot": "message", "text": "i-message mo siya ngayon. Baka siya ang nagigising na mag-isa.", "key": ["ngayon.", "mag-isa."]},
+ {"id": "l19", "shot": "cta",     "text": "I-share mo 'to sa taong 'yon.", "key": ["I-share"]},
+ {"id": "tail", "shot": "loop", "beat": 1.1}
+]

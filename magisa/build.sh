@@ -3,7 +3,7 @@
 # narrator -> timeline -> sound -> frames (4 parallel chunks) -> concat -> mux at -14 LUFS -> poster
 set -e
 HERE=$(cd "$(dirname "$0")" && pwd); cd "$HERE"; mkdir -p out
-LANG_=${1:-tl}; if [ "$LANG_" = tl ]; then SUF=""; P=""; NAME=tren; else SUF=".$LANG_"; P="${LANG_}_"; NAME=tren_$LANG_; fi
+LANG_=${1:-tl}; if [ "$LANG_" = tl ]; then SUF=""; P=""; NAME=magisa; else SUF=".$LANG_"; P="${LANG_}_"; NAME=magisa_$LANG_; fi
 LIB=${LIB:-$HOME/lemo-opuscar}
 "$LIB/.venv/bin/python" tts.py $LANG_                                     # 1. narrator (fil-PH Angelo) + word timings -> timeline.json
 python3 score.py $LANG_                                                # 2. sound design + narrator -> out/mix.wav
