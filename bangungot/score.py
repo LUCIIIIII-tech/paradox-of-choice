@@ -107,6 +107,122 @@ for k in range(5): static(wt('l20', 'sulok') - .3 + k * .125, .05, .45)
 boom(wt('l20', 'sulok'), 1.0, 42); heartbeat(T('l21'), .8); heartbeat(T('l21') + .8, .8)
 boom(T('tail') + .85, 1.0)        # the eyes open again: the loop
 
+# ---------- SFX pass: a hook on frame 1 and a layer under every second, so nothing is ever silent ----------
+SFX_L = np.zeros(N); SFX_R = np.zeros(N)
+def sfx(t, x, v=1.0, pan=0.0):
+    i = int(round(t * SR))
+    if i >= N or i + len(x) <= 0: return
+    if i < 0: x = x[-i:]; i = 0
+    x = x[:N - i] * v; l = np.cos((pan + 1) * np.pi / 4) * 1.414; r = np.sin((pan + 1) * np.pi / 4) * 1.414
+    SFX_L[i:i + len(x)] += x * l; SFX_R[i:i + len(x)] += x * r
+def env(n, a=.005, d=.2): s = tt(n); return np.minimum(1, s / max(a, 1e-4)) * np.exp(-s / d)
+def braam(t, v=1.0):          # the hook: a distorted low brass cluster
+    n = int(2.2 * SR); s = tt(n); y = np.zeros(n)
+    for f in (55.0, 82.4, 110.0, 130.8, 164.8):
+        for det in (.995, 1.0, 1.006):
+            ph = 2 * np.pi * f * det * s; y += sum(np.sin(k * ph) / k for k in range(1, 14))
+    y = np.tanh(y * .5) * np.minimum(1, s / .02) * np.exp(-s / .9)
+    y = band(y, 30, 2500 * np.exp(-0) )
+    sfx(t, y * v * .5)
+def stutter(t, k=4, v=.6):    # glitch stutter: chopped digital noise bursts
+    for i in range(k):
+        n = int(.035 * SR); y = band(noise(.035), 800 + 900 * i, 9000) * np.hanning(n)
+        sfx(t + i * .05, y * v, pan=(-1) ** i * .5)
+def riser(t_end, d=1.0, v=.5):   # noise + pitch sweep that lands on t_end
+    n = int(d * SR); s = tt(n); u = s / d
+    f = 200 * 2 ** (u * 3.5); y = np.sin(2 * np.pi * np.cumsum(f) / SR) * .4
+    y += band(noise(d), 1500, 9000) * (u ** 2) * 1.2
+    sfx(t_end - d, y * u ** 2 * v)
+def click(t, v=.5, f=3000):
+    n = int(.03 * SR); s = tt(n); sfx(t, (np.sin(2 * np.pi * f * s) + band(noise(.03), 2000, 10000)) * np.exp(-s * 200) * v)
+def eyelid(t, v=.5):          # a wet "tsk" as the eyes open
+    sfx(t, band(noise(.06), 900, 4000) * env(int(.06 * SR), .002, .015) * v * 2)
+def pop(t, v=.35):            # caption key word
+    n = int(.08 * SR); s = tt(n); f = 1400 - 900 * s / .08; sfx(t, np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-s * 45) * v)
+def swish(t, v=.18):
+    d = .18; n = int(d * SR); sfx(t - .09, band(noise(d), 2500, 11000) * np.sin(np.pi * tt(n) / d) ** 2 * v, pan=rng.uniform(-.6, .6))
+def clock_ticks(t0, t1, v=.22):
+    k = 0; t = np.ceil(t0)
+    while t < t1: click(t, v, 2600 if k % 2 else 1900); t += 1.0; k += 1
+def tinnitus(t0, t1, v=.035):
+    n = int((t1 - t0) * SR); s = tt(n); e = np.minimum(1, s / .8) * np.minimum(1, (t1 - t0 - s) / .3)
+    sfx(t0, (np.sin(2 * np.pi * 7200 * s) + .5 * np.sin(2 * np.pi * 7230 * s)) * e * v)
+def breathing(t0, t1, v=.22, rate=1.6):   # panicked breaths through the nose
+    t = t0; k = 0
+    while t < t1:
+        d = .55 / rate * (1.3 if k % 2 == 0 else 1); n = int(d * SR)
+        y = band(noise(d), 400 if k % 2 == 0 else 250, 3000 if k % 2 == 0 else 1800) * np.sin(np.pi * tt(n) / d) ** 1.5
+        sfx(t, y * v * (1.0 if k % 2 == 0 else .7), pan=-.2); t += d + .05; k += 1
+def creak(t, d=.7, v=.4):      # floorboard: stick-slip clicks through a resonance
+    n = int(d * SR); s = tt(n); rate = 30 + 60 * np.sin(np.pi * s / d) ** 2
+    ph = np.cumsum(rate) / SR; pulses = (np.diff(np.floor(ph), prepend=0) > 0).astype(float)
+    res = np.zeros(n)
+    for f, a in ((420, 1), (910, .5), (1730, .3)): res += np.convolve(pulses, np.sin(2 * np.pi * f * tt(int(.03 * SR))) * np.exp(-tt(int(.03 * SR)) * 120), 'same') * a
+    sfx(t, res * np.sin(np.pi * s / d) * v, pan=-.5)
+def wind(t0, t1, v=.12):
+    n = int((t1 - t0) * SR); s = tt(n); y = band(noise(t1 - t0), 200, 1200) * (.6 + .4 * np.sin(2 * np.pi * .23 * s) ** 2)
+    sfx(t0, y * np.minimum(1, s / 1.0) * np.minimum(1, (t1 - t0 - s) / .5) * v, pan=.4)
+def lock(t, v=.6):            # metal padlock snapping shut
+    click(t, v, 4200); click(t + .04, v * .8, 2400)
+    n = int(.25 * SR); s = tt(n); sfx(t, sum(np.sin(2 * np.pi * f * s) for f in (1250, 2780, 4130)) * np.exp(-s * 25) * v * .15)
+def powerdown(t, v=.5):
+    n = int(.9 * SR); s = tt(n); f = 600 * np.exp(-s * 4) + 40; sfx(t, np.tanh(2 * np.sin(2 * np.pi * np.cumsum(f) / SR)) * np.exp(-s * 3) * v * .5)
+def powerup(t, v=.35):
+    n = int(.7 * SR); s = tt(n); f = 120 + 900 * (s / .7) ** 2; sfx(t, np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * s / .7) * v * .5)
+def drip(t, v=.4):
+    n = int(.15 * SR); s = tt(n); f = 700 + 2200 * s / .15; sfx(t, np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-s * 30) * v, pan=rng.uniform(-.5, .5))
+def ping(t, v=.35):
+    n = int(1.2 * SR); s = tt(n); sfx(t, (np.sin(2 * np.pi * 1320 * s) + .3 * np.sin(2 * np.pi * 2640 * s)) * np.exp(-s * 4) * v, pan=rng.uniform(-.5, .5))
+def taiko(t, v=.8):
+    n = int(.8 * SR); s = tt(n); f = 70 + 60 * np.exp(-s * 25); y = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-s * 6) + band(noise(.8), 100, 1500) * np.exp(-s * 40) * .6
+    sfx(t, y * v)
+def birds(t0, t1, v=.18):
+    t = t0
+    while t < t1:
+        n = int(.12 * SR); s = tt(n); f0 = 2800 + 1500 * rng.random(); f = f0 + 1200 * np.sin(2 * np.pi * 22 * s)
+        sfx(t, np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * s / .12) * v, pan=rng.uniform(-.7, .7)); t += .15 + .3 * rng.random()
+def ding(t, v=.5):
+    for f, dt in ((1568, 0), (2093, .09)): n = int(.9 * SR); s = tt(n); sfx(t + dt, (np.sin(2 * np.pi * f * s) + .2 * np.sin(2 * np.pi * 2 * f * s)) * np.exp(-s * 5) * v * .5)
+def pulse_bed(t0, t1, bpm=90, v=.35):   # a soft sub pulse keeps the explanation moving
+    t = t0
+    while t < t1:
+        n = int(.35 * SR); s = tt(n); sfx(t, np.sin(2 * np.pi * (45 + 20 * np.exp(-s * 20)) * s) * np.exp(-s * 9) * v); t += 60 / bpm
+
+# 1. the hook: BRAAM + glitch + sub drop + the eyelids
+braam(0.0, 1.0); stutter(0.0, 4, .7); eyelid(.06, .8); boom(.0, .6, 35)
+# 2. the paralysis bed: clock, ringing ears, panicked breathing, wind at the window
+clock_ticks(0.0, T('l09'), .25)
+tinnitus(T('l02'), T('l09'), .03)
+breathing(T('l02'), T('l07'), .2, 1.4); breathing(T('l07'), T('l09'), .28, 2.4)
+wind(0.0, T('l09'), .12)
+creak(T('l05') + .2, .8, .45); creak(T('l06') + .1, .6, .5); creak(wt('l06', 'palapit') - .1, .5, .55)
+for l in TL['lines']:      # caption pops on key words, a swish on every punch-in
+    keys = [k.lower().strip(':') for k in l.get('key', [])]
+    for w in l.get('words', []):
+        if any(w[0].lower().strip('.,?!:\'"').startswith(k) for k in keys if k): pop(w[1], .3)
+    if l['shot'] not in ('scare', 'count', 'dark'): swish(l['t0'], .2)
+# 3. the build into the scare: a riser that cuts to silence for 3 frames, then the scream
+riser(T('scare') - .12, 1.6, .6)
+# after the scream: ears ringing + a low rumble until the static comes in (no hole after the scare)
+n = int(1.0 * SR); s_ = tt(n); sfx(LN['scare']['t1'] - .15, (np.sin(2 * np.pi * 6800 * s_) * .25 + band(noise(1.0), 30, 140) * 1.2) * np.exp(-s_ * 2.2) * np.minimum(1, s_ / .03), .7)
+# 4. the explanation: pulse, locks, power down, warm power up, drips, pings, drums, blips
+pulse_bed(T('l10'), T('l20'), 90, .3)
+riser(wt('l11', 'sleep'), .8, .35)
+for k in range(4): lock(wt('l12', 'pinaparalisa') + .1 + k * .12, .5)
+powerdown(wt('l12', 'pinaparalisa') + .1, .5)
+powerup(wt('l13', 'nauunang'), .4); clock_ticks(T('l13'), T('l14'), .15)
+for k in range(9): drip(wt('l14', 'Kaya') + k * .17, .35)
+creak(wt('l14', 'anino'), .7, .4)
+for k in range(3): ping(wt('l15', 'iisang') + k * .25, .35)
+for w in ('batibat', 'kanashibari', 'Old'): taiko(wt('l16', w) - .5, .8)
+for k in range(8): pop(wt('l17', 'walo') + k * .12, .25)
+for w in ('huwag', 'Igalaw', 'huminga'): taiko(wt('l18', w), .5); swish(wt('l18', w), .25)
+birds(T('l19'), T('l20'), .16)
+# 5. the end: clock and breathing again, a creak, the flicker, the ding, the loop
+clock_ticks(T('l20'), DUR, .25); breathing(T('l20'), T('l21'), .25, 2.0); wind(T('l20'), DUR, .12)
+creak(T('l20') + .3, .9, .5); riser(wt('l20', 'sulok'), 1.0, .45); stutter(wt('l20', 'sulok'), 5, .6)
+ding(T('l21') + .1, .6); riser(T('tail') + .85, .8, .45); braam(T('tail') + .85, .8); eyelid(T('tail') + .9, .8)
+
 # ---------- master: room reverb, the narrator, ducking ----------
 irn = int(1.4 * SR); s = tt(irn); ir = rng.standard_normal(irn) * np.exp(-s / .35)
 def fconv(x, h):
@@ -114,6 +230,9 @@ def fconv(x, h):
 wet = fconv(REV, ir); wet *= .35 * np.abs(REV).max() / (np.abs(wet).max() + 1e-9)
 L += wet; R += np.roll(wet, 401)
 pk = max(np.abs(L).max(), np.abs(R).max()) + 1e-9; L /= pk / .8; R /= pk / .8
+pk = max(np.abs(SFX_L).max(), np.abs(SFX_R).max()) + 1e-9
+SFX_L = np.tanh(SFX_L / pk * 2.2) / np.tanh(2.2) * .55; SFX_R = np.tanh(SFX_R / pk * 2.2) / np.tanh(2.2) * .55
+L += SFX_L; R += SFX_R
 for l in TL['lines']:
     if 'wav0' not in l: continue
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', os.path.join(HERE, 'voices', l['id'] + '.wav'), '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'], capture_output=True, check=True).stdout
@@ -122,7 +241,7 @@ for l in TL['lines']:
     if i < 0: y = y[-i:]; i = 0          # the line's leading silence starts before the film
     n = min(len(y), N - i); VO[i:i + n] += y[:n]
 env = np.convolve(np.abs(VO), np.ones(int(.1 * SR)) / int(.1 * SR), 'same'); env = np.clip(env / .04, 0, 1)
-env = np.convolve(env, np.ones(int(.2 * SR)) / int(.2 * SR), 'same'); duck = 1 - env * (1 - 10 ** (-10 / 20))
+env = np.convolve(env, np.ones(int(.2 * SR)) / int(.2 * SR), 'same'); duck = 1 - env * (1 - 10 ** (-7 / 20))
 outL = L * duck + VO; outR = R * duck + VO
 n = int(DUR * SR); outL, outR = outL[:n], outR[:n]
 pk = max(np.abs(outL).max(), np.abs(outR).max()); outL /= pk / .95; outR /= pk / .95
