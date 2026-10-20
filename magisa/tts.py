@@ -3,9 +3,9 @@ Voice: fil-PH-AngeloNeural (Microsoft Edge online TTS via edge-tts). Run with th
   $LIB/.venv/bin/python tts.py [en]       (cached lines are reused; delete voices/<id>.wav to regenerate one)"""
 import os, json, asyncio, subprocess, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-LANG = sys.argv[1] if len(sys.argv) > 1 else 'en'          # en (default) | tl
-SUF = '' if LANG == 'en' else '.' + LANG
-V = os.path.join(HERE, 'voices' if LANG == 'en' else 'voices_' + LANG); os.makedirs(V, exist_ok=True)
+LANG = sys.argv[1] if len(sys.argv) > 1 else 'tl'          # tl (default) | en
+SUF = '' if LANG == 'tl' else '.' + LANG
+V = os.path.join(HERE, 'voices' if LANG == 'tl' else 'voices_' + LANG); os.makedirs(V, exist_ok=True)
 try:
     import certifi
     if os.path.exists('/root/.ccr/ca-bundle.crt'): certifi.where = lambda: '/root/.ccr/ca-bundle.crt'   # behind a TLS proxy
@@ -40,12 +40,21 @@ for l in L:
         a, b = words[0][1], words[-1][2]; tot = sum(len(w) for w in shown); acc = 0; ws = []
         for w in shown: s0 = a + (b - a) * acc / tot; acc += len(w); ws.append([w, s0, a + (b - a) * acc / tot])
     else: ws = [[s, w[1], w[2]] for s, w in zip(shown, words)]
-    # squeeze the service's sentence pauses (often > 1 s) down to MAXP: cut the middle of every long gap between words
+    # squeeze long pauses down to MAXP, using the audio itself (silence = 10 ms frames well below the speech level),
+    # so a cut can never clip a word even when the service's word timings are a little off
     import numpy as np, soundfile as sf
-    y, _ = sf.read(wav); MAXP = .3; keep = []; shift = 0.0; prev = 0.0; out_ws = []; cut_at = []
-    for i, (w, a, b) in enumerate(ws):
-        if i and a - ws[i - 1][2] > MAXP + .05:
-            g0, g1 = ws[i - 1][2] + MAXP / 2, a - MAXP / 2; cut_at.append((g0, g1))
+    y, _ = sf.read(wav); MAXP = .3; fr_ = int(.01 * SR)
+    rms = np.array([np.sqrt((y[i:i + fr_] ** 2).mean() + 1e-12) for i in range(0, len(y) - fr_, fr_)])
+    quiet = rms < max(rms.max() * .03, 1e-4)
+    cut_at, i = [], 0
+    while i < len(quiet):
+        if quiet[i]:
+            j = i
+            while j < len(quiet) and quiet[j]: j += 1
+            a0, a1 = i * .01, j * .01
+            if a1 - a0 > MAXP + .05 and a0 > .05 and j < len(quiet): cut_at.append((a0 + MAXP / 2, a1 - MAXP / 2))
+            i = j
+        else: i += 1
     segs, last = [], 0.0
     for g0, g1 in cut_at: segs.append(y[int(last * SR):int(g0 * SR)]); last = g1
     segs.append(y[int(last * SR):])
@@ -54,7 +63,12 @@ for l in L:
         if len(segs[k]) > f: segs[k] = segs[k].copy(); segs[k][-f:] *= np.linspace(1, 0, f)
         if len(segs[k + 1]) > f: segs[k + 1] = segs[k + 1].copy(); segs[k + 1][:f] *= np.linspace(0, 1, f)
     sf.write(wav, np.concatenate(segs).astype(np.float32), SR)
-    def mv(t): return t - sum(g1 - g0 for g0, g1 in cut_at if t >= g1)
+    def mv(t):
+        d = 0
+        for g0, g1 in cut_at:
+            if t >= g1: d += g1 - g0
+            elif t > g0: return g0 - d
+        return t - d
     ws = [[w, mv(a), mv(b)] for w, a, b in ws]
     T[l['id']] = {'text': l.get('say', l['text']), 'start': ws[0][1], 'end': ws[-1][2] + .08, 'words': ws}
     print(l['id'], round(words[-1][2] - words[0][1], 2), 's', l['text'])

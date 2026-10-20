@@ -9,7 +9,7 @@
    "mundo."
   ],
   "counter": "ARAW 1",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l02",
@@ -20,7 +20,7 @@
    "sisira",
    "gutom."
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l03",
@@ -30,7 +30,7 @@
    "Walang"
   ],
   "counter": "ORAS 1",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l04",
@@ -39,7 +39,17 @@
   "key": [
    "kalayaan."
   ],
-  "rate": "+10%"
+  "rate": "-10%"
+ },
+ {
+  "id": "l04b",
+  "shot": "free",
+  "text": "Lahat ng tindahan... lahat ng bahay... sa'yo na.",
+  "say": "Lahat ng tindahan... lahat ng bahay... sayo na.",
+  "key": [
+   "sa'yo"
+  ],
+  "rate": "-10%"
  },
  {
   "id": "l05",
@@ -50,7 +60,7 @@
    "power"
   ],
   "counter": "ORAS 24",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l06",
@@ -60,7 +70,7 @@
    "namamatay",
    "ilaw."
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l07",
@@ -70,7 +80,7 @@
    "Didilim",
    "mundo."
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l08",
@@ -80,7 +90,7 @@
    "Binabaha"
   ],
   "counter": "ARAW 2",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l09",
@@ -91,7 +101,17 @@
    "lahat."
   ],
   "counter": "ARAW 3",
-  "rate": "+10%"
+  "rate": "-10%"
+ },
+ {
+  "id": "l09b",
+  "shot": "phone",
+  "text": "Wala nang balita. Wala nang darating na tulong.",
+  "key": [
+   "balita.",
+   "tulong."
+  ],
+  "rate": "-10%"
  },
  {
   "id": "l10",
@@ -102,7 +122,7 @@
    "nangangaso"
   ],
   "counter": "LINGGO 1",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l11",
@@ -112,7 +132,16 @@
    "sarili"
   ],
   "counter": "BUWAN 1",
-  "rate": "+10%"
+  "rate": "-10%"
+ },
+ {
+  "id": "l11b",
+  "shot": "roof",
+  "text": "Nakakalimutan mo na kung ano'ng tunog ng tawa ng ibang tao.",
+  "key": [
+   "tawa"
+  ],
+  "rate": "-10%"
  },
  {
   "id": "l12",
@@ -122,7 +151,7 @@
   "key": [
    "sumagot."
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "scare",
@@ -139,7 +168,7 @@
   "key": [
    "Utak"
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l14",
@@ -150,7 +179,7 @@
    "minuto",
    "mukha"
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l15",
@@ -160,7 +189,7 @@
    "gumagawa",
    "utak"
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l16",
@@ -170,7 +199,17 @@
   "key": [
    "pag-iisa."
   ],
-  "rate": "+10%"
+  "rate": "-10%"
+ },
+ {
+  "id": "l16b",
+  "shot": "lonely",
+  "text": "Sa mga pag-aaral, ang matagal na pag-iisa ay kasing-delikado sa katawan ng paninigarilyo.",
+  "key": [
+   "kasing-delikado",
+   "paninigarilyo."
+  ],
+  "rate": "-10%"
  },
  {
   "id": "l17",
@@ -181,7 +220,7 @@
    "Usa"
   ],
   "counter": "TAON 1",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l18",
@@ -192,7 +231,7 @@
    "lahat."
   ],
   "counter": "TAON 10",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l19",
@@ -203,7 +242,7 @@
    "siyudad."
   ],
   "counter": "TAON 100",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l20",
@@ -214,7 +253,7 @@
    "bakas"
   ],
   "counter": "TAON 10,000",
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l21",
@@ -224,7 +263,7 @@
    "huling",
    "nakakaalala"
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l22",
@@ -235,7 +274,7 @@
    "isa't",
    "isa."
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l23",
@@ -245,7 +284,7 @@
    "ngayon",
    "nami-miss"
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "l24",
@@ -255,7 +294,7 @@
    "unang",
    "natitira?"
   ],
-  "rate": "+10%"
+  "rate": "-10%"
  },
  {
   "id": "tail",

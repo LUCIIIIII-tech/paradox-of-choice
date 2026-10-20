@@ -751,7 +751,10 @@ function grain(t) {
 
 
 // ---------- frame ----------
-const SHOTS = []; { const ls = TL.lines; for (let i = 0; i < ls.length; i++) SHOTS.push([i ? SHOTS[i - 1][1] : 0, i < ls.length - 1 ? ls[i + 1].t0 : TL.dur, ls[i].shot]); }
+const SHOTS = []; { const ls = TL.lines; for (let i = 0; i < ls.length; i++) {
+  const end = i < ls.length - 1 ? ls[i + 1].t0 : TL.dur;
+  if (i && ls[i].shot === ls[i - 1].shot) { SHOTS[SHOTS.length - 1][1] = end; continue; }   // same scene continues: no restart
+  SHOTS.push([i ? SHOTS[SHOTS.length - 1][1] : 0, end, ls[i].shot]); } }
 window.renderAt = (t) => {
   reset(); g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
   const sh = SHOTS.find(s => t >= s[0] && t < s[1]) || SHOTS[SHOTS.length - 1], u = t - sh[0];
