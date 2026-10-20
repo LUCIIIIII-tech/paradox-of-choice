@@ -8,6 +8,12 @@ const SUF = LANG === 'tl' ? '' : '.' + LANG;
 const TL = await (await fetch(`timeline${SUF}.json`)).json();
 const ANCH = SUF ? await (await fetch(`anchors${SUF}.json`)).json() : {};
 const LN = Object.fromEntries(TL.lines.map(l => [l.id, l]));
+const TX = {
+  tl: { q1: 'May tao ba?', q2: 'Sumagot ka...', who: 'Ate', m1: 'Kumusta ka?', m2: 'Miss na kita.', msg: 'Kumusta ka? Miss na kita.', no: 'GUTOM', yes: 'PAG-IISA', yesSize: 190,
+        tw: ['HINDI TAYO KAILANGAN', 'NG MUNDO.', 'PERO KAILANGAN NATIN', 'ANG ISA’T ISA.'], cta: ['ANO’NG UNANG', 'GAGAWIN MO?'] },
+  en: { q1: 'Anyone there?', q2: 'Answer me...', who: 'Mom', m1: 'Hey, how are you?', m2: 'I miss you.', msg: 'Hey, how are you? I miss you.', no: 'HUNGER', yes: 'LONELINESS', yesSize: 140,
+        tw: ['THE WORLD DOESN’T', 'NEED US.', 'BUT WE NEED', 'EACH OTHER.'], cta: ['WHAT WOULD YOU', 'DO FIRST?'] },
+}[LANG];
 window.DUR = TL.dur;
 
 // ---------- helpers ----------
@@ -384,17 +390,17 @@ function phoneUI(x, y, s, t, o = {}) {
     line([[-64, -455], [-10, -420]], 4, RED);
     // the message that will not send
     const blink = Math.floor(t * 2) % 2;
-    g.fillStyle = '#1e5cff'; g.beginPath(); g.roundRect(-40, -300, 240, 90, 30); g.fill(); text('May tao ba?', 80, -255, 34, '#fff', 'Anton');
+    g.fillStyle = '#1e5cff'; g.beginPath(); g.roundRect(-40, -300, 240, 90, 30); g.fill(); text(TX.q1, 80, -255, 34, '#fff', 'Anton');
     circ(-75, -255, 22, RED); text('!', -75, -253, 32, '#fff', 'Anton');
-    g.fillStyle = '#1e5cff'; g.beginPath(); g.roundRect(-70, -180, 270, 90, 30); g.fill(); text('Sumagot ka...', 65, -135, 34, '#fff', 'Anton');
+    g.fillStyle = '#1e5cff'; g.beginPath(); g.roundRect(-70, -180, 270, 90, 30); g.fill(); text(TX.q2, 65, -135, 34, '#fff', 'Anton');
     circ(-105, -135, 22, RED); text('!', -105, -133, 32, '#fff', 'Anton');
     text('Not Delivered', 90, -60, 26, `rgba(227,18,43,${blink ? 1 : .5})`, 'Anton');
     // wifi with a slash
     for (let i = 0; i < 3; i++) { g.beginPath(); g.arc(0, 260, 40 + i * 40, -2.4, -.75); g.strokeStyle = 'rgba(255,255,255,.35)'; g.lineWidth = 12; g.stroke(); }
     circ(0, 260, 12, 'rgba(255,255,255,.35)'); line([[-110, 130], [110, 300]], 12, RED);
   } else {
-    text('Ate', 0, -380, 44, '#fff', 'Anton'); circ(0, -440 + 0, 0, '#fff');
-    if (sent) { g.fillStyle = '#1e5cff'; g.beginPath(); g.roundRect(-60, -200, 260, 120, 34); g.fill(); text('Kumusta ka?', 70, -165, 34, '#fff', 'Anton'); text('Miss na kita.', 70, -120, 34, '#fff', 'Anton'); text('Delivered', 120, -55, 24, 'rgba(255,255,255,.6)', 'Anton'); }
+    text(TX.who, 0, -380, 44, '#fff', 'Anton'); circ(0, -440 + 0, 0, '#fff');
+    if (sent) { g.fillStyle = '#1e5cff'; g.beginPath(); g.roundRect(-60, -200, 260, 120, 34); g.fill(); text(TX.m1, 70, -165, 34, '#fff', 'Anton'); text(TX.m2, 70, -120, 34, '#fff', 'Anton'); text('Delivered', 120, -55, 24, 'rgba(255,255,255,.6)', 'Anton'); }
     g.fillStyle = '#1a2236'; g.beginPath(); g.roundRect(-210, 340, 420, 80, 40); g.fill();
     text(typed + (Math.floor(t * 3) % 2 && !sent ? '|' : ''), -180, 380, 32, '#fff', 'Anton', 'left');
     circ(160, 380, 30, sent ? '#1e5cff' : '#2b3550'); text('➤', 162, 380, 30, '#fff');
@@ -641,8 +647,8 @@ S.lonely = (t, u) => {
   stick(CX, 1250, 280, { t, arms: 'hug', eyes: 'shut', col: 'rgba(238,236,228,.9)' });
   const th = wordT('l16', 'Hindi'), tp = wordT('l16', 'pag-iisa');
   reset();
-  if (t > th) { const k = back(seg(t, th, th + .2), 2); g.save(); g.translate(CX, 420); g.scale(k, k); text('GUTOM', 0, 0, 110, 'rgba(238,236,228,.6)', 'Anton'); line([[-190, 10], [190, -10]], 14, RED); g.restore(); }
-  if (t > tp) { const k = back(seg(t, tp, tp + .25), 2); g.save(); g.translate(CX, 640); g.scale(k, k); g.shadowColor = RED; g.shadowBlur = 50; text('PAG-IISA', 0, 0, 190, RED, 'Creepster', 'center', 12); g.restore(); if (t < tp + .2) glitch(t, .5); }
+  if (t > th) { const k = back(seg(t, th, th + .2), 2); g.save(); g.translate(CX, 420); g.scale(k, k); text(TX.no, 0, 0, 110, 'rgba(238,236,228,.6)', 'Anton'); line([[-190, 10], [190, -10]], 14, RED); g.restore(); }
+  if (t > tp) { const k = back(seg(t, tp, tp + .25), 2); g.save(); g.translate(CX, 640); g.scale(k, k); g.shadowColor = RED; g.shadowBlur = 50; text(TX.yes, 0, 0, TX.yesSize, RED, 'Creepster', 'center', 12); g.restore(); if (t < tp + .2) glitch(t, .5); }
 };
 // 18. year one: grass and deer
 S.y1 = (t, u) => {
@@ -694,8 +700,8 @@ S.twist = (t, u) => {
   fill('#000'); reset();
   const tp = wordT('l22', 'Pero');
   const a1 = ss(seg(t, LN.l22.t0, LN.l22.t0 + .3)), a2 = ss(seg(t, tp, tp + .3));
-  text('HINDI TAYO KAILANGAN', CX, 560, 92, `rgba(238,236,228,${a1 * (t > tp ? .45 : 1)})`, 'Anton'); text('NG MUNDO.', CX, 670, 92, `rgba(238,236,228,${a1 * (t > tp ? .45 : 1)})`, 'Anton');
-  if (a2 > 0) { g.save(); g.shadowColor = RED; g.shadowBlur = 40; text('PERO KAILANGAN NATIN', CX, 880, 92, `rgba(227,18,43,${a2})`, 'Anton'); text('ANG ISA’T ISA.', CX, 990, 110, `rgba(227,18,43,${a2})`, 'Anton'); g.restore(); }
+  text(TX.tw[0], CX, 560, 92, `rgba(238,236,228,${a1 * (t > tp ? .45 : 1)})`, 'Anton'); text(TX.tw[1], CX, 670, 92, `rgba(238,236,228,${a1 * (t > tp ? .45 : 1)})`, 'Anton');
+  if (a2 > 0) { g.save(); g.shadowColor = RED; g.shadowBlur = 40; text(TX.tw[2], CX, 880, 92, `rgba(227,18,43,${a2})`, 'Anton'); text(TX.tw[3], CX, 990, 110, `rgba(227,18,43,${a2})`, 'Anton'); g.restore(); }
   cam(CX, 760, 1);
   stick(CX - 70, 1300, 240, { t, face: false, col: 'rgba(238,236,228,.8)', arms: 'down' }); stick(CX + 70, 1300, 240 * a2 + .1, { t, face: false, col: `rgba(238,236,228,${.8 * a2})` });
 };
@@ -703,7 +709,7 @@ S.twist = (t, u) => {
 S.text = (t, u) => {
   fill('#04060c'); cam(CX, 760, lerp(1.05, 1, eo(seg(u, 0, .4))));
   glow(CX, 760, 700, '60,110,255', .22);
-  const msg = 'Kumusta ka? Miss na kita.', L = LN.l23, p = seg(t, L.t0, L.t1 - .3);
+  const msg = TX.msg, L = LN.l23, p = seg(t, L.t0, L.t1 - .3);
   phoneUI(CX, 820, .92, t, { mode: 'chat', typed: p < 1 ? msg.slice(0, Math.floor(p * msg.length)) : '', sent: p >= 1 ? 1 : 0 });
 };
 // 25. the comment question
@@ -712,7 +718,7 @@ S.cta = (t, u) => {
   const k = back(seg(u, 0, .25), 2);
   g.save(); g.translate(CX, 640); g.scale(k, k);
   g.fillStyle = '#fff'; g.beginPath(); g.roundRect(-420, -220, 840, 420, 50); g.fill(); g.beginPath(); g.moveTo(-260, 195); g.lineTo(-320, 300); g.lineTo(-150, 195); g.fill();
-  text('ANO’NG UNANG', 0, -90, 110, '#000', 'Anton'); text('GAGAWIN MO?', 0, 40, 130, RED, 'Anton');
+  text(TX.cta[0], 0, -90, 110, '#000', 'Anton'); text(TX.cta[1], 0, 40, 130, RED, 'Anton');
   g.restore();
   const b = Math.sin(t * 6) * 14; text('👇', CX, 1050 + b, 120, '#fff');
 };

@@ -246,7 +246,7 @@ drone(T('l20'), T('l22'), .18, f=(36.7, 55.0, 73.4), grit=.15)
 # 21-24. the last one who remembers; the twist; the message; the question
 melody(T('l21'), T('l23'), [69, 72, 76, 79, 77, 76, 72, 74], .4, .26)
 heartbeat(T('l22') + .1, .6); boom(wt('l22', 'Pero'), .6, 55); bell(wt('l22', 'Pero'), m2f(88), 2.5, .35)
-msg_n = len('Kumusta ka? Miss na kita.'); typing(T('l23'), LN['l23']['t1'] - .3, msg_n); swish(LN['l23']['t1'] - .3, .3); ding(LN['l23']['t1'] - .25, .5)
+msg_n = len('Kumusta ka? Miss na kita.' if LANG == 'tl' else 'Hey, how are you? I miss you.'); typing(T('l23'), LN['l23']['t1'] - .3, msg_n); swish(LN['l23']['t1'] - .3, .3); ding(LN['l23']['t1'] - .25, .5)
 pop(T('l24'), .4); ding(T('l24') + .2, .45)
 # loop: the crowd flickers back in -> frame 1
 heartbeat(T('tail') + .05, .7); riser(T('tail') + .45, .45, .4); murmur(T('tail') + .45, DUR, .35); stutter(T('tail') + .45, 3, .4)

@@ -1,14 +1,16 @@
 """Narrator with VoxCPM2 (offline, Apache-2.0): lines.json -> voices/<id>.wav + voices/timing.json, then timeline.json.
 Every line is cloned from one reference clip (voice-tests/18_Vox_deep_narrator.mp3) so the narrator stays the same person.
 Word timings come from faster-whisper on the generated audio (the script's own words are shown, timed by it).
-Run with the Lemo-Opuscar venv python (it has voxcpm + faster-whisper):  $LIB/.venv/bin/python tts_vox.py [tempo]
+Run with the Lemo-Opuscar venv python (it has voxcpm + faster-whisper):  $LIB/.venv/bin/python tts_vox.py [tl|en] [tempo]
   tempo (default auto): speed-up applied to every line (pitch kept) so the reel lands near TARGET seconds."""
 import os, sys, json, subprocess, numpy as np, soundfile as sf
-HERE = os.path.dirname(os.path.abspath(__file__)); V = os.path.join(HERE, 'voices'); os.makedirs(V, exist_ok=True)
+HERE = os.path.dirname(os.path.abspath(__file__))
+LANG = next((a for a in sys.argv[1:] if a in ('tl', 'en')), 'tl'); SUF = '' if LANG == 'tl' else '.' + LANG
+V = os.path.join(HERE, 'voices' if LANG == 'tl' else 'voices_' + LANG); os.makedirs(V, exist_ok=True)
 SR, TARGET, MAXP = 48000, 90.0, .3
 REF_MP3 = os.path.join(HERE, '..', 'voice-tests', '18_Vox_deep_narrator.mp3')
 REF_TEXT = "Nagising ka... at wala nang ibang tao sa mundo. Ang unang sisira sa'yo... hindi gutom."
-L = json.load(open(os.path.join(HERE, 'lines.json'), encoding='utf-8'))
+L = json.load(open(os.path.join(HERE, f'lines{SUF}.json'), encoding='utf-8'))
 RAW = os.path.join(V, 'raw'); os.makedirs(RAW, exist_ok=True)
 
 def load(p, sr=SR):
@@ -48,7 +50,8 @@ def squeeze(y):
     return np.concatenate(segs)
 sq = {l['id']: squeeze(load(os.path.join(RAW, l['id'] + '.wav'))) for l in L if 'text' in l}
 speech = sum(len(y) / SR for y in sq.values()) + sum(l.get('beat', 0) for l in L) + .18 * len(L)
-tempo = float(sys.argv[1]) if len(sys.argv) > 1 else min(1.3, max(1.0, speech / TARGET))
+nums = [a for a in sys.argv[1:] if a not in ('tl', 'en')]
+tempo = float(nums[0]) if nums else min(1.3, max(1.0, speech / TARGET))
 print('speech', round(speech, 1), 's  tempo', round(tempo, 3))
 for k, y in sq.items():
     tmp = os.path.join(V, k + '_tmp.wav'); sf.write(tmp, (y / (np.abs(y).max() + 1e-9) * .9).astype(np.float32), SR)
@@ -60,7 +63,7 @@ asr = WhisperModel('small', compute_type='int8'); T = {}
 for l in L:
     if 'text' not in l: continue
     p = os.path.join(V, l['id'] + '.wav'); y = load(p, 16000).astype(np.float32)
-    segs, _ = asr.transcribe(y, language='tl', word_timestamps=True)
+    segs, _ = asr.transcribe(y, language=LANG, word_timestamps=True)
     ww = [(w.start, w.end) for s in segs for w in s.words]
     shown = l['text'].split()
     if not ww: ww = [(0.05, len(y) / 16000 - .05)]
@@ -83,5 +86,5 @@ for l in L:
                **({'stages': l['stages']} if 'stages' in l else {}), **({'counter': l['counter']} if 'counter' in l else {}),
                'words': [[w, round(s - x['start'] + t, 3), round(e - x['start'] + t, 3)] for w, s, e in x['words']]})
     t += sp
-json.dump({'dur': round(t, 3), 'lines': tl}, open(os.path.join(HERE, 'timeline.json'), 'w'), ensure_ascii=False, indent=1)
+json.dump({'dur': round(t, 3), 'lines': tl}, open(os.path.join(HERE, f'timeline{SUF}.json'), 'w'), ensure_ascii=False, indent=1)
 print('timeline', round(t, 2), 's')
