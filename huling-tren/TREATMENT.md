@@ -10,3 +10,5 @@ Dark zombie-outbreak scenario reel, 1080×1920, 24 fps, about 1:28, Tagalog narr
 **Payoff (real science):** the zombie-ant fungus (Ophiocordyceps) growing out of an ant's head; rabies under the microscope (bullet-shaped viruses that shy from water, spread by a bite); the twist: what kills you isn't the zombie but the brain that says "hindi 'to totoo" (normalcy bias).
 **POV turn:** "Kaya ngayon, tumingin ka sa paligid mo. Nasaan ang pinakamalapit na pinto?" A door at the end of a dark hallway; the handle turns.
 **Comment + CTA + loop:** the frozen train shot with a magnifier (NASAAN? 0:??); "I-tag mo ang taong isasama mo sa zombie apocalypse" over two survivors back to back; back on the train his finger cracks, and the riser runs straight into frame 1's impact.
+
+**English version** (`sh build.sh en`, huling-tren_en.mp4, about 1:24): the same picture and sound, timed from lines.en.json; anchors.en.json maps every Tagalog cue word to its English word, so each hit, stamp, counter and stat card lands on the English line. The easter egg is at about 0:02 in both.
