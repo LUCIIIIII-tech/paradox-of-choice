@@ -1,0 +1,728 @@
+[
+ {
+  "id": "c01",
+  "shot": "wake",
+  "text": "Tomorrow morning, you wake up... and something is wrong.",
+  "gap": 0.1,
+  "key": [
+   "wrong."
+  ]
+ },
+ {
+  "id": "c02",
+  "shot": "wake",
+  "text": "You hear a voice. Then another. Then hundreds.",
+  "key": [
+   "voice.",
+   "hundreds."
+  ]
+ },
+ {
+  "id": "c02b",
+  "shot": "wake",
+  "text": "At first you think it's the neighbors. Then you hear your own name... in a voice that never spoke out loud.",
+  "key": [
+   "name..."
+  ]
+ },
+ {
+  "id": "c03",
+  "shot": "mom",
+  "fx": "thought",
+  "text": "I hope they're okay. They've seemed so tired lately.",
+  "key": []
+ },
+ {
+  "id": "c04",
+  "shot": "wake",
+  "text": "Those aren't voices. They're thoughts. And from now until midnight, you can hear what everyone is thinking.",
+  "key": [
+   "thoughts.",
+   "midnight,"
+  ]
+ },
+ {
+  "id": "c05",
+  "shot": "promise",
+  "text": "And before this day is over, you'll learn one secret about people that changes how you see yourself forever.",
+  "key": [
+   "secret",
+   "forever."
+  ]
+ },
+ {
+  "id": "c06",
+  "shot": "promise",
+  "text": "So play along. Every time I ask a question, answer it out loud before the timer runs out. Get it right, and give yourself a point.",
+  "key": [
+   "answer",
+   "point."
+  ]
+ },
+ {
+  "id": "title",
+  "shot": "title",
+  "beat": 3.2,
+  "gap": 0.2
+ },
+ {
+  "id": "h01",
+  "shot": "kitchen",
+  "clock": "7:00 AM",
+  "text": "Seven A.M. You walk into the kitchen. Your mom smiles and says good morning.",
+  "key": [
+   "Seven",
+   "smiles"
+  ]
+ },
+ {
+  "id": "h02",
+  "shot": "kitchen",
+  "fx": "thought",
+  "text": "Bills. Groceries. Did I take my medicine? Is that a new wrinkle?",
+  "key": []
+ },
+ {
+  "id": "h02b",
+  "shot": "kitchen",
+  "fx": "thought",
+  "text": "If I stay quiet, maybe nobody asks about my grades.",
+  "key": []
+ },
+ {
+  "id": "h02c",
+  "shot": "kitchen",
+  "text": "Your little brother. Sitting right there, saying nothing... and thinking everything.",
+  "key": [
+   "brother.",
+   "everything."
+  ]
+ },
+ {
+  "id": "h03",
+  "shot": "kitchen",
+  "text": "Her head is so loud. And it makes you wonder...",
+  "key": [
+   "loud."
+  ]
+ },
+ {
+  "id": "q1",
+  "shot": "quiz",
+  "text": "Question one. How many thoughts does the average person have in a day? Six hundred, six thousand, or sixty thousand?",
+  "q": [
+   "600",
+   "6,000",
+   "60,000"
+  ],
+  "ans": 1,
+  "key": [
+   "thoughts",
+   "day?"
+  ]
+ },
+ {
+  "id": "q1c",
+  "shot": "quiz",
+  "beat": 5.0,
+  "count": 5
+ },
+ {
+  "id": "q1a",
+  "shot": "quiz",
+  "text": "About six thousand. In 2020, scientists tracked brain activity and counted around six thousand two hundred new thoughts a day.",
+  "reveal": 1,
+  "key": [
+   "six",
+   "thousand."
+  ],
+  "stat": [
+   "NEW THOUGHTS PER DAY",
+   "~6,200",
+   "Tseng & Poppenk, 2020"
+  ]
+ },
+ {
+  "id": "q1b",
+  "shot": "quiz",
+  "text": "That's one new thought every ten seconds you're awake. And you're about to hear all of them.",
+  "reveal": 1,
+  "key": [
+   "ten",
+   "all"
+  ]
+ },
+ {
+  "id": "t01",
+  "shot": "train",
+  "clock": "8:00 AM",
+  "text": "Eight A.M. The train is packed. And the moment the doors close...",
+  "key": [
+   "Eight",
+   "packed."
+  ]
+ },
+ {
+  "id": "t02",
+  "shot": "noise",
+  "fx": "thought",
+  "text": "I'm late. I'm so late. Did I lock the door? Rent is due Friday. I hate this song. Don't fall asleep.",
+  "key": []
+ },
+ {
+  "id": "t03",
+  "shot": "noise",
+  "text": "A wall of noise. Hundreds of thoughts at once. But slowly, you notice something strange.",
+  "key": [
+   "noise.",
+   "strange."
+  ]
+ },
+ {
+  "id": "wb1",
+  "shot": "bear",
+  "text": "But first, a challenge. For the next five seconds, do not think about a white bear. Think about anything else. Just not a white bear.",
+  "key": [
+   "not",
+   "bear."
+  ]
+ },
+ {
+  "id": "wb1c",
+  "shot": "bear",
+  "beat": 5.0,
+  "count": 5
+ },
+ {
+  "id": "wb2",
+  "shot": "bear",
+  "text": "You thought about it, didn't you? Trying not to think about something makes your brain check for it, over and over. Psychologist Daniel Wegner proved it with this exact test.",
+  "key": [
+   "didn't",
+   "over"
+  ],
+  "stat": [
+   "THE WHITE BEAR PROBLEM",
+   "IT COMES BACK",
+   "Wegner et al., 1987"
+  ]
+ },
+ {
+  "id": "wb3",
+  "shot": "bear",
+  "text": "That's why the thoughts you push away keep coming back. Remember that. It matters later.",
+  "key": [
+   "push",
+   "later."
+  ]
+ },
+ {
+  "id": "q2",
+  "shot": "quiz",
+  "text": "Question two. What is the person next to you most likely thinking about? You, themselves, or their phone?",
+  "q": [
+   "YOU",
+   "THEMSELVES",
+   "THEIR PHONE"
+  ],
+  "ans": 1,
+  "key": [
+   "next",
+   "most"
+  ]
+ },
+ {
+  "id": "q2c",
+  "shot": "quiz",
+  "beat": 5.0,
+  "count": 5
+ },
+ {
+  "id": "q2a",
+  "shot": "quiz",
+  "text": "Themselves. Almost nobody on this train is thinking about you. They're replaying conversations, worrying about money, planning lunch.",
+  "reveal": 1,
+  "key": [
+   "Themselves.",
+   "nobody"
+  ]
+ },
+ {
+  "id": "t03b",
+  "shot": "train",
+  "text": "Almost. Because one thought, out of hundreds, is about you.",
+  "key": [
+   "Almost.",
+   "you."
+  ]
+ },
+ {
+  "id": "t03c",
+  "shot": "train",
+  "fx": "thought",
+  "text": "Nice shoes.",
+  "key": []
+ },
+ {
+  "id": "t03d",
+  "shot": "train",
+  "text": "A compliment. They'll never say it out loud... but they thought it. Most of the nice things people think about you, you never hear.",
+  "key": [
+   "compliment.",
+   "never"
+  ]
+ },
+ {
+  "id": "t04",
+  "shot": "drift",
+  "text": "And half the time, they aren't even thinking about where they are. Harvard researchers found that our minds wander about forty-seven percent of our waking hours.",
+  "key": [
+   "wander",
+   "forty-seven"
+  ],
+  "stat": [
+   "MIND-WANDERING",
+   "47% OF THE TIME",
+   "Killingsworth & Gilbert, 2010"
+  ]
+ },
+ {
+  "id": "t05",
+  "shot": "drift",
+  "text": "Which means right now, there's almost a fifty-fifty chance your mind just drifted somewhere else. Still with me? Good.",
+  "key": [
+   "fifty-fifty",
+   "Good."
+  ]
+ },
+ {
+  "id": "s01",
+  "shot": "stain",
+  "clock": "9:00 AM",
+  "text": "Nine A.M. You walk into work... and spill coffee all over your shirt.",
+  "key": [
+   "Nine",
+   "coffee"
+  ]
+ },
+ {
+  "id": "s02",
+  "shot": "stain",
+  "text": "Your heart drops. Everyone is going to see it. Everyone is going to judge you.",
+  "key": [
+   "drops.",
+   "judge"
+  ]
+ },
+ {
+  "id": "s03",
+  "shot": "office",
+  "fx": "thought",
+  "text": "Meeting at ten. My back hurts. What should I eat? I hope nobody noticed my haircut.",
+  "key": []
+ },
+ {
+  "id": "s04",
+  "shot": "office",
+  "text": "Nobody noticed. Not one person.",
+  "key": [
+   "Nobody"
+  ]
+ },
+ {
+  "id": "s04b",
+  "shot": "office",
+  "fx": "thought",
+  "text": "I hope nobody figures out I have no idea what I'm doing.",
+  "key": []
+ },
+ {
+  "id": "s04c",
+  "shot": "office",
+  "text": "That's your boss. The most confident person in the building... faking it, just like everyone else.",
+  "key": [
+   "boss.",
+   "faking"
+  ]
+ },
+ {
+  "id": "q3",
+  "shot": "quiz",
+  "text": "Question three. In a famous experiment, students wore an embarrassing T-shirt into a room full of people. They guessed half the room would notice. How many actually did?",
+  "q": [
+   "~75%",
+   "~50%",
+   "~25%"
+  ],
+  "ans": 2,
+  "key": [
+   "embarrassing",
+   "actually"
+  ]
+ },
+ {
+  "id": "q3c",
+  "shot": "quiz",
+  "beat": 5.0,
+  "count": 5
+ },
+ {
+  "id": "q3a",
+  "shot": "quiz",
+  "text": "About a quarter. It's called the spotlight effect. We feel like a spotlight follows us everywhere... but everyone else is standing in their own.",
+  "reveal": 2,
+  "key": [
+   "quarter.",
+   "spotlight"
+  ],
+  "stat": [
+   "THE SPOTLIGHT EFFECT",
+   "~25% NOTICED",
+   "Gilovich et al., 2000"
+  ]
+ },
+ {
+  "id": "l01",
+  "shot": "lunch",
+  "clock": "12:00 PM",
+  "text": "Noon. Lunch with your best friend. You're telling a story, and halfway through, you panic. Am I boring them?",
+  "key": [
+   "Noon.",
+   "boring"
+  ]
+ },
+ {
+  "id": "l02",
+  "shot": "lunch",
+  "fx": "thought",
+  "text": "I love talking to them. I hope they don't think I'm boring.",
+  "key": []
+ },
+ {
+  "id": "l03",
+  "shot": "lunch",
+  "text": "Wait. They're worried about the exact same thing.",
+  "key": [
+   "same"
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "gap",
+  "text": "After a conversation, people consistently underestimate how much the other person liked them. Psychologists call it the liking gap.",
+  "key": [
+   "underestimate",
+   "liking"
+  ],
+  "stat": [
+   "THE LIKING GAP",
+   "THEY LIKE YOU MORE",
+   "Boothby et al., 2018"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "gap",
+  "text": "The people around you probably like you more than you think.",
+  "key": [
+   "more"
+  ]
+ },
+ {
+  "id": "r01",
+  "shot": "crush",
+  "clock": "3:00 PM",
+  "text": "Three P.M. And there they are. The person you like. Walking straight toward you.",
+  "key": [
+   "Three",
+   "toward"
+  ]
+ },
+ {
+  "id": "q4",
+  "shot": "quiz",
+  "text": "Question four. What are they thinking right now? They like you, they don't, or they're nervous?",
+  "q": [
+   "THEY LIKE YOU",
+   "THEY DON'T",
+   "THEY'RE NERVOUS"
+  ],
+  "ans": 2,
+  "key": [
+   "thinking"
+  ]
+ },
+ {
+  "id": "q4c",
+  "shot": "quiz",
+  "beat": 5.0,
+  "count": 5
+ },
+ {
+  "id": "r02",
+  "shot": "crush",
+  "fx": "thought",
+  "text": "Okay, be cool. Don't say anything weird. Is my hair okay?",
+  "key": []
+ },
+ {
+  "id": "r03",
+  "shot": "crush",
+  "text": "They're nervous. Just like you. We think our nerves are written all over our face, but other people can barely see them. It's called the illusion of transparency.",
+  "key": [
+   "nervous.",
+   "transparency."
+  ],
+  "stat": [
+   "ILLUSION OF TRANSPARENCY",
+   "YOUR NERVES DON'T SHOW",
+   "Gilovich et al., 1998"
+  ]
+ },
+ {
+  "id": "r04",
+  "shot": "crush",
+  "text": "So you say hi. They say hi. You both laugh at nothing. And for once, it's not awkward... because now you know.",
+  "key": [
+   "hi.",
+   "know."
+  ]
+ },
+ {
+  "id": "d01",
+  "shot": "platform",
+  "clock": "6:00 PM",
+  "text": "Six P.M. The train platform, going home. And then you hear a thought that makes your blood run cold.",
+  "key": [
+   "Six",
+   "cold."
+  ]
+ },
+ {
+  "id": "d02",
+  "shot": "platform",
+  "fx": "thought",
+  "text": "What if I pushed him?",
+  "key": [
+   "pushed"
+  ]
+ },
+ {
+  "id": "d03",
+  "shot": "platform",
+  "text": "It's the man standing right behind you. Your heart stops. You turn around...",
+  "key": [
+   "behind",
+   "stops."
+  ]
+ },
+ {
+  "id": "d04",
+  "shot": "platform",
+  "text": "and he's stepping back from the edge, pale, horrified by his own mind.",
+  "key": [
+   "horrified"
+  ]
+ },
+ {
+  "id": "d05",
+  "shot": "platform",
+  "fx": "thought",
+  "text": "Why would I think that? I would never.",
+  "key": [
+   "never."
+  ]
+ },
+ {
+  "id": "d06",
+  "shot": "intrusive",
+  "text": "What you just heard is called an intrusive thought. A sudden, dark, unwanted thought that pops up out of nowhere.",
+  "key": [
+   "intrusive",
+   "unwanted"
+  ],
+  "stat": [
+   "INTRUSIVE THOUGHTS",
+   "94% OF PEOPLE",
+   "Radomsky et al., 2014"
+  ]
+ },
+ {
+  "id": "d07",
+  "shot": "intrusive",
+  "text": "In a study across thirteen countries, ninety-four percent of people had them. Having one doesn't make you dangerous. Being disturbed by it is your mind proving you're not.",
+  "key": [
+   "ninety-four",
+   "proving"
+  ]
+ },
+ {
+  "id": "q5",
+  "shot": "quiz",
+  "text": "Question five. Have you ever had a random dark thought you'd never act on? Yes or no? Tell me in the comments.",
+  "q": [
+   "YES",
+   "NO"
+  ],
+  "ans": -1,
+  "key": [
+   "dark",
+   "comments."
+  ]
+ },
+ {
+  "id": "q5c",
+  "shot": "quiz",
+  "beat": 3.0,
+  "count": 3
+ },
+ {
+  "id": "n01",
+  "shot": "night",
+  "clock": "10:00 PM",
+  "text": "Ten P.M. You're finally home, alone. The noise is gone. And for the first time all day, you hear your own mind.",
+  "key": [
+   "Ten",
+   "own"
+  ]
+ },
+ {
+  "id": "n01b",
+  "shot": "scroll",
+  "text": "You open your phone. Perfect photos. Perfect lives. But today, you heard what's behind them.",
+  "key": [
+   "Perfect",
+   "behind"
+  ]
+ },
+ {
+  "id": "n01c",
+  "shot": "scroll",
+  "text": "We compare our messy inside to everyone else's highlight reel. And we lose every single time.",
+  "key": [
+   "inside",
+   "highlight"
+  ]
+ },
+ {
+  "id": "n02",
+  "shot": "inner",
+  "text": "But here's something strange. Not everyone has a voice in their head. Some people think in pictures and feelings, with almost no inner voice at all.",
+  "key": [
+   "voice",
+   "pictures"
+  ],
+  "stat": [
+   "INNER VOICE",
+   "NOT EVERYONE HAS ONE",
+   "Nedergaard & Lupyan, 2024"
+  ]
+ },
+ {
+  "id": "q6",
+  "shot": "quiz",
+  "text": "Question six. When you read this sentence, do you hear it in your head? Yes, or no?",
+  "q": [
+   "YES",
+   "NO"
+  ],
+  "ans": -1,
+  "key": [
+   "hear"
+  ]
+ },
+ {
+  "id": "q6c",
+  "shot": "quiz",
+  "beat": 4.0,
+  "count": 4
+ },
+ {
+  "id": "n03",
+  "shot": "breathe",
+  "text": "And by the way... you're breathing manually now. You're welcome.",
+  "key": [
+   "manually"
+  ]
+ },
+ {
+  "id": "m01",
+  "shot": "midnight",
+  "clock": "11:59 PM",
+  "text": "Eleven fifty-nine. The voices start to fade. One last thought reaches you, from every direction at once.",
+  "key": [
+   "fade.",
+   "last"
+  ]
+ },
+ {
+  "id": "m02",
+  "shot": "midnight",
+  "fx": "thought",
+  "text": "I hope they like me. I hope I'm enough. I hope nobody sees that I'm scared.",
+  "key": [
+   "enough.",
+   "scared."
+  ]
+ },
+ {
+  "id": "m03",
+  "shot": "midnight",
+  "text": "That's the secret. Everyone is thinking it.",
+  "key": [
+   "secret.",
+   "Everyone"
+  ]
+ },
+ {
+  "id": "m03b",
+  "shot": "montage",
+  "text": "Your mom, worrying about you. Your brother, hiding from his grades. Your boss, faking it. Your crush, terrified of saying something weird.",
+  "key": [
+   "mom,",
+   "crush,"
+  ]
+ },
+ {
+  "id": "m04",
+  "shot": "secret",
+  "text": "All day, you were scared of being judged. But everyone was too busy worrying about being judged... to judge you.",
+  "key": [
+   "judged.",
+   "judge"
+  ]
+ },
+ {
+  "id": "m05",
+  "shot": "secret",
+  "text": "Nobody is watching you as closely as you think. So say the thing. Wear the shirt. Talk to the person.",
+  "key": [
+   "Nobody",
+   "Talk"
+  ]
+ },
+ {
+  "id": "m06",
+  "shot": "secret",
+  "clock": "12:00 AM",
+  "text": "Midnight. The voices are gone. But now you know what they're all thinking.",
+  "key": [
+   "Midnight.",
+   "know"
+  ]
+ },
+ {
+  "id": "o01",
+  "shot": "outro",
+  "text": "Comment your score out of four, and your answers to the last two questions. And whose thoughts would you want to hear first? If you liked this, watch this next... what happens to your brain when you never sleep.",
+  "key": [
+   "score",
+   "next..."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "outro",
+  "beat": 12.0
+ }
+]
