@@ -60,6 +60,15 @@
   ]
  },
  {
+  "id": "c07",
+  "shot": "promise",
+  "text": "Pero mag-ingat ka. Sa araw na 'to, may isang isip na sana hindi mo na lang narinig.",
+  "key": [
+   "mag-ingat",
+   "sana"
+  ]
+ },
+ {
   "id": "title",
   "shot": "title",
   "beat": 3.2,
@@ -347,6 +356,22 @@
   ]
  },
  {
+  "id": "s05",
+  "shot": "office",
+  "text": "At 'yung katrabaho mong hindi ka binabati? Hindi ka niya iniiwasan. Tuwing umaga, pinapraktis niya ang sasabihin niya sa'yo... tapos naduduwag.",
+  "key": [
+   "iniiwasan.",
+   "naduduwag."
+  ]
+ },
+ {
+  "id": "s05b",
+  "shot": "office",
+  "fx": "thought",
+  "text": "Batiin mo na. Hi lang. Okay... bukas na lang.",
+  "key": []
+ },
+ {
   "id": "q3",
   "shot": "quiz",
   "q": [
@@ -408,6 +433,15 @@
   ]
  },
  {
+  "id": "l03b",
+  "shot": "lunch",
+  "text": "Dalawang tao sa isang mesa, parehong sigurado na sila ang boring.",
+  "key": [
+   "parehong",
+   "boring."
+  ]
+ },
+ {
   "id": "l04",
   "shot": "gap",
   "stat": [
@@ -427,6 +461,31 @@
   "text": "Malamang, mas gusto ka ng mga tao sa paligid mo kaysa sa inaakala mo.",
   "key": [
    "mas"
+  ]
+ },
+ {
+  "id": "x01",
+  "shot": "text",
+  "clock": "1:30 PM",
+  "text": "Ala una y medya. Nag-text ka sa kaibigan mo: thank you sa lunch! Ang reply niya... ok. Ok lang. Galit ba siya sa'yo?",
+  "key": [
+   "Galit"
+  ]
+ },
+ {
+  "id": "x02",
+  "shot": "text",
+  "fx": "thought",
+  "text": "Papasok na sa meeting. Di makapag-type. Love ko 'yon, ah.",
+  "key": []
+ },
+ {
+  "id": "x03",
+  "shot": "text",
+  "text": "Kadalasan, ang maikling reply ay galing sa taong busy, hindi sa taong galit. Pinupuno natin ang katahimikan ng pinakamasamang kuwentong maiisip natin.",
+  "key": [
+   "busy,",
+   "pinakamasamang"
   ]
  },
  {
@@ -606,6 +665,21 @@
   ]
  },
  {
+  "id": "n01d",
+  "shot": "scroll",
+  "fx": "thought",
+  "text": "Bakit parang ayos na ang buhay ng lahat, maliban sa'kin?",
+  "key": []
+ },
+ {
+  "id": "n01e",
+  "shot": "scroll",
+  "text": "Pero narinig mo sila ngayong araw. Walang may alam ng lahat. Kahit isa.",
+  "key": [
+   "Walang"
+  ]
+ },
+ {
   "id": "n02",
   "shot": "inner",
   "stat": [
@@ -700,6 +774,15 @@
   "key": [
    "Walang",
    "Kausapin"
+  ]
+ },
+ {
+  "id": "m05b",
+  "shot": "secret",
+  "text": "At ang taong kinakatakutan mong kausapin... malamang, medyo takot din sa'yo.",
+  "key": [
+   "kinakatakutan",
+   "takot"
   ]
  },
  {

@@ -506,6 +506,22 @@ TGN = wt('m06', 'gone'); HUSH.append((TGN - .1, TGN + 1.4)); shimmer(wt('m06', '
 # --- 14. the end: your score, your answers, what to watch next
 impact(T('o01'), .3, .5); shimmer(wt('o01', 'score'), 1.4, .12); whoosh(wt('o01', 'next'), .5, .14, 400, 6000, .5, -.5)
 
+# --- the additions: a warning in the promise; the shy coworker; two boring ones; the text; your own quiet thought; scared of you too
+if 'c07' in LN:
+    reverse_swell(T('c07'), .8, .3); HUSH.append((T('c07') + .05, E('c07') + .3)); TT7 = wt('c07', 'thought'); sub_drop(TT7, .45, 1.6); heartbeat(TT7 + .2, .45); heartbeat(TT7 + 1.0, .4)
+    whisper_at('d02', wt('c07', 'never'), 0, .12, .6, .9, False, 1.4)
+if 's05b' in LN: puff(T('s05b'), .06, .2); shimmer(wt('s05', 'nerve'), 1.2, .08)
+if 'x01' in LN:
+    X0, X1 = shot_ranges('text')[0]; office_bed(X0 - .1, X1 + .1, .08); pad(X0, X1 + .3, [48, 55, 62], .08)
+    for k in range(9): key_click(wt('x01', 'friend') - .4 + k * .07, .12)
+    whoosh(wt('x01', 'friend') + .3, .3, .1, 1500, 9000, .2, .6); phone_buzz(wt('x01', 'ok') - .15, .35)
+    TMD = wt('x01', 'mad'); reverse_swell(TMD, .6, .25); heartbeat(TMD + .2, .45); crowd_whispers(TMD, T('x02') - .2, 6, .05, .6)
+    puff(T('x02'), .06, -.3)
+    for k in range(int(SPAN('x02') / .3) + 2): step(T('x02') + k * .3, .14, (-1) ** k * .1, 0, 0)    # the friend hurrying
+    shimmer(wt('x03', 'busy'), 1.4, .14); sub_drop(wt('x03', 'worst'), .35, 1.4)
+if 'n01d' in LN: puff(T('n01d'), .06, -.3); shimmer(wt('n01e', 'Nobody'), 1.6, .14)
+if 'm05b' in LN: shimmer(wt('m05b', 'scared') + .2, 2.0, .14)
+
 # ============ mix ============
 def make_ir(dur, decay, damp, seed):
     r = np.random.default_rng(seed); n = int(dur * SR); s = tt(n); x = r.standard_normal(n) * np.exp(-s * 6.9 / decay)

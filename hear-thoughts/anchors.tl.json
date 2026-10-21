@@ -86,5 +86,16 @@
 "o01:score": "score",
 "o01:answers": "sagot",
 "o01:whose": "kaninong",
-"o01:next": "panoorin"
+"o01:next": "panoorin",
+"c07:thought": "isip",
+"x01:friend": "kaibigan",
+"x01:reply": "reply",
+"x01:ok": "ok",
+"x01:mad": "Galit",
+"x03:busy": "busy",
+"x03:worst": "pinakamasamang",
+"n01e:Nobody": "Walang",
+"c07:never": "narinig",
+"m05b:scared": "kinakatakutan",
+"s05:nerve": "naduduwag"
 }

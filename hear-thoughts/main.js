@@ -462,13 +462,13 @@ const TX = {
         boss: 'THE BOSS', you: 'YOU', friend: 'BEST FRIEND', crush: 'YOUR CRUSH', bro: 'LITTLE BROTHER', mom: 'MOM', think: 'WHAT YOU THINK', truth: 'THE TRUTH', likeQ: 'HOW MUCH THEY LIKE YOU',
         inside: 'YOUR INSIDE', reel: 'THEIR HIGHLIGHT REEL', voice: 'INNER VOICE', pics: 'PICTURES & FEELINGS', bin: 'BREATHE IN', bout: 'BREATHE OUT', welcome: "YOU'RE WELCOME",
         say: ['SAY THE THING', 'WEAR THE SHIRT', 'TALK TO THE PERSON'], mon: ['MOM', 'BROTHER', 'BOSS', 'CRUSH'], next: 'WATCH NEXT', sub: 'SUBSCRIBE', end: ['YOUR SCORE', '? / 4'],
-        rem: 'REMEMBER THIS', feel: 'HOW NERVOUS YOU FEEL', look: 'HOW NERVOUS YOU LOOK', station: 'CENTRAL', whose: 'whose thoughts would you hear first?', innerWords: 'okay, first I need to... wait, did I...', ans: 'ANSWER', nerv: "THEY'RE NERVOUS", nobody: 'NOBODY IS WATCHING', countries: '13 COUNTRIES', hi: 'HI!', cw: 'comments', next2: 'WHAT HAPPENS TO YOUR BRAIN', next3: 'WHEN YOU NEVER SLEEP' },
+        chat1: 'thanks for lunch!!', chat2: 'ok.', busy: 'BUSY, NOT ANGRY', rem: 'REMEMBER THIS', feel: 'HOW NERVOUS YOU FEEL', look: 'HOW NERVOUS YOU LOOK', station: 'CENTRAL', whose: 'whose thoughts would you hear first?', innerWords: 'okay, first I need to... wait, did I...', ans: 'ANSWER', nerv: "THEY'RE NERVOUS", nobody: 'NOBODY IS WATCHING', countries: '13 COUNTRIES', hi: 'HI!', cw: 'comments', next2: 'WHAT HAPPENS TO YOUR BRAIN', next3: 'WHEN YOU NEVER SLEEP' },
   tl: { t1: 'PAANO KUNG MARIRINIG MO', t2: 'ANG ISIP NG LAHAT?', q: 'TANONG', comment: 'I-COMMENT ANG SAGOT MO', plus: '+1 PUNTOS', score: 'SCORE MO', play: 'SUMABAY KA', aloud: 'SUMAGOT NANG MALAKAS',
         name: '[ PANGALAN MO ]', until: 'HANGGANG HATINGGABI', secret: 'ANG SIKRETO', bear: ["'WAG MONG ISIPIN", 'ANG PUTING OSO'], here: 'NANDITO', away: 'LUMILIPAD', noticed: 'NAKAPANSIN',
         boss: 'ANG BOSS', you: 'IKAW', friend: 'BEST FRIEND', crush: 'CRUSH MO', bro: 'KAPATID', mom: 'NANAY', think: 'AKALA MO', truth: 'ANG TOTOO', likeQ: 'GAANO KA NILA KAGUSTO',
         inside: 'ANG LOOB MO', reel: 'HIGHLIGHT REEL NILA', voice: 'BOSES SA ISIP', pics: 'LARAWAN AT PAKIRAMDAM', bin: 'HUMINGA', bout: 'IBUGA', welcome: 'WALANG ANUMAN',
         say: ['SABIHIN MO NA', 'ISUOT MO NA', 'KAUSAPIN MO NA'], mon: ['NANAY', 'KAPATID', 'BOSS', 'CRUSH'], next: 'PANOORIN SUNOD', sub: 'MAG-SUBSCRIBE', end: ['SCORE MO', '? / 4'],
-        rem: 'TANDAAN MO ITO', feel: 'GAANO KA KINAKABAHAN', look: 'GAANO KA HALATA', station: 'CENTRAL', whose: 'kaninong isip ang gusto mong unang marinig?', innerWords: 'okay, una kailangan ko... teka, nai-...',
+        chat1: 'thank you sa lunch!!', chat2: 'ok.', busy: 'BUSY, HINDI GALIT', rem: 'TANDAAN MO ITO', feel: 'GAANO KA KINAKABAHAN', look: 'GAANO KA HALATA', station: 'CENTRAL', whose: 'kaninong isip ang gusto mong unang marinig?', innerWords: 'okay, una kailangan ko... teka, nai-...',
         ans: 'SAGOT', nerv: 'KINAKABAHAN SIYA', nobody: 'WALANG NAKATINGIN', countries: '13 BANSA', hi: 'HI!', cw: 'comments', next2: 'ANO ANG NANGYAYARI SA UTAK', next3: 'KAPAG HINDI KA NATUTULOG' },
 }[LANG] || {};
 const QT = {
@@ -489,6 +489,7 @@ const MOMF = { en: ['work at nine', 'is he eating?', 'electric bill', 'dentist?'
   tl: ['trabaho alas nuwebe', 'kumakain ba siya?', 'bayad sa kuryente', 'dentista?', 'pagod na ako', 'tawagan si lola', 'bigas, itlog, sabon', 'mabuti ba akong nanay?', 'sakit ng tuhod ko', 'pamasahe'] }[LANG] || [];
 const KIDF = { en: ['math test...', "don't ask", "she'll find out", "I'm so dumb", 'just eat', 'two more days', 'hide the paper', 'act normal'],
   tl: ['math test...', "'wag magtanong", 'malalaman niya', 'ang hina ko', 'kain lang', 'dalawang araw pa', 'itago ang papel', 'umarte nang normal'] }[LANG] || [];
+const WORRY = { en: ['are they mad?', 'what did I do?', 'was I annoying?', 'should I say sorry?'], tl: ['galit ba siya?', "ano'ng ginawa ko?", 'nakakainis ba ako?', 'mag-sorry ba ako?'] }[LANG] || [];
 const COMPL = { en: ['cool jacket', 'nice smile', 'she seems kind', 'great laugh', 'love that hair', 'good vibes', 'he looks smart', 'nice voice', 'so stylish', 'cute bag'],
   tl: ['astig ng jacket', 'ganda ng ngiti', 'mukhang mabait', 'cute tumawa', 'ganda ng buhok', 'good vibes', 'mukhang matalino', 'ganda ng boses', 'ang porma', 'cute ng bag'] }[LANG] || [];
 const ECHO = { en: ['I hope they like me', "I hope I'm enough", "I'm scared", 'please like me', 'am I enough?', "don't see me shake"],
@@ -829,11 +830,15 @@ S.promise = (t, u) => {
     reset(); pill(TX.secret, CX, 690, 44, GOLD, C.gold, back(seg(t, tse, tse + .35), 1.7) * (1 - ss(seg(t, t6, t6 + .4))));
   }
   // play along: the ring timer and +1 point
-  if (t > t6) {
-    reset(); const pk = back(seg(t, t6 + .1, t6 + .45), 1.6); pill(TX.play, CX, 220, 70, GOLD, C.gold, pk);
-    const rk = back(seg(t, tti - .3, tti + .1), 1.7); if (rk > 0) { const p = clamp((t - tti) / 3.5); g.save(); g.translate(CX - 240, 560); g.scale(rk, rk); circ(0, 0, 96, 'rgba(8,10,22,.88)'); circ(0, 0, 90, 'rgba(255,255,255,.1)', 12); g.beginPath(); g.arc(0, 0, 90, -Math.PI / 2, -Math.PI / 2 + TAU * (1 - p)); g.strokeStyle = AMB; g.lineWidth = 12; g.lineCap = 'round'; g.stroke(); text(String(Math.max(1, 5 - Math.floor(p * 5))), 0, 6, 110, '#fff', 'Anton'); g.restore(); }
-    const ok = back(seg(t, tpo - .2, tpo + .2), 1.8); if (ok > 0) { g.save(); g.translate(CX + 240, 560); g.scale(ok, ok); glass(-190, -96, 380, 192, 40, GRN, 5, `rgba(${C.grn},.9)`); g.save(); g.shadowColor = `rgba(${C.grn},.9)`; g.shadowBlur = 26; text(TX.plus, 0, 6, 76, '#c4ffdc', 'Anton'); g.restore(); g.restore(); }
+  const c7 = LN.c07, out7 = c7 ? 1 - ss(seg(t, c7.t0, c7.t0 + .4)) : 1;
+  if (t > t6 && out7 > 0) {
+    reset(); const pk = back(seg(t, t6 + .1, t6 + .45), 1.6) * out7; pill(TX.play, CX, 220, 70, GOLD, C.gold, pk);
+    const rk = back(seg(t, tti - .3, tti + .1), 1.7) * out7; if (rk > 0) { const p = clamp((t - tti) / 3.5); g.save(); g.translate(CX - 240, 560); g.scale(rk, rk); circ(0, 0, 96, 'rgba(8,10,22,.88)'); circ(0, 0, 90, 'rgba(255,255,255,.1)', 12); g.beginPath(); g.arc(0, 0, 90, -Math.PI / 2, -Math.PI / 2 + TAU * (1 - p)); g.strokeStyle = AMB; g.lineWidth = 12; g.lineCap = 'round'; g.stroke(); text(String(Math.max(1, 5 - Math.floor(p * 5))), 0, 6, 110, '#fff', 'Anton'); g.restore(); }
+    const ok = back(seg(t, tpo - .2, tpo + .2), 1.8) * out7; if (ok > 0) { g.save(); g.translate(CX + 240, 560); g.scale(ok, ok); glass(-190, -96, 380, 192, 40, GRN, 5, `rgba(${C.grn},.9)`); g.save(); g.shadowColor = `rgba(${C.grn},.9)`; g.shadowBlur = 26; text(TX.plus, 0, 6, 76, '#c4ffdc', 'Anton'); g.restore(); g.restore(); }
   }
+  // ...but one thought you'll wish you never heard
+  if (c7 && t > c7.t0 - .1) { reset(); const dk = ss(seg(t, c7.t0, c7.t0 + .8)); g.fillStyle = `rgba(28,0,10,${.5 * dk})`; g.fillRect(0, 0, W, H);
+    const tt7 = wordT('c07', 'thought'), k = back(seg(t, tt7 - .3, tt7 + .1), 1.5); bubble(CX, 430, ['. . .'], 1, { size: 90, col: C.red, k, seed: 9, glowA: .6 + .4 * Math.sin(t * 6), ink: '#ff9aa6' }); }
 };
 // 4. the title, inside a thought
 S.title = (t, u) => {
@@ -1086,19 +1091,20 @@ S.stain = (t, u) => {
 const OFF = [[560, 'sit', TOPS[3], SKINS[2], HAIRS[0], 0], [880, 'sit', TOPS[4], SKINS[0], HAIRS[1], 1], [1200, 'sit', TOPS[2], SKINS[3], HAIRS[2], 1], [1420, 'stand', TOPS[1], SKINS[1], HAIRS[1], 0]];
 S.office = (t, u) => {
   const a = LN.s03, b = LN.s04, bb = LN.s04b, c = LN.s04c, tfa = wordT('s04c', 'faking');
-  const F = [[900, 540, 1.0], [400, 520, 1.25], [1640, 450, 1.45], [1600, 520, 1.15]], fi = t < b.t0 ? 0 : t < bb.t0 ? 1 : t < c.t0 ? 2 : 3, ts_ = [a.t0, b.t0, bb.t0, c.t0][fi], fp = ss(seg(t, ts_, ts_ + 1)), A = F[Math.max(0, fi - 1)], B = F[fi];
+  const s5 = LN.s05 || { t0: 1e9 }, F = [[900, 540, 1.0], [400, 520, 1.25], [1640, 450, 1.45], [1600, 520, 1.15], [1120, 450, 1.25]], fi = t < b.t0 ? 0 : t < bb.t0 ? 1 : t < c.t0 ? 2 : t < s5.t0 ? 3 : 4, ts_ = [a.t0, b.t0, bb.t0, c.t0, s5.t0][fi], fp = ss(seg(t, ts_, ts_ + 1)), A = F[Math.max(0, fi - 1)], B = F[fi];
   cam(lerp(A[0], B[0], fi ? fp : 1), lerp(A[1], B[1], fi ? fp : 1), lerp(A[2], B[2], fi ? fp : 1) * (fi === 0 ? lerp(1.05, 1, eo(seg(t, a.t0, a.t0 + 1.5))) : 1));
   const post = officeSet(t);
   person(1760, 920, 560, { t, outfit: 'shirt', hood: BOSSC, legs: SUIT, skin: SKINS[0], hair: HAIRS[3], arms: t > bb.t0 ? 'rub' : 'down', eyes: t > bb.t0 ? 'wide' : 'open', look: -.4, sweat: t > bb.t0 ? .6 : 0, tired: .5, lx: -1, rim: 'rgba(220,232,255,.5)' });
   person(230, 1080, 800, { t, outfit: 'shirt', hood: SHIRT, legs: SUIT, arms: 'down', stain: 1, eyes: 'open', look: t > b.t0 ? 0 : .7, lookY: t > b.t0 ? .5 : 0, tired: .2, lx: -1, rim: 'rgba(220,232,255,.5)' });
-  OFF.forEach(([x, pose, top, sk, hr, ph], i) => { if (pose === 'sit') person(x, 1040, 640, { t: t + i, sit: 1, hood: top, skin: sk, hair: hr, longHair: ph, arms: 'lap', eyes: 'open', look: i % 2 ? .3 : -.3, lookY: .5, tired: .3, lx: -1, rim: 'rgba(220,232,255,.45)' }); else person(x, 1060, 800, { t: t + i, hood: top, skin: sk, hair: hr, arms: 'hold', cup: 1, eyes: 'open', look: -.6, lookY: .2, tired: .3, lx: -1, rim: 'rgba(220,232,255,.45)' }); });
+  OFF.forEach(([x, pose, top, sk, hr, ph], i) => { if (pose === 'sit') person(x, 1040, 640, { t: t + i, sit: 1, hood: top, skin: sk, hair: hr, longHair: ph, arms: 'lap', eyes: 'open', look: i % 2 ? .3 : -.3, lookY: .5, tired: .3, lx: -1, rim: 'rgba(220,232,255,.45)' }); else person(x, 1060, 800, { t: t + i, hood: top, skin: sk, hair: hr, arms: 'hold', cup: 1, eyes: 'open', look: t > s5.t0 ? -1 : -.6, lookY: t > s5.t0 ? 0 : .2, sweat: t > s5.t0 ? .7 : 0, tired: .3, lx: -1, rim: 'rgba(220,232,255,.45)' }); });
   for (const [x, w] of [[560, 280], [880, 280], [1200, 280]]) desk(x, 800, w);
   L(1760, 500, 420, null, .5);
   lightPass('#3a4256'); post();
   const OP = [[560, 330], [880, 250], [1200, 330], [1430, 200]];
   parts('s03').forEach((pr, i) => { const [x, y] = OP[i % 4], [hx] = [OFF[i % 4][0]]; thought('s03', t, x, y, { part: pr, tx: hx, ty: OFF[i % 4][1] === 'sit' ? 480 : 380, col: BCOL[(i + 1) % 6], size: 40, maxw: 300, seed: i, until: b.t1 + .3 }); });
   thought('s04b', t, 1380, 330, { tx: 1700, ty: 430, col: C.pur, size: 40, maxw: 380, seed: 4, until: c.t1 + .3 });
-  if (t > c.t0) tag(TX.boss, 1760, 840, PUR, C.pur, back(seg(t, c.t0 + .1, c.t0 + .4), 1.8), 40);
+  if (t > c.t0) tag(TX.boss, 1760, 840, PUR, C.pur, back(seg(t, c.t0 + .1, c.t0 + .4), 1.8) * (1 - ss(seg(t, s5.t0, s5.t0 + .3))), 40);
+  thought('s05b', t, 1130, 190, { tx: 1360, ty: 310, col: C.grn, size: 46, maxw: 380, seed: 5 });
   if (t > b.t0) { reset(); const k = back(seg(t, b.t0 + .2, b.t0 + .5), 1.7) * (1 - ss(seg(t, bb.t0, bb.t0 + .3))); pill(`${TX.noticed}: 0`, CX, 860, 52, GRN, C.grn, k); }
 };
 
@@ -1141,8 +1147,8 @@ S.lunch = (t, u) => {
   person(1280, 1080, 680, { t: t + 2, sit: 1, hood: FRIC, skin: SKINS[2], hair: HAIRS[2], arms: 'lap', eyes: 'open', look: -.8, smile: t < b.t0 || t > tsa ? 1 : 0, sweat: t > b.t0 && t < tsa ? .5 : 0, tired: .2, lx: -1, rim: 'rgba(255,214,160,.5)' });
   cafeTable();
   lightPass('#5a4048'); post();
-  const i0 = wi('l01', 'Am'); thought('l01', t, 480, 250, { part: [i0, LN.l01.words.length], tx: 620, ty: 450, col: C.cyan, size: 48, maxw: 360, seed: 1, until: c.t1 + .8 });
-  thought('l02', t, 1450, 230, { tx: 1290, ty: 440, col: C.grn, size: 46, maxw: 400, seed: 2, until: c.t1 + .8 });
+  const i0 = wi('l01', 'Am'), lend = (LN.l03b || c).t1 + .7; thought('l01', t, 480, 250, { part: [i0, LN.l01.words.length], tx: 620, ty: 450, col: C.cyan, size: 48, maxw: 360, seed: 1, until: lend });
+  thought('l02', t, 1450, 230, { tx: 1290, ty: 440, col: C.grn, size: 46, maxw: 400, seed: 2, until: lend });
   if (t > tsa - .1) { const p = ss(seg(t, tsa - .1, tsa + .5)); g.save(); g.globalCompositeOperation = 'screen'; g.setLineDash([14, 14]); g.lineDashOffset = -t * 60; line([[650, 250], [lerp(650, 1290, p), lerp(250, 230, p)]], 6, `rgba(${C.gold},.9)`); g.setLineDash([]); if (p >= 1) glow(960, 240, 200, C.gold, .4 + .2 * Math.sin(t * 6)); g.restore(); }
 };
 // 12. the liking gap: they like you more than you think
@@ -1159,6 +1165,34 @@ S.gap = (t, u) => {
     if (p > .1) { for (let k = 0; k < Math.round(hgt / 90 * p); k++) PICS.heart(x, base - 50 - k * 80, 0, 70); } });
   const gp = ss(seg(t, tli + .6, tli + 1.2)); if (gp > 0) { g.save(); g.globalAlpha = gp; g.setLineDash([12, 10]); line([[870, base - 230], [1050, base - 230]], 4, '#fff'); line([[870, base - 470], [1050, base - 470]], 4, '#fff'); g.setLineDash([]); line([[1010, base - 236], [1010, base - 464]], 5, GOLD); text('GAP', 940, base - 350, 50, GOLD, 'Anton', 'center', 8); g.restore(); }
   if (t > b.t0) for (let k = 0; k < 14; k++) { const p = (t - b.t0) * .35 + hash(k), q = p % 1; PICS.heart(200 + hash(k * 3.1) * 1520, 1080 - q * 900, 0, 40 + 30 * hash(k)); }
+};
+// ---------- 1:30 PM: the text ----------
+function chat(t, x, y, s, o = {}) {
+  const { sent = 0, typing = 0, reply = 0, red = 0 } = o;
+  g.save(); g.translate(x, y); g.scale(s, s);
+  cshadow(0, 520, 300, 40, .5); rr(-250, -500, 500, 1000, 64); fs('#0e0e14', 8); rr(-232, -482, 464, 964, 50); g.fillStyle = '#f2f2f6'; g.fill();
+  g.save(); rr(-232, -482, 464, 964, 50); g.clip();
+  g.fillStyle = '#e2e2ea'; g.fillRect(-232, -482, 464, 140); circ(-160, -392, 36, '#7ac0a0'); circ(-160, -400, 14, '#f0dcc0'); text(TX.friend, -100, -392, 36, '#2a2a30', 'Anton', 'left');
+  const msg = (mx, my, w, txt, mine, k = 1, glowc = null) => { if (k <= 0) return; g.save(); g.translate(mx, my); g.scale(k, k); if (glowc) { g.shadowColor = glowc; g.shadowBlur = 30; } rr(mine ? -w : 0, -44, w, 88, 36); g.fillStyle = mine ? '#3a8af0' : '#ffffff'; g.fill(); g.shadowBlur = 0; g.font = '500 44px sans-serif'; g.textBaseline = 'middle'; g.textAlign = mine ? 'right' : 'left'; g.fillStyle = mine ? '#fff' : '#1a1a20'; g.fillText(txt, mine ? -24 : 24, 2); g.restore(); };
+  msg(-210, -260, 250, '', false); rr(-186, -268, 180, 14, 7); g.fillStyle = '#c8c8d0'; g.fill(); msg(210, -170, 220, '', true); rr(10, -178, 170, 14, 7); g.fillStyle = 'rgba(255,255,255,.6)'; g.fill();
+  g.font = '500 44px sans-serif'; msg(210, -40, g.measureText(TX.chat1).width + 50, TX.chat1, true, back(sent, 1.6));
+  if (typing) { msg(-210, 90, 130, '', false); for (let i = 0; i < 3; i++) circ(-172 + i * 28, 90 - Math.max(0, Math.sin(t * 9 - i)) * 8, 9, '#9a9aa4'); }
+  g.font = '500 44px sans-serif'; msg(-210, 90, g.measureText(TX.chat2).width + 50, TX.chat2, false, back(reply, 1.8), red ? `rgba(255,60,80,${red})` : null);
+  g.restore(); rr(-240, 440, 480, 30, 10); g.restore();
+}
+// 12b. 1:30 PM: "thanks for lunch!!"... "ok." Just ok. Are they mad? (They're running into a meeting.)
+S.text = (t, u) => {
+  const a = LN.x01, b = LN.x02, c = LN.x03, tfr = wordT('x01', 'friend'), trp = wordT('x01', 'reply'), tok = wordT('x01', 'ok'), tma = wordT('x01', 'mad'), tbu = wordT('x03', 'busy'), two = wordT('x03', 'worst');
+  cam(CX, CY, lerp(1.04, 1, eo(seg(u, 0, 1.2)))); grad('#070814', '#141030', -200, 1300); glow(1450, 560, 650, '160,190,255', .22);
+  const fr = ss(seg(t, b.t0 - .3, b.t0 + .4)) * (1 - ss(seg(t, c.t0 - .2, c.t0 + .5)));
+  if (fr < 1) { g.save(); g.globalAlpha = 1 - fr; glow(560, 600, 420, C.cyan, .15); face(560, 620, 200, { t, eyes: t > tok ? 'wide' : 'open', look: .8, lookY: .3, sweat: t > tma ? .8 : 0, tired: .2, lx: 1, rim: 'rgba(160,190,255,.55)' }); g.restore(); }
+  if (fr > 0) { g.save(); g.globalAlpha = fr; glow(560, 600, 420, C.grn, .15); person(560, 1080, 840, { t, walk: t * 9, hood: FRIC, skin: SKINS[2], hair: HAIRS[2], arms: 'phone', eyes: 'open', look: .3, lx: 1, rim: 'rgba(122,192,160,.6)' }); g.restore(); }
+  chat(t, 1450, 560, .95, { sent: seg(t, tfr + .2, tfr + .5), typing: t > trp - .9 && t < tok - .1, reply: seg(t, tok - .1, tok + .2), red: t > tma ? .7 * (1 - fr) : 0 });
+  reset();
+  const WP = [[300, 170], [840, 160], [250, 330], [880, 320]];
+  WORRY.forEach((s, i) => { const on = tma - .2 + i * .25, al = ss(seg(t, on, on + .3)) * (1 - ss(seg(t, b.t0 - .2, b.t0 + .2))) + (t > two ? .45 * ss(seg(t, two + i * .1, two + .3 + i * .1)) : 0); murmur(WP[i][0], WP[i][1], 40, s, al, C.red, { tx: 560, ty: 440 }); });
+  thought('x02', t, 940, 210, { tx: 640, ty: 300, col: C.grn, size: 50, maxw: 460, seed: 3 });
+  pill(TX.busy, CX, 120, 52, GRN, C.grn, back(seg(t, tbu - .1, tbu + .25), 1.7) * (1 - ss(seg(t, two - .2, two + .2))));
 };
 // ---------- the park at golden hour ----------
 function tree(x, y, s, col = ['#3a6a3a', '#24482a'], rimc = 'rgba(255,190,110,.5)') {
@@ -1325,11 +1359,13 @@ S.scroll = (t, u) => {
   phone(t, px, 560, sc * 1.0, (t - a.t0) * 140 * (1 - .8 * ss(seg(t, tbe - .5, tbe + .5))));
   if (t > tbe - .2 && t < b.t0 + .6) BEHIND.forEach((s, i) => { const on = tbe - .2 + i * .22, k = back(seg(t, on, on + .35), 1.6) * (1 - ss(seg(t, b.t0, b.t0 + .5))); if (k <= 0) return; const sg = i % 2 ? 1 : -1; murmur(px + sg * (420 + 60 * hash(i)), 200 + i * 130, 38, s, 1, BCOL[i], { k, tx: px + sg * 240, ty: 220 + i * 130 }); });
   if (side > 0) {
-    reset(); const ik = back(seg(t, tin - .2, tin + .2), 1.6), hk = back(seg(t, thl - .2, thl + .2), 1.6), dim = ss(seg(t, tlo, tlo + .6));
+    reset(); const d_ = LN.n01d, pf = d_ ? 1 - ss(seg(t, d_.t0 - .1, d_.t0 + .4)) : 1, ik = back(seg(t, tin - .2, tin + .2), 1.6) * pf, hk = back(seg(t, thl - .2, thl + .2), 1.6) * pf, dim = ss(seg(t, tlo, tlo + .6));
     if (ik > 0) { g.save(); g.translate(520, 520); g.scale(ik * (1 - .1 * dim), ik * (1 - .1 * dim)); g.globalAlpha = 1 - .4 * dim; glass(-330, -300, 660, 600, 30, 'rgba(255,255,255,.4)', 3); for (let k = 0; k < 26; k++) { const pts = []; let x = 0, y = 0, a = hash(k) * TAU; for (let j = 0; j < 16; j++) { a += (hash(k * 16 + j) - .5) * 2.4; x = clamp(x + Math.cos(a) * 40, -260, 260); y = clamp(y + Math.sin(a) * 40, -200, 200); pts.push([x, y]); } line(pts, 3, `rgba(${BCOL[k % 6]},.55)`); } text(TX.inside, 0, 250, 48, '#fff', 'Anton', 'center', 8); g.restore(); }
     if (hk > 0) { g.save(); g.translate(1380, 140); g.scale(hk, hk); pill(TX.reel, 0, 0, 44, GOLD, C.gold, 1); g.restore(); for (let k = 0; k < 6; k++) { const p = (t * .3 + k / 6) % 1; star(1380 + (hash(k * 3) - .5) * 600, 900 - p * 700, 18 * Math.sin(Math.PI * p) * hk, '#ffe08a'); } }
-    if (t > thl + .4) text('VS', 960, 520, 90, '#fff', 'Anton', 'center', 12, ss(seg(t, thl + .4, thl + .7)));
+    if (t > thl + .4) text('VS', 960, 520, 90, '#fff', 'Anton', 'center', 12, ss(seg(t, thl + .4, thl + .7)) * pf);
   }
+  if (LN.n01d) thought('n01d', t, 560, 400, { col: C.moon, size: 56, maxw: 560, seed: 4, until: LN.n01e ? LN.n01e.t1 + .5 : undefined, a: LN.n01e ? 1 - .5 * ss(seg(t, LN.n01e.t0, LN.n01e.t0 + .5)) : 1 });
+  if (LN.n01e && t > LN.n01e.t0) BEHIND.forEach((s, i) => { const on = wordT('n01e', 'Nobody') - .3 + i * .15, k = back(seg(t, on, on + .35), 1.6); if (k <= 0) return; murmur(1380 + (i % 2 ? 1 : -1) * (330 + 40 * hash(i)), 180 + i * 140, 34, s, 1, BCOL[i], { k, tx: 1380 + (i % 2 ? 1 : -1) * 190, ty: 200 + i * 140 }); });
 };
 // 18. not everyone has a voice in their head: words vs pictures
 S.inner = (t, u) => {

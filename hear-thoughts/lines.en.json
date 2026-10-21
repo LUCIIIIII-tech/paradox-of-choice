@@ -60,6 +60,15 @@
   ]
  },
  {
+  "id": "c07",
+  "shot": "promise",
+  "text": "But be careful. Somewhere in this day, there's one thought you'll wish you never heard.",
+  "key": [
+   "careful.",
+   "never"
+  ]
+ },
+ {
   "id": "title",
   "shot": "title",
   "beat": 3.2,
@@ -346,6 +355,22 @@
   ]
  },
  {
+  "id": "s05",
+  "shot": "office",
+  "text": "And the coworker who never says hi to you? They're not ignoring you. Every morning, they rehearse what to say... and lose their nerve.",
+  "key": [
+   "ignoring",
+   "nerve."
+  ]
+ },
+ {
+  "id": "s05b",
+  "shot": "office",
+  "fx": "thought",
+  "text": "Just say hi. Say hi. Okay... tomorrow.",
+  "key": []
+ },
+ {
   "id": "q3",
   "shot": "quiz",
   "text": "Question three. In a famous experiment, students wore an embarrassing T-shirt into a room full of people. They guessed half the room would notice. How many actually did?",
@@ -407,6 +432,15 @@
   ]
  },
  {
+  "id": "l03b",
+  "shot": "lunch",
+  "text": "Two people at one table, both sure they're the boring one.",
+  "key": [
+   "both",
+   "boring"
+  ]
+ },
+ {
   "id": "l04",
   "shot": "gap",
   "text": "After a conversation, people consistently underestimate how much the other person liked them. Psychologists call it the liking gap.",
@@ -426,6 +460,31 @@
   "text": "The people around you probably like you more than you think.",
   "key": [
    "more"
+  ]
+ },
+ {
+  "id": "x01",
+  "shot": "text",
+  "clock": "1:30 PM",
+  "text": "One thirty. You text your friend: thanks for lunch! They reply... ok. Just ok. Are they mad at you?",
+  "key": [
+   "mad"
+  ]
+ },
+ {
+  "id": "x02",
+  "shot": "text",
+  "fx": "thought",
+  "text": "Running into a meeting. Can't type. Love them, though.",
+  "key": []
+ },
+ {
+  "id": "x03",
+  "shot": "text",
+  "text": "Most of the time, a short reply means a busy person, not an angry one. We fill the silence with the worst story we can think of.",
+  "key": [
+   "busy",
+   "worst"
   ]
  },
  {
@@ -522,7 +581,8 @@
   "text": "and he's stepping back from the edge, pale, horrified by his own mind.",
   "key": [
    "horrified"
-  ]
+  ],
+  "seed": 11
  },
  {
   "id": "d05",
@@ -602,6 +662,21 @@
   "key": [
    "inside",
    "highlight"
+  ]
+ },
+ {
+  "id": "n01d",
+  "shot": "scroll",
+  "fx": "thought",
+  "text": "Why does everyone else have it all figured out?",
+  "key": []
+ },
+ {
+  "id": "n01e",
+  "shot": "scroll",
+  "text": "But you heard them today. Nobody has it figured out. Not one person.",
+  "key": [
+   "Nobody"
   ]
  },
  {
@@ -699,6 +774,15 @@
   "key": [
    "Nobody",
    "Talk"
+  ]
+ },
+ {
+  "id": "m05b",
+  "shot": "secret",
+  "text": "And the person you're scared to talk to... is probably a little scared of you too.",
+  "key": [
+   "scared",
+   "too."
   ]
  },
  {
