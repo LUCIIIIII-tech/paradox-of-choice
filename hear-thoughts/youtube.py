@@ -6,7 +6,7 @@ ts = lambda id: '%d:%02d' % divmod(int(LN[id]['t0']), 60)
 C = {
  'en': dict(title="What If You Could Hear Everyone's Thoughts for One Day?",
    chapters=[('c01', "What if you could hear everyone's thoughts?"), ('h01', '7:00 AM: The kitchen (Question 1)'), ('t01', '8:00 AM: The train and the white bear (Question 2)'),
-             ('s01', '9:00 AM: Coffee on your shirt (Question 3)'), ('l01', '12:00 PM: Lunch with your best friend'), ('r01', '3:00 PM: Your crush (Question 4)'),
+             ('s01', '9:00 AM: Coffee on your shirt (Question 3)'), ('l01', '12:00 PM: Lunch with your best friend'), ('x01', '1:30 PM: "ok."'), ('r01', '3:00 PM: Your crush (Question 4)'),
              ('d01', '6:00 PM: The thought on the platform (Question 5)'), ('n01', '10:00 PM: Alone with your own mind (Question 6)'), ('m01', '11:59 PM: The secret'), ('o01', 'Your score')],
    body="""Tomorrow morning you wake up and you can hear what everyone is thinking, until midnight. Your mom, your little brother, a packed train, your boss, your best friend, your crush, a stranger on the platform. And by the end of the day you learn one secret about people that changes how you see yourself.
 
@@ -16,7 +16,7 @@ Whose thoughts would you want to hear first?""",
    src='Sources', tags='what if, psychology, hear thoughts, mind reading, spotlight effect, liking gap, intrusive thoughts, white bear, inner voice, psychology facts, interactive quiz'),
  'tl': dict(title='Paano Kung Marinig Mo ang Iniisip ng Lahat sa Loob ng Isang Araw?',
    chapters=[('c01', 'Paano kung marinig mo ang isip ng lahat?'), ('h01', '7:00 AM: Sa kusina (Tanong 1)'), ('t01', '8:00 AM: Sa tren at ang puting oso (Tanong 2)'),
-             ('s01', '9:00 AM: Natapong kape (Tanong 3)'), ('l01', '12:00 PM: Kasama ang best friend'), ('r01', '3:00 PM: Ang crush mo (Tanong 4)'),
+             ('s01', '9:00 AM: Natapong kape (Tanong 3)'), ('l01', '12:00 PM: Kasama ang best friend'), ('x01', '1:30 PM: "ok."'), ('r01', '3:00 PM: Ang crush mo (Tanong 4)'),
              ('d01', '6:00 PM: Ang isip sa platform (Tanong 5)'), ('n01', '10:00 PM: Mag-isa sa sariling isip (Tanong 6)'), ('m01', '11:59 PM: Ang sikreto'), ('o01', 'Ang score mo')],
    body="""Bukas ng umaga, gigising ka at maririnig mo ang iniisip ng lahat, hanggang hatinggabi. Ang nanay mo, ang bunso mong kapatid, ang siksikang tren, ang boss mo, ang best friend mo, ang crush mo, at isang estranghero sa platform. At bago matapos ang araw, may matutuklasan kang isang sikreto tungkol sa mga tao.
 

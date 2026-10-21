@@ -1,6 +1,6 @@
 # What If You Could Hear Everyone's Thoughts?
 
-A 16:9 long-form "what if" story for YouTube (about 8 minutes), English first, then Tagalog. Same narrator (VoxCPM2 clone of
+A 16:9 long-form "what if" story for YouTube (8:16 in English), English first, then Tagalog. Same narrator (VoxCPM2 clone of
 `voice-tests/18_Vox_deep_narrator.mp3`), same dark painterly engine as PUYAT and HULING TREN, smooth camera, no glitches.
 
 ## The idea
@@ -9,7 +9,7 @@ scene ends on a real psychology finding. Six questions make it interactive: answ
 score out of four, and comment the answers to the last two. The payoff is one secret that changes how you see yourself:
 everyone is too busy worrying about being judged to judge you.
 
-## Flow (about 8 min)
+## Flow (8:16)
 | Time of day | Scene | The finding | Interaction |
 |---|---|---|---|
 | Cold open | Dawn, a voice, then hundreds, then your name. Mom outside your door. | Those are thoughts. | The promise: one secret by midnight; play along. |
@@ -19,6 +19,7 @@ everyone is too busy worrying about being judged to judge you.
 | | "Nice shoes." (the compliments nobody says); minds drifting to beaches and pizza | Minds wander 47% of the time | A coin: is your mind still here? |
 | 9:00 AM | Coffee all over your shirt; the eyes in the dark; nobody noticed; the boss is faking it | The spotlight effect | Question 3 (the embarrassing T-shirt) |
 | 12:00 PM | Lunch: "Am I boring them?" They think the same thing | The liking gap | |
+| 1:30 PM | Your friend texts back: "ok." Just ok. | A short reply means busy, not angry | |
 | 3:00 PM | Your crush walks toward you | The illusion of transparency | Question 4 |
 | 6:00 PM | The platform: "What if I pushed him?" He steps back, horrified | Intrusive thoughts (94% of people) | Question 5 (comment) |
 | 10:00 PM | Home alone; perfect lives on the phone | Not everyone has an inner voice | Question 6 (comment); "you're breathing manually now" |

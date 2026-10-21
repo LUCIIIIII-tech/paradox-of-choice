@@ -354,7 +354,7 @@ def station_bed(t0, t1, v=.16):                     # a station: hum, a tunnel b
     hum(t0, t1, v * .25, 50)
 def train_arrive(t, v=.6):                          # the train bursts out of the tunnel: rumble, horn, a wall of air
     d = 3.2; n = int(d * SR); s = tt(n); u = s / d; env = np.exp(-((u - .55) / .22) ** 2)
-    add2('sfx', t - d * .55, *[lp(noise(d), 300 + 2500 * env) * env * 2.0 for _ in (0, 1)], v * .8, hall=.15)
+    add2('sfx', t - d * .55, *[tvf(noise(d), 300 + 2500 * env, kind='lp') * env * 2.0 for _ in (0, 1)], v * .8, hall=.15)
     truck_horn(t - .9, 1.4, v * .7); whoosh(t + .1, 1.4, v * .8, 120, 3000, -.9, .9, 1.4)
     for k in range(14): clack(t + k * .09, v * .5)
 def thunder(t, v=.4):
@@ -413,7 +413,7 @@ for k in range(5): tick(TTI + k * .7, .28, 1.0 if k % 2 == 0 else .85, 0)
 TPO = wt('c06', 'point'); shimmer(TPO, 1.2, .14); impact(TPO, .3, .5)
 # --- 3. the title, inside a thought
 riser(T('title'), 1.4, .4); reverse_swell(T('title'), 1.0, .3); impact(T('title'), 1.0, 1.2); sub_drop(T('title'), .8); braam(T('title'), .5); shimmer(T('title') + .3, 2.2, .2)
-crowd_whispers(T('title') + .2, E('title'), 12, .05)
+crowd_whispers(T('title') + .2, E('title'), 12, .05); reverse_swell(T('h01'), 1.4, .22); birds(E('title') - 1.2, T('h01'), .05); sizzle(E('title') - 1.0, T('h01'), .06)
 # --- 4. 7 AM, the kitchen: eggs in the pan, the wall clock, birds; mom's worries pile up
 for a, b in shot_ranges('kitchen'):
     motif_major(a, b + .3, .13); sizzle(a, b, .08); clock(a, b, 1.0, .07); birds(a, b, .04)
