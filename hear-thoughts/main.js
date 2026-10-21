@@ -629,7 +629,8 @@ function clockHUD(t, shot) {
 // captions: word by word (4 at a time), the current word pops, key words gold (red on the dark lines); thoughts show in their bubble instead
 const REDCAP = ['platform'];
 function captions(t) {
-  for (const l of TL.lines) {
+  let last = null; for (const l of TL.lines) { if (l.t0 - .02 > t) break; last = l; }      // only the line being spoken (no overlap at the joins)
+  for (const l of last ? [last] : []) {
     if (!l.words || l.fx === 'thought' || l.q || t < l.t0 - .02 || t > l.t1 + .25) continue;
     const k = wordAt(l.id, t); if (k < 0) continue;
     const N = 4, a = Math.floor(k / N) * N, ws = l.words.slice(a, Math.min(l.words.length, a + N));
