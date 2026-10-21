@@ -1,0 +1,12 @@
+# Huling Tren (The Last Train): treatment
+
+Dark zombie-outbreak scenario reel, 1080×1920, 24 fps, about 1:28, Tagalog narrator (VoxCPM2, voice #18), second person, word-by-word captions. Same look and engine as Puyat: every scene drawn in colour, darkened, and only the lights (fluorescent, siren red and blue, fire, emergency red, screen cyan) bring the colour back. Smooth camera, no glitch effects.
+
+**Hook (frame 1):** the last train home. Title up from the first frame: "ANG KATABI MO SA TREN… HINDI HUMIHINGA." You (tagged IKAW) sit beside a man in a bloody white shirt with a bandaged hand, head down. The frame lands on an impact and a braam over the train's rumble; on "humihinga" the bed drops away (breath held).
+**Easter egg:** at about 0:02, for half a second, a pale figure stands in the dark window behind you, a reflection of someone who isn't in the car. The reel asks at the end: "Comment kung saang segundo."
+**Open loop:** "Ito ang susunod na tatlong araw mo. At ang papatay sa'yo… hindi ang mga zombie." Answered at about 1:10.
+**Counter:** MINUTO 0 → MINUTO 5 → ORAS 1 → ORAS 12 → ARAW 1 → ARAW 3, each jump with a tick, a riser and a hit.
+**Escalation:** his finger twitches (knuckles crack); his head snaps up, white eyes; a scream at the end of the car and a stampede; you freeze (tunnel hearing: only your heartbeat), "halos 3 sa bawat 4 na tao ang natutulala" with 20 icons (Leach 2004); the doors hiss open, run; sirens, a burning car, a helicopter light, your call rings out; one bite becomes two, four… a city map bleeds red with a BITTEN counter; Cornell's simulation, the cities fall first; the safest place is far from people (a cabin in the mountains); day 3 hiding in a grocery with two bottles of water left; three knocks, "Tulungan mo ako… hindi ako nakagat"; you open the door; the scare.
+**Payoff (real science):** the zombie-ant fungus (Ophiocordyceps) growing out of an ant's head; rabies under the microscope (bullet-shaped viruses that shy from water, spread by a bite); the twist: what kills you isn't the zombie but the brain that says "hindi 'to totoo" (normalcy bias).
+**POV turn:** "Kaya ngayon, tumingin ka sa paligid mo. Nasaan ang pinakamalapit na pinto?" A door at the end of a dark hallway; the handle turns.
+**Comment + CTA + loop:** the frozen train shot with a magnifier (NASAAN? 0:??); "I-tag mo ang taong isasama mo sa zombie apocalypse" over two survivors back to back; back on the train his finger cracks, and the riser runs straight into frame 1's impact.
