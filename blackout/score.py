@@ -453,7 +453,7 @@ T12 = wt('l17', 'walo'); riser(T12, .9, .3); impact(T12 + .05, .5, .7)
 # 18-22. get ready; the battery; how many days; share; the loop
 motif(T('l18'), DUR - .5, .18)
 for w in (['Tubig', 'flashlight', 'de-lata', 'cash'] if LANG == 'tl' else ['Water', 'flashlight', 'canned', 'cash']): impact(wt('l18', w), .25, .4); shimmer(wt('l18', w), .8, .06)
-tick(wt('l19', 'magkikita'), .3, .9, 0); phone_buzz(T('l20') + .2, .35); impact(T('l21') + .1, .4, .6); whoosh(T('l22'), .5, .2)
+phone_buzz(T('l20') + .2, .35); impact(T('l21') + .1, .4, .6); whoosh(T('l22'), .5, .2)
 TSNAP = T('tail'); city(TSNAP - .2, DUR, .12); hum(TSNAP, DUR, .05, 60); riser(DUR, 1.0, .35); reverse_swell(DUR, .9, .35)
 # ============ mix ============
 def make_ir(dur, decay, damp, seed):
