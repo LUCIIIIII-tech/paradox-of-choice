@@ -1,0 +1,179 @@
+[
+ {
+  "id": "l01",
+  "shot": "door",
+  "text": "If someone knocks on your door tonight... don't open it.",
+  "key": [
+   "knocks",
+   "don't"
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "l02",
+  "shot": "door",
+  "text": "Three A.M. Three knocks. Slow.",
+  "key": [
+   "Three",
+   "knocks."
+  ]
+ },
+ {
+  "id": "l03",
+  "shot": "file",
+  "text": "If it happens, follow these rules. Don't skip one.",
+  "key": [
+   "rules.",
+   "skip"
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "r1",
+  "text": "Rule one. Don't answer. Your voice tells them someone's inside.",
+  "key": [
+   "answer.",
+   "voice"
+  ],
+  "counter": "RULE 1"
+ },
+ {
+  "id": "l05",
+  "shot": "r2",
+  "text": "Rule two. Don't turn on the light. They can see your shadow under the door.",
+  "key": [
+   "light.",
+   "shadow"
+  ],
+  "counter": "RULE 2"
+ },
+ {
+  "id": "l06",
+  "shot": "r3",
+  "text": "Rule three. Check the peephole... but don't press your eye against it.",
+  "key": [
+   "peephole...",
+   "press"
+  ],
+  "counter": "RULE 3"
+ },
+ {
+  "id": "l07",
+  "shot": "twist",
+  "text": "No one's outside. But it knocks again... lower. Like it's coming from the floor.",
+  "key": [
+   "No",
+   "floor."
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "r4",
+  "text": "Rule four. If they say they're the police, or the power company... don't believe them.",
+  "key": [
+   "police,",
+   "believe"
+  ],
+  "counter": "RULE 4"
+ },
+ {
+  "id": "l09",
+  "shot": "fake",
+  "text": "This is real. Burglars pose as police, delivery drivers, and utility workers. Call their office yourself.",
+  "key": [
+   "pose",
+   "Call"
+  ],
+  "stat": [
+   "A REAL TRICK",
+   "IMPOSTORS",
+   "police · delivery · utility workers"
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r5",
+  "text": "Rule five. Never say you're alone. Shout: Dad, someone's at the door!",
+  "key": [
+   "alone.",
+   "Shout:"
+  ],
+  "counter": "RULE 5"
+ },
+ {
+  "id": "l11",
+  "shot": "r6",
+  "text": "Rule six. The door chain won't save you. One hard push, and it snaps.",
+  "key": [
+   "chain",
+   "snaps."
+  ],
+  "counter": "RULE 6"
+ },
+ {
+  "id": "l12",
+  "shot": "r7",
+  "text": "Rule seven. Call 911 right away. Don't wait for them to get in.",
+  "key": [
+   "911",
+   "get"
+  ],
+  "counter": "RULE 7"
+ },
+ {
+  "id": "l13",
+  "shot": "quiet",
+  "text": "The knocking stops. Everything goes quiet.",
+  "key": [
+   "stops.",
+   "quiet."
+  ]
+ },
+ {
+  "id": "l14",
+  "shot": "last",
+  "text": "Last rule. The most important one.",
+  "key": [
+   "Last",
+   "important"
+  ],
+  "counter": "RULE 8"
+ },
+ {
+  "id": "l15",
+  "shot": "last",
+  "text": "When the knocking stops... don't assume they've left.",
+  "key": [
+   "stops...",
+   "left."
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "sting",
+  "beat": 2.2
+ },
+ {
+  "id": "l17",
+  "shot": "rules",
+  "text": "What would you do first? Comment the rule number.",
+  "key": [
+   "first?",
+   "number."
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "cta",
+  "text": "Send this to a friend who lives alone.",
+  "key": [
+   "Send",
+   "alone."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.8
+ }
+]

@@ -415,7 +415,8 @@ function tag(s, x, y, col, rgbc, k = 1) {
 // ---------- captions: word by word, the current word pops, key words amber (red on the scary lines) ----------
 const REDCAP = ['hook', 'dark', 'hospital', 'miss'];
 function captions(t) {
-  for (const l of TL.lines) {
+  let last = null; for (const l of TL.lines) { if (l.t0 - .02 > t) break; last = l; }      // only the line being spoken (no overlap at the joins)
+  for (const l of last ? [last] : []) {
     if (!l.words || t < l.t0 - .02 || t > l.t1 + .25) continue;
     const k = wordAt(l.id, t); if (k < 0) continue;
     const a = Math.floor(k / 3) * 3, ws = l.words.slice(a, Math.min(l.words.length, a + 3));
