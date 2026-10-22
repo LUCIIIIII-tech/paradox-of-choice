@@ -165,11 +165,12 @@
  {
   "id": "l18",
   "shot": "cta",
-  "text": "Send this to a friend who lives alone.",
+  "text": "Now, send this to a friend who lives alone.",
   "key": [
    "Send",
    "alone."
-  ]
+  ],
+  "seed": 11
  },
  {
   "id": "tail",
