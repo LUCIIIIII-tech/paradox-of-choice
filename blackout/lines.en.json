@@ -30,7 +30,7 @@
  {
   "id": "l03",
   "shot": "phone",
-  "text": "Nine P.M. You're watching your phone, just like this... then suddenly, nothing.",
+  "text": "Nine o'clock at night. You're watching your phone, just like this... then suddenly, nothing.",
   "key": [
    "this...",
    "nothing."
@@ -219,11 +219,12 @@
  {
   "id": "l22",
   "shot": "cta",
-  "text": "Send this to the person you'd want with you in the dark.",
+  "text": "Now, send this to the person you'd want with you in the dark.",
   "key": [
    "Send",
    "dark."
-  ]
+  ],
+  "seed": 11
  },
  {
   "id": "tail",
