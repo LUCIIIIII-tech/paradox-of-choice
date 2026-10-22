@@ -7,7 +7,7 @@ HERE=$(cd "$(dirname "$0")" && pwd); cd "$HERE"; mkdir -p out
 LANG_=${1:-tl}; if [ "$LANG_" = tl ]; then SUF=""; P=""; NAME=katok; else SUF=".$LANG_"; P="${LANG_}_"; NAME=katok_$LANG_; fi
 LIB=${LIB:-$HOME/lib/lemo-opuscar}
 [ -n "$SKIP_TTS" ] || "$LIB/.venv/bin/python" tts_vox.py $LANG_          # 1. narrator + word timings -> timeline.json
-python3 score.py $LANG_                                                # 2. sound design + narrator -> out/mix.wav
+[ -n "$SKIP_SCORE" ] || python3 score.py $LANG_                                                # 2. sound design + narrator -> out/mix.wav
 D=$(python3 -c "import json;print(json.load(open('timeline$SUF.json'))['dur'])")
 for i in 0 1 2 3; do a=$(python3 -c "print(round($i*$D/4,3))"); b=$(python3 -c "print(round(($i+1)*$D/4,3))")
   node render.mjs --lang $LANG_ --from $a --to $b --out out/${P}part$i.mp4 & done; wait   # 3. frames

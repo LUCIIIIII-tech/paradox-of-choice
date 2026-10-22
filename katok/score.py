@@ -315,7 +315,7 @@ while t_ < T('l13'): heartbeat(t_, .32); t_ += p_; p_ = max(.55, p_ * .985)
 # the twist: nobody there... then low knocks from the floor
 reverse_swell(wt('l07', 'kumatok'), .8, .35); HUSH.append((T('l07'), LOW[2] + .5)); sub_drop(LOW[0], .5, 1.2)
 # rule 4: a muffled voice outside (the narrator's own words as a whisper through the door)
-whisper_at('l08', wt('l08', 'pulis') - .3, max(0, wt('l08', 'pulis') - LN['l08']['wav0']), .12, .2, .85, False, 1.2)
+whisper_of('l08', wt('l08', 'pulis') - .3, .12, .2, .85, False, 1.2)
 # rule 6: the chain rattles, strains... snaps
 TP = wt('l11', 'tulak'); chain_rattle(TP - .2, .7, .35); wood_knock(TP, .9, .5); chain_snap(wt('l11', 'bigay'), .65)
 # rule 7: dialling
