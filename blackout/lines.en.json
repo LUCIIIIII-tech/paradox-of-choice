@@ -1,0 +1,242 @@
+[
+ {
+  "id": "l01",
+  "shot": "hook",
+  "text": "If this happens tonight... you won't make it three days.",
+  "key": [
+   "tonight...",
+   "three"
+  ],
+  "gap": 0.1
+ },
+ {
+  "id": "l01b",
+  "shot": "hook",
+  "text": "One explosion on the sun... and every light in the world goes out at once.",
+  "key": [
+   "explosion",
+   "out"
+  ]
+ },
+ {
+  "id": "l02",
+  "shot": "stamp",
+  "text": "This isn't a movie. It almost happened... and it can happen again, any day.",
+  "key": [
+   "almost",
+   "any"
+  ]
+ },
+ {
+  "id": "l03",
+  "shot": "phone",
+  "text": "Nine P.M. You're watching your phone, just like this... then suddenly, nothing.",
+  "key": [
+   "this...",
+   "nothing."
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "dark",
+  "text": "No lights. No signal. The whole city goes silent.",
+  "key": [
+   "No",
+   "silent."
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "sun",
+  "text": "A solar storm. Billions of tons of burning gas from the sun... aimed straight at Earth.",
+  "key": [
+   "solar",
+   "straight"
+  ],
+  "stat": [
+   "SOLAR STORM",
+   "BILLIONS OF TONS",
+   "of burning gas · NASA"
+  ]
+ },
+ {
+  "id": "l06",
+  "shot": "day1",
+  "text": "Day one. No internet, no calls. You don't know if your family is safe.",
+  "key": [
+   "family",
+   "safe."
+  ],
+  "counter": "DAY 1"
+ },
+ {
+  "id": "l07",
+  "shot": "atm",
+  "text": "The ATMs are dead. Your money... is locked inside the bank.",
+  "key": [
+   "ATMs",
+   "locked"
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "day2",
+  "text": "Day two. The food in your fridge is rotting. Every store is closed.",
+  "key": [
+   "rotting.",
+   "closed."
+  ],
+  "counter": "DAY 2"
+ },
+ {
+  "id": "l09",
+  "shot": "faucet",
+  "text": "Then the water stops. Because electricity runs the water too.",
+  "key": [
+   "water",
+   "electricity"
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "day3",
+  "text": "Day three. Water, food, and gas run out. This is where the chaos starts.",
+  "key": [
+   "run",
+   "chaos"
+  ],
+  "counter": "DAY 3"
+ },
+ {
+  "id": "l11",
+  "shot": "hospital",
+  "text": "In hospitals, the last generators are all that's keeping patients alive.",
+  "key": [
+   "last",
+   "alive."
+  ]
+ },
+ {
+  "id": "l12",
+  "shot": "day7",
+  "text": "Day seven. The whole world is silent... and for the first time, you can see every star.",
+  "key": [
+   "silent...",
+   "star."
+  ],
+  "counter": "DAY 7"
+ },
+ {
+  "id": "l13",
+  "shot": "radio",
+  "text": "But here's the scarier part.",
+  "key": [
+   "scarier"
+  ]
+ },
+ {
+  "id": "l14",
+  "shot": "carrington",
+  "text": "In 1859, the Carrington Event hit. Telegraph wires caught fire, and the northern lights reached the Caribbean.",
+  "key": [
+   "fire,",
+   "lights"
+  ],
+  "stat": [
+   "CARRINGTON EVENT · 1859",
+   "TELEGRAPHS CAUGHT FIRE",
+   "the strongest ever recorded"
+  ]
+ },
+ {
+  "id": "l15",
+  "shot": "quebec",
+  "text": "In 1989, a much weaker storm cut the power to six million people in Quebec.",
+  "key": [
+   "six",
+   "million"
+  ],
+  "stat": [
+   "QUEBEC · 1989",
+   "6 MILLION PEOPLE",
+   "9 hours without power"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "miss",
+  "text": "And in 2012, a storm as strong as Carrington... missed us by just nine days.",
+  "key": [
+   "missed",
+   "nine"
+  ],
+  "stat": [
+   "JULY 2012",
+   "9 DAYS",
+   "was all that separated us · NASA"
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "chance",
+  "text": "One study puts the chance of it happening again at one in eight, every ten years.",
+  "key": [
+   "one",
+   "eight,"
+  ],
+  "stat": [
+   "CHANCE EVERY 10 YEARS",
+   "1 IN 8",
+   "Riley, 2012"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "kit",
+  "text": "So start getting ready now. Water, a flashlight, canned food, and cash.",
+  "key": [
+   "ready",
+   "cash."
+  ]
+ },
+ {
+  "id": "l19",
+  "shot": "meet",
+  "text": "And agree with your family on where to meet when there's no signal.",
+  "key": [
+   "meet"
+  ]
+ },
+ {
+  "id": "l20",
+  "shot": "battery",
+  "text": "Now look at your phone's battery. That's all you have left.",
+  "key": [
+   "battery.",
+   "left."
+  ]
+ },
+ {
+  "id": "l21",
+  "shot": "comment",
+  "text": "If this happened tonight, how many days would you last? Comment it, be honest.",
+  "key": [
+   "days",
+   "Comment"
+  ]
+ },
+ {
+  "id": "l22",
+  "shot": "cta",
+  "text": "Send this to the person you'd want with you in the dark.",
+  "key": [
+   "Send",
+   "dark."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]

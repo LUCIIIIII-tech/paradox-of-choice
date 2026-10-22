@@ -1,0 +1,245 @@
+[
+ {
+  "id": "l01",
+  "shot": "hook",
+  "text": "Kung mangyari 'to ngayong gabi... hindi ka aabot ng tatlong araw.",
+  "key": [
+   "ngayong",
+   "tatlong"
+  ],
+  "gap": 0.1
+ },
+ {
+  "id": "l01b",
+  "shot": "hook",
+  "text": "Isang pagsabog sa araw... at sabay-sabay, mamamatay ang ilaw sa buong mundo.",
+  "key": [
+   "pagsabog",
+   "mamamatay"
+  ]
+ },
+ {
+  "id": "l02",
+  "shot": "stamp",
+  "text": "Hindi ito pelikula. Muntik na itong mangyari... at puwedeng mangyari ulit, anumang araw.",
+  "key": [
+   "Muntik",
+   "anumang"
+  ]
+ },
+ {
+  "id": "l03",
+  "shot": "phone",
+  "text": "Alas nuwebe ng gabi. Nanonood ka nang ganito sa phone mo... tapos biglang, wala.",
+  "key": [
+   "ganito",
+   "wala."
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "dark",
+  "text": "Walang ilaw. Walang signal. Tahimik ang buong lungsod.",
+  "key": [
+   "Walang",
+   "Tahimik"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "sun",
+  "text": "Solar storm. Bilyon-bilyong tonelada ng nag-aapoy na gas mula sa araw... diretso sa Earth.",
+  "key": [
+   "Solar",
+   "diretso"
+  ],
+  "stat": [
+   "SOLAR STORM",
+   "BILYON-BILYONG TONELADA",
+   "ng nag-aapoy na gas · NASA"
+  ]
+ },
+ {
+  "id": "l06",
+  "shot": "day1",
+  "text": "Unang araw. Walang internet, walang tawag. Hindi mo alam kung ligtas ang pamilya mo.",
+  "key": [
+   "ligtas",
+   "pamilya"
+  ],
+  "counter": "ARAW 1"
+ },
+ {
+  "id": "l07",
+  "shot": "atm",
+  "text": "Patay ang mga ATM. Ang pera mo... nakakulong sa bangko.",
+  "key": [
+   "ATM.",
+   "nakakulong"
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "day2",
+  "text": "Ikalawang araw. Bulok na ang laman ng ref. Sarado na ang mga tindahan.",
+  "key": [
+   "Bulok",
+   "Sarado"
+  ],
+  "counter": "ARAW 2"
+ },
+ {
+  "id": "l09",
+  "shot": "faucet",
+  "text": "Tapos, wala nang tubig sa gripo. Kasi kuryente rin pala ang nagpapatakbo ng tubig.",
+  "key": [
+   "tubig",
+   "kuryente"
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "day3",
+  "text": "Ikatlong araw. Ubusan na ng tubig, pagkain, at gasolina. Dito na nagsisimula ang gulo.",
+  "key": [
+   "Ubusan",
+   "gulo."
+  ],
+  "counter": "ARAW 3"
+ },
+ {
+  "id": "l11",
+  "shot": "hospital",
+  "text": "Sa mga ospital, huling generator na lang ang bumubuhay sa mga pasyente.",
+  "key": [
+   "huling",
+   "bumubuhay"
+  ]
+ },
+ {
+  "id": "l12",
+  "shot": "day7",
+  "text": "Ikapitong araw. Tahimik ang buong mundo... at sa unang pagkakataon, kita mo ang lahat ng bituin.",
+  "key": [
+   "Tahimik",
+   "bituin."
+  ],
+  "counter": "ARAW 7"
+ },
+ {
+  "id": "l13",
+  "shot": "radio",
+  "text": "Pero ito ang mas nakakatakot.",
+  "key": [
+   "nakakatakot."
+  ]
+ },
+ {
+  "id": "l14",
+  "shot": "carrington",
+  "text": "Noong 1859, tumama ang Carrington Event. Umapoy ang mga telegraph, at umabot ang aurora hanggang Caribbean.",
+  "key": [
+   "Umapoy",
+   "aurora"
+  ],
+  "say": "Noong eighteen fifty-nine, tumama ang Carrington Event. Umapoy ang mga telegraph, at umabot ang aurora hanggang Caribbean.",
+  "stat": [
+   "CARRINGTON EVENT · 1859",
+   "UMAPOY ANG TELEGRAPH",
+   "pinakamalakas na naitala"
+  ]
+ },
+ {
+  "id": "l15",
+  "shot": "quebec",
+  "text": "Noong 1989, mas mahinang storm lang, pero anim na milyong tao sa Quebec ang nawalan ng kuryente.",
+  "key": [
+   "anim",
+   "milyong"
+  ],
+  "say": "Noong nineteen eighty-nine, mas mahinang storm lang, pero anim na milyong tao sa Quebec ang nawalan ng kuryente.",
+  "stat": [
+   "QUEBEC · 1989",
+   "6 MILYONG TAO",
+   "9 oras na walang kuryente"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "miss",
+  "text": "At noong 2012, may storm na kasinglakas ng Carrington... na-miss tayo ng siyam na araw lang.",
+  "key": [
+   "na-miss",
+   "siyam"
+  ],
+  "say": "At noong twenty twelve, may storm na kasinglakas ng Carrington... na-miss tayo ng siyam na araw lang.",
+  "stat": [
+   "JULY 2012",
+   "9 ARAW",
+   "lang ang pagitan · NASA"
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "chance",
+  "text": "Ayon sa isang pag-aaral, isa sa walo ang tsansang mangyari ulit ito sa loob ng sampung taon.",
+  "key": [
+   "isa",
+   "walo"
+  ],
+  "stat": [
+   "TSANSA SA LOOB NG 10 TAON",
+   "1 SA 8",
+   "Riley, 2012"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "kit",
+  "text": "Kaya ngayon pa lang, maghanda ka na. Tubig, flashlight, de-lata, at cash.",
+  "key": [
+   "maghanda",
+   "cash."
+  ]
+ },
+ {
+  "id": "l19",
+  "shot": "meet",
+  "text": "At pag-usapan n'yo ng pamilya mo kung saan kayo magkikita kapag walang signal.",
+  "key": [
+   "magkikita"
+  ]
+ },
+ {
+  "id": "l20",
+  "shot": "battery",
+  "text": "Ngayon, tingnan mo ang battery ng phone mo. 'Yan na lang ang natitira sa'yo.",
+  "key": [
+   "battery",
+   "natitira"
+  ]
+ },
+ {
+  "id": "l21",
+  "shot": "comment",
+  "text": "Kung mangyari 'to ngayong gabi, ilang araw ka tatagal? Comment mo, totoo lang.",
+  "key": [
+   "ilang",
+   "Comment"
+  ]
+ },
+ {
+  "id": "l22",
+  "shot": "cta",
+  "text": "I-send mo 'to sa taong gusto mong kasama sa dilim.",
+  "key": [
+   "I-send",
+   "dilim."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]
