@@ -1,0 +1,192 @@
+[
+ {
+  "id": "l01",
+  "shot": "recede",
+  "text": "When the sea suddenly pulls back... don't watch. Run.",
+  "key": [
+   "pulls",
+   "Run."
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "l02",
+  "shot": "recede",
+  "text": "You may have ten minutes left... or less.",
+  "key": [
+   "ten"
+  ],
+  "counter": "10:00"
+ },
+ {
+  "id": "l03",
+  "shot": "beach",
+  "text": "You're at the beach. It's sunny. Everyone's happy.",
+  "key": [
+   "happy."
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "pull",
+  "text": "Then the water pulls back. Sand, fish, and coral appear out of nowhere.",
+  "key": [
+   "pulls",
+   "fish,"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "crowd",
+  "text": "People walk out to grab the fish. They start filming.",
+  "key": [
+   "walk",
+   "filming."
+  ],
+  "counter": "08:00"
+ },
+ {
+  "id": "l06",
+  "shot": "mistake",
+  "text": "That's the biggest mistake you can make.",
+  "key": [
+   "mistake"
+  ]
+ },
+ {
+  "id": "l07",
+  "shot": "y2004",
+  "text": "In 2004, this is exactly what happened. More than two hundred thirty thousand people died.",
+  "key": [
+   "exactly",
+   "died."
+  ],
+  "stat": [
+   "INDIAN OCEAN · 2004",
+   "230,000+",
+   "died in the tsunami"
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "horizon",
+  "text": "Out in the open ocean, the wave moves as fast as a jet plane.",
+  "key": [
+   "jet"
+  ],
+  "counter": "05:00",
+  "stat": [
+   "IN THE OPEN OCEAN",
+   "~800 KM/H",
+   "as fast as a jet"
+  ]
+ },
+ {
+  "id": "l09",
+  "shot": "wave",
+  "text": "And near the shore, it's still faster than anyone can run.",
+  "key": [
+   "faster",
+   "run."
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r1",
+  "text": "Rule one. Leave your things. All of them.",
+  "key": [
+   "Leave",
+   "All"
+  ]
+ },
+ {
+  "id": "l11",
+  "shot": "r2",
+  "text": "Rule two. Go up. Thirty meters high, or three kilometers inland.",
+  "key": [
+   "up.",
+   "inland."
+  ],
+  "counter": "02:00"
+ },
+ {
+  "id": "l12",
+  "shot": "r3",
+  "text": "No hill? Get to the third floor of a strong concrete building.",
+  "key": [
+   "third",
+   "concrete"
+  ]
+ },
+ {
+  "id": "l13",
+  "shot": "r4",
+  "text": "Rule four. Never go back after the first wave. The next one is often bigger.",
+  "key": [
+   "back",
+   "bigger."
+  ],
+  "counter": "00:30"
+ },
+ {
+  "id": "l14",
+  "shot": "hero",
+  "text": "In 2004, a ten-year-old girl noticed the sea pulling back. She had learned it in school.",
+  "key": [
+   "girl",
+   "school."
+  ]
+ },
+ {
+  "id": "l15",
+  "shot": "hero",
+  "text": "She screamed. And almost one hundred people survived because of her.",
+  "key": [
+   "screamed.",
+   "hundred"
+  ],
+  "stat": [
+   "TILLY SMITH · AGE 10",
+   "~100 LIVES",
+   "saved in Phuket, Thailand · 2004"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "ph",
+  "text": "And it has happened here. In 1976, thousands died in a tsunami in the Moro Gulf, in the Philippines.",
+  "key": [
+   "here.",
+   "thousands"
+  ],
+  "stat": [
+   "MORO GULF · 1976",
+   "THOUSANDS",
+   "died in the tsunami in Mindanao"
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "comment",
+  "text": "If the sea pulled back right now... where would you run? Comment it.",
+  "key": [
+   "where",
+   "Comment"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "cta",
+  "text": "Share this. You could be the one who saves your family.",
+  "key": [
+   "Share",
+   "saves"
+  ],
+  "counter": "00:00"
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]

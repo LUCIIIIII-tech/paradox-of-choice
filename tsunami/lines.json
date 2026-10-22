@@ -1,0 +1,196 @@
+[
+ {
+  "id": "l01",
+  "shot": "recede",
+  "text": "Kapag biglang umatras ang dagat... huwag kang manood. Tumakbo ka.",
+  "key": [
+   "umatras",
+   "Tumakbo"
+  ],
+  "gap": 0.05,
+  "seed": 11
+ },
+ {
+  "id": "l02",
+  "shot": "recede",
+  "text": "May sampung minuto ka na lang... o mas maikli pa.",
+  "key": [
+   "sampung"
+  ],
+  "counter": "10:00"
+ },
+ {
+  "id": "l03",
+  "shot": "beach",
+  "text": "Nasa beach ka. Maaraw. Masaya ang lahat.",
+  "key": [
+   "Masaya"
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "pull",
+  "text": "Tapos, biglang umatras ang tubig. Lumitaw ang buhangin, ang mga isda, ang mga korales.",
+  "key": [
+   "umatras",
+   "isda,"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "crowd",
+  "text": "Lumalapit pa ang mga tao. Nanghuhuli ng isda. Nagvi-video.",
+  "key": [
+   "Lumalapit",
+   "Nagvi-video."
+  ],
+  "counter": "08:00"
+ },
+ {
+  "id": "l06",
+  "shot": "mistake",
+  "text": "'Yan ang pinakamalaking pagkakamali.",
+  "key": [
+   "pagkakamali."
+  ]
+ },
+ {
+  "id": "l07",
+  "shot": "y2004",
+  "text": "Noong 2004, ganitong-ganito ang nangyari. Mahigit dalawandaan at tatlumpung libo ang namatay.",
+  "key": [
+   "ganitong-ganito",
+   "namatay."
+  ],
+  "say": "Noong two thousand four, ganitong-ganito ang nangyari. Mahigit dalawandaan at tatlumpung libo ang namatay.",
+  "stat": [
+   "INDIAN OCEAN · 2004",
+   "230,000+",
+   "ang namatay sa tsunami"
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "horizon",
+  "text": "Sa gitna ng dagat, kasing-bilis ng eroplano ang alon.",
+  "key": [
+   "eroplano"
+  ],
+  "counter": "05:00",
+  "stat": [
+   "SA GITNA NG DAGAT",
+   "~800 KM/H",
+   "kasing-bilis ng jet"
+  ]
+ },
+ {
+  "id": "l09",
+  "shot": "wave",
+  "text": "At pagdating sa pampang, mas mabilis pa rin ito sa kahit sinong tumatakbo.",
+  "key": [
+   "mabilis",
+   "tumatakbo."
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r1",
+  "text": "Una. Iwan mo ang gamit mo. Lahat.",
+  "key": [
+   "Iwan",
+   "Lahat."
+  ]
+ },
+ {
+  "id": "l11",
+  "shot": "r2",
+  "text": "Pangalawa. Umakyat ka. Tatlumpung metro pataas, o tatlong kilometro papalayo sa dagat.",
+  "key": [
+   "Umakyat",
+   "tatlong"
+  ],
+  "counter": "02:00"
+ },
+ {
+  "id": "l12",
+  "shot": "r3",
+  "text": "Walang bundok? Umakyat ka sa ikatlong palapag ng matibay na building.",
+  "key": [
+   "ikatlong",
+   "matibay"
+  ]
+ },
+ {
+  "id": "l13",
+  "shot": "r4",
+  "text": "Pang-apat. Huwag kang babalik pagkatapos ng unang alon. Kadalasan, mas malaki ang susunod.",
+  "key": [
+   "babalik",
+   "susunod."
+  ],
+  "counter": "00:30"
+ },
+ {
+  "id": "l14",
+  "shot": "hero",
+  "text": "Noong 2004, isang sampung taong gulang na batang babae ang nakapansin nito. Natutunan niya 'to sa school.",
+  "key": [
+   "batang",
+   "school."
+  ],
+  "say": "Noong two thousand four, isang sampung taong gulang na batang babae ang nakapansin nito. Natutunan niya 'to sa school."
+ },
+ {
+  "id": "l15",
+  "shot": "hero",
+  "text": "Sumigaw siya. At halos isandaang tao ang nabuhay dahil sa kanya.",
+  "key": [
+   "Sumigaw",
+   "isandaang"
+  ],
+  "stat": [
+   "TILLY SMITH · 10 TAONG GULANG",
+   "~100 BUHAY",
+   "nailigtas sa Phuket, Thailand · 2004"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "ph",
+  "text": "At nangyari na 'to dito. Noong 1976, libo-libo ang namatay sa tsunami sa Moro Gulf.",
+  "key": [
+   "dito.",
+   "libo-libo"
+  ],
+  "say": "At nangyari na 'to dito. Noong nineteen seventy-six, libo-libo ang namatay sa tsunami sa Moro Gulf.",
+  "stat": [
+   "MORO GULF · 1976",
+   "LIBO-LIBO",
+   "ang namatay sa tsunami sa Mindanao"
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "comment",
+  "text": "Kung umatras ang dagat ngayon... saan ka tatakbo? Comment mo.",
+  "key": [
+   "saan",
+   "Comment"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "cta",
+  "text": "I-share mo 'to. Baka ikaw ang magligtas sa pamilya mo.",
+  "key": [
+   "I-share",
+   "magligtas"
+  ],
+  "counter": "00:00"
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]
