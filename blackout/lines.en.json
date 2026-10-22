@@ -39,16 +39,15 @@
  {
   "id": "l04",
   "shot": "dark",
-  "text": "No lights. No signal. The whole city goes silent.",
+  "text": "No lights. No signal.",
   "key": [
-   "No",
-   "silent."
+   "No"
   ]
  },
  {
   "id": "l05",
   "shot": "sun",
-  "text": "A solar storm. Billions of tons of burning gas from the sun... aimed straight at Earth.",
+  "text": "A solar storm. Billions of tons of fire from the sun... straight at Earth.",
   "key": [
    "solar",
    "straight"
@@ -62,17 +61,17 @@
  {
   "id": "l06",
   "shot": "day1",
-  "text": "Day one. No internet, no calls. You don't know if your family is safe.",
+  "text": "Day one. No internet. You can't reach your family.",
   "key": [
-   "family",
-   "safe."
+   "reach",
+   "family."
   ],
   "counter": "DAY 1"
  },
  {
   "id": "l07",
   "shot": "atm",
-  "text": "The ATMs are dead. Your money... is locked inside the bank.",
+  "text": "The ATMs are dead. Your money is locked inside.",
   "key": [
    "ATMs",
    "locked"
@@ -81,7 +80,7 @@
  {
   "id": "l08",
   "shot": "day2",
-  "text": "Day two. The food in your fridge is rotting. Every store is closed.",
+  "text": "Day two. The food is rotting. Every store is closed.",
   "key": [
    "rotting.",
    "closed."
@@ -91,18 +90,18 @@
  {
   "id": "l09",
   "shot": "faucet",
-  "text": "Then the water stops. Because electricity runs the water too.",
+  "text": "Then the water stops. Electricity was running that too.",
   "key": [
    "water",
-   "electricity"
+   "Electricity"
   ]
  },
  {
   "id": "l10",
   "shot": "day3",
-  "text": "Day three. Water, food, and gas run out. This is where the chaos starts.",
+  "text": "Day three. Everything runs out. This is where the chaos starts.",
   "key": [
-   "run",
+   "runs",
    "chaos"
   ],
   "counter": "DAY 3"
@@ -110,7 +109,7 @@
  {
   "id": "l11",
   "shot": "hospital",
-  "text": "In hospitals, the last generators are all that's keeping patients alive.",
+  "text": "In hospitals, the last generators are keeping patients alive.",
   "key": [
    "last",
    "alive."
@@ -119,7 +118,7 @@
  {
   "id": "l12",
   "shot": "day7",
-  "text": "Day seven. The whole world is silent... and for the first time, you can see every star.",
+  "text": "Day seven. The world is silent... but you can see every star.",
   "key": [
    "silent...",
    "star."
@@ -137,7 +136,7 @@
  {
   "id": "l14",
   "shot": "carrington",
-  "text": "In 1859, the Carrington Event hit. Telegraph wires caught fire, and the northern lights reached the Caribbean.",
+  "text": "In 1859, telegraph wires caught fire, and the northern lights reached the Caribbean.",
   "key": [
    "fire,",
    "lights"
@@ -151,7 +150,7 @@
  {
   "id": "l15",
   "shot": "quebec",
-  "text": "In 1989, a much weaker storm cut the power to six million people in Quebec.",
+  "text": "In 1989, six million people in Quebec lost power.",
   "key": [
    "six",
    "million"
@@ -165,7 +164,7 @@
  {
   "id": "l16",
   "shot": "miss",
-  "text": "And in 2012, a storm as strong as Carrington... missed us by just nine days.",
+  "text": "In 2012, a storm just as strong... missed us by nine days.",
   "key": [
    "missed",
    "nine"
@@ -179,9 +178,9 @@
  {
   "id": "l17",
   "shot": "chance",
-  "text": "One study puts the chance of it happening again at one in eight, every ten years.",
+  "text": "The chance it happens again? One in eight, every ten years.",
   "key": [
-   "one",
+   "One",
    "eight,"
   ],
   "stat": [
@@ -193,24 +192,16 @@
  {
   "id": "l18",
   "shot": "kit",
-  "text": "So start getting ready now. Water, a flashlight, canned food, and cash.",
+  "text": "So get ready now. Water, a flashlight, canned food, and cash.",
   "key": [
    "ready",
    "cash."
   ]
  },
  {
-  "id": "l19",
-  "shot": "meet",
-  "text": "And agree with your family on where to meet when there's no signal.",
-  "key": [
-   "meet"
-  ]
- },
- {
   "id": "l20",
   "shot": "battery",
-  "text": "Now look at your phone's battery. That's all you have left.",
+  "text": "Look at your battery. That's all you have left.",
   "key": [
    "battery.",
    "left."
@@ -219,7 +210,7 @@
  {
   "id": "l21",
   "shot": "comment",
-  "text": "If this happened tonight, how many days would you last? Comment it, be honest.",
+  "text": "How many days would you last? Comment it, be honest.",
   "key": [
    "days",
    "Comment"

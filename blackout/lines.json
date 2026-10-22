@@ -39,16 +39,15 @@
  {
   "id": "l04",
   "shot": "dark",
-  "text": "Walang ilaw. Walang signal. Tahimik ang buong lungsod.",
+  "text": "Walang ilaw. Walang signal.",
   "key": [
-   "Walang",
-   "Tahimik"
+   "Walang"
   ]
  },
  {
   "id": "l05",
   "shot": "sun",
-  "text": "Solar storm. Bilyon-bilyong tonelada ng nag-aapoy na gas mula sa araw... diretso sa Earth.",
+  "text": "Solar storm. Bilyon-bilyong toneladang apoy mula sa araw... diretso sa Earth.",
   "key": [
    "Solar",
    "diretso"
@@ -62,9 +61,9 @@
  {
   "id": "l06",
   "shot": "day1",
-  "text": "Unang araw. Walang internet, walang tawag. Hindi mo alam kung ligtas ang pamilya mo.",
+  "text": "Unang araw. Walang internet. Hindi mo makontak ang pamilya mo.",
   "key": [
-   "ligtas",
+   "makontak",
    "pamilya"
   ],
   "counter": "ARAW 1"
@@ -72,16 +71,16 @@
  {
   "id": "l07",
   "shot": "atm",
-  "text": "Patay ang mga ATM. Ang pera mo... nakakulong sa bangko.",
+  "text": "Patay ang mga ATM. Nakakulong ang pera mo.",
   "key": [
    "ATM.",
-   "nakakulong"
+   "Nakakulong"
   ]
  },
  {
   "id": "l08",
   "shot": "day2",
-  "text": "Ikalawang araw. Bulok na ang laman ng ref. Sarado na ang mga tindahan.",
+  "text": "Ikalawang araw. Bulok na ang pagkain. Sarado ang mga tindahan.",
   "key": [
    "Bulok",
    "Sarado"
@@ -91,16 +90,16 @@
  {
   "id": "l09",
   "shot": "faucet",
-  "text": "Tapos, wala nang tubig sa gripo. Kasi kuryente rin pala ang nagpapatakbo ng tubig.",
+  "text": "Tapos, wala nang tubig. Kuryente rin pala ang nagpapatakbo nito.",
   "key": [
-   "tubig",
-   "kuryente"
+   "tubig.",
+   "Kuryente"
   ]
  },
  {
   "id": "l10",
   "shot": "day3",
-  "text": "Ikatlong araw. Ubusan na ng tubig, pagkain, at gasolina. Dito na nagsisimula ang gulo.",
+  "text": "Ikatlong araw. Ubusan na. Dito na nagsisimula ang gulo.",
   "key": [
    "Ubusan",
    "gulo."
@@ -110,7 +109,7 @@
  {
   "id": "l11",
   "shot": "hospital",
-  "text": "Sa mga ospital, huling generator na lang ang bumubuhay sa mga pasyente.",
+  "text": "Sa ospital, huling generator na lang ang bumubuhay sa mga pasyente.",
   "key": [
    "huling",
    "bumubuhay"
@@ -119,7 +118,7 @@
  {
   "id": "l12",
   "shot": "day7",
-  "text": "Ikapitong araw. Tahimik ang buong mundo... at sa unang pagkakataon, kita mo ang lahat ng bituin.",
+  "text": "Ikapitong araw. Tahimik ang mundo... pero kita mo ang lahat ng bituin.",
   "key": [
    "Tahimik",
    "bituin."
@@ -137,55 +136,55 @@
  {
   "id": "l14",
   "shot": "carrington",
-  "text": "Noong 1859, tumama ang Carrington Event. Umapoy ang mga telegraph, at umabot ang aurora hanggang Caribbean.",
+  "text": "Noong 1859, umapoy ang mga telegraph, at umabot ang aurora hanggang Caribbean.",
   "key": [
-   "Umapoy",
+   "umapoy",
    "aurora"
   ],
-  "say": "Noong eighteen fifty-nine, tumama ang Carrington Event. Umapoy ang mga telegraph, at umabot ang aurora hanggang Caribbean.",
   "stat": [
    "CARRINGTON EVENT · 1859",
    "UMAPOY ANG TELEGRAPH",
    "pinakamalakas na naitala"
-  ]
+  ],
+  "say": "Noong eighteen fifty-nine, umapoy ang mga telegraph, at umabot ang aurora hanggang Caribbean."
  },
  {
   "id": "l15",
   "shot": "quebec",
-  "text": "Noong 1989, mas mahinang storm lang, pero anim na milyong tao sa Quebec ang nawalan ng kuryente.",
+  "text": "Noong 1989, anim na milyong tao sa Quebec ang nawalan ng kuryente.",
   "key": [
    "anim",
    "milyong"
   ],
-  "say": "Noong nineteen eighty-nine, mas mahinang storm lang, pero anim na milyong tao sa Quebec ang nawalan ng kuryente.",
   "stat": [
    "QUEBEC · 1989",
    "6 MILYONG TAO",
    "9 oras na walang kuryente"
-  ]
+  ],
+  "say": "Noong nineteen eighty-nine, anim na milyong tao sa Quebec ang nawalan ng kuryente."
  },
  {
   "id": "l16",
   "shot": "miss",
-  "text": "At noong 2012, may storm na kasinglakas ng Carrington... na-miss tayo ng siyam na araw lang.",
+  "text": "Noong 2012, isang storm na kasinlakas nito... na-miss tayo ng siyam na araw lang.",
   "key": [
    "na-miss",
    "siyam"
   ],
-  "say": "At noong twenty twelve, may storm na kasinglakas ng Carrington... na-miss tayo ng siyam na araw lang.",
   "stat": [
    "JULY 2012",
    "9 ARAW",
    "lang ang pagitan · NASA"
-  ]
+  ],
+  "say": "Noong twenty twelve, isang storm na kasinlakas nito... na-miss tayo ng siyam na araw lang."
  },
  {
   "id": "l17",
   "shot": "chance",
-  "text": "Ayon sa isang pag-aaral, isa sa walo ang tsansang mangyari ulit ito sa loob ng sampung taon.",
+  "text": "Ang tsansang mangyari ulit? Isa sa walo, sa loob ng sampung taon.",
   "key": [
-   "isa",
-   "walo"
+   "Isa",
+   "walo,"
   ],
   "stat": [
    "TSANSA SA LOOB NG 10 TAON",
@@ -196,24 +195,16 @@
  {
   "id": "l18",
   "shot": "kit",
-  "text": "Kaya ngayon pa lang, maghanda ka na. Tubig, flashlight, de-lata, at cash.",
+  "text": "Kaya maghanda ka na. Tubig, flashlight, de-lata, at cash.",
   "key": [
    "maghanda",
    "cash."
   ]
  },
  {
-  "id": "l19",
-  "shot": "meet",
-  "text": "At pag-usapan n'yo ng pamilya mo kung saan kayo magkikita kapag walang signal.",
-  "key": [
-   "magkikita"
-  ]
- },
- {
   "id": "l20",
   "shot": "battery",
-  "text": "Ngayon, tingnan mo ang battery ng phone mo. 'Yan na lang ang natitira sa'yo.",
+  "text": "Tingnan mo ang battery mo. 'Yan na lang ang natitira sa'yo.",
   "key": [
    "battery",
    "natitira"
@@ -222,16 +213,16 @@
  {
   "id": "l21",
   "shot": "comment",
-  "text": "Kung mangyari 'to ngayong gabi, ilang araw ka tatagal? Comment mo, totoo lang.",
+  "text": "Ilang araw ka tatagal? Comment mo, totoo lang.",
   "key": [
-   "ilang",
+   "Ilang",
    "Comment"
   ]
  },
  {
   "id": "l22",
   "shot": "cta",
-  "text": "I-send mo 'to sa taong gusto mong kasama sa dilim.",
+  "text": "I-send mo 'to sa gusto mong kasama sa dilim.",
   "key": [
    "I-send",
    "dilim."

@@ -210,7 +210,7 @@ S.radio = (t, u) => {
 };
 // 14. 1859: the Carrington Event: telegraph wires catch fire; the aurora reaches the Caribbean
 S.carrington = (t, u) => {
-  const tf = wordT('l14', 'Umapoy'), ta = wordT('l14', 'aurora');
+  const tf = wordT('l14', 'umapoy'), ta = wordT('l14', 'aurora');
   cam(540, 900, lerp(1.0, 1.08, seg(u, 0, span('l14'))));
   const back_ = keep(); const au = ss(seg(t, ta - .5, ta + .8));
   g.fillStyle = lg(0, -400, 0, 1300, ['#03050e', '#0a1424', '#1a2a3a']); g.fillRect(-400, -400, 1900, 1800);

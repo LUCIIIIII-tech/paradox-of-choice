@@ -444,7 +444,7 @@ pad(T('l12') - .2, T('l13') + .2, [50, 57, 62, 66], .14); shimmer(wt('l12', 'bit
 static(T('l13') - .1, T('l14') + .3, .12); impact(T('l13') + .1, .6, .9); sub_drop(T('l13'), .5)
 # 14-17. the record: 1859, 1989, 2012, 12%
 bass_pulse(T('l14'), T('l18'), 96, [38, 38, 36, 34], .2); drone(T('l14'), T('l18'), .14, 37, .3, .004)
-TF = wt('l14', 'Umapoy')
+TF = wt('l14', 'umapoy')
 for k in range(5): arc(TF + k * .22, .35, rng.uniform(-.6, .6))
 shimmer(wt('l14', 'aurora'), 2.0, .16)
 wind(T('l15'), T('l16'), .1); power_down(T('l15') + SPAN('l15') * .3, .4)
