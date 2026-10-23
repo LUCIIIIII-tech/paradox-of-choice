@@ -9,8 +9,8 @@ LANG = next((a for a in sys.argv[1:] if a in ('tl', 'en')), 'tl'); SUF = '' if L
 V = os.path.join(HERE, 'voices' if LANG == 'tl' else 'voices_' + LANG); os.makedirs(V, exist_ok=True)
 SR, MAXP = 48000, .3
 TARGET = float(os.environ.get('TARGET', 90))      # the reel length the auto tempo aims for (long form: pass a tempo instead)
-if LANG == 'en':     # a native US English narrator (Christopher), cloned from a reference pitched 2 semitones down: deeper, more serious
-    REF_MP3 = os.path.join(HERE, '..', '..', 'voice-tests', 'refs', '18_US_Christopher.wav'); REF_AF = 'rubberband=pitch=0.8909'
+if LANG == 'en':     # a native US English narrator (Christopher), cloned from the reference at its natural pitch
+    REF_MP3 = os.path.join(HERE, '..', '..', 'voice-tests', 'refs', '18_US_Christopher.wav'); REF_AF = None
     REF_TEXT = "In the dark, nobody can hear you. And the silence is the loudest thing you will ever hear."
 else:
     REF_MP3 = os.path.join(HERE, '..', '..', 'voice-tests', '18_Vox_deep_narrator.mp3'); REF_AF = None
