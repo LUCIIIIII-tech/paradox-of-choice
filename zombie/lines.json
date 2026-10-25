@@ -1,0 +1,191 @@
+[
+ {
+  "id": "l01",
+  "shot": "rush",
+  "text": "Hindi zombie ang unang papatay sa'yo. 'Yung crowd.",
+  "key": [
+   "zombie",
+   "crowd."
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "l02",
+  "shot": "atrium",
+  "text": "Sabado, alas-8 ng gabi. Punuan ang mall. Libo-libong tao sa loob.",
+  "key": [
+   "Punuan",
+   "Libo-libong"
+  ],
+  "say": "Sabado, alas-otso ng gabi. Punuan ang mall. Libo-libong tao sa loob."
+ },
+ {
+  "id": "l03",
+  "shot": "scream",
+  "text": "Tapos, may sumigaw sa may entrance.",
+  "key": [
+   "sumigaw"
+  ],
+  "counter": "0:00"
+ },
+ {
+  "id": "l04",
+  "shot": "lunge",
+  "text": "Isang lalaki ang sumunggab sa guard. Tapos, isa pa.",
+  "key": [
+   "sumunggab",
+   "isa"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "well",
+  "text": "Sa loob ng 10 segundo, tumatakbo na ang lahat... papunta sa main entrance.",
+  "key": [
+   "10",
+   "entrance."
+  ],
+  "say": "Sa loob ng sampung segundo, tumatakbo na ang lahat... papunta sa main entrance.",
+  "counter": "0:10"
+ },
+ {
+  "id": "l06",
+  "shot": "brain",
+  "text": "Utak mo 'yan. Kapag takot ka, babalik ka sa daang pinasukan mo. Kahit doon galing ang panganib.",
+  "key": [
+   "Utak",
+   "pinasukan",
+   "panganib."
+  ],
+  "stat": [
+   "SIME · 1985",
+   "PINASUKAN",
+   "sa sunog, sa pintong pinasukan tumatakbo ang tao"
+  ]
+ },
+ {
+  "id": "l07",
+  "shot": "freeze",
+  "text": "'Yung iba, hindi na gumagalaw. 3 sa 4 na tao, natutulala.",
+  "key": [
+   "gumagalaw.",
+   "natutulala."
+  ],
+  "say": "'Yung iba, hindi na gumagalaw. Tatlo sa apat na tao, natutulala.",
+  "stat": [
+   "LEACH · SURVIVAL PSYCHOLOGY",
+   "3 SA 4",
+   "ang natutulala sa unang sandali ng sakuna"
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "crush",
+  "text": "Barado ang pinto. Nagtutulakan, may natutumba.",
+  "key": [
+   "Barado",
+   "natutumba."
+  ],
+  "counter": "0:45"
+ },
+ {
+  "id": "l09",
+  "shot": "noise",
+  "text": "At lahat ng sigawan na 'yan... doon sila papunta.",
+  "key": [
+   "sigawan",
+   "papunta."
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r1",
+  "text": "Patakaran 1: huwag kang sumabay sa crowd.",
+  "key": [
+   "huwag",
+   "crowd."
+  ],
+  "say": "Patakaran isa: huwag kang sumabay sa crowd."
+ },
+ {
+  "id": "l11",
+  "shot": "r2",
+  "text": "2: fire exit ang hanapin mo, hindi ang entrance.",
+  "key": [
+   "fire",
+   "exit"
+  ],
+  "say": "Dalawa: fire exit ang hanapin mo, hindi ang entrance."
+ },
+ {
+  "id": "l12",
+  "shot": "r3",
+  "text": "3: tumahimik ka. Tunog ang sinusundan nila.",
+  "key": [
+   "tumahimik",
+   "Tunog"
+  ],
+  "say": "Tatlo: tumahimik ka. Tunog ang sinusundan nila."
+ },
+ {
+  "id": "l13",
+  "shot": "exit",
+  "text": "Habang nag-aagawan ang lahat sa harap... ikaw, sa pintong walang pumapansin.",
+  "key": [
+   "ikaw,",
+   "walang"
+  ],
+  "counter": "1:30"
+ },
+ {
+  "id": "l14",
+  "shot": "real",
+  "text": "Walang zombie sa totoong buhay.",
+  "key": [
+   "totoong"
+  ]
+ },
+ {
+  "id": "l15",
+  "shot": "truth",
+  "text": "Pero sa sunog o stampede... ganito rin ang gagawin ng utak mo.",
+  "key": [
+   "sunog",
+   "stampede...",
+   "utak"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "tip",
+  "text": "Kaya sa susunod na pumasok ka sa mall... hanapin mo muna ang fire exit.",
+  "key": [
+   "hanapin",
+   "fire",
+   "exit."
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "comment",
+  "text": "Alam mo ba kung nasaan ang fire exit sa mall n'yo? Comment mo.",
+  "key": [
+   "nasaan",
+   "Comment"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "cta",
+  "text": "I-share mo 'to sa kasamang hindi mo iiwan sa crowd.",
+  "key": [
+   "I-share",
+   "crowd."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]

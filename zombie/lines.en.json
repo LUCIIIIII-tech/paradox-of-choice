@@ -1,0 +1,191 @@
+[
+ {
+  "id": "l01",
+  "shot": "rush",
+  "text": "Zombies won't kill you first. The crowd will.",
+  "key": [
+   "Zombies",
+   "crowd"
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "l02",
+  "shot": "atrium",
+  "text": "Saturday, 8 PM. The mall is packed. Thousands of people inside.",
+  "key": [
+   "packed.",
+   "Thousands"
+  ],
+  "say": "Saturday, eight P.M. The mall is packed. Thousands of people inside."
+ },
+ {
+  "id": "l03",
+  "shot": "scream",
+  "text": "Then someone screams near the entrance.",
+  "key": [
+   "screams"
+  ],
+  "counter": "0:00"
+ },
+ {
+  "id": "l04",
+  "shot": "lunge",
+  "text": "A man lunges at the guard. Then another one.",
+  "key": [
+   "lunges",
+   "another"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "well",
+  "text": "Within 10 seconds, everyone's running... straight for the main entrance.",
+  "key": [
+   "10",
+   "entrance."
+  ],
+  "say": "Within ten seconds, everyone's running... straight for the main entrance.",
+  "counter": "0:10"
+ },
+ {
+  "id": "l06",
+  "shot": "brain",
+  "text": "That's your brain. When you're scared, you go back the way you came in. Even if that's where the danger is.",
+  "key": [
+   "brain.",
+   "came",
+   "danger"
+  ],
+  "stat": [
+   "SIME · 1985",
+   "THE WAY IN",
+   "in fires, people run for the door they came in"
+  ]
+ },
+ {
+  "id": "l07",
+  "shot": "freeze",
+  "text": "Others stop moving. 3 in 4 people freeze.",
+  "key": [
+   "stop",
+   "freeze."
+  ],
+  "say": "Others stop moving. Three in four people freeze.",
+  "stat": [
+   "LEACH · SURVIVAL PSYCHOLOGY",
+   "3 IN 4",
+   "freeze in the first moments of a disaster"
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "crush",
+  "text": "The doors jam. People push, people go down.",
+  "key": [
+   "jam.",
+   "down."
+  ],
+  "counter": "0:45"
+ },
+ {
+  "id": "l09",
+  "shot": "noise",
+  "text": "And all that screaming... that's what they follow.",
+  "key": [
+   "screaming...",
+   "follow."
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r1",
+  "text": "Rule 1: don't follow the crowd.",
+  "key": [
+   "don't",
+   "crowd."
+  ],
+  "say": "Rule one: don't follow the crowd."
+ },
+ {
+  "id": "l11",
+  "shot": "r2",
+  "text": "2: look for the fire exit, not the entrance.",
+  "key": [
+   "fire",
+   "exit,"
+  ],
+  "say": "Two: look for the fire exit, not the entrance."
+ },
+ {
+  "id": "l12",
+  "shot": "r3",
+  "text": "3: stay quiet. They hunt by sound.",
+  "key": [
+   "quiet.",
+   "sound."
+  ],
+  "say": "Three: stay quiet. They hunt by sound."
+ },
+ {
+  "id": "l13",
+  "shot": "exit",
+  "text": "While everyone fights for the front doors... you take the one nobody's looking at.",
+  "key": [
+   "you",
+   "nobody's"
+  ],
+  "counter": "1:30"
+ },
+ {
+  "id": "l14",
+  "shot": "real",
+  "text": "Zombies aren't real.",
+  "key": [
+   "real."
+  ]
+ },
+ {
+  "id": "l15",
+  "shot": "truth",
+  "text": "But in a fire or a stampede... your brain does the exact same thing.",
+  "key": [
+   "fire",
+   "stampede...",
+   "brain"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "tip",
+  "text": "So the next time you walk into a mall... find the fire exit first.",
+  "key": [
+   "find",
+   "fire",
+   "exit"
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "comment",
+  "text": "Do you know where the fire exit is at your mall? Comment below.",
+  "key": [
+   "where",
+   "Comment"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "cta",
+  "text": "Share this with the friend you'd never leave behind in a crowd.",
+  "key": [
+   "Share",
+   "crowd."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]
