@@ -1,13 +1,15 @@
 [
  {
-  "id": "l01",
+  "id": "h1",
   "shot": "rush",
-  "text": "Hindi zombie ang unang papatay sa'yo. 'Yung crowd.",
+  "text": "Zombie outbreak sa mall. 5 rules... para mabuhay ka.",
   "key": [
-   "zombie",
-   "crowd."
+   "Zombie",
+   "rules...",
+   "mabuhay"
   ],
-  "gap": 0.05
+  "gap": 0.05,
+  "say": "Zombie outbreak sa mall. Five rules... para mabuhay ka."
  },
  {
   "id": "l02",
@@ -49,36 +51,6 @@
   "counter": "0:10"
  },
  {
-  "id": "l06",
-  "shot": "brain",
-  "text": "Utak mo 'yan. Kapag takot ka, babalik ka sa daang pinasukan mo. Kahit doon galing ang panganib.",
-  "key": [
-   "Utak",
-   "pinasukan",
-   "panganib."
-  ],
-  "stat": [
-   "SIME · 1985",
-   "PINASUKAN",
-   "sa sunog, sa pintong pinasukan tumatakbo ang tao"
-  ]
- },
- {
-  "id": "l07",
-  "shot": "freeze",
-  "text": "'Yung iba, hindi na gumagalaw. 3 sa 4 na tao, natutulala.",
-  "key": [
-   "gumagalaw.",
-   "natutulala."
-  ],
-  "say": "'Yung iba, hindi na gumagalaw. Tatlo sa apat na tao, natutulala.",
-  "stat": [
-   "LEACH · SURVIVAL PSYCHOLOGY",
-   "3 SA 4",
-   "ang natutulala sa unang sandali ng sakuna"
-  ]
- },
- {
   "id": "l08",
   "shot": "crush",
   "text": "Barado ang pinto. Nagtutulakan, may natutumba.",
@@ -100,32 +72,56 @@
  {
   "id": "l10",
   "shot": "r1",
-  "text": "Patakaran 1: huwag kang sumabay sa crowd.",
+  "text": "Rule number 1: huwag kang sumabay sa crowd.",
   "key": [
-   "huwag",
+   "Rule",
    "crowd."
   ],
-  "say": "Patakaran isa: huwag kang sumabay sa crowd."
+  "say": "Rule number one: huwag kang sumabay sa crowd."
  },
  {
   "id": "l11",
-  "shot": "r2",
-  "text": "2: fire exit ang hanapin mo, hindi ang entrance.",
+  "shot": "map",
+  "text": "Rule number 2: fire exit ang hanapin mo, hindi ang entrance.",
   "key": [
+   "Rule",
    "fire",
    "exit"
   ],
-  "say": "Dalawa: fire exit ang hanapin mo, hindi ang entrance."
+  "say": "Rule number two: fire exit ang hanapin mo, hindi ang entrance."
  },
  {
   "id": "l12",
   "shot": "r3",
-  "text": "3: tumahimik ka. Tunog ang sinusundan nila.",
+  "text": "Rule number 3: tumahimik ka. Tunog ang sinusundan nila.",
   "key": [
+   "Rule",
    "tumahimik",
    "Tunog"
   ],
-  "say": "Tatlo: tumahimik ka. Tunog ang sinusundan nila."
+  "say": "Rule number three: tumahimik ka. Tunog ang sinusundan nila."
+ },
+ {
+  "id": "r4",
+  "shot": "phone",
+  "text": "Rule number 4: patayin mo ang phone mo. Sa dilim... ilaw ang hinahanap nila.",
+  "key": [
+   "Rule",
+   "patayin",
+   "ilaw"
+  ],
+  "say": "Rule number four: patayin mo ang phone mo. Sa dilim... ilaw ang hinahanap nila."
+ },
+ {
+  "id": "r5",
+  "shot": "bitten",
+  "text": "Rule number 5: ang nakagat... hindi mo na kaibigan. Kahit sino pa siya.",
+  "key": [
+   "Rule",
+   "nakagat...",
+   "kaibigan."
+  ],
+  "say": "Rule number five: ang nakagat... hindi mo na kaibigan. Kahit sino pa siya."
  },
  {
   "id": "l13",
@@ -138,49 +134,22 @@
   "counter": "1:30"
  },
  {
-  "id": "l14",
-  "shot": "real",
-  "text": "Walang zombie sa totoong buhay.",
+  "id": "q1",
+  "shot": "think",
+  "text": "Isa lang ang pwede mong isama palabas. Sino siya? Comment mo.",
   "key": [
-   "totoong"
-  ]
- },
- {
-  "id": "l15",
-  "shot": "truth",
-  "text": "Pero sa sunog o stampede... ganito rin ang gagawin ng utak mo.",
-  "key": [
-   "sunog",
-   "stampede...",
-   "utak"
-  ]
- },
- {
-  "id": "l16",
-  "shot": "tip",
-  "text": "Kaya sa susunod na pumasok ka sa mall... hanapin mo muna ang fire exit.",
-  "key": [
-   "hanapin",
-   "fire",
-   "exit."
-  ]
- },
- {
-  "id": "l17",
-  "shot": "comment",
-  "text": "Alam mo ba kung nasaan ang fire exit sa mall n'yo? Comment mo.",
-  "key": [
-   "nasaan",
+   "Isa",
+   "Sino",
    "Comment"
   ]
  },
  {
-  "id": "l18",
-  "shot": "cta",
-  "text": "I-share mo 'to sa kasamang hindi mo iiwan sa crowd.",
+  "id": "q2",
+  "shot": "share",
+  "text": "I-share mo 'to sa taong isasama mo.",
   "key": [
    "I-share",
-   "crowd."
+   "isasama"
   ]
  },
  {

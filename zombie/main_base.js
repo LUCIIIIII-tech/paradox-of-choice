@@ -1,4 +1,4 @@
-// Zombie sa Mall (a zombie outbreak in a mall at night: the crowd kills you first): a dark, painterly survival "what if" reel, 1080x1920. Deterministic in t: window.renderAt(t).
+// Zombie sa Mall (a zombie outbreak in a mall at night, and 5 rules to stay alive): a dark, painterly survival "what if" reel, 1080x1920. Deterministic in t: window.renderAt(t).
 // The timeline (timeline.json) comes from the narrator: every shot starts when its line starts, so there is no dead air.
 // Look and engine from ../tsunami (and ../puyat, ../huling-tren): every scene is drawn in its true colours, then darkened, and only the lights
 // (warm shop windows, ceiling lamps, phone screens, the red emergency strobes, the green EXIT sign) bring the colour back. Smooth camera, no glitches.
@@ -10,12 +10,12 @@ const TL = await (await fetch(`timeline${SUF}.json`)).json();
 const ANCH = SUF ? await (await fetch(`anchors${SUF}.json`)).json() : {};
 const LN = Object.fromEntries(TL.lines.map(l => [l.id, l]));
 const TX = {
-  tl: { t1: 'ZOMBIE SA MALL?', t2: 'CROWD ANG UNANG PAPATAY', rule: 'PATAKARAN', rules: ['HUWAG SUMABAY SA CROWD', 'FIRE EXIT, HINDI ENTRANCE', 'TUMAHIMIK'],
-        where: 'NASAAN ANG FIRE EXIT?', comment: 'COMMENT MO', share: ['I-SHARE MO', 'SA KASAMA MO SA MALL'], here: 'IKAW AY NARITO', entrance: 'ENTRANCE',
+  tl: { t1: 'ZOMBIE SA MALL', t2: '5 RULES PARA MABUHAY', rule: 'RULE #', rules: ['HUWAG SUMABAY SA CROWD', 'FIRE EXIT, HINDI ENTRANCE', 'TUMAHIMIK', 'PATAYIN ANG PHONE', 'ANG NAKAGAT, HINDI NA KAIBIGAN'],
+        where: 'SINO ANG ISASAMA MO?', comment: 'COMMENT MO', share: ['I-SHARE MO', 'SA ISASAMA MO'], here: 'IKAW AY NARITO', entrance: 'ENTRANCE',
         directory: 'MALL DIRECTORY', since: 'MULA SA SIGAW', mall: 'GRAND ARCADIA MALL', sale: 'MEGA SALE', exit: 'EXIT',
         shops: ['BOTIKA', 'SAPATOS', 'LIBRO', 'RELO', 'KAPE', 'DAMIT', 'LARUAN', 'TINAPAY', 'ALAHAS', 'GADGET'] },
-  en: { t1: 'ZOMBIES IN THE MALL?', t2: 'THE CROWD KILLS FIRST', rule: 'RULE', rules: ["DON'T FOLLOW THE CROWD", 'FIRE EXIT, NOT ENTRANCE', 'STAY QUIET'],
-        where: "WHERE'S THE FIRE EXIT?", comment: 'COMMENT BELOW', share: ['SHARE THIS', 'WITH YOUR MALL BUDDY'], here: 'YOU ARE HERE', entrance: 'ENTRANCE',
+  en: { t1: 'ZOMBIES IN THE MALL', t2: '5 RULES TO STAY ALIVE', rule: 'RULE #', rules: ["DON'T FOLLOW THE CROWD", 'FIRE EXIT, NOT ENTRANCE', 'STAY QUIET', 'KILL YOUR PHONE LIGHT', 'THE BITTEN ARE NOT FRIENDS'],
+        where: 'WHO ARE YOU TAKING?', comment: 'COMMENT BELOW', share: ['SHARE THIS', "WITH THE ONE YOU'D TAKE"], here: 'YOU ARE HERE', entrance: 'ENTRANCE',
         directory: 'MALL DIRECTORY', since: 'SINCE THE SCREAM', mall: 'GRAND ARCADIA MALL', sale: 'MEGA SALE', exit: 'EXIT',
         shops: ['PHARMACY', 'SHOES', 'BOOKS', 'WATCHES', 'COFFEE', 'FASHION', 'TOYS', 'BAKERY', 'JEWELRY', 'GADGETS'] },
 }[LANG];
@@ -332,6 +332,7 @@ function person(x, y, h, o = {}) {
     else if (arms === 'phone' && sg > 0) { e = [s0[0] + h * .1, s0[1] + h * .13]; hd = [hc[0] + h * .12, hc[1] + h * .03]; }
     else if (arms === 'up') { e = [s0[0] + sg * h * .1, s0[1] - h * .13]; hd = [s0[0] + sg * h * .08, s0[1] - h * .3]; }
     else if (arms === 'rub') { e = [s0[0] + sg * h * .09, s0[1] + h * .08]; hd = [hc[0] + sg * h * .055, hc[1] + h * .02]; }
+    else if (arms === 'offer' && sg > 0) { e = [s0[0] + h * .13, s0[1] + h * .07]; hd = [s0[0] + h * .27, s0[1] + h * .05]; }
     else if (arms === 'shh' && sg > 0) { e = [s0[0] + h * .07, s0[1] + h * .15]; hd = [hc[0] + h * .02, hc[1] + h * .07]; }
     else if (arms === 'lap') { e = [s0[0] + sg * h * .05, s0[1] + h * .15]; hd = [x + sg * h * .07, hip[1] + h * .02]; }
     else { const s2 = walk === null ? 0 : -sg * sw; e = [s0[0] + sg * h * .04 + s2 * h * .05, s0[1] + h * .15]; hd = [s0[0] + sg * h * .05 + s2 * h * .1, s0[1] + h * .3]; }
@@ -421,7 +422,7 @@ function tag(s, x, y, col, rgbc, k = 1) {
   text(s, 0, 3, 50, col, 'Anton'); g.restore();
 }
 // ---------- captions: word by word, the current word pops, key words amber (red on the scary lines) ----------
-const REDCAP = ['rush', 'scream', 'lunge', 'brain', 'crush', 'noise', 'loop'];
+const REDCAP = ['rush', 'scream', 'lunge', 'crush', 'noise', 'loop', 'bitten'];
 function captions(t) {
   let last = null; for (const l of TL.lines) { if (l.t0 - .02 > t) break; last = l; }      // only the line being spoken (no overlap at the joins)
   for (const l of last ? [last] : []) {

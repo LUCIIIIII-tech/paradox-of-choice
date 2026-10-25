@@ -127,23 +127,24 @@ function hall(t, o) {
     const [sx, sy0] = prj(0, .5, 12), [, sy1, sk] = prj(0, 2.6, 12); g.fillStyle = lg(sx - .3 * sk, 0, sx + .3 * sk, 0, ['#6a5a40', '#d8cba8', '#5a4a34']); path([[sx - .35 * sk, sy0], [sx - .12 * sk, sy1], [sx + .12 * sk, sy1], [sx + .35 * sk, sy0]]); g.closePath(); g.fill();
     for (let k = 0; k < 8; k++) { const a = k / 8 * TAU, [p0x, p0y] = prj(0, 2.6, 12), [cx_, cy_] = prj(Math.sin(a) * .9, 3.4, 12 + Math.cos(a) * .9), [p1x, p1y, pk] = prj(Math.sin(a) * 1.5, .5, 12 + Math.cos(a) * 1.5); g.beginPath(); g.moveTo(p0x, p0y); g.quadraticCurveTo(cx_, cy_, p1x, p1y); g.strokeStyle = 'rgba(200,230,255,.45)'; g.lineWidth = Math.max(1, .035 * pk); g.stroke(); }
     L(fx, fy - 1.2 * fk, 2.6 * fk, C.amb, .5, .25); }
+  if (o.dark) for (const l of LIGHTS) { l.a *= 1 - .85 * o.dark; l.ga *= 1 - .85 * o.dark; }      // the dark: the hall's own lights die down, the strobes, screens and eyes stay
   // the people, back to front; anyone right at the lens fades out (except the ones the shot is about)
   const NEAR = o.near ?? 1.5, ppl = (o.people || []).map(p => [p, p.Z - PC.z]).filter(([p, d]) => d > (p.keep ? .8 : NEAR)).sort((a, b) => b[1] - a[1]);
   for (const [p, d] of ppl) { const a = (p.keep ? 1 : clamp((d - NEAR) / .7)) * (p.fade ?? 1); if (a < .02) continue; g.globalAlpha = a; drawPerson(t, p); g.globalAlpha = 1; }
   // the light: the red strobes once the alarm goes; then darken everything but the lights
-  if (al > 0) BEACONS.forEach(([X, Y, Z], k) => { if (Z < PC.z + .6) return; const [x, y, kk] = prj(X, Y, Z), s = sv(k); L(x, y, 7 * kk, C.red, al * (.4 + .6 * s), .55 * al * s); });
-  lightPass(al > 0 ? '#52283a' : '#3a3460');
+  if (al > 0) BEACONS.forEach(([X, Y, Z], k) => { if (Z < PC.z + .6) return; const [x, y, kk] = prj(X, Y, Z), s = sv(k); L(x, y, 7 * kk, C.red, al * (.4 + .6 * s) * (1 - .75 * (o.dark || 0)), .55 * al * s); });
+  lightPass(o.dark ? '#1c1424' : al > 0 ? '#52283a' : '#3a3460');
 }
 // a person in the hall: p = { X, Z, h (m), face: 'front'|'back', walk, arms, colours, zombie, fallen, look, eyes, mouth, glow, hl (a soft light on them) }
 function drawPerson(t, p) {
   const [x, y, k] = prj(p.X, 0, p.Z), h = (p.h || 1.7) * k; if (h < 6) return;
   const o = { t: t + (p.seed || 0), walk: p.walk ?? null, arms: p.arms || 'down', hood: p.hood, legs: p.legs, skin: p.skin, hair: p.hair, outfit: p.outfit || 'hoodie', back: p.face === 'back', cap: p.cap, glasses: p.glasses,
-    eyes: p.eyes || 'open', mouth: p.mouth || 0, look: p.look || 0, lookY: p.lookY || 0, lx: p.X < PC.x ? 1 : -1, rim: p.rim || (p.zombie ? 'rgba(170,230,200,.5)' : 'rgba(255,200,150,.5)'), zombie: p.zombie || 0, slump: p.slump || 0, sit: p.sit || 0, longHair: p.long || 0, sway: p.sway || 0, sweat: p.sweat || 0, twitch: p.twitch || 0, ground: 1 };
+    eyes: p.eyes || 'open', bandage: p.bandage || 0, mouth: p.mouth || 0, look: p.look || 0, lookY: p.lookY || 0, lx: p.X < PC.x ? 1 : -1, rim: p.rim || (p.zombie ? 'rgba(170,230,200,.5)' : 'rgba(255,200,150,.5)'), zombie: p.zombie || 0, slump: p.slump || 0, sit: p.sit || 0, longHair: p.long || 0, sway: p.sway || 0, sweat: p.sweat || 0, twitch: p.twitch || 0, ground: 1 };
   if (p.fallen) { g.save(); g.translate(x, y - h * .05); g.rotate(p.fallen * Math.PI / 2 * (p.fallDir || 1)); person(0, 0, h, { ...o, walk: null, arms: 'out' }); g.restore(); return; }
   person(x, y, h, o);
   const gl = p.glow ?? 1;
   if (p.zombie && gl > 0 && !o.back) { const hy = y - h * .855 + (p.slump || 0) * h * .05; for (const sg of [-1, 1]) L(x + sg * h * .052, hy, h * .07, '200,255,230', .9 * gl, .55 * gl); }
-  if (p.arms === 'phone' && !o.back) L(x + h * .12, y - h * .83, h * .5, C.cyan, .7, .25);
+  if (p.arms === 'phone' && !o.back) { const k = p.phoneL || 1; L(x + h * .12, y - h * .83, h * .5 * k, C.cyan, .7, .25 * k); }
   if (p.hl) L(x, y - h * .55, h * .85, C.amb, .5 * p.hl, .1 * p.hl);
 }
 
@@ -230,17 +231,17 @@ function corridor(t, st, o = {}) {
   for (const side of [-1, 1]) { poly([[side * CW, 0, 0], [side * CW, CH, 0], [side * CW, CH, CL], [side * CW, 0, CL]], side < 0 ? '#3a3e46' : '#33373e'); for (let z = 1; z < CL; z += 2) { const [x, y, k] = prj(0, CH - .02, z); rr(x - .5 * k, y - .03 * k, k, .06 * k, 3); g.fillStyle = '#e8f2ff'; g.fill(); L(x, y, 2 * k, C.white, .45, .15); } }
   poly([[-CW, 0, 0], [CW, 0, 0], [CW, 0, CL], [-CW, 0, CL]], '#22252a'); for (let z = 0; z < CL; z += .6) poly([[-CW, 0, z], [CW, 0, z], [CW, 0, z + .02], [-CW, 0, z + .02]], 'rgba(0,0,0,.4)');
   poly([[-CW, CH, 0], [CW, CH, 0], [CW, CH, CL], [-CW, CH, CL]], '#15171b');
-  if (o.hero) drawPerson(t, o.hero);
+  for (const p of [...(o.people || []), ...(o.hero ? [o.hero] : [])].sort((a, b) => b.Z - a.Z)) drawPerson(t, p);
   lightPass('#2a3448'); Object.assign(PC, save);
 }
 // ---------- the mall directory: a lit standee with the floor plan; the crowd at the entrance (red), the orange dot is you, a green way to the exit ----------
-function directory(t, u) {
+function directory(t, u, noTitle = 0) {
   grad('#100c10', '#1e1620', -400, 2300); motes(0, 0, W, H, 40, t, C.amb, .3, 5);
-  const k = lerp(1, 1.16, ss(u / 3.5)); g.save(); g.translate(CX, 900); g.scale(k, k); g.translate(-CX, -900);
+  const k = lerp(1, noTitle ? 1.07 : 1.16, ss(u / 3.5)); g.save(); g.translate(CX, 900); g.scale(k, k); g.translate(-CX, -900);
   const x0 = 150, y0 = 250, w = 780, h = 1200;
   rr(x0 - 26, y0 - 26, w + 52, h + 52, 20); g.fillStyle = lg(x0, 0, x0 + w, 0, ['#7a5a2a', '#e0c07a', '#6a4a20']); g.fill(); rr(x0, y0, w, h, 10); g.fillStyle = lg(0, y0, 0, y0 + h, ['#2c2822', '#1a1712']); g.fill();
-  text(TX.directory, CX, y0 + 95, 78, '#f6e2b8', 'Anton');
-  const s = 34, toP = (X, Z) => [CX + X * s, 930 + (Z - 12) * s];
+  if (!noTitle) text(TX.directory, CX, y0 + 95, 78, '#f6e2b8', 'Anton');
+  const s = 34, toP = (X, Z) => [CX + X * s, (noTitle ? 990 : 930) + (Z - 12) * s];
   const [ax, ay] = toP(-HW, 2); g.fillStyle = 'rgba(216,200,160,.08)'; g.fillRect(ax, ay, 2 * HW * s, 20 * s); g.strokeStyle = '#e0d0a8'; g.lineWidth = 5; g.strokeRect(ax, ay, 2 * HW * s, 20 * s);
   for (let z = 2; z < DZ - .1; z += 3.6) for (const side of [-1, 1]) { const [a, b] = toP(side * HW, z); g.fillStyle = 'rgba(216,200,160,.16)'; g.fillRect(side < 0 ? a : a - 2.6 * s, b + 3, 2.6 * s, 3.6 * s - 6); g.strokeStyle = 'rgba(224,208,168,.6)'; g.lineWidth = 2; g.strokeRect(side < 0 ? a : a - 2.6 * s, b + 3, 2.6 * s, 3.6 * s - 6); }
   const [fx, fy] = toP(0, 12); circ(fx, fy, 2.2 * s, '#e0d0a8', 4); circ(fx, fy, 1.4 * s, 'rgba(110,170,230,.35)');
@@ -256,7 +257,7 @@ function directory(t, u) {
 }
 
 // ---------- overlays special to this reel: the clock since the scream, rule cards (danger red), the big end cards ----------
-const CDK = [['l03', 0], ['l05', 10], ['l08', 45], ['l13', 90], ['l14', 96]].map(([id, s]) => [T(id), s]);
+const CDK = [['l03', 0], ['l05', 10], ['l08', 45], ['l13', 90], ['q1', 96]].map(([id, s]) => [T(id), s]);
 function clock(t, y = 165) {
   if (t < CDK[0][0] || t >= CDK[CDK.length - 1][0]) return;
   let s = 0; for (let i = 0; i < CDK.length - 1; i++) if (t >= CDK[i][0] && t < CDK[i + 1][0]) s = lerp(CDK[i][1], CDK[i + 1][1], (t - CDK[i][0]) / (CDK[i + 1][0] - CDK[i][0]));
@@ -269,7 +270,7 @@ function clock(t, y = 165) {
 function ruleCard(t, t0, t1, n, label) {
   const k = back(seg(t, t0, t0 + .28), 2.2) * (1 - ss(seg(t, t1 + .1, t1 + .35))); if (k <= 0) return;
   reset(); g.save(); g.translate(CX, 470); g.scale(k, k); glass(-420, -140, 840, 280, 34, RED, 5, 'rgba(255,49,80,.8)');
-  text(`${TX.rule} ${n}`, 0, -70, 54, '#ff8a96', 'Anton'); g.font = '96px Anton'; const sc = Math.min(1, 760 / g.measureText(label).width);
+  text(`${TX.rule}${n}`, 0, -70, 54, '#ff8a96', 'Anton'); g.font = '96px Anton'; const sc = Math.min(1, 760 / g.measureText(label).width);
   g.save(); g.translate(0, 34); g.scale(sc, sc); g.shadowColor = 'rgba(255,49,80,.9)'; g.shadowBlur = 30; text(label, 0, 0, 96, '#fff', 'Anton'); g.restore(); g.restore();
 }
 function bigCard(t, t0, top, bottom, col = YEL, glowc = 'rgba(255,170,80,1)') {
@@ -300,31 +301,41 @@ S.lunge = (t, u) => { const hit = t > S_TURN2 - .1 ? S_TURN2 - .1 : S_LUNGE; cam
   hall(t, keepOnly(staged(t), p => p.Z > 20.4 || (p.Z > 19.4 && Math.abs(p.X - PC.x) > 1.6))); };
 // 5. the alarm: high and wide from the gallery, red strobes, everyone runs for the doors they came in by; one orange hoodie goes the other way
 S.well = (t, u) => { cam(CX, 900, 1, 0, 2 * Math.exp(-u * 2), t); setPC(lerp(-.4, .3, seg(u, 0, span('l05'))), 8.0, lerp(-3, -1.2, ss(seg(u, 0, span('l05')))), 420, 900); hall(t, staged(t)); };
-// 6. behind the runners, into the red light at the doors they came in by
-S.brain = (t, u) => { cam(CX, 900, 1, 0, 2, t); setPC(2.8, 1.7, lerp(3.5, 7.5, seg(u, 0, span('l06'))), 980, 1000); hall(t, { ...staged(t, { noHero: 1 }), near: 2.6 }); };
-// 7. 3 in 4 freeze: close on one of them, wide-eyed and still, while the others run past
-S.freeze = (t, u) => { cam(CX, 900, 1); const c = calmPos(FREEZER, FREEZER.tS); setPC(c.X + lerp(.5, .15, seg(u, 0, 4)), 1.5, c.Z - 2.3, 960, 1050); hall(t, staged(t)); };
-// 8. the doors jam: the crowd packed against the glass, the red light, some go down
+// 6. the doors jam: the crowd packed against the glass, the red light, some go down
 S.crush = (t, u) => { cam(CX, 900, lerp(1, 1.04, seg(u, 0, 3)), 0, 4, t); setPC(.2, 2.3, 16.4, 1030, 1000); hall(t, staged(t, { noHero: 1 })); };
-// 9. low, behind one of them, walking toward the noise
+// 7. low, behind one of them, walking toward the noise
 S.noise = (t, u) => { cam(CX, 900, 1); const q = zq(t); setPC(q.X + .7, .9, q.Z - 2.7, 1040, 1000); hall(t, staged(t, { noHero: 1 })); };
-// 10-12. the rules. 1: walking away from it all; 2: the green EXIT sign down the corridor; 3: sneaking past one of them, a finger to the lips
+// the rules. 1: walking away from it all; 2: the map, the green way to the exit; 3: sneaking past one of them, a finger to the lips
 S.r1 = (t, u) => { cam(CX, 900, 1); const h = hero(t); setPC(h.X + .3, 1.3, h.Z - 3.0, 1000, 1000); hall(t, clearFront(staged(t), h)); ruleCardQ.push([T('l10'), E('l10'), 1, TX.rules[0]]); };
-S.r2 = (t, u) => { cam(CX, 900, lerp(1, 1.06, seg(u, 0, 3))); const cz = lerp(-1.5, .3, seg(u, 0, span('l11'))); corridor(t, t, { cz, hero: { ...HB, X: .3, Z: cz + 2.7, face: 'back', walk: t * 5.5, rim: 'rgba(120,255,170,.6)' } }); ruleCardQ.push([T('l11'), E('l11'), 2, TX.rules[1]]); };
+S.map = (t, u) => { cam(CX, 960, 1); directory(t, u, 1); ruleCardQ.push([T('l11'), E('l11'), 2, TX.rules[1]]); };
 const ZNpose = t => ({ zombie: 1, outfit: 'shirt', skin: ZSK[0], hood: tone3('#33302a'), legs: tone3('#22201c'), hair: ['#14110e', '#0b0907', '#050403'], eyes: 'dead', X: -3.4, Z: 8.0, face: 'front', look: .8 * Math.sin(t * .6), slump: .3, arms: 'reach', sway: .4 * Math.sin(t * .8), seed: 60, rim: 'rgba(170,230,200,.75)', keep: 1 });
 const sneak = (t, u) => ({ ...HB, X: lerp(-4.3, -6.3, seg(u, 0, span('l12') + .2)), Z: 5.4, h: 1.5, face: 'front', walk: t * 3.2, arms: 'shh', eyes: 'wide', look: .7, slump: .1, sweat: 1 });
 S.r3 = (t, u) => { cam(CX, 900, 1); setPC(-5.0, 1.0, 2.6, 1200, 1000); const s = keepOnly(staged(t, { noHero: 1 }), p => p.Z > 13); s.people.push(ZNpose(t), sneak(t, u)); hall(t, s); ruleCardQ.push([T('l12'), E('l12'), 3, TX.rules[2]]); };
-// 13. the door nobody is looking at: down the corridor behind the hero; it opens onto white
+// the door nobody is looking at: down the corridor behind the hero; it opens onto white
 S.exit = (t, u) => { cam(CX, 900, lerp(1, 1.1, ss(seg(u, 1.5, span('l13'))))); const d = run_(2.2, u), open = ss(seg(u, span('l13') - 1.2, span('l13') - .4));
   corridor(t, t, { cz: lerp(-.5, 2.5, ss(seg(u, 0, span('l13')))), open, hero: { ...HB, X: .1, Z: Math.min(8.2, 1.4 + d), face: 'back', walk: d < 6.8 ? t * 9 : null, rim: 'rgba(225,240,255,.8)' } }); };
-// 14-15. zombies aren't real: the same jam, the infected fade away; then low, into it (a fire, a stampede: the same)
-S.real = (t, u) => { cam(CX, 900, 1); setPC(0, 6.6, 6.0, 780, 950); hall(t, staged(t, { noHero: 1, zf: 1 - ss(seg(t, T('l14') + .3, T('l14') + 1.4)) })); };
-S.truth = (t, u) => { cam(CX, 900, lerp(1, 1.06, seg(u, 0, 4)), 0, 2, t); setPC(.4, 1.5, lerp(12.5, 14.5, seg(u, 0, 4)), 990, 1000); hall(t, staged(t, { noHero: 1, zf: 0 })); };
-// 16. the mall directory: the orange dot is you
-S.tip = (t, u) => { cam(CX, 960, 1); directory(t, u); };
-// 17-18. back to the calm night: comment (down the hall); share (from the gallery)
-S.comment = (t, u) => { cam(CX, 900, 1); setPC(0, 1.6, lerp(-1.5, -.5, seg(u, 0, 4)), 960); hall(t, staged(3.2 + u)); };
-S.cta = (t, u) => { cam(CX, 900, 1); setPC(lerp(.6, -.2, seg(u, 0, 3)), 6.6, -1.5, 760, 900); hall(t, staged(5.2 + u)); };
+// rule 4, in the dark: his face lit by his phone, then he kills the light; across the hall someone's screen is still on, and they go to it
+const OTHER = { X: -1.4, Z: 15.6 }, HUNT = [[-1.0, 12.6], [-3.6, 18.8], [.4, 17.6]];
+S.phone = (t, u) => { cam(CX, 900, 1); const off = wordT('r4', 'Sa') - .25, lit = t < off;
+  setPC(-3.2, 1.45, lerp(8.0, 8.4, seg(u, 0, span('r4'))), 1010, 1000); const s = keepOnly(staged(t, { noHero: 1 }), p => p.Z > 19.2);
+  s.people.push({ ...HB, X: -4.2, Z: 10.6, face: 'front', arms: lit ? 'phone' : 'down', phoneL: 1.6, eyes: 'wide', look: lit ? .1 : .7, lookY: lit ? .6 : 0, sweat: 1, hl: lit ? .5 : .25 },
+    { X: OTHER.X, Z: OTHER.Z, face: 'front', arms: 'phone', phoneL: 2.2, hood: tone3('#3f6a3a'), legs: tone3('#2b2b2b'), skin: PAL.skin[0], hair: PAL.hair[2], glasses: 1, seed: 90, keep: 1 });
+  HUNT.forEach(([x, z], k) => { const d = Math.max(0, t - off - .3 * k) * .9, L_ = Math.hypot(OTHER.X - x, OTHER.Z - z - .6), v = Math.min(1, d / L_);
+    s.people.push({ zombie: 1, outfit: 'shirt', skin: ZSK[k % 2], hood: tone3(ZCL[k % 4]), legs: tone3('#22201c'), hair: ['#14110e', '#0b0907', '#050403'], eyes: 'dead', seed: 91 + k, keep: 1,
+      X: lerpA(x, OTHER.X + (k - 1) * .5, v), Z: lerpA(z, OTHER.Z - .6, v), face: v > 0 && v < 1 && OTHER.Z > z ? 'back' : 'front', arms: 'reach', walk: v > 0 && v < 1 ? t * 3 + k : null, slump: .3, sway: .3 * Math.sin(t * .9 + k), look: .6 * Math.sin(t * .7 + k) }); });
+  hall(t, { ...s, dark: .85 }); ruleCardQ.push([T('r4'), E('r4'), 4, TX.rules[3]]); };
+// rule 5, in the fire-exit corridor: the friend holding her bitten hand; she turns
+const FR = { hood: tone3('#7a4fb0'), legs: tone3('#2a2d3a'), hair: PAL.hair[1], long: 1, h: 1.62, seed: 80 };
+const mixHex = (a, b, u) => { const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)), A = p(a), B = p(b); return `rgb(${A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',')})`; };
+S.bitten = (t, u) => { const tt_ = wordT('r5', 'kaibigan') - .35, z = ss(seg(t, tt_, tt_ + .5));
+  cam(CX, 900, 1 + .05 * eo(seg(t, tt_, tt_ + .3)), 0, t > tt_ ? 5 * Math.exp(-(t - tt_) * 3) : 0, t);
+  const fr = { ...FR, X: .15, Z: lerp(4.1, 3.4, ss(seg(t, tt_ + .2, tt_ + 1.6))), face: 'front', skin: PAL.skin[1].map((c, i) => mixHex(c, ZSK[0][i], z)), zombie: z > .5 ? 1 : 0, bandage: 1,
+    arms: z > .5 ? 'reach' : 'out', eyes: z > .3 ? 'dead' : 'wide', mouth: z > .5 ? .7 : .25, glow: ss(seg(t, tt_ + .1, tt_ + .5)), slump: .2 * z, twitch: z, sweat: 1 - z, look: z > .3 ? 0 : -.2, rim: 'rgba(200,230,255,.6)', keep: 1 };
+  corridor(t, t, { cz: lerp(1.9, 1.5, seg(t, tt_, tt_ + 2)), people: [fr] }); ruleCardQ.push([T('r5'), E('r5'), 5, TX.rules[4]]); };
+// the question at the open door: he turns back to you, a hand out (only one can come); then the share
+const doorHero = () => ({ ...HB, X: 0, Z: 8.4, face: 'front', arms: 'offer', rim: 'rgba(235,245,255,.9)', hl: .6 });
+S.think = (t, u) => { cam(CX, 900, lerp(1, 1.06, ss(seg(u, 0, 4)))); corridor(t, t, { cz: 5.3, open: 1, hero: doorHero() }); };
+S.share = (t, u) => { cam(CX, 900, 1.06); corridor(t, t, { cz: 5.3, open: 1, hero: doorHero() }); };
 // the loop: the last frames run into frame 1
 S.loop = (t, u) => { const L_ = TL.dur - T('tail'); cam(CX, 900, 1, 0, 4, t); rushShot(t, S_HOOK + u - L_); };
 
@@ -335,8 +346,8 @@ const SHOTS = []; { const ls = TL.lines; for (let i = 0; i < ls.length; i++) {
   const end = i < ls.length - 1 ? ls[i + 1].t0 : TL.dur;
   if (i && ls[i].shot === ls[i - 1].shot) { SHOTS[SHOTS.length - 1][1] = end; continue; }
   SHOTS.push([i ? SHOTS[SHOTS.length - 1][1] : 0, end, ls[i].shot]); } }
-const NOPUNCH = ['rush', 'well', 'loop', 'cta', 'comment', 'tip', 'exit', 'r1', 'r2', 'r3', 'atrium', 'lunge', 'freeze', 'scream', 'noise'];
-const NOCLOCK = ['rush', 'loop', 'real', 'truth', 'tip', 'comment', 'cta'];
+const NOPUNCH = ['rush', 'well', 'loop', 'share', 'think', 'map', 'exit', 'r1', 'r3', 'atrium', 'lunge', 'scream', 'noise', 'phone', 'bitten'];
+const NOCLOCK = ['rush', 'loop', 'think', 'share'];
 window.renderAt = (t) => {
   reset(); g.fillStyle = '#000'; g.fillRect(0, 0, W, H); LIGHTS = []; ruleCardQ = [];
   const sh = SHOTS.find(s => t >= s[0] && t < s[1]) || SHOTS[SHOTS.length - 1], u = t - sh[0];
@@ -350,8 +361,8 @@ window.renderAt = (t) => {
   if (!NOCLOCK.includes(sh[2])) clock(t);
   statCard(t);
   for (const q of ruleCardQ) ruleCard(t, ...q);
-  if (sh[2] === 'comment') bigCard(t, T('l17') + .1, TX.where, TX.comment);
-  if (sh[2] === 'cta') bigCard(t, T('l18'), TX.share[0], TX.share[1]);
-  if (!['cta', 'loop', 'comment'].includes(sh[2])) captions(t);
+  if (sh[2] === 'think') bigCard(t, T('q1') + .1, TX.where, TX.comment);
+  if (sh[2] === 'share') bigCard(t, T('q2'), TX.share[0], TX.share[1]);
+  if (!['share', 'loop', 'think'].includes(sh[2])) captions(t);
 };
 window.fontsReady = Promise.all([document.fonts.load('80px Anton'), document.fonts.load('600 40px Caveat')]).then(() => true);

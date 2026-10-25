@@ -1,7 +1,7 @@
 """Sound for Zombie sa Mall -> out/mix.wav (48 kHz stereo). Cinematic sound design in numpy (the toolkit from ../tsunami and ../katok): a calm mall at
 night (murmur, heels on marble, the fountain, soft music from the ceiling speakers), a string stinger on the scream, growls, a scuffle and the guard
 hitting the floor, then the fire-alarm bell far down the hall with the red strobes, the stampede and the panic, fists and palms on the glass, a slam
-and a held breath after every rule, a heartbeat in the quiet, the fire-door latch and the cool air of the stairwell, and a felt piano at the end.
+and a held breath after each of the five rules, a phone going dark, a friend turning, the fire-door latch and the cool air of the stairwell, and a felt piano at the end.
 Every time comes from timeline.json and the same story anchors shots.js uses. Usage: python3 score.py [en]"""
 import os, sys, json, wave, subprocess, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); SR = 48000
@@ -280,12 +280,12 @@ def cool_air(t, v=.35):                             # the stairwell breathing ou
 # ============ the cue sheet ============
 HUSH = []; DRY = np.zeros((2, N))
 pre = lambda e: gate(e, T('l02'), S_ALARM)         # nothing panics before the alarm (the hook is a flash-forward to the jam)
-ALARM_E = pre(shot_env({'rush': .75, 'loop': .75, 'well': 1.0, 'brain': .8, 'freeze': .35, 'crush': .8, 'noise': .6, 'r1': .35, 'r2': .14, 'r3': .06, 'exit': .1, 'real': .5, 'truth': .7, 'tip': .12}))
-PANIC_E = pre(shot_env({'rush': 1.0, 'loop': .9, 'well': .9, 'brain': .9, 'freeze': .5, 'crush': 1.0, 'noise': .7, 'r1': .4, 'r2': .22, 'r3': .08, 'exit': .16, 'real': .5, 'truth': .75, 'tip': .2}))
+ALARM_E = pre(shot_env({'rush': .75, 'loop': .75, 'well': 1.0, 'crush': .8, 'noise': .6, 'r1': .35, 'map': .2, 'r3': .06, 'phone': .15, 'bitten': .05, 'exit': .1}))
+PANIC_E = pre(shot_env({'rush': 1.0, 'loop': .9, 'well': .9, 'crush': 1.0, 'noise': .7, 'r1': .4, 'map': .25, 'r3': .08, 'phone': .12, 'exit': .1, 'think': .04, 'share': .04}))
 PANIC_E = gate(PANIC_E, S_ALARM, S_FLEE - .1, 0.0)
-MURMUR_E = shot_env({'atrium': 1.0, 'scream': 1.0, 'lunge': .15, 'comment': .85, 'cta': .85})
+MURMUR_E = shot_env({'atrium': 1.0, 'scream': 1.0, 'lunge': .15})
 MURMUR_E = MURMUR_E * np.clip(1 - (tt(N) - S_SCREAM) / 1.2 * ((tt(N) > S_SCREAM) & (tt(N) < T('l05'))), .15, 1)
-MUZAK_E = gate(shot_env({'atrium': 1.0, 'scream': 1.0, 'lunge': 1.0, 'comment': .8, 'cta': .8}), S_ALARM, T('l06'))
+MUZAK_E = gate(shot_env({'atrium': 1.0, 'scream': 1.0, 'lunge': 1.0}), S_ALARM, DUR)
 bell = alarm_bell() * ALARM_E; add('amb', 0, bell, 1.0, .25, hall=.55, width=.01); add('amb', .021, bell, .55, -.5, hall=.4)
 bed_add('amb', panic(), PANIC_E, .8)
 bed_add('amb', murmur(), MURMUR_E, .5); bed_add('amb', heels(), MURMUR_E, .35); bed_add('amb', fountain(), MURMUR_E, .35); bed_add('amb', muzak(), MUZAK_E, .55)
@@ -294,7 +294,7 @@ wind(0, DUR, .04)
 impact(.04, .85, 1.3); sub_drop(.04, .6, 1.8); braam(.06, .55); drone(0, T('l02') + .1, .2, 36, .45, .006)
 t_ = .15
 while t_ < T('l02') - .1: glass_bang(t_, .3); t_ += rng.uniform(.2, .45)
-growl(.5, 1.3, .22, 66, .3)
+growl(.5, 1.3, .22, 66, .3); growl(2.4, 1.1, .18, 61, -.4)
 # the scream (a screech of strings and a gasp), the music in the speakers keeps going; growls; the guard goes down; the second one
 stinger(S_SCREAM, .8); gasp(S_SCREAM + .15, .45); growl(S_SCREAM - .4, 1.0, .3, 64, -.3)
 drone(S_SCREAM, T('l10'), .2, 33, .5, .007)
@@ -305,14 +305,8 @@ impact(S_ALARM, .9, 1.4); sub_drop(S_ALARM, .7, 2.4); braam(S_ALARM + .02, .6, 3
 # the stampede: feet everywhere, a driving pulse under it
 for k in range(4): run_steps(S_FLEE, T('l10'), .3 * (1 - .15 * k), 3.2 + .45 * k, -.6 + .4 * k)
 bass_pulse(S_FLEE + .4, T('l10') - .2, 104, [38, 38, 41, 36], .22)
-for l in TL['lines']:
-    if l.get('stat'): whoosh(l['t0'] + .2, .3, .14, 1500, 9000, .3, -.3); sub_drop(l['t0'] + .1, .25, .7)
 for i, (a, b, shot) in enumerate(SHOTS):
-    if i and shot not in ('loop', 'lunge', 'r1', 'r2', 'r3'): whoosh(a, .45, .16, p0=(-.6 if i % 2 else .6), p1=(.6 if i % 2 else -.6))
-# 3 in 4 freeze: the room goes far away, a heartbeat
-HUSH.append((T('l07') + .2, E('l07')))
-t_, p_ = T('l07') + .1, .8
-while t_ < E('l07'): heartbeat(t_, .5); t_ += p_; p_ = max(.55, p_ * .97)
+    if i and shot not in ('loop', 'lunge', 'r1', 'map', 'r3', 'phone', 'bitten', 'share'): whoosh(a, .45, .16, p0=(-.6 if i % 2 else .6), p1=(.6 if i % 2 else -.6))
 # the doors jam: fists on glass, bodies going down
 t_ = S_JAM + .1
 while t_ < E('l09'): glass_bang(t_, at_(ALARM_E, t_) * .4 + .1); t_ += rng.uniform(.18, .45)
@@ -321,28 +315,35 @@ for k in range(3): body_fall(S_JAM + .5 + k * .8 + rng.uniform(0, .3), .35)
 for k in range(5): growl(T('l09') + .2 + k * .55, rng.uniform(.9, 1.4), .38, rng.uniform(58, 80), rng.uniform(-.8, .8))
 step_t = T('l09')
 while step_t < E('l09'): step(step_t, .12, rng.uniform(-.7, .7), .6, .2); step_t += rng.uniform(.25, .5)
-# the rules: every card slams in, then a held breath
-for id in ('l10', 'l11', 'l12'):
+# the five rules: every card slams in, then a held breath
+for id in ('l10', 'l11', 'l12', 'r4', 'r5'):
     impact(T(id), .85, 1.0); sub_drop(T(id), .5, 1.0); whoosh(T(id) - .05, .35, .25, 300, 6000, -.4, .4); HUSH.append((T(id) + .15, T(id) + .85))
 braam(T('l10') + .02, .45)
-run_steps(C0 + .1, C0 + 2.5, .2, 2.6, .1)                                   # walking away, quick
-for k in range(5): step(T('l11') + .3 + k * .55, .1, .1, .2, 0)            # steps in the concrete corridor
-HUSH.append((T('l12') + .2, E('l12') + .1))                                # stay quiet: almost nothing, a heartbeat, one of them breathing
+run_steps(C0 + .1, C0 + 2.5, .2, 2.6, .1)                                   # rule 1: walking away, quick
+HUSH.append((T('l12') + .2, E('l12') + .1))                                # rule 3, stay quiet: almost nothing, a heartbeat, one of them breathing
 t_, p_ = T('l12') + .25, .62
 while t_ < E('l12'): heartbeat(t_, .42); t_ += p_
 growl(T('l12') + .7, 1.6, .16, 60, .4); growl(T('l12') + 2.3, 1.2, .13, 57, .4)
 for k in range(5): step(T('l12') + .35 + k * .6, .07, -.2, 0, 0)          # careful steps
+OFF = wt('r4', 'Sa') - .25                                                  # rule 4, the dark: the screen goes off (a button), they shuffle toward the other light
+HUSH.append((T('r4') + .2, E('r4') + .1))
+d = .03; n = int(d * SR); add('sfx', OFF, hp(noise(d), 2500) * np.exp(-tt(n) / .002) + bp(noise(d), 900, 3000) * np.exp(-tt(n) / .008) * .4, .35, -.4, room=.1)
+drone(T('r4'), E('r5'), .16, 31, .35, .004)
+for k in range(3): growl(OFF + .4 + k * .7, rng.uniform(1.0, 1.5), .22, rng.uniform(56, 70), .3 + .2 * k)
+step_t = OFF + .3
+while step_t < E('r4'): step(step_t, .08, rng.uniform(.1, .7), .6, .1); step_t += rng.uniform(.35, .6)
+TURN = wt('r5', 'kaibigan') - .35                                           # rule 5: her heartbeat, then she turns
+t_, p_ = T('r5') + .2, .55
+while t_ < TURN: heartbeat(t_, .4); t_ += p_; p_ = max(.4, p_ * .95)
+stinger(TURN, .75); growl(TURN + .05, 1.5, .5, 98, 0); impact(TURN + .02, .6, .9)
 # the door nobody is looking at: running feet, the bar, the bolt, cool air; the music lifts and opens
 run_steps(T('l13') + .1, D_OPEN, .32, 3.0, -.1); riser(D_OPEN, 1.6, .35)
 latch(D_OPEN, .7); cool_air(D_OPEN + .08, .4); impact(D_OPEN + .02, .4, .8)
 pad(D_OPEN - .1, E('l13') + 1.2, [50, 57, 62, 66], .16)
-# zombies aren't real; the same crowd, the same mistake: a low drone and a felt piano
-drone(T('l14'), T('l17'), .18, 31, .3, .004); piano(T('l14') + .05, 50, .32, 4.5); piano(T('l14') + .05, 38, .26, 5.0)
-motif(T('l15') + .2, T('l17') - .3, .18)
-t_, p_ = T('l15') + .1, 1.05
-while t_ < E('l15'): heartbeat(t_, .3); t_ += p_
-# back to the calm night: comment, share; then the crush comes back for the loop into frame 1
-pad(T('l17') - .2, T('tail') + .2, [45, 52, 57, 60], .12); piano(T('l18'), 57, .22, 3.5)
+# the question at the door: night air, a felt piano; who comes with you
+wind(T('q1') - .3, T('tail') + .3, .09); motif(T('q1') + .1, T('tail') - .2, .17)
+pad(T('q1') - .2, T('tail') + .2, [45, 52, 57, 60], .12); piano(T('q2'), 57, .22, 3.5)
+# the loop: the crush comes back into frame 1
 t_ = T('tail') + .2
 while t_ < DUR - .1: glass_bang(t_, .22); t_ += rng.uniform(.25, .5)
 reverse_swell(DUR, 1.3, .45); riser(DUR, 1.6, .3)

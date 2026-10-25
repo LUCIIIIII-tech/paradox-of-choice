@@ -1,13 +1,15 @@
 [
  {
-  "id": "l01",
+  "id": "h1",
   "shot": "rush",
-  "text": "Zombies won't kill you first. The crowd will.",
+  "text": "Zombie outbreak in the mall. 5 rules... to stay alive.",
   "key": [
-   "Zombies",
-   "crowd"
+   "Zombie",
+   "rules...",
+   "alive."
   ],
-  "gap": 0.05
+  "gap": 0.05,
+  "say": "Zombie outbreak in the mall. Five rules... to stay alive."
  },
  {
   "id": "l02",
@@ -49,36 +51,6 @@
   "counter": "0:10"
  },
  {
-  "id": "l06",
-  "shot": "brain",
-  "text": "That's your brain. When you're scared, you go back the way you came in. Even if that's where the danger is.",
-  "key": [
-   "brain.",
-   "came",
-   "danger"
-  ],
-  "stat": [
-   "SIME · 1985",
-   "THE WAY IN",
-   "in fires, people run for the door they came in"
-  ]
- },
- {
-  "id": "l07",
-  "shot": "freeze",
-  "text": "Others stop moving. 3 in 4 people freeze.",
-  "key": [
-   "stop",
-   "freeze."
-  ],
-  "say": "Others stop moving. Three in four people freeze.",
-  "stat": [
-   "LEACH · SURVIVAL PSYCHOLOGY",
-   "3 IN 4",
-   "freeze in the first moments of a disaster"
-  ]
- },
- {
   "id": "l08",
   "shot": "crush",
   "text": "The doors jam. People push, people go down.",
@@ -100,32 +72,57 @@
  {
   "id": "l10",
   "shot": "r1",
-  "text": "Rule 1: don't follow the crowd.",
+  "text": "Rule number 1: don't follow the crowd.",
   "key": [
+   "Rule",
    "don't",
    "crowd."
   ],
-  "say": "Rule one: don't follow the crowd."
+  "say": "Rule number one: don't follow the crowd."
  },
  {
   "id": "l11",
-  "shot": "r2",
-  "text": "2: look for the fire exit, not the entrance.",
+  "shot": "map",
+  "text": "Rule number 2: look for the fire exit, not the entrance.",
   "key": [
+   "Rule",
    "fire",
    "exit,"
   ],
-  "say": "Two: look for the fire exit, not the entrance."
+  "say": "Rule number two: look for the fire exit, not the entrance."
  },
  {
   "id": "l12",
   "shot": "r3",
-  "text": "3: stay quiet. They hunt by sound.",
+  "text": "Rule number 3: stay quiet. They hunt by sound.",
   "key": [
+   "Rule",
    "quiet.",
    "sound."
   ],
-  "say": "Three: stay quiet. They hunt by sound."
+  "say": "Rule number three: stay quiet. They hunt by sound."
+ },
+ {
+  "id": "r4",
+  "shot": "phone",
+  "text": "Rule number 4: turn off your phone. In the dark... they hunt the light.",
+  "key": [
+   "Rule",
+   "off",
+   "light."
+  ],
+  "say": "Rule number four: turn off your phone. In the dark... they hunt the light."
+ },
+ {
+  "id": "r5",
+  "shot": "bitten",
+  "text": "Rule number 5: the bitten... are not your friends anymore. No matter who they are.",
+  "key": [
+   "Rule",
+   "bitten...",
+   "friends"
+  ],
+  "say": "Rule number five: the bitten... are not your friends anymore. No matter who they are."
  },
  {
   "id": "l13",
@@ -138,49 +135,22 @@
   "counter": "1:30"
  },
  {
-  "id": "l14",
-  "shot": "real",
-  "text": "Zombies aren't real.",
+  "id": "q1",
+  "shot": "think",
+  "text": "You can only take one person out with you. Who is it? Comment below.",
   "key": [
-   "real."
-  ]
- },
- {
-  "id": "l15",
-  "shot": "truth",
-  "text": "But in a fire or a stampede... your brain does the exact same thing.",
-  "key": [
-   "fire",
-   "stampede...",
-   "brain"
-  ]
- },
- {
-  "id": "l16",
-  "shot": "tip",
-  "text": "So the next time you walk into a mall... find the fire exit first.",
-  "key": [
-   "find",
-   "fire",
-   "exit"
-  ]
- },
- {
-  "id": "l17",
-  "shot": "comment",
-  "text": "Do you know where the fire exit is at your mall? Comment below.",
-  "key": [
-   "where",
+   "one",
+   "Who",
    "Comment"
   ]
  },
  {
-  "id": "l18",
-  "shot": "cta",
-  "text": "Share this with the friend you'd never leave behind in a crowd.",
+  "id": "q2",
+  "shot": "share",
+  "text": "Share this with the one you'd take.",
   "key": [
    "Share",
-   "crowd."
+   "take."
   ]
  },
  {
