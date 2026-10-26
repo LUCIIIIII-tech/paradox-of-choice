@@ -17,7 +17,7 @@ const TX = {
         shops: ['BOTIKA', 'SAPATOS', 'LIBRO', 'RELO', 'KAPE', 'DAMIT', 'LARUAN', 'TINAPAY', 'ALAHAS', 'GADGET'] },
   en: { t1: "IMAGINE YOU'RE AT THE MALL", t2: 'ONE WRONG MOVE, YOU DIE', rule: 'CHOICE #', asks: ['FOLLOW THE CROWD?', 'ENTRANCE OR FIRE EXIT?', 'RUN OR STAY QUIET?', 'FLASHLIGHT ON?', 'TAKE THEM WITH YOU?'],
         opts: [['BREAK AWAY', 'FOLLOW'], ['ENTRANCE', 'FIRE EXIT'], ['STAY QUIET', 'RUN'], ['TURN IT ON', 'KEEP IT OFF'], ['TAKE THEM', 'LEAVE THEM']], ok: [0, 1, 0, 1, 1], dead: 'DEAD',
-        where: 'HOW MANY DID YOU GET?', comment: 'COMMENT YOUR SCORE', share: ['SHARE THIS', "WITH WHO'D DIE FIRST"], here: 'YOU ARE HERE', entrance: 'ENTRANCE',
+        where: 'HOW MANY DID YOU GET?', comment: 'COMMENT YOUR SCORE', share: ['SHARE THIS', 'WITH WHO DIES FIRST'], here: 'YOU ARE HERE', entrance: 'ENTRANCE',
         directory: 'MALL DIRECTORY', mall: 'GRAND ARCADIA MALL', sale: 'MEGA SALE', exit: 'EXIT',
         shops: ['PHARMACY', 'SHOES', 'BOOKS', 'WATCHES', 'COFFEE', 'FASHION', 'TOYS', 'BAKERY', 'JEWELRY', 'GADGETS'] },
 }[LANG];
