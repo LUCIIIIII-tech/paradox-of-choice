@@ -290,56 +290,90 @@ def birds(t0, t1, v=.2):                            # morning: sparrows, quick c
         t += rng.uniform(.4, 1.2)
 def hum(t0, t1, v=.08):                             # the house's power: a faint 60 Hz hum with its harmonics
     d = t1 - t0; n = int(d * SR); s = tt(n); add('amb', t0, sum(np.sin(2 * np.pi * 60 * k * s) / k for k in (1, 2, 3, 5)) * fade(n, .2, .02) * .3, v, 0)
+def whisper_call(t, v=.5, pan=-.5):                 # someone outside whispering "a-nak": breath shaped by vowel formants, far and wet
+    for k, (d, f1, f2, f3) in enumerate(((.55, 820, 1250, 2600), (.12, 300, 1500, 2500), (.7, 780, 1200, 2700))):
+        n = int(d * SR); s_ = tt(n); x = noise(d); y = bp(x, f1 * .8, f1 * 1.25) + bp(x, f2 * .85, f2 * 1.15) * .7 + bp(x, f3 * .9, f3 * 1.1) * .35
+        env = np.sin(np.pi * s_ / d) ** (1.2 if k != 1 else .5) * (1 if k != 1 else .5)
+        add('sfx', t + [0, .5, .6][k], y * env * 2.2, v, pan, room=.2, hall=.6)
+    d = .05; n = int(d * SR); add('sfx', t + 1.32, hp(noise(d), 2500) * np.exp(-tt(n) / .006) * 1.4, v * .7, pan, hall=.6)    # the k
+def breath(t, d=1.6, v=.4, pan=0.0):                # something breathing close: a raspy inhale and exhale
+    for k in range(2):
+        dd = d / 2; n = int(dd * SR); u = tt(n) / dd; y = bp(noise(dd), 250 + 150 * k, 1600 - 300 * k) * np.sin(np.pi * u) ** 1.4 * (1 + .6 * np.sin(2 * np.pi * 38 * tt(n)))
+        add('sfx', t + k * dd, y * 1.2, v * (.8 if k else 1), pan, room=.12)
+def thump(t, v=.55, pan=0.0):                       # a heavy step on the nipa roof above: a dull thud and the thatch crunching
+    d = .45; n = int(d * SR); s_ = tt(n); y = np.sin(2 * np.pi * (55 + 40 * np.exp(-s_ * 30)) * s_) * np.exp(-s_ / .1) * 1.5 + lp(noise(d), 400) * np.exp(-s_ / .04) * 1.2
+    add('sfx', t, sat(y, 1.5), v, pan, room=.2); scratch(t + .02, t + .3, v * .6, pan)
+def howl(t, v=.5, pan=-.4, d=2.4):                  # a dog howling at the moon
+    n = int(d * SR); s_ = tt(n); u = s_ / d; f = (480 + 260 * np.sin(np.pi * np.minimum(1, u * 1.3)) - 120 * u) * (1 + .012 * np.sin(2 * np.pi * 5.5 * s_)); ph = 2 * np.pi * np.cumsum(f) / SR
+    y = bp(sum(np.sin(k * ph) / k ** 1.3 for k in range(1, 12)), 350, 3500) * np.sin(np.pi * u) ** .8 * .5 + bp(noise(d), 600, 2500) * np.sin(np.pi * u) * .08
+    add('sfx', t, y, v, pan, room=.1, hall=.5)
+def pop(t, v=.5):                                   # the bulb going out: a snap and a fizz
+    d = .5; n = int(d * SR); s_ = tt(n); add('sfx', t, hp(noise(d), 1800) * np.exp(-s_ / .004) * 2 + bp(noise(d), 2000, 7000) * np.exp(-s_ / .15) * .3 * (1 + np.sin(2 * np.pi * 120 * s_)), v, 0, room=.2)
+def wail(t, v=.25, pan=.5, d=3.5):                  # a far voice in the wind, rising and falling
+    n = int(d * SR); s_ = tt(n); u = s_ / d; f = 520 * (1 + .25 * np.sin(np.pi * u) + .02 * np.sin(2 * np.pi * 4.5 * s_)); ph = 2 * np.pi * np.cumsum(f) / SR
+    add('sfx', t, bp(np.sin(ph) + .3 * np.sin(2 * ph), 300, 2500) * np.sin(np.pi * u) ** 2 * .3, v, pan, hall=.8)
 def flame(t, v=.35):                                # a match struck, the wick catching
     d = .6; n = int(d * SR); s = tt(n); add('sfx', t, hp(noise(d), 1500) * np.exp(-s / .05) * 1.2 + lp(noise(d), 800) * np.exp(-s / .2) * .6, v, .3, room=.15)
 # ============ the cue sheet ============
-HUSH = []; DRY = np.zeros((2, N))
-NIGHT_E = shot_env({'hook': 1.0, 'loop': 1.0, 'arrive': .3, 'kubo': .5, 'whisper': .4, 'neighbor': .55, 'roof': .35, 'call': .55, 'nanay': .3, 'visitor': .45, 'eye': .2, 'floor': .3,
-                    'cta': .3, 'garlic': .4, 'grove': 1.0, 'salt': .9, 'dawn': .8, 'end': 1.0})
-NIGHT_E = gate(NIGHT_E, W_STOP + .1, T('s1') - .05, 0.0); NIGHT_E = gate(NIGHT_E, W_TAHIMIK + .1, T('tail') - .1, 0.0)
+HUSH = []; DRY = np.zeros((2, N)); SILENT = []
+NIGHT_E = shot_env({'hook': 1.0, 'loop': 1.0, 'arrive': .35, 'kubo': .6, 'whisper': .5, 'neighbor': .6, 'roof': .45, 'call': .7, 'nanay': .35, 'visitor': .55, 'eye': .25, 'floor': .35,
+                    'cta': .35, 'garlic': .5, 'grove': 1.0, 'salt': 1.0, 'dawn': .9, 'end': 1.0})
+NIGHT_E = gate(NIGHT_E, W_STOP + .05, T('s1') - .05, 0.0); NIGHT_E = gate(NIGHT_E, W_TAHIMIK + .05, T('tail') - .1, 0.0)
 NIGHT_E = NIGHT_E * np.clip(1 - (tt(N) - T('dawn')) / max(.1, E('dawn') + 1 - T('dawn')) * ((tt(N) > T('dawn')) & (tt(N) < T('s5'))), 0, 1)
-bed_add('amb', crickets(), NIGHT_E, .9); bed_add('amb', frogs(), NIGHT_E * shot_env({'hook': 1, 'loop': 1, 'grove': 1, 'salt': 1, 'end': 1, 'kubo': .6, 'call': .6}), .6)
-wind(0, DUR, .05)
-# the hook: dogs barking in the dark, a hit on frame 1; on "tumigil" they stop, and the crickets with them; on "aswang", a stinger
-impact(.04, .6, 1.1); drone(0, T('s1'), .2, 34, .45, .006)
-barking(.1, W_STOP, .38, -.5, 520); barking(.4, W_STOP, .22, .6, 600); whimper(W_STOP + .5, .22, -.5)
-heartbeat(W_STOP + .9, .35); heartbeat(W_STOP + 1.8, .4); stinger(W_ASW - .05, .7); growl(W_ASW, 1.4, .3, 58, .1)
-# Lola's house: the hum of the bulb until the brownout; a match and the lamp; a felt piano
-hum(T('s1'), W_BROWN, .1); impact(W_BROWN, .35, .7); flame(W_BROWN + .6, .3)
-motif(T('s2'), W_KAPIT - .4, .14); drone(T('s2'), T('r1'), .1, 31, .3, .004)
-whoosh(W_FIVE, .4, .14, 400, 6000); reverse_swell(W_KAPIT, 1.0, .35); impact(W_KAPIT, .55, 1.0); sub_drop(W_KAPIT, .4, 1.4)
+bed_add('amb', crickets(), NIGHT_E, 1.0); bed_add('amb', frogs(), NIGHT_E * shot_env({'hook': 1, 'loop': 1, 'grove': 1, 'salt': 1, 'end': 1, 'kubo': .6, 'call': .7}), .8)
+wind(0, DUR, .1)
+SILENT.append((W_STOP + .05, W_ASW - .1)); SILENT.append((W_TAHIMIK + .05, T('tail') - .05))
+# the hook: frame 1 is loud: a dog close by yelps and howls, the others bark, a deep hit; on "tumigil" everything stops dead; a heartbeat; on "aswang" a hit and a screech
+impact(.02, 1.0, 1.4); sub_drop(.02, .7, 2.0); howl(.15, .55, -.45, 2.6); bark(.05, .6, -.5, 0, 560)
+barking(.6, W_STOP, .5, -.55, 540); barking(.3, W_STOP, .38, .6, 620); barking(1.0, W_STOP, .25, .1, 480)
+for k in range(3): tiktik(1.2 + k * .6, .35, 0, .5)
+whimper(W_STOP + .35, .35, -.5); heartbeat(W_STOP + .9, .6); heartbeat(W_STOP + 1.75, .65)
+impact(W_ASW - .02, 1.0, 1.5); stinger(W_ASW - .05, .9); shriek(W_ASW + .05, .45, 1.2, .2); growl(W_ASW + .2, 1.4, .45, 58, .1)
+# under everything: a low drone and, now and then, a far wail in the wind (not in the morning)
+drone(0, T('s5'), .22, 29, .5, .005); drone(E('s5'), DUR, .22, 29, .5, .005)
+for tw in (10.5, 27.5, 44.0, 63.5, 85.0, 111.0): wail(tw, .3, (.6 if int(tw) % 2 else -.6))
+# a whoosh and a soft hit on every cut
+for i, (a_, b_, sh) in enumerate(SHOTS):
+    if i and sh != 'loop': whoosh(a_, .5, .3, p0=(-.6 if i % 2 else .6), p1=(.6 if i % 2 else -.6)); impact(a_ + .02, .35, .7)
+# Lola's house: the bulb's hum, then it pops; a match, the lamp; a felt piano
+hum(T('s1'), W_BROWN, .14); pop(W_BROWN, .6); impact(W_BROWN, .55, .9); flame(W_BROWN + .6, .45)
+motif(T('s2'), W_KAPIT - .4, .16)
+whoosh(W_FIVE, .4, .2, 400, 6000); reverse_swell(W_KAPIT, 1.0, .45); impact(W_KAPIT, .8, 1.2); stinger(W_KAPIT, .55); flaps(W_KAPIT, W_KAPIT + 1.2, .3, 2.2)
 # the rules: a slam on every card, then a held breath
 for id in ('r1', 'r2', 'r3', 'r4', 'r5'):
-    impact(T(id), .8, 1.0); sub_drop(T(id), .45, 1.0); whoosh(T(id) - .05, .35, .22, 300, 6000, -.4, .4); HUSH.append((T(id) + .15, T(id) + .8))
-drone(T('r1'), T('cta'), .16, 29, .45, .005)
-# rule 1: the tik-tik, loud and far, then faint and close; claws in the thatch
-for k in range(3): tiktik(W_MALAKAS + k * .55, .45, 0, .6 - .3 * k)
-for k in range(4): tiktik(W_MAHINA + .2 + k * .5, .12, 1, 0)
-scratch(W_MAHINA + .3, E('r1') + .2, .28); HUSH.append((W_MAHINA, E('r1')))
-# rule 2: it calls; your heart; then Nanay asleep beside you
+    impact(T(id), 1.0, 1.2); sub_drop(T(id), .6, 1.2); braam(T(id) + .02, .35, 1.8); whoosh(T(id) - .05, .35, .3, 300, 6000, -.4, .4); HUSH.append((T(id) + .15, T(id) + .8))
+# rule 1: the tik-tik, loud and far, then faint and close; steps on the roof, claws in the thatch, bits falling
+for k in range(3): tiktik(W_MALAKAS + k * .55, .6, 0, .6 - .3 * k)
+for k in range(4): tiktik(W_MAHINA + .2 + k * .5, .2, 1, 0)
+thump(W_MAHINA + .1, .7, .1); thump(W_MAHINA + .9, .6, -.1); scratch(W_MAHINA + .3, E('r1') + .2, .5); stinger(W_MAHINA + .4, .5)
+# rule 2: it calls "a-nak" from outside; the face rises with a screech; your heart; then Nanay asleep beside you
+whisper_call(W_PANGALAN + .1, .7, -.55); whisper_call(W_PANGALAN + 2.2, .55, -.6)
+stinger(wt('r2', 'Nanay') - .2, .7); impact(wt('r2', 'Nanay') - .1, .7, 1.1)
 t_, p_ = W_PANGALAN, .8
-while t_ < E('r2b'): heartbeat(t_, .4); t_ += p_; p_ = max(.5, p_ * .95)
-reverse_swell(T('r2b'), 1.2, .3); HUSH.append((T('r2b'), E('r2b') + .3)); growl(T('r2b') + .4, 1.6, .14, 55, -.5)
-# rule 3: three knocks, the door creaks; her face changes; the eye
-knock(W_KATOK, .55); creak(T('r3') + 1.2, 1.2, .3); stinger(W_MATA - .1, .55); impact(W_ASW3, .7, 1.1); sub_drop(W_ASW3, .5, 1.5)
-# 3:30: something under the floor; it looks up
-scratch(W_KALUS, W_NAKA, .22, .2); growl(W_NAKA - .2, 1.8, .3, 50, 0); stinger(W_NAKA, .6); HUSH.append((W_NAKA + .2, E('mid')))
-# the share, in the quiet
+while t_ < E('r2b'): heartbeat(t_, .55); t_ += p_; p_ = max(.5, p_ * .95)
+SILENT.append((T('r2b') - .05, T('r2b') + .3)); breath(T('r2b') + .5, 1.8, .35, .4)
+# rule 3: three knocks, the door creaks; her face changes with a screech; the eye
+knock(W_KATOK, .85); creak(T('r3') + 1.2, 1.3, .55); stinger(W_MATA - .1, .8); impact(W_MATA - .05, .8, 1.2); shriek(W_MATA, .35, .9, 0)
+impact(W_ASW3, .9, 1.3); sub_drop(W_ASW3, .6, 1.6); whoosh(W_ASW3 - .2, .4, .3, 200, 4000)
+# 3:30: scratching under the floor, breathing; it looks up
+scratch(W_KALUS, W_NAKA, .45, .2); breath(W_KALUS + .8, 1.8, .5, -.1); breath(W_KALUS + 2.8, 1.6, .5, .1)
+stinger(W_NAKA - .05, .85); impact(W_NAKA, .9, 1.3); growl(W_NAKA, 1.8, .5, 50, 0); SILENT.append((W_NAKA - .45, W_NAKA - .05))
+# the share, in the quiet: a slow heartbeat
 t_ = T('cta') + .1
-while t_ < E('cta'): heartbeat(t_, .25); t_ += .9
-# rule 4: salt along the door, the stingray tail taken down
-pour(W_ASIN, 1.4, .35); whoosh(W_PAGI, .3, .3, 600, 7000, .3, -.3)
-# rule 5: wings across the moon, her shriek; then the half she left
-flaps(W_MANAN - .6, W_MANAN + 2.4, .4, 1.8, .8, -.8); shriek(W_MANAN, .55, 1.6, 0); drone(W_HANAP - .3, E('r5b') + .5, .18, 30, .5, .005)
-pour(T('r5b') + .2, 1.8, .4); sizzle(T('r5b') + .6, 3.0, .35)
+while t_ < E('cta'): heartbeat(t_, .4); t_ += .9
+# rule 4: salt along the door, the stingray tail cracks the air
+pour(W_ASIN, 1.4, .6); whoosh(W_PAGI, .3, .5, 600, 7000, .3, -.3); impact(W_PAGI + .1, .5, .7)
+# rule 5: wings across the moon, her shriek; the half she left; salt, sizzling, a dying scream
+flaps(W_MANAN - .6, W_MANAN + 2.4, .6, 1.8, .8, -.8); shriek(W_MANAN, .8, 1.6, 0); impact(W_MANAN, .8, 1.2)
+pour(T('r5b') + .1, 1.6, .38); sizzle(wt('r5b', 'abo') + .45, 3.0, .6); shriek(T('r5b') + 1.0, .5, 2.2, .3)
 # all night she screams in the sky; the rooster; the sky goes pale
-flaps(T('dawn'), W_TILA, .3, 1.5, -.6, .6); shriek(T('dawn') + .3, .45, 1.8, -.3); shriek(T('dawn') + 1.9, .35, 1.4, .4)
-rooster(W_TILA, .5); pad(W_TILA, E('s5') + .5, [50, 57, 62, 66], .12)
-# morning: birds, a footprint trail; the neighbour's window
-birds(T('s5') - .3, E('s5') + .6, .18); impact(wt('s5', 'kapitbahay'), .45, .9); sub_drop(wt('s5', 'kapitbahay'), .35, 1.2)
-# so if the dogs go quiet tonight: barking, then nothing; then the barking again into frame 1
-barking(T('end'), W_TAHIMIK, .35, -.4, 520); barking(T('end') + .3, W_TAHIMIK, .25, .5, 600); impact(W_TAHIMIK + .05, .45, .9); HUSH.append((W_TAHIMIK + .1, T('tail')))
-barking(T('tail') + .1, DUR, .3, -.5, 520); reverse_swell(DUR, 1.3, .4); riser(DUR, 1.5, .25)
+flaps(T('dawn'), W_TILA, .45, 1.5, -.6, .6); shriek(T('dawn') + .3, .65, 1.8, -.3); shriek(T('dawn') + 1.9, .55, 1.4, .4)
+rooster(W_TILA, .8); pad(W_TILA, E('s5') + .5, [50, 57, 62, 66], .14)
+# morning: birds, the footprints; the neighbour's window
+birds(T('s5') - .3, E('s5') + .6, .35); stinger(wt('s5', 'kapitbahay'), .55); impact(wt('s5', 'kapitbahay'), .7, 1.1)
+# so if the dogs go quiet tonight: barking; then nothing, a hit; then the barking again into frame 1
+barking(T('end'), W_TAHIMIK, .5, -.4, 520); barking(T('end') + .3, W_TAHIMIK, .38, .5, 600); impact(W_TAHIMIK + .05, .8, 1.2); sub_drop(W_TAHIMIK + .05, .6, 1.6)
+barking(T('tail') + .1, DUR, .45, -.5, 520); howl(T('tail') + .2, .4, -.4, 2.0); reverse_swell(DUR, 1.3, .55); riser(DUR, 1.5, .35)
 # ============ mix ============
 def make_ir(dur, decay, damp, seed):
     r = np.random.default_rng(seed); n = int(dur * SR); s = tt(n); x = r.standard_normal(n) * np.exp(-s * 6.9 / decay)
@@ -360,21 +394,28 @@ for l in TL['lines']:
     i = int(l['wav0'] * SR)
     if i < 0: y = y[-i:]; i = 0
     n = min(len(y), N - i); VO[i:i + n] += y[:n]
-LVL = {'mus': .4, 'sfx': .62, 'amb': .42}
+LVL = {'mus': .3, 'sfx': .7, 'amb': .23}
 for b, lv in LVL.items():
-    pk = np.abs(BUS[b]).max() + 1e-9
-    BUS[b] = (np.tanh(BUS[b] / pk * 2.0) / np.tanh(2.0) if b == 'sfx' else BUS[b] / pk) * lv
+    pk = np.percentile(np.abs(BUS[b]), 99.7) + 1e-9               # the loud part of the bus, not its single loudest sample
+    BUS[b] = np.tanh(BUS[b] / pk * 1.2) / np.tanh(1.2) * lv
 # breath held: the bed (music + ambience) drops away in the HUSH windows
 ts_all = tt(N); hush = np.ones(N)
 for a, b in HUSH: hush = np.minimum(hush, 1 - .75 * np.clip((ts_all - a) / .08, 0, 1) * np.clip((b - ts_all) / .25, 0, 1))
 BUS['mus'] *= hush; BUS['amb'] *= hush
+sil = np.ones(N)
+for a, b in SILENT: sil = np.minimum(sil, 1 - np.clip((ts_all - a) / .03, 0, 1) * np.clip((b - ts_all) / .05, 0, 1))
+for k in BUS: BUS[k] *= sil if k != 'sfx' else 1
 MIX = BUS['mus'] + BUS['sfx'] + BUS['amb']
 MIX += DRY
 def box(x, n):                                       # a centred moving average (same as convolving with a box, in O(N))
     c = np.concatenate([[0.0], np.cumsum(x)]); h = n // 2; i = np.arange(len(x)); lo = np.clip(i - h, 0, len(x)); hi = np.clip(i - h + n, 0, len(x)); return (c[hi] - c[lo]) / n
 env = box(np.abs(VO), int(.08 * SR)); env = np.clip(env / .05, 0, 1)
-env = box(env, int(.25 * SR)); duck = 1 - env * (1 - 10 ** (-6 / 20))
-out = MIX * duck + VO
+env = box(env, int(.25 * SR)); duck = 1 - env * (1 - 10 ** (-3.5 / 20)); duck_s = 1 - env * (1 - 10 ** (-1.5 / 20))
+MIX = (BUS['mus'] + BUS['amb']) * duck + BUS['sfx'] * duck_s + DRY
+out = MIX + VO
+if os.environ.get('STEMS'):                          # debugging: each bus as it lands in the mix
+    for nm, x in (('vo', np.stack([VO, VO])), ('sfx', BUS['sfx'] * duck_s), ('amb', BUS['amb'] * duck), ('mus', BUS['mus'] * duck)):
+        with wave.open(os.path.join(HERE, 'out', f'stem_{nm}.wav'), 'wb') as w: w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((np.clip(x, -1, 1).T * 32767).astype('<i2').tobytes())
 rms = np.sqrt(np.maximum(box(((out[0] + out[1]) * .5) ** 2, int(.05 * SR)), 0)) + 1e-9
 thr = np.percentile(rms, 80); gr = np.where(rms > thr, (thr / rms) ** (1 - 1 / 2.2), 1.0); gr = box(gr, int(.03 * SR))
 out = out * gr; n = int(DUR * SR); out = out[:, :n]; out = np.tanh(out / np.abs(out).max() * 1.3) / np.tanh(1.3) * .95
