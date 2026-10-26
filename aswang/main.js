@@ -736,7 +736,7 @@ S.visitor = (t, u) => { cam(CX, 900, lerp(1, 1.1, seg(u, 0, 6)));
   room(t, { lampAt: [180, 1560], lampS: 40 });
   const open = ss(seg(t, T('r3') + 1.2, T('r3') + 2.2)), d0 = 300, d1 = 840, dt = 300, db = 1500;
   g.save(); g.beginPath(); g.rect(d0, dt, d1 - d0, db - dt); g.clip(); sky(t, { moonAt: [760, 420], mr: 40 }); ground(t, 1360);
-  const ugly = ss(seg(t, wordT('r3', 'mata') - .3, wordT('r3', 'mata') + .3)); person(570, 1640, 1150, { t, hood: ['#efece6', '#c8c4bc', '#7a766e'], legs: ['#8a8680', '#5a5650', '#2a2622'], skin: PALE, hair: ['#08070a', '#050406', '#020203'], longHair: 1, arms: 'offer', eyes: ugly > .5 ? 'dead' : 'open', smile: 1, mouth: ugly > .5 ? .6 : 0, zombie: ugly > .5 ? 1 : 0, sway: .3 * ugly, lx: -1, rim: 'rgba(255,200,150,.7)' });
+  const ugly = ss(seg(t, E('r3') - .25, E('r3') + .15)); person(570, 1640, 1150, { t, hood: ['#efece6', '#c8c4bc', '#7a766e'], legs: ['#8a8680', '#5a5650', '#2a2622'], skin: PALE, hair: ['#08070a', '#050406', '#020203'], longHair: 1, arms: 'offer', eyes: ugly > .5 ? 'dead' : 'open', smile: 1, mouth: ugly > .5 ? .6 : 0, zombie: ugly > .5 ? 1 : 0, sway: .3 * ugly, lx: -1, rim: 'rgba(255,200,150,.7)' });
   if (ugly > .5) for (const sg of [-1, 1]) L(570 + sg * 60 + 1150 * .09 * .3, 1640 - 1150 * .855, 60, C.red, .9, .6);
   const hx = 570 + 1150 * .385, hy = 1640 - 1150 * .6; rr(hx - 34, hy - 70, 68, 76, 10); fs('#b0b4b8', 4); g.restore();
   g.fillStyle = '#2a1a0c'; g.fillRect(d0, dt, (d1 - d0) * (1 - open * .82), db - dt); g.strokeStyle = '#1a1006'; g.lineWidth = 30; g.strokeRect(d0, dt, d1 - d0, db - dt);
@@ -753,7 +753,7 @@ S.eye = (t, u) => { const sl = ss(seg(t, W_ASW3 - .1, W_ASW3 + .3)); cam(CX, 960
   if (sl > 0) { ell(ix, iy, ir * (.3 - .22 * sl), ir * .8); g.fillStyle = `rgba(150,10,20,${sl})`; g.fill(); L(ix, iy, ir * 1.6, C.red, .9 * sl, .5 * sl); }
   L(ex, ey, 900, C.warm, .8, .05); lightPass(dim.room); };
 // 3:30: something under the house: the bamboo floor, the gaps, and in one of them, eyes
-S.floor = (t, u) => { const e = ss(seg(t, W_NAKA - .2, W_NAKA + .4)); cam(540, lerp(900, 980, seg(u, 0, 6)), lerp(1, 1.25, ss(seg(u, 0, 6))));
+S.floor = (t, u) => { const e = ss(seg(t, E('mid') - .5, E('mid') + .05)); cam(540, lerp(900, 980, seg(u, 0, 6)), lerp(1, 1.25, ss(seg(u, 0, 6))));
   fill('#020203'); if (e > 0) { g.save(); g.globalAlpha = e; face(600, 1010, 300, { t, eyes: 'dead', skin: ['#7a7470', '#504a48', '#24201e'], hair: ['#050406', '#050406', '#020203'], mouth: .4, zombie: 1, lx: 1, ears: 0 }); g.restore(); L(600, 1010, 520, C.red, .45 * e, .15 * e); }
   for (let k = 0; k < 16; k++) { const y = -100 + k * 140; rr(-200, y, 1500, 108, 30); fs(lg(0, y, 0, y + 122, ['#b0905a', '#8a6a3a', '#5a4220']), 4);
     for (let j = 0; j < 5; j++) line([[-200, y + 20 + j * 20], [1300, y + 24 + j * 20]], 2, 'rgba(60,40,20,.35)'); for (let x = 0; x < 1300; x += 420) { g.fillStyle = 'rgba(40,26,10,.6)'; g.fillRect(x + (k % 3) * 80, y, 10, 122); } }
@@ -795,7 +795,7 @@ S.salt = (t, u) => { const pour = ss(seg(t, T('r5b') + .2, T('r5b') + .8)); cam(
   if (pour > 0) for (let k = 0; k < 120; k++) { const p = ((t * 1.2 + hash(k)) % 1), x = lerp(jx - 80, 520 + (hash(k * 3) - .5) * 120, p), y = lerp(jy + 40, 1150, p) - Math.sin(Math.PI * p) * 60; circ(x, y, 2.5 + 2 * hash(k), k % 4 ? `rgba(245,243,236,${pour})` : `rgba(120,120,125,${pour})`); }
   L(jx, jy, 300, C.white, .6 * pour, .2 * pour); lightPass(dim.night); mist(t, 1500, .2); };
 // all night she screams in the sky... until the rooster crows: the sky turns to dawn, she flees
-S.dawn = (t, u) => { const d = ss(seg(t, T('dawn') + .8, E('dawn') + 1.2)), cr = ss(seg(t, W_TILA - .1, W_TILA + .3)) * (1 - ss(seg(t, W_TILA + 1.6, W_TILA + 2.2))); cam(CX, 900, 1);
+S.dawn = (t, u) => { const d = ss(seg(t, T('dawn') + .8, E('dawn') + 1.2)), cr = ss(seg(t, E('dawn') - .1, E('dawn') + .3)) * (1 - ss(seg(t, E('dawn') + 1.4, E('dawn') + 2.0))); cam(CX, 900, 1);
   sky(t, { dawn: d, moonAt: [760, 420], mr: 64 });
   const a = t * .9, mx = 540 + Math.cos(a) * 280, my = 560 + Math.sin(a * 1.3) * 120 - d * 900; if (d < .95) { g.save(); g.globalAlpha = 1 - d; manananggal(mx, my, 170 * (1 - .4 * d), t, { scream: .9, tilt: Math.sin(a) * .3 }); g.restore(); }
   palm(80, 1620, 1050, t, 7); banana(990, 1640, 700, t, 8); g.save(); g.translate(260, 0); kubo(600, 1600, 110, t, { lit: 0 }); g.restore();
