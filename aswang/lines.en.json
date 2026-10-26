@@ -1,0 +1,186 @@
+[
+ {
+  "id": "h1",
+  "shot": "hook",
+  "text": "Imagine you're in the province at 3 AM. The dogs suddenly stop barking... the aswang is here.",
+  "key": [
+   "3",
+   "barking...",
+   "aswang"
+  ],
+  "say": "Imagine you're in the province at three A.M. The dogs suddenly stop barking... the aswang is here.",
+  "gap": 0.05
+ },
+ {
+  "id": "s1",
+  "shot": "arrive",
+  "text": "You're on vacation at Lola's. No signal. No power. Brownout.",
+  "key": [
+   "Lola's.",
+   "Brownout."
+  ]
+ },
+ {
+  "id": "s2",
+  "shot": "kubo",
+  "text": "Everyone's asleep under the mosquito net... except Lola. Rosary in hand. Watching the window.",
+  "key": [
+   "Lola.",
+   "window."
+  ]
+ },
+ {
+  "id": "s3",
+  "shot": "whisper",
+  "text": "Before you sleep, she whispers to you. 5 rules. Follow them... and you'll make it to morning.",
+  "key": [
+   "5",
+   "morning."
+  ],
+  "say": "Before you sleep, she whispers to you. Five rules. Follow them... and you'll make it to morning."
+ },
+ {
+  "id": "s4",
+  "shot": "neighbor",
+  "text": "Not every aswang looks like a monster. Some of them... look like neighbors. Kind ones. Always bringing food.",
+  "key": [
+   "monster.",
+   "neighbors."
+  ]
+ },
+ {
+  "id": "r1",
+  "shot": "roof",
+  "text": "Rule number 1: listen to the tiktik. When it's loud, it's still far. When it's faint... it's on your roof.",
+  "key": [
+   "Rule",
+   "tiktik.",
+   "roof."
+  ],
+  "say": "Rule number one: listen to the tik-tik. When it's loud, it's still far. When it's faint... it's on your roof."
+ },
+ {
+  "id": "r2",
+  "shot": "call",
+  "text": "Rule number 2: if someone outside calls your name... don't answer. Even if it sounds like your mom.",
+  "key": [
+   "Rule",
+   "answer.",
+   "mom."
+  ],
+  "say": "Rule number two: if someone outside calls your name... don't answer. Even if it sounds like your mom."
+ },
+ {
+  "id": "r2b",
+  "shot": "nanay",
+  "text": "Because your mom... is asleep right next to you.",
+  "key": [
+   "mom...",
+   "asleep"
+  ]
+ },
+ {
+  "id": "r3",
+  "shot": "visitor",
+  "text": "Rule number 3: if a stranger knocks, asking for water... look into their eyes.",
+  "key": [
+   "Rule",
+   "water...",
+   "eyes."
+  ],
+  "say": "Rule number three: if a stranger knocks, asking for water... look into their eyes."
+ },
+ {
+  "id": "r3b",
+  "shot": "eye",
+  "text": "If your reflection is upside down... it's an aswang. Don't let it in.",
+  "key": [
+   "upside",
+   "aswang."
+  ]
+ },
+ {
+  "id": "mid",
+  "shot": "floor",
+  "text": "3:30 AM. Something is moving under the house. And through the gaps in the floor... something is looking at you.",
+  "key": [
+   "under",
+   "looking"
+  ],
+  "say": "Three thirty A.M. Something is moving under the house. And through the gaps in the floor... something is looking at you."
+ },
+ {
+  "id": "cta",
+  "shot": "cta",
+  "text": "Before the last two rules... share this with the cousin who's scared of the dark. So they're not alone.",
+  "key": [
+   "share",
+   "cousin"
+  ]
+ },
+ {
+  "id": "r4",
+  "shot": "garlic",
+  "text": "Rule number 4: garlic on the windows, salt at the door. And Lola's stingray tail... never hide it.",
+  "key": [
+   "Rule",
+   "garlic",
+   "salt",
+   "stingray"
+  ],
+  "say": "Rule number four: garlic on the windows, salt at the door. And Lola's stingray tail... never hide it."
+ },
+ {
+  "id": "r5",
+  "shot": "grove",
+  "text": "Rule number 5, the most important: if it's a manananggal... don't chase it. Find the other half of its body.",
+  "key": [
+   "Rule",
+   "manananggal...",
+   "half"
+  ],
+  "say": "Rule number five, the most important: if it's a manananggal... don't chase it. Find the other half of its body."
+ },
+ {
+  "id": "r5b",
+  "shot": "salt",
+  "text": "Pour salt and ash on it. Before the sun comes up... it can never come back.",
+  "key": [
+   "salt",
+   "ash",
+   "never"
+  ]
+ },
+ {
+  "id": "dawn",
+  "shot": "dawn",
+  "text": "It screams in the sky all night long... until the rooster crows.",
+  "key": [
+   "screams",
+   "rooster"
+  ]
+ },
+ {
+  "id": "s5",
+  "shot": "morning",
+  "text": "In the morning... there are footprints in the mud. Leading to your neighbor's house.",
+  "key": [
+   "footprints",
+   "neighbor's"
+  ]
+ },
+ {
+  "id": "end",
+  "shot": "end",
+  "text": "So if the dogs go quiet tonight... you know what to do.",
+  "key": [
+   "quiet",
+   "know"
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]
