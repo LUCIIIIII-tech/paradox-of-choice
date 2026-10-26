@@ -394,7 +394,7 @@ for l in TL['lines']:
     i = int(l['wav0'] * SR)
     if i < 0: y = y[-i:]; i = 0
     n = min(len(y), N - i); VO[i:i + n] += y[:n]
-LVL = {'mus': .3, 'sfx': .65, 'amb': .2, 'lng': .45}
+LVL = {'mus': .22, 'sfx': .65, 'amb': .14, 'lng': .45}
 for b, lv in LVL.items():
     pk = np.percentile(np.abs(BUS[b]), 99.7) + 1e-9               # the loud part of the bus, not its single loudest sample
     BUS[b] = np.tanh(BUS[b] / pk * 1.2) / np.tanh(1.2) * lv
