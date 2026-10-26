@@ -1,0 +1,168 @@
+[
+ {
+  "id": "h1",
+  "shot": "rush",
+  "text": "Imagine you're at the mall. 5 choices. One wrong move... and you're dead.",
+  "say": "Imagine you're at the mall. Five choices. One wrong move... and you're dead.",
+  "key": [
+   "Imagine",
+   "wrong",
+   "dead."
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "s1",
+  "shot": "scream",
+  "text": "Saturday night. Someone screams at the entrance.",
+  "key": [
+   "screams"
+  ]
+ },
+ {
+  "id": "s2",
+  "shot": "lunge",
+  "text": "Then a man lunges at the guard.",
+  "key": [
+   "lunges"
+  ]
+ },
+ {
+  "id": "c1q",
+  "shot": "well",
+  "text": "Choice number 1: everyone's running for the entrance. Do you follow them?",
+  "say": "Choice number one: everyone's running for the entrance. Do you follow them?",
+  "key": [
+   "Choice",
+   "follow"
+  ]
+ },
+ {
+  "id": "c1a",
+  "shot": "a1",
+  "text": "If you followed them... you're crushed at the doors. Break away.",
+  "key": [
+   "crushed",
+   "Break"
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c2q",
+  "shot": "map",
+  "text": "Choice number 2: the entrance, or the fire exit?",
+  "say": "Choice number two: the entrance, or the fire exit?",
+  "key": [
+   "Choice",
+   "fire",
+   "exit?"
+  ]
+ },
+ {
+  "id": "c2a",
+  "shot": "a2",
+  "text": "Fire exit. The entrance... is where they came from.",
+  "key": [
+   "Fire",
+   "exit.",
+   "came"
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c3q",
+  "shot": "noise",
+  "text": "Choice number 3: there's a zombie in front of you. Do you run, or stay quiet?",
+  "say": "Choice number three: there's a zombie in front of you. Do you run, or stay quiet?",
+  "key": [
+   "Choice",
+   "zombie",
+   "quiet?"
+  ]
+ },
+ {
+  "id": "c3a",
+  "shot": "r3",
+  "text": "Stay quiet. They hunt by sound.",
+  "key": [
+   "quiet.",
+   "sound."
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c4q",
+  "shot": "dark",
+  "text": "Choice number 4: it's pitch black. Do you turn on your flashlight?",
+  "say": "Choice number four: it's pitch black. Do you turn on your flashlight?",
+  "key": [
+   "Choice",
+   "black.",
+   "flashlight?"
+  ]
+ },
+ {
+  "id": "c4a",
+  "shot": "phone",
+  "text": "Don't. In the dark... they hunt the light.",
+  "key": [
+   "Don't.",
+   "light."
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c5q",
+  "shot": "friend",
+  "text": "Choice number 5: your best friend got bitten. Do you take them with you?",
+  "say": "Choice number five: your best friend got bitten. Do you take them with you?",
+  "key": [
+   "Choice",
+   "bitten.",
+   "take"
+  ]
+ },
+ {
+  "id": "c5a",
+  "shot": "bitten",
+  "text": "In 10 seconds... that's not your friend anymore.",
+  "say": "In ten seconds... that's not your friend anymore.",
+  "key": [
+   "10",
+   "not"
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "o1",
+  "shot": "exit",
+  "text": "Five out of five... and you make it out.",
+  "key": [
+   "Five",
+   "out."
+  ]
+ },
+ {
+  "id": "o2",
+  "shot": "think",
+  "text": "How many did you get right? Comment your score.",
+  "key": [
+   "How",
+   "score."
+  ]
+ },
+ {
+  "id": "o3",
+  "shot": "share",
+  "text": "Share this with the friend who'd die first.",
+  "key": [
+   "Share",
+   "first."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]
