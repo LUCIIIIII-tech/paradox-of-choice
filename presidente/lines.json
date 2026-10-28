@@ -1,0 +1,16 @@
+[
+ {"id": "h1", "shot": "hook", "text": "Imagine namatay ang Presidente ng Pilipinas. At ikaw... ang papalit.", "key": ["namatay", "Presidente", "ikaw..."], "gap": 0.05, "seed": 11},
+ {"id": "s1", "shot": "phone", "text": "Alas-4 ng madaling-araw. Tumunog ang phone mo. Isang boses lang: Sir... wala na po ang Presidente.", "say": "Alas-kwatro ng madaling-araw. Tumunog ang phone mo. Isang boses lang: Sir... wala na po ang Presidente.", "key": ["Alas-4", "phone", "wala"], "gap": 1.0},
+ {"id": "s2", "shot": "oath", "text": "Bago pa sumikat ang araw, nakataas na ang kanang kamay mo. Ikaw na ang Presidente ng Pilipinas.", "key": ["kamay", "Presidente"]},
+ {"id": "s3", "shot": "power", "text": "Isang pirma mo lang... magbabago ang buhay ng mahigit isang daang milyong Pilipino.", "key": ["pirma", "milyong"]},
+ {"id": "s4", "shot": "power", "text": "Kaya ito ang gagawin mo.", "key": ["gagawin"], "gap": 0.5},
+ {"id": "d1", "shot": "edsa", "text": "Una, ang EDSA. Wala nang tatlong oras sa traffic papasok sa trabaho.", "key": ["EDSA.", "traffic"], "gap": 0.7},
+ {"id": "d2", "shot": "baha", "text": "Pangalawa, ang baha. Wala nang batang lulusong sa tubig papasok sa eskwela.", "key": ["baha.", "batang", "eskwela."], "gap": 0.6},
+ {"id": "d3", "shot": "bigas", "text": "Pangatlo, ang bigas. Abot-kaya ulit ng bawat pamilya, kahit sa pinakamaliit na sari-sari store.", "key": ["bigas.", "Abot-kaya", "sari-sari"], "gap": 0.6},
+ {"id": "d4", "shot": "pera", "text": "Pang-apat, ang pera ng bayan. Bawat pisong nawala... hahanapin mo.", "key": ["pera", "pisong", "hahanapin"], "gap": 0.6},
+ {"id": "cta", "shot": "cta", "text": "Bago ang huli... i-share mo muna 'to sa kaibigan mong feeling Presidente.", "key": ["i-share", "feeling", "Presidente."], "gap": 0.8},
+ {"id": "d5", "shot": "letter", "text": "Pero isang linggo pa lang... may sobre sa mesa mo. Walang pangalan. Isang linya lang: Huwag mong gagalawin.", "key": ["sobre", "Walang", "gagalawin."], "gap": 0.7},
+ {"id": "d5b", "shot": "portrait", "text": "Doon mo maiintindihan... kung bakit ang dating Presidente... hindi na nagising.", "key": ["maiintindihan...", "nagising."], "gap": 1.0, "seed": 23},
+ {"id": "end", "shot": "end", "text": "Kaya sa susunod na tumunog ang phone mo ng alas-4 ng madaling-araw... huwag mo nang sagutin.", "say": "Kaya sa susunod na tumunog ang phone mo ng alas-kwatro ng madaling-araw... huwag mo nang sagutin.", "key": ["alas-4", "huwag", "sagutin."], "gap": 1.0},
+ {"id": "tail", "shot": "loop", "beat": 2.0}
+]
