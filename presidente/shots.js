@@ -313,6 +313,87 @@ S.end = (t, u) => { const z = ss(seg(t, W_HUWAG2 - .5, E('end') + .8)); cam(lerp
   person(560, 2250, 1500, { t, ...TEE, arms: 'down', eyes: 'wide', look: -.9, sweat: 1, lx: -1, rim: 'rgba(160,210,255,.6)' }); blanket(t);
   lightPass('#1a1a2c'); };
 
+// ---------- the scenes everyone knows ----------
+const pat = c => g.createPattern(c, 'repeat');
+const W_GC99 = wordT('gc', '99'), W_DASAL = wordT('tv', 'nagdarasal'), W_MURA = wordT('tv', 'nagmumura'), W_E1 = wordT('e1', 'wala'), W_E2 = wordT('e2', 'wala'), W_E3 = wordT('e3', 'sapat'), W_TAUHAN = wordT('d5c', 'tauhan');
+const CHAT = [['TITA BABY', 'Congrats inaanak!!! Proud kami'], ['TITO BOY', 'Pa-utang muna 5k, sa Pasko bayad'], ['PINSAN JUN', 'Pa-shout out sa live mo'], ['TITA LORNA', 'Ipasok mo naman si Kevin'], ['LOLA', 'Ingat ka apo. Magdasal ka.']];
+const chatAt = i => T('gc') + .35 + i * (span('gc') + .3) / CHAT.length;      // when each message lands (score.py pings on the same times)
+// the family group chat: the unread count runs up to 99+, the messages pop in one by one
+S.gc = (t, u) => { const last = CHAT.reduce((m, _, i) => t >= chatAt(i) ? i : m, -1), bz = last >= 0 ? Math.exp(-(t - chatAt(last)) * 12) * Math.sin(t * 90) * 5 : 0;
+  cam(CX, 900, lerp(1, 1.06, seg(u, 0, 6)), 0, 0, t); grad('#14141c', '#08080c', 0, 1920);
+  g.save(); g.translate(bz, 0);
+  rr(170, 190, 740, 1520, 70); fs('#0a0a0e', 6); rr(196, 216, 688, 1468, 52); g.fillStyle = '#0e1220'; g.fill();
+  rr(196, 216, 688, 170, [52, 52, 0, 0]); g.fillStyle = '#1a2234'; g.fill(); text('PAMILYA', 470, 290, 52, '#ffffff', 'Anton'); g.font = '500 26px sans-serif'; g.fillStyle = '#8aa0c0'; g.textAlign = 'center'; g.fillText('47 members', 470, 340);
+  const n = Math.round(lerp(12, 99, ss(seg(t, T('gc'), W_GC99 + .3)))); circ(770, 300, 52, '#e8283a'); text(n >= 99 ? '99+' : String(n), 770, 302, n >= 99 ? 38 : 44, '#fff', 'Anton');
+  CHAT.forEach(([who, msg], i) => { const k = back(seg(t, chatAt(i), chatAt(i) + .25), 2); if (k <= 0) return; const y = 440 + i * 200;
+    g.save(); g.translate(240, y); g.scale(k, k); g.font = '500 34px sans-serif'; const w = Math.min(600, g.measureText(msg).width + 56);
+    rr(0, 0, w, 130, 30); g.fillStyle = '#26324e'; g.fill(); text(who, 28, 34, 28, '#ffc94d', 'Anton', 'left'); g.font = '500 34px sans-serif'; g.fillStyle = '#eef2fa'; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText(msg, 28, 88, w - 50); g.restore(); });
+  g.restore();
+  L(540, 900, 1400, C.cyan, 1, .2); lightPass('#30303e'); };
+// every carinderia is watching the TV; half of them pray, half of them swear
+S.tv = (t, u) => { const da = ss(seg(t, W_DASAL - .1, W_DASAL + .3)), mu = ss(seg(t, W_MURA - .2, W_MURA + .3)); cam(lerp(560, 520, seg(u, 0, 7)), 900, lerp(1, 1.08, seg(u, 0, 7)), 0, 0, t);
+  g.fillStyle = '#5a4a3a'; g.fillRect(-400, -400, 1900, 1500); g.save(); g.fillStyle = pat(TEX.tiles); g.fillRect(-400, 1000, 1900, 1200); g.restore(); g.fillStyle = 'rgba(30,20,10,.3)'; g.fillRect(-400, 1000, 1900, 1200);
+  line([[540, 300], [540, 380]], 10, '#222'); rr(290, 370, 500, 320, 12); fs('#0a0a0c', 6);
+  g.save(); g.beginPath(); g.rect(308, 388, 464, 284); g.clip(); grad('#1e3a6a', '#0a1830', 388, 672); phFlag(560, 400, 200, 100, t * .3, .2); person(450, 760, 420, { t, ...SUITY, eyes: 'open', mouth: .15 * Math.abs(Math.sin(t * 8)), ground: 0, lx: -1 });
+  g.fillStyle = '#c8202a'; g.fillRect(308, 610, 464, 44); text('BREAKING: BAGONG PRESIDENTE', 540, 633, 28, '#fff', 'Anton'); g.restore(); L(540, 530, 900, C.cyan, .9, .25);
+  rr(40, 760, 230, 300, 8); fs('#1e2a22', 8, '#5a4026'); g.save(); g.font = '600 44px Caveat'; g.fillStyle = '#efe8d8'; g.textAlign = 'center'; g.textBaseline = 'middle'; ['ULAM', 'Adobo', 'Sinigang', 'Menudo', 'Pinakbet'].forEach((s, i) => g.fillText(s, 155, 800 + i * 52)); g.restore();
+  rr(60, 1160, 960, 140, 10); fs(lg(0, 1160, 0, 1300, ['#b8bcc2', '#6a6e74']), 4);
+  for (const x of [200, 420, 640, 860]) { ell(x, 1160, 90, 26); fs('#9aa0a8', 4); ell(x, 1145, 70, 18); fs('#c8ccd2', 3); circ(x, 1128, 10, '#4a4a50'); for (let k = 0; k < 2; k++) { const p = ((t * .4) + k * .5 + x) % 1; curve([x + 10 * k, 1120], [x + 30 * Math.sin(t + k), 1060 - 80 * p], [x + 20 * Math.sin(t * .7 + k + x), 980 - 160 * p], 6, `rgba(230,230,240,${.2 * (1 - p)})`); } }
+  const C1 = { t, back: 1, lx: 1, rim: 'rgba(130,200,255,.6)', hair: HAIRC };
+  person(220, 2080, 950, { ...C1, hood: ['#c86a3a', '#984a24', '#4a2410'], legs: JEANC, skin: YOU.skin });
+  person(870, 2080 - 60 * mu, 950, { ...C1, hood: ['#3a8a5a', '#246a3e', '#103a1e'], legs: JEANC, skin: YOU.skin, arms: mu > .5 ? 'up' : 'down' });
+  person(545, 2140, 1000, { ...C1, hood: ['#d8c8a8', '#b0a080', '#5a5040'], legs: JEANC, skin: YOU.skin, longHair: 1 });
+  for (const x of [220, 545, 870]) { rr(x - 120, 1880, 240, 30, 8); fs('#d0303a', 3); }
+  L(540, 900, 1300, C.warm, .55, .06);
+  lightPass('#2a2430');
+  if (da > 0) { reset(); g.globalAlpha = da; g.font = '600 76px Caveat'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 10; g.strokeStyle = OL; g.strokeText('Amen...', 250, 1090); g.fillStyle = '#ffffff'; g.fillText('Amen...', 250, 1090); reset(); }
+  if (mu > 0) { reset(); g.globalAlpha = mu; text('#@%&!!', 860, 960, 86, '#ff3a48', 'Anton', 'center', 12); reset(); } };
+// the hospital at 4 a.m.: the line outside the OPD, Lola first; on "Wala" the line melts away and she smiles
+const LINE_ = [[560, 760, { hood: ['#7a9ac8', '#5a7aa8', '#2a3a5a'], skin: ['#d8a888', '#b0805e', '#6a4630'], hair: ['#e8e6e2', '#b8b4ae', '#76726c'], glasses: 1, longHair: 1 }],
+  [430, 760, { hood: ['#a86a4a', '#7a4a30', '#3a2014'] }], [300, 740, { hood: ['#5a6a7a', '#3a4a5a', '#1a2430'], longHair: 1 }], [170, 770, { hood: ['#8a5a8a', '#6a3a6a', '#3a1a3a'] }], [40, 750, { hood: ['#4a7a5a', '#2e5a3e', '#163020'] }], [-90, 760, { hood: ['#9a8a5a', '#7a6a3a', '#3a3018'] }]];
+S.ospital = (t, u) => { const gone = ss(seg(t, W_E1 - .1, W_E1 + 1.8)); cam(lerp(500, 560, seg(u, 0, 7)), 900, lerp(1, 1.08, seg(u, 0, 7)), 0, 0, t);
+  grad('#0e1430', '#3a3050', -400, 900); g.fillStyle = lg(0, 520, 0, 1500, ['#c8d0c8', '#9aa29a']); g.fillRect(-400, 520, 1900, 1000); g.fillStyle = '#3a3e44'; g.fillRect(-400, 1500, 1900, 700);
+  rr(560, 622, 400, 110, 10); fs('#1e7a4a', 4, '#0e3a22'); text('OPD', 760, 668, 74, '#ffffff', 'Anton'); text('BUKAS 8:00 AM', 760, 760, 30, '#2a2e2a', 'Anton');
+  rr(650, 800, 260, 700, 6); g.fillStyle = 'rgba(40,60,70,.9)'; g.fill(); line([[780, 800], [780, 1500]], 6, '#20262a'); L(780, 1100, 600, C.fluo, .7, .15);
+  circ(300, 700, 70, '#f4f4f0'); circ(300, 700, 70, '#2a2a2e', 6); line([[300, 700], [300, 648]], 7, '#111'); line([[300, 700], [340, 700]], 9, '#111');
+  for (let i = LINE_.length - 1; i >= 0; i--) { const [x, h, o] = LINE_[i], a = i ? 1 - clamp(gone * 7 - (LINE_.length - 1 - i)) : 1; if (a <= 0) continue;
+    g.save(); g.globalAlpha = a; person(x, 1760, h, { t, ...o, legs: o.legs || JEANC, skin: o.skin || YOU.skin, hair: o.hair || HAIRC, eyes: i % 2 ? 'shut' : 'open', tired: i ? .8 : .7 * (1 - gone), smile: !i && gone > .8 ? 1 : 0, look: .6, lx: 1, rim: 'rgba(205,245,228,.45)' }); g.restore(); }
+  L(320, 500, 900, C.amb, .55, .1); lightPass('#26283a'); };
+// the airport: a mother leaving, her child, the balikbayan box; on "Wala" the suitcase rolls away and they hold each other
+S.ofw = (t, u) => { const st = ss(seg(t, W_E2 - .1, W_E2 + .9)); cam(CX, 900, lerp(1, 1.08, seg(u, 0, 7)), 0, 0, t);
+  grad('#0a0e20', '#1e2238', -400, 1300); for (let x = -60; x < 1200; x += 180) line([[x, 200], [x, 1300]], 10, '#2a2e3a'); line([[-400, 760], [1500, 760]], 8, '#2a2e3a');
+  ell(760, 1120, 300, 46); fs('#c8ccd4'); path([[1000, 1110], [1060, 960], [1100, 960], [1060, 1110]]); g.closePath(); fs('#c8ccd4'); path([[700, 1130], [560, 1210], [640, 1210], [800, 1140]]); g.closePath(); fs('#a8acb4');
+  for (let k = 0; k < 9; k++) circ(560 + k * 46, 1110, 8, '#2a3a5a'); const bl = (t % 1.2) < .15 ? 1 : 0; circ(1080, 960, 10, `rgba(255,60,60,${.3 + .7 * bl})`); L(1080, 960, 160, C.red, bl, .6 * bl);
+  g.fillStyle = lg(0, 1300, 0, 1920, ['#6a6e78', '#2a2c34']); g.fillRect(-400, 1300, 1900, 700);
+  rr(260, 640, 560, 90, 10); fs('#1a1a20', 4); text('DEPARTURES', 540, 686, 60, '#ffc94d', 'Anton');
+  const sx = 120 - 600 * st; rr(sx, 1560, 150, 260, 18); fs('#3a4a6a', 4); line([[sx + 75, 1560], [sx + 75, 1460]], 8, '#1a1a20'); line([[sx + 45, 1460], [sx + 105, 1460]], 10, '#1a1a20');
+  g.save(); g.globalAlpha = 1 - st; rr(820, 1660, 220, 200, 6); fs('#b88a52', 4); g.fillStyle = '#d8c070'; g.fillRect(820, 1740, 220, 26); text('BALIKBAYAN', 930, 1810, 30, '#5a3a1a', 'Anton'); g.restore();
+  const MOM = { skin: ['#c8946c', '#a06e4c', '#5e3e28'], hair: ['#2a1d14', '#1d1410', '#0b0807'] };
+  person(lerp(700, 610, st), 1980, 640, { t, ...MOM, hood: ['#f2c430', '#c89a20', '#6a5010'], legs: JEANC, hair: HAIRC, arms: st > .5 ? 'out' : 'reach', eyes: 'open', look: -.7, lookY: -.5, tired: .5 * (1 - st), mouth: st > .5 ? 0 : .2, smile: st > .6 ? 1 : 0, lx: -1, rim: 'rgba(205,245,228,.5)' });
+  person(420, 1990, 1150, { t, ...MOM, hood: ['#2a6a8a', '#1e4e68', '#0e2636'], legs: ['#4a4a5a', '#2e2e3a', '#16161e'], longHair: 1, arms: st > .5 ? 'out' : 'down', eyes: 'open', look: .55, tired: .7 * (1 - st), smile: st > .6 ? 1 : 0, lx: -1, rim: 'rgba(205,245,228,.5)' });
+  L(540, 400, 1400, C.fluo, .75, .1); lightPass('#262a3a'); };
+// payday math at the kitchen table: bills, coins, the debt notebook; on "Sapat" the pile is enough and he can finally breathe
+S.sahod = (t, u) => { const ok = ss(seg(t, W_E3 - .1, W_E3 + .7)); cam(CX, 900, lerp(1, 1.08, seg(u, 0, 6)), 0, 0, t);
+  g.fillStyle = lg(0, 0, 0, 1300, ['#4a5a52', '#2e3a34']); g.fillRect(-400, -400, 1900, 1800);
+  rr(720, 640, 200, 260, 6); fs('#ece4d4', 3); g.fillStyle = '#b02a2a'; g.fillRect(720, 640, 200, 60); text('KINSENAS', 820, 672, 34, '#fff', 'Anton');
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 5; c++) { const d = r * 5 + c + 1; text(String(d), 745 + c * 38, 730 + r * 42, 24, d === 15 ? '#b02a2a' : '#4a4038', 'Anton'); } circ(745 + 4 * 38, 730 + 2 * 42, 22, '#d0202a', 4);
+  line([[540, -200], [540, 330]], 4, '#1a1a1a'); ell(540, 360, 26, 34); g.fillStyle = '#fff4c8'; g.fill(); L(540, 400, 1400, C.warm, .95, .3);
+  person(440, 2150, 1300, { t, ...YOU, hood: ['#e8e4dc', '#c8c2b6', '#7a766c'], legs: JEANC, arms: 'lap', eyes: 'open', lookY: .7, look: .3, tired: .7 * (1 - ok), smile: ok > .6 ? 1 : 0, lx: -1, rim: 'rgba(255,210,160,.5)' });
+  g.fillStyle = lg(0, 1300, 0, 1920, ['#6a4a30', '#3a2614']); g.fillRect(-400, 1300, 1900, 700); line([[-400, 1302], [1500, 1302]], 6, 'rgba(255,220,170,.3)');
+  const nb = 3 + Math.round(9 * ok); for (let k = 0; k < nb; k++) { rr(560 + (k % 3) * 12, 1330 - k * 14, 230, 90, 6); g.fillStyle = ['#8a6ab0', '#d8b84a', '#4a6aa8'][k % 3]; g.fill(); g.strokeStyle = 'rgba(0,0,0,.35)'; g.lineWidth = 2; g.stroke(); }
+  for (let k = 0; k < 6; k++) { ell(160 + k * 34, 1400 + 10 * hash(k), 22, 9); fs('#c8b070', 2, '#7a6a3a'); }
+  g.save(); g.translate(300, 1520); g.rotate(-.06); g.globalAlpha = 1 - ok; rr(-150, -90, 300, 180, 6); fs('#efe8d0', 3); g.font = '600 52px Caveat'; g.fillStyle = '#b02a2a'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('Listahan ng utang', 0, -30); line([[-110, 30], [110, 30]], 3, 'rgba(0,0,0,.3)'); line([[-110, 62], [80, 62]], 3, 'rgba(0,0,0,.3)'); g.restore();
+  lightPass('#2a2226'); };
+// the next morning: the board is empty, torn corners and cut strings; in the doorway your staff look away
+S.empty = (t, u) => { const a = ss(seg(t, W_TAUHAN - .3, W_TAUHAN + .4)); cam(lerp(540, 560, seg(u, 0, 6)), 900, lerp(1.04, 1.12, seg(u, 0, 6)), 0, 0, t);
+  g.fillStyle = '#1a1a22'; g.fillRect(-400, -400, 1900, 2600); rr(90, 640, 900, 660, 10); fs('#6a4a2e', 16, '#2a1a0e');
+  for (let i = 0; i < 3000; i++) { g.fillStyle = `rgba(${hash(i) > .5 ? '255,220,170' : '0,0,0'},.12)`; g.fillRect(100 + hash(i * 1.3) * 880, 650 + hash(i * 2.7) * 640, 3, 3); }
+  for (const p of [...DOCS, ...PICS]) { const [x, y] = p; path([[x - 18, y - 100], [x + 20, y - 100], [x, y - 70]]); g.closePath(); g.fillStyle = '#ece6d4'; g.fill(); circ(x, y - 100, 9, '#d02030'); curve([x, y - 100], [x + 10, y - 40], [x - 6 + 6 * Math.sin(t + x), y + 10], 3, 'rgba(210,20,30,.9)'); }
+  g.fillStyle = lg(0, 1520, 0, 1920, ['#2a2018', '#120c08']); g.fillRect(-400, 1520, 1900, 600);
+  person(400, 2350, 1500, { t, ...SUITY, back: 1, lx: 1, rim: 'rgba(255,200,150,.5)' });
+  L(540, 620, 1000, C.warm, .75, .15); lightPass('#1a1418');
+  if (a > 0) { reset(); g.globalAlpha = a; rr(840, 300, 260, 1300, 0); g.fillStyle = 'rgba(205,245,228,.18)'; g.fill(); sil(880, 1650, 900, '#030305'); sil(1000, 1680, 960, '#030305'); reset(); } };
+
 // ---------- overlays: "GAGAWIN MO #n" (gold), the share card ----------
 function doCard(t, t0, t1, n, label) {
   const k = back(seg(t, t0, t0 + .28), 2.2) * (1 - ss(seg(t, t1 + .1, t1 + .35))); if (k <= 0) return;
@@ -326,7 +407,8 @@ function bigCard(t, t0, top, bottom, col = YEL, glowc = 'rgba(255,170,80,1)') {
   g.font = '86px Anton'; const s1 = Math.min(1, 800 / g.measureText(top).width); g.save(); g.translate(0, -44); g.scale(s1, s1); text(top, 0, 0, 86, '#fff', 'Anton'); g.restore();
   g.font = '70px Anton'; const s2 = Math.min(1, 800 / g.measureText(bottom).width); g.save(); g.translate(0, 62); g.scale(s2, s2); g.shadowColor = glowc; g.shadowBlur = 24; text(bottom, 0, 0, 70, col, 'Anton'); g.restore(); g.restore();
 }
-const DOS = ['d1', 'd2', 'd3', 'd4'];
+const W_COMMENT = wordT('cta', 'icomment');
+const DOS = ['d1', 'd2', 'd3', 'd4', 'e1', 'e2', 'e3'];
 function bloom() { reset(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .24; g.filter = 'blur(16px)'; g.drawImage(cv, 0, 0); reset(); }
 function vignette(a = .55) { reset(); g.fillStyle = rg(CX, H * .45, H * .22, H * .78, ['rgba(0,0,0,0)', `rgba(2,2,10,${a})`]); g.fillRect(0, 0, W, H); }
 const SHOTS = []; { const ls = TL.lines; for (let i = 0; i < ls.length; i++) {
@@ -342,7 +424,7 @@ window.renderAt = (t) => {
   reset(); g.globalCompositeOperation = 'overlay'; g.globalAlpha = .07; g.drawImage(TEX.paper, 0, 0, W, H); reset();
   if (sh[2] === 'hook') title(t, 1); else if (sh[2] === 'loop') title(t, ss(seg(u, .3, .8)));
   DOS.forEach((id, i) => { if (t >= T(id) && t < E(id) + .5) doCard(t, T(id), E(id), i + 1, TX.rules[i]); });
-  if (sh[2] === 'cta') bigCard(t, W_SHARE - .1, TX.share[0], TX.share[1]);
+  if (sh[2] === 'cta') { if (t < W_SHARE - .1) bigCard(t, W_COMMENT - .1, TX.comment[0], TX.comment[1]); else bigCard(t, W_SHARE - .1, TX.share[0], TX.share[1]); }
   if (sh[2] !== 'loop') captions(t);
 };
 window.fontsReady = Promise.all([document.fonts.load('80px Anton'), document.fonts.load('600 40px Caveat')]).then(() => true);

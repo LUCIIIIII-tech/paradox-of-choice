@@ -11,8 +11,8 @@ const ANCH = SUF ? await (await fetch(`anchors${SUF}.json`)).json() : {};
 const LN = Object.fromEntries(TL.lines.map(l => [l.id, l]));
 const TX = {
   tl: { t1: 'IMAGINE NAMATAY ANG PRESIDENTE', t2: 'IKAW ANG PAPALIT', rule: 'GAGAWIN MO #',
-        rules: ['AYUSIN ANG EDSA', 'TAPUSIN ANG BAHA', 'BIGAS NA ABOT-KAYA', 'HANAPIN ANG PERA'],
-        share: ['I-SHARE MO', 'SA KAIBIGAN MONG FEELING PRESIDENTE'], note: 'HUWAG MONG GAGALAWIN.', cal: '2026' },
+        rules: ['AYUSIN ANG EDSA', 'TAPUSIN ANG BAHA', 'BIGAS NA ABOT-KAYA', 'HANAPIN ANG PERA', 'WALA NANG PILA SA OSPITAL', 'DITO NA ANG MGA OFW', 'SAHOD NA SAPAT'],
+        share: ['I-SHARE MO', 'SA KAIBIGAN MONG FEELING PRESIDENTE'], comment: ['I-COMMENT MO', 'ANO PA ANG GAGAWIN MO?'], note: 'HUWAG MONG GAGALAWIN.', cal: '2026' },
 }[LANG];
 window.DUR = TL.dur;
 // ---------- helpers ----------

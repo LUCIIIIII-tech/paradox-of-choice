@@ -263,8 +263,8 @@ def breath(t, d=1.6, v=.4, pan=0.0):                # someone breathing close be
 
 # ============ the cue sheet ============
 HUSH = []; DRY = np.zeros((2, N)); SILENT = []
-bed_add('amb', rainbed(), shot_env({'hook': 1.0, 'loop': 1.0, 'phone': .25, 'power': .2, 'edsa': 1.0, 'baha': 1.2, 'bigas': .45, 'cta': .5, 'letter': .12, 'portrait': .2, 'end': .3}), 1.0)
-bed_add('amb', murmur(), shot_env({'hook': .8, 'loop': .8, 'oath': .45}), 1.0)
+bed_add('amb', rainbed(), shot_env({'hook': 1.0, 'loop': 1.0, 'phone': .25, 'gc': .15, 'tv': .35, 'power': .2, 'edsa': 1.0, 'baha': 1.2, 'bigas': .45, 'ospital': .3, 'sahod': .25, 'cta': .5, 'letter': .12, 'empty': .1, 'portrait': .2, 'end': .3}), 1.0)
+bed_add('amb', murmur(), shot_env({'hook': .8, 'loop': .8, 'oath': .45, 'tv': .75, 'ofw': .55, 'ospital': .25}), 1.0)
 drone(0, T('d1'), .22, 26, .45, .004); drone(T('d5') - .3, DUR, .26, 26, .55, .005)
 # a whoosh and a soft hit on every cut
 for i, (a_, b_, sh) in enumerate(SHOTS):
@@ -284,12 +284,12 @@ for n in range(int((W_KAMAY - .4) * 5), int(T('s3') * 5)):
 scribble(max(T('s3'), W_PIRMA - .05), min(T('s4') - .05, W_PIRMA + 2.0), .5); clock(T('s3'), T('s4'), .75, .16); motif(T('s3'), E('s4') + .3, .15)
 impact(T('s4') + .05, .6, 1.1); riser(T('d1') - .1, 1.6, .4); reverse_swell(T('d1') - .1, 1.0, .4)
 # the list: a pulse under all four, a slam on every card, the bed held for a breath
-bass_pulse(T('d1') - .1, E('d4') + .5, 96, [38, 34, 36, 33], .3)
-for id in ('d1', 'd2', 'd3', 'd4'):
+bass_pulse(T('d1') - .1, E('e3') + .5, 96, [38, 34, 36, 33], .3)
+for id in ('d1', 'd2', 'd3', 'd4', 'e1', 'e2', 'e3'):
     impact(T(id) - .12, .9, 1.2); sub_drop(T(id) - .12, .5, 1.2); braam(T(id) - .1, .25, 1.6); whoosh(T(id) - .17, .35, .3, 300, 6000, -.4, .4); HUSH.append((T(id) + .15, T(id) + .7))
 # EDSA: idling engines, horns; on "Wala" the road opens: cars passing
 engines(T('d1'), E('d1') + .5, .3)
-for k in range(7): honk(T('d1') + .3 + k * .55 + rng.uniform(0, .3), rng.choice([380, 420, 470, 520]), rng.uniform(.25, .6), .35, rng.uniform(-.7, .7))
+for k in range(6): honk(T('d1') - .8 + k * .3 + rng.uniform(0, .15), rng.choice([380, 420, 470, 520]), rng.uniform(.2, .4), .3, rng.uniform(-.7, .7))     # the horns come before the words, never over "Wala"
 t_ = W_D1 + .3
 while t_ < E('d1') + .4: whoosh(t_, .6, .3, 150, 2500, .8, -.2); t_ += rng.uniform(.35, .6)
 # the flood: thunder, the boy wading; the water draining away
@@ -300,11 +300,34 @@ bubbles(W_D2 + .2, E('d2') + .3, .25, 20)
 fluo(T('d3'), E('d3') + .5, .1); coins(T('d3') + 1.0, .35); paper(W_ABOT - .4, .6, .35, -.2); pad(W_ABOT - .2, E('d3') + .5, [50, 57, 62, 66], .14); shimmer(W_ABOT, 1.6, .2)
 # the money: papers, pins; on "hahanapin" the last pin goes in with a hit
 paper(T('d4') + .3, .5, .3, .4); pinpush(T('d4') + 1.4, .4); pinpush(W_HANAP + .45, .6); impact(W_HANAP + .45, .7, 1.1); braam(W_HANAP + .4, .3, 1.8)
+# the scenes everyone knows: the family chat pinging; the carinderia TV; the hospital line; the airport; payday
+def ping(t, v=.35):                                 # a chat notification: two soft rising notes
+    for k, m in enumerate((84, 91)):
+        d = .18; n = int(d * SR); s = tt(n); add('sfx', t + k * .07, np.sin(2 * np.pi * m2f(m) * s) * np.exp(-s / .05) * .5, v, .1, room=.1)
+def clink(t, v=.25, pan=0.0):                       # a spoon on a plate
+    d = .3; n = int(d * SR); s = tt(n); f = rng.uniform(2400, 3600); add('sfx', t, (np.sin(2 * np.pi * f * s) + .4 * np.sin(2 * np.pi * f * 2.7 * s)) * np.exp(-s / .05) * .4, v, pan, room=.2)
+def tvvoice(t0, t1, v=.2):                          # a news anchor through a small TV speaker, no words
+    d = t1 - t0; n = int(d * SR); s = tt(n); f = 150 * (1 + .12 * np.sin(2 * np.pi * 2.3 * s) + .05 * np.sin(2 * np.pi * 5.1 * s)); ph = 2 * np.pi * np.cumsum(f) / SR
+    y = bp(sum(np.sin(k * ph) / k for k in range(1, 20)), 500, 2600) * (.4 + .6 * np.abs(np.sin(2 * np.pi * 3.7 * s)) ** 2) * fade(n, .1, .2)
+    add('lng', t0, y * .3, v, -.2, room=.3)
+def chime(t, v=.35):                                # the airport PA: ding-dong
+    for k, m in enumerate((76, 72)):
+        d = 1.4; n = int(d * SR); s = tt(n); add('mus', t + k * .5, (np.sin(2 * np.pi * m2f(m) * s) + .3 * np.sin(4 * np.pi * m2f(m) * s)) * np.exp(-s / .6) * .4, v, 0, hall=.6)
+def jet(t, d=4.0, v=.25):                           # a plane spooling up outside the glass
+    n = int(d * SR); s = tt(n); u = s / d; add('lng', t, (tvf(noise(d), 600 + 2200 * u, 1.2) * .5 + np.sin(2 * np.pi * np.cumsum(300 + 900 * u) / SR) * .05) * np.sin(np.pi * u) ** 1.2, v, .6, hall=.4)
+W_GC99, W_MURA, W_E1, W_E2, W_E3, W_TAUHAN = wt('gc', '99'), wt('tv', 'nagmumura'), wt('e1', 'wala'), wt('e2', 'wala'), wt('e3', 'sapat'), wt('d5c', 'tauhan')
+for i in range(5): ping(T('gc') + .35 + i * (SPAN('gc') + .3) / 5, .4)
+tvvoice(T('tv'), E('tv') + .3, .3); [clink(T('tv') + .3 + k * .7 + rng.uniform(0, .3), .25, rng.uniform(-.6, .6)) for k in range(8)]; impact(W_MURA - .05, .5, .9)
+clock(T('e1'), W_E1, 1.0, .18); pad(W_E1 - .1, E('e1') + .4, [50, 57, 62, 66], .12); shimmer(W_E1 + .2, 1.6, .18)
+chime(T('e2') + .2, .4); jet(T('e2') + .4, 4.0, .3); pad(W_E2 - .1, E('e2') + .4, [52, 59, 64, 68], .12); shimmer(W_E2 + .2, 1.6, .18)
+coins(T('e3') + .4, .35); paper(T('e3') + 1.0, .5, .3); pad(W_E3 - .1, E('e3') + .4, [50, 57, 62, 66], .13); shimmer(W_E3 + .1, 1.6, .2)
+# the empty board: a door, a hit on "tauhan", someone breathing in the doorway
+creak(T('d5c') + .2, 1.2, .4, .5); impact(W_TAUHAN - .05, .7, 1.1); braam(W_TAUHAN - .05, .3, 2.0); breath(W_TAUHAN + .6, 1.6, .3, .5)
 # the share: rain on the glass, a slow heartbeat, the piano
-motif(T('cta'), E('cta') + .2, .13); t_ = T('cta') + .1
+motif(T('cta'), E('cta') + .2, .13); ping(wt('cta', 'icomment') - .05, .45); ping(wt('cta', 'ishare') - .05, .45); t_ = T('cta') + .1
 while t_ < E('cta'): heartbeat(t_, .35); t_ += 1.0
 # the envelope: the music falls away; the slide, the paper; on "Huwag" the drop; a board creaks behind you, someone breathing
-HUSH.append((T('d5') - .2, E('d5') + .5)); clock(T('d5'), E('d5b'), 1.0, .2)
+HUSH.append((T('d5') - .2, E('d5c') + .4)); clock(T('d5'), E('d5b'), 1.0, .2)
 slide(W_SOBRE - .4, .7, .5); paper(W_HUWAG - .7, .6, .45); impact(W_HUWAG - .05, .9, 1.3); sub_drop(W_HUWAG - .05, .7, 2.0); stinger(E('d5') + .05, .45)
 creak(E('d5') - .5, 1.1, .45, .3); breath(E('d5') + .3, 1.8, .4, .3)
 # the portrait: the bell, far; on "nagising" the candle goes out and everything holds its breath
