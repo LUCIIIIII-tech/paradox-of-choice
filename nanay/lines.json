@@ -1,7 +1,7 @@
 [
  {"id": "h1", "shot": "hook", "text": "Imagine nakikita mo kung ilang araw na lang ang natitira sa bawat tao.", "key": ["araw", "natitira"], "gap": 0.05, "seed": 11},
- {"id": "h2", "shot": "home", "text": "Tapos umuwi ka. At ang numero sa ulo ni Nanay... pito.", "key": ["Nanay...", "pito."], "say": "Tapos umuwi ka. At ang numero sa ulo ni Nanay... pito."},
- {"id": "s1", "shot": "office", "text": "Nasa Maynila ka. Tatlong taon nang hindi umuuwi sa probinsya. Laging busy.", "key": ["Maynila", "Tatlong", "busy."], "gap": 1.0},
+ {"id": "h2", "shot": "home", "text": "Tapos umuwi ka. At ang numero sa ulo ni Nanay... pito.", "key": ["Nanay...", "pito."], "say": "Tapos umuwi ka. At ang numero sa ulo ni Nanay... pito.", "seed": 23},
+ {"id": "s1", "shot": "office", "text": "Nasa Maynila ka. Tatlong taon nang hindi umuuwi sa probinsya. Laging busy.", "key": ["Maynila", "Tatlong", "busy."], "gap": 1.0, "seed": 23, "say": "Nasa Maynila ka. Tatlong taon nang hindi umuuwi sa probinsya. Laging busy."},
  {"id": "s2", "shot": "chat", "text": "Sa phone mo, ang huling text ni Nanay: Kumain ka na ba, anak? Seen. Hindi mo sinagot.", "key": ["Kumain", "Seen.", "sinagot."]},
  {"id": "s3", "shot": "bus", "text": "Kaya nag-file ka ng leave. Sumakay ng bus pauwi. Hindi mo sinabi kung bakit.", "key": ["leave.", "bus", "bakit."]},
  {"id": "d7", "shot": "kitchen", "text": "Pitong araw. Nagulat si Nanay. Bakit ka umuwi, anak? May problema ba? Wala po, 'Nay. Na-miss lang kita.", "key": ["Pitong", "Na-miss"], "gap": 1.0},
