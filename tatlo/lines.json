@@ -1,17 +1,165 @@
 [
- {"id": "h1", "shot": "hook", "text": "Imagine paggising mo bukas, tatlong bansa na ang Pilipinas. At para mabisita si Lola sa Cebu... kailangan mo na ng passport.", "key": ["tatlong", "Cebu...", "passport."], "gap": 0.05, "seed": 11},
- {"id": "h2", "shot": "map", "text": "Republika ng Luzon. Republika ng Visayas. Republika ng Mindanao. Tatlong watawat. Tatlong presidente.", "key": ["Luzon.", "Visayas.", "Mindanao."]},
- {"id": "s1", "shot": "airport", "text": "Sa airport, tatlong pila. Pumila ka sa pila ng mga dayuhan... para lang umuwi sa sarili mong probinsya.", "key": ["tatlong", "dayuhan...", "probinsya."], "gap": 1.0},
- {"id": "s2", "shot": "tv", "text": "Sa Luzon, Tagalog na lang. Sa Visayas, Bisaya. Ang mga teleserye... may subtitle na.", "key": ["Tagalog", "Bisaya.", "subtitle"], "gap": 0.8},
- {"id": "s3", "shot": "money", "text": "Tatlong klase ng pera. Ipapapalit mo pa ang piso mo sa money changer bago ka makabili ng lechon sa Cebu.", "key": ["pera.", "piso", "lechon"], "gap": 0.8},
- {"id": "f1", "shot": "call", "text": "Tumawag si Lola sa video call. International call na. Mahal na ang bawat minuto.", "key": ["Lola", "International", "Mahal"], "gap": 0.9},
- {"id": "f2", "shot": "cousin", "text": "Ang pinsan mo sa Davao, hindi na makakauwi sa Pasko. Walang visa.", "key": ["Davao,", "Pasko.", "visa."], "gap": 0.8},
- {"id": "f3", "shot": "ball", "text": "Sa basketball, Luzon laban sa Visayas. At sa unang beses... hindi mo alam kung sino ang ichi-cheer mo.", "key": ["Luzon", "Visayas.", "ichi-cheer"], "gap": 0.8},
- {"id": "f4", "shot": "pasalubong", "text": "Isang taon ang lumipas. Walang dried mangoes ng Cebu sa pasalubong. Walang durian ng Davao sa Maynila. Bawat bansa, may kulang.", "key": ["mangoes", "durian", "kulang."], "gap": 0.9},
- {"id": "cta", "shot": "cta", "text": "Bago ang huli... i-comment mo kung taga-saan ka: Luzon, Visayas, o Mindanao. At i-share mo 'to sa kababayan mong nasa kabilang isla.", "key": ["i-comment", "Luzon,", "Visayas,", "Mindanao.", "i-share"], "gap": 1.0},
- {"id": "e1", "shot": "sick", "text": "Tapos isang gabi, sa video call, may sakit si Lola. Apo... uwi ka na. Pero tatlong linggo pa ang visa mo.", "key": ["sakit", "uwi", "linggo"], "gap": 1.0},
- {"id": "e2", "shot": "sea", "text": "Doon mo naintindihan. Hindi dagat ang naghihiwalay sa atin... kundi ang pagkalimot na iisang pamilya tayo.", "key": ["dagat", "iisang", "pamilya"], "gap": 1.0},
- {"id": "e3", "shot": "islands", "text": "7,641 na isla. Isang bansa. Isang lola sa Cebu na naghihintay sa'yo... nang walang passport.", "key": ["7,641", "Isang", "walang"], "gap": 0.9, "say": "Pitong libo, anim na raan at apatnapu't isang isla. Isang bansa. Isang lola sa Cebu na naghihintay sa'yo... nang walang passport."},
- {"id": "end", "shot": "home", "text": "Kaya ngayong Pasko... umuwi ka. Habang isang bansa pa tayo.", "key": ["Pasko...", "umuwi", "isang"], "gap": 1.0},
- {"id": "tail", "shot": "endcard", "beat": 3.0}
+ {
+  "id": "h1",
+  "shot": "hook",
+  "text": "Imagine paggising mo bukas, tatlong bansa na ang Pilipinas. At para mabisita si Lola sa Cebu... kailangan mo na ng passport.",
+  "key": [
+   "tatlong",
+   "Cebu...",
+   "passport."
+  ],
+  "gap": 0.05,
+  "seed": 11
+ },
+ {
+  "id": "h2",
+  "shot": "map",
+  "text": "Republika ng Luzon. Republika ng Visayas. Republika ng Mindanao. Tatlong watawat. Tatlong presidente.",
+  "key": [
+   "Luzon.",
+   "Visayas.",
+   "Mindanao."
+  ]
+ },
+ {
+  "id": "s1",
+  "shot": "airport",
+  "text": "Sa airport, tatlong pila. Pumila ka sa pila ng mga dayuhan... para lang umuwi sa sarili mong probinsya.",
+  "key": [
+   "tatlong",
+   "dayuhan...",
+   "probinsya."
+  ],
+  "gap": 1.0
+ },
+ {
+  "id": "s2",
+  "shot": "tv",
+  "text": "Sa Luzon, Tagalog na lang. Sa Visayas, Bisaya. Ang mga teleserye... may subtitle na.",
+  "key": [
+   "Tagalog",
+   "Bisaya.",
+   "subtitle"
+  ],
+  "gap": 0.8
+ },
+ {
+  "id": "s3",
+  "shot": "money",
+  "text": "Tatlong klase ng pera. Ipapapalit mo pa ang piso mo sa money changer bago ka makabili ng lechon sa Cebu.",
+  "key": [
+   "pera.",
+   "piso",
+   "lechon"
+  ],
+  "gap": 0.8
+ },
+ {
+  "id": "f1",
+  "shot": "call",
+  "text": "Tumawag si Lola sa video call. International call na. Mahal na ang bawat minuto.",
+  "key": [
+   "Lola",
+   "International",
+   "Mahal"
+  ],
+  "gap": 0.9
+ },
+ {
+  "id": "f2",
+  "shot": "cousin",
+  "text": "Ang pinsan mo sa Davao, hindi na makakauwi sa Pasko. Walang visa.",
+  "key": [
+   "Davao,",
+   "Pasko.",
+   "visa."
+  ],
+  "gap": 0.8
+ },
+ {
+  "id": "f3",
+  "shot": "ball",
+  "text": "Sa basketball, Luzon laban sa Visayas. At sa unang beses... hindi mo alam kung sino ang ichi-cheer mo.",
+  "key": [
+   "Luzon",
+   "Visayas.",
+   "ichi-cheer"
+  ],
+  "gap": 0.8
+ },
+ {
+  "id": "f4",
+  "shot": "pasalubong",
+  "text": "Isang taon ang lumipas. Walang dried mangoes ng Cebu sa pasalubong. Walang durian ng Davao sa Maynila. Bawat bansa, may kulang.",
+  "key": [
+   "mangoes",
+   "durian",
+   "kulang."
+  ],
+  "gap": 0.9
+ },
+ {
+  "id": "cta",
+  "shot": "cta",
+  "text": "Bago ang huli... i-comment mo kung taga-saan ka: Luzon, Visayas, o Mindanao. At i-share mo 'to sa kababayan mong nasa kabilang isla.",
+  "key": [
+   "i-comment",
+   "Luzon,",
+   "Visayas,",
+   "Mindanao.",
+   "i-share"
+  ],
+  "gap": 1.0
+ },
+ {
+  "id": "e1",
+  "shot": "sick",
+  "text": "Tapos isang gabi, sa video call, may sakit si Lola. Apo... uwi ka na. Pero tatlong linggo pa ang visa mo.",
+  "key": [
+   "sakit",
+   "uwi",
+   "linggo"
+  ],
+  "gap": 1.0
+ },
+ {
+  "id": "e2",
+  "shot": "sea",
+  "text": "Doon mo naintindihan. Hindi dagat ang naghihiwalay sa atin... kundi ang pagkalimot na iisang pamilya tayo.",
+  "key": [
+   "dagat",
+   "iisang",
+   "pamilya"
+  ],
+  "gap": 1.0
+ },
+ {
+  "id": "e3",
+  "shot": "islands",
+  "text": "7,641 na isla. Isang bansa. Isang lola sa Cebu na naghihintay sa'yo... nang walang passport.",
+  "key": [
+   "7,641",
+   "Isang",
+   "walang"
+  ],
+  "gap": 0.9,
+  "say": "Pitong libo, anim na raan at apatnapu't isang isla. Isang bansa. Isang lola sa Cebu na naghihintay sa'yo... nang walang passport."
+ },
+ {
+  "id": "end",
+  "shot": "home",
+  "text": "Kaya ngayong Pasko... umuwi ka. Habang isang bansa pa tayo.",
+  "key": [
+   "Pasko...",
+   "umuwi",
+   "isang"
+  ],
+  "gap": 1.0,
+  "seed": 23
+ },
+ {
+  "id": "tail",
+  "shot": "endcard",
+  "beat": 3.0
+ }
 ]
