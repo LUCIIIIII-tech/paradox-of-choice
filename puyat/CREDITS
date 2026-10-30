@@ -1,0 +1,19 @@
+Puyat (what sleep loss does to you) — dark cartoon psychology reel (Tagalog puyat.mp4, English puyat_en.mp4) · asset sources & licences
+
+Voice        Narrator: VoxCPM2 (OpenBMB, Apache-2.0), run offline; every line cloned from one reference clip
+             (../voice-tests/18_Vox_deep_narrator.mp3) so it stays the same person. Word timings: faster-whisper (MIT).
+Sound        Everything synthesised in code (score.py, numpy): designed whooshes, impacts, sub drops, risers, reverse
+             swells, a braam, a string stinger, foley (clock, keyboard, mug, glass, rain, footsteps, rumble strip, horn,
+             paper, CRT, purr, monitor, alarm bell), a felt-piano motif. The whispers are the narrator's own lines with
+             their phase randomised. No samples.
+Fonts        Anton (Vernon Adams), Creepster (Sideshow) — Google Fonts, SIL Open Font License 1.1, licences in fonts/.
+Artwork      Every character, room, texture and light drawn procedurally in code (main.js).
+Facts        17 h awake ≈ 0.05% blood alcohol, 24 h ≈ 0.10%: Dawson & Reid, "Fatigue, alcohol and performance
+             impairment", Nature 388 (1997).
+             Hallucinations after 48–90 h awake: Waters et al., "Severe sleep deprivation causes hallucinations and a
+             gradual progression toward psychosis with increasing time awake", Frontiers in Psychiatry (2018).
+             Randy Gardner, 1964: 264 hours (about 11 days) awake; memory lapses, and at one point he believed he was a
+             famous football player (as widely reported from Dr. William Dement's observations).
+             Fatal familial insomnia: a very rare inherited prion disease, no cure.
+             The brain clears waste during sleep (glymphatic system): Xie et al., Science 342 (2013).
+             Adults 7–9 hours a night: National Sleep Foundation recommendations (Hirshkowitz et al., 2015).

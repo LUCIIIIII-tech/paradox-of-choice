@@ -1,0 +1,304 @@
+[
+ {
+  "id": "l01",
+  "shot": "wake",
+  "text": "Nagising ka... at wala nang ibang tao sa mundo.",
+  "gap": 0.12,
+  "key": [
+   "wala",
+   "mundo."
+  ],
+  "counter": "ARAW 1",
+  "rate": "-10%"
+ },
+ {
+  "id": "l02",
+  "shot": "loop1",
+  "text": "Panoorin hanggang dulo. Ang unang sisira sa'yo... hindi gutom.",
+  "say": "Panoorin hanggang dulo. Ang unang sisira sayo... hindi gutom.",
+  "key": [
+   "sisira",
+   "gutom."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l03",
+  "shot": "street",
+  "text": "Unang oras. Walang sasakyan. Walang boses.",
+  "key": [
+   "Walang"
+  ],
+  "counter": "ORAS 1",
+  "rate": "-10%"
+ },
+ {
+  "id": "l04",
+  "shot": "free",
+  "text": "Sa una... parang kalayaan.",
+  "key": [
+   "kalayaan."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l04b",
+  "shot": "free",
+  "text": "Lahat ng tindahan... lahat ng bahay... sa'yo na.",
+  "say": "Lahat ng tindahan... lahat ng bahay... sayo na.",
+  "key": [
+   "sa'yo"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l05",
+  "shot": "grid",
+  "text": "Sa isang araw lang, nagsasara ang mga power plant.",
+  "key": [
+   "nagsasara",
+   "power"
+  ],
+  "counter": "ORAS 24",
+  "rate": "-10%"
+ },
+ {
+  "id": "l06",
+  "shot": "lights",
+  "text": "Isa-isa... namamatay ang mga ilaw.",
+  "key": [
+   "namamatay",
+   "ilaw."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l07",
+  "shot": "earth",
+  "text": "Didilim ang buong mundo.",
+  "key": [
+   "Didilim",
+   "mundo."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l08",
+  "shot": "subway",
+  "text": "Ikalawang araw. Binabaha na ang mga tunnel ng tren.",
+  "key": [
+   "Binabaha"
+  ],
+  "counter": "ARAW 2",
+  "rate": "-10%"
+ },
+ {
+  "id": "l09",
+  "shot": "phone",
+  "text": "Ikatlong araw. Walang signal. Putol ka na sa lahat.",
+  "key": [
+   "Putol",
+   "lahat."
+  ],
+  "counter": "ARAW 3",
+  "rate": "-10%"
+ },
+ {
+  "id": "l09b",
+  "shot": "phone",
+  "text": "Wala nang balita. Wala nang darating na tulong.",
+  "key": [
+   "balita.",
+   "tulong."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l10",
+  "shot": "dogs",
+  "text": "Unang linggo. Ang mga gutom na aso... nangangaso na nang grupo.",
+  "key": [
+   "gutom",
+   "nangangaso"
+  ],
+  "counter": "LINGGO 1",
+  "rate": "-10%"
+ },
+ {
+  "id": "l11",
+  "shot": "roof",
+  "text": "Unang buwan. Kinakausap mo na ang sarili mo.",
+  "key": [
+   "sarili"
+  ],
+  "counter": "BUWAN 1",
+  "rate": "-10%"
+ },
+ {
+  "id": "l11b",
+  "shot": "roof",
+  "text": "Nakakalimutan mo na kung ano'ng tunog ng tawa ng ibang tao.",
+  "key": [
+   "tawa"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l12",
+  "shot": "night",
+  "text": "Hanggang isang gabi... may sumagot.",
+  "gap": 0.1,
+  "key": [
+   "sumagot."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "scare",
+  "shot": "scare",
+  "beat": 1.0,
+  "gap": 0.0
+ },
+ {
+  "id": "l13",
+  "shot": "truth",
+  "text": "Ang boses na 'yon? Utak mo.",
+  "say": "Ang boses na yon? Utak mo.",
+  "gap": 0.3,
+  "key": [
+   "Utak"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l14",
+  "shot": "study",
+  "text": "Sa isang pag-aaral, labinlimang minuto lang sa dilim, nakakita na ng mukha ang mga tao.",
+  "key": [
+   "labinlimang",
+   "minuto",
+   "mukha"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l15",
+  "shot": "brain",
+  "text": "Kapag walang tao... gumagawa ang utak mo.",
+  "key": [
+   "gumagawa",
+   "utak"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l16",
+  "shot": "lonely",
+  "text": "'Yan ang unang sisira sa'yo. Hindi gutom. Ang pag-iisa.",
+  "say": "Yan ang unang sisira sayo. Hindi gutom. Ang pag-iisa.",
+  "key": [
+   "pag-iisa."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l16b",
+  "shot": "lonely",
+  "text": "Sa mga pag-aaral, ang matagal na pag-iisa ay kasing-delikado sa katawan ng paninigarilyo.",
+  "key": [
+   "kasing-delikado",
+   "paninigarilyo."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l17",
+  "shot": "y1",
+  "text": "Unang taon. Damo na ang mga kalsada. Usa na ang nasa siyudad.",
+  "key": [
+   "Damo",
+   "Usa"
+  ],
+  "counter": "TAON 1",
+  "rate": "-10%"
+ },
+ {
+  "id": "l18",
+  "shot": "y10",
+  "text": "Ikasampung taon. Kalawang na ang lahat.",
+  "key": [
+   "Kalawang",
+   "lahat."
+  ],
+  "counter": "TAON 10",
+  "rate": "-10%"
+ },
+ {
+  "id": "l19",
+  "shot": "y100",
+  "text": "Ikasandaang taon. Gubat na ang siyudad.",
+  "key": [
+   "Gubat",
+   "siyudad."
+  ],
+  "counter": "TAON 100",
+  "rate": "-10%"
+ },
+ {
+  "id": "l20",
+  "shot": "y10k",
+  "text": "Sampung libong taon... halos wala nang bakas natin.",
+  "key": [
+   "wala",
+   "bakas"
+  ],
+  "counter": "TAON 10,000",
+  "rate": "-10%"
+ },
+ {
+  "id": "l21",
+  "shot": "last",
+  "text": "At ikaw... ang huling nakakaalala sa ating lahat.",
+  "key": [
+   "huling",
+   "nakakaalala"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l22",
+  "shot": "twist",
+  "text": "Hindi tayo kailangan ng mundo. Pero kailangan natin ang isa't isa.",
+  "gap": 0.3,
+  "key": [
+   "isa't",
+   "isa."
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l23",
+  "shot": "text",
+  "text": "Kaya i-message mo ngayon ang taong nami-miss mo.",
+  "key": [
+   "ngayon",
+   "nami-miss"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "l24",
+  "shot": "cta",
+  "text": "Comment: ano'ng unang gagawin mo kung ikaw na lang ang natitira?",
+  "key": [
+   "unang",
+   "natitira?"
+  ],
+  "rate": "-10%"
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.1
+ }
+]

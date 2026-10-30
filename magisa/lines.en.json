@@ -1,0 +1,266 @@
+[
+ {
+  "id": "l01",
+  "shot": "wake",
+  "text": "You wake up... and every other human on Earth is gone.",
+  "gap": 0.12,
+  "key": [
+   "gone."
+  ],
+  "counter": "DAY 1"
+ },
+ {
+  "id": "l02",
+  "shot": "loop1",
+  "text": "Watch till the end. The thing that breaks you first... isn't hunger.",
+  "key": [
+   "breaks",
+   "hunger."
+  ]
+ },
+ {
+  "id": "l03",
+  "shot": "street",
+  "text": "Hour one. No cars. No voices.",
+  "key": [
+   "No"
+  ],
+  "counter": "HOUR 1"
+ },
+ {
+  "id": "l04",
+  "shot": "free",
+  "text": "At first... it feels like freedom.",
+  "key": [
+   "freedom."
+  ]
+ },
+ {
+  "id": "l04b",
+  "shot": "free",
+  "text": "Every store... every house... is yours.",
+  "key": [
+   "yours."
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "grid",
+  "text": "Within a day, the power plants start shutting down.",
+  "key": [
+   "shutting",
+   "down."
+  ],
+  "counter": "HOUR 24"
+ },
+ {
+  "id": "l06",
+  "shot": "lights",
+  "text": "One by one... the lights go out.",
+  "key": [
+   "out."
+  ]
+ },
+ {
+  "id": "l07",
+  "shot": "earth",
+  "text": "The whole planet goes dark.",
+  "key": [
+   "dark."
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "subway",
+  "text": "Day two. The subway tunnels start to flood.",
+  "key": [
+   "flood."
+  ],
+  "counter": "DAY 2"
+ },
+ {
+  "id": "l09",
+  "shot": "phone",
+  "text": "Day three. No signal. You're cut off from everything.",
+  "key": [
+   "cut",
+   "everything."
+  ],
+  "counter": "DAY 3"
+ },
+ {
+  "id": "l09b",
+  "shot": "phone",
+  "text": "No news. No one is coming to help.",
+  "key": [
+   "No",
+   "help."
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "dogs",
+  "text": "Week one. The hungry dogs... start hunting in packs.",
+  "key": [
+   "hungry",
+   "hunting"
+  ],
+  "counter": "WEEK 1"
+ },
+ {
+  "id": "l11",
+  "shot": "roof",
+  "text": "Month one. You start talking to yourself.",
+  "key": [
+   "yourself."
+  ],
+  "counter": "MONTH 1"
+ },
+ {
+  "id": "l11b",
+  "shot": "roof",
+  "text": "You forget what other people's laughter sounds like.",
+  "key": [
+   "laughter"
+  ]
+ },
+ {
+  "id": "l12",
+  "shot": "night",
+  "text": "Until one night... something answers.",
+  "gap": 0.1,
+  "key": [
+   "answers."
+  ]
+ },
+ {
+  "id": "scare",
+  "shot": "scare",
+  "beat": 1.0,
+  "gap": 0.0
+ },
+ {
+  "id": "l13",
+  "shot": "truth",
+  "text": "That voice? It's your brain.",
+  "gap": 0.3,
+  "key": [
+   "brain."
+  ]
+ },
+ {
+  "id": "l14",
+  "shot": "study",
+  "text": "In one study, just fifteen minutes in total darkness made people see faces.",
+  "key": [
+   "fifteen",
+   "minutes",
+   "faces."
+  ]
+ },
+ {
+  "id": "l15",
+  "shot": "brain",
+  "text": "When there's no one... your brain makes them up.",
+  "key": [
+   "makes",
+   "up."
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "lonely",
+  "text": "That's what breaks you first. Not hunger. Loneliness.",
+  "key": [
+   "Loneliness."
+  ]
+ },
+ {
+  "id": "l16b",
+  "shot": "lonely",
+  "text": "Studies show long-term loneliness can be as harmful to your body as smoking.",
+  "key": [
+   "harmful",
+   "smoking."
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "y1",
+  "text": "Year one. Grass covers the roads. Deer walk the city.",
+  "key": [
+   "Grass",
+   "Deer"
+  ],
+  "counter": "YEAR 1"
+ },
+ {
+  "id": "l18",
+  "shot": "y10",
+  "text": "Year ten. Everything rusts.",
+  "key": [
+   "rusts."
+  ],
+  "counter": "YEAR 10"
+ },
+ {
+  "id": "l19",
+  "shot": "y100",
+  "text": "Year one hundred. The city is a forest.",
+  "key": [
+   "forest."
+  ],
+  "counter": "YEAR 100"
+ },
+ {
+  "id": "l20",
+  "shot": "y10k",
+  "text": "Ten thousand years later... almost no trace of us is left.",
+  "key": [
+   "trace"
+  ],
+  "counter": "YEAR 10,000"
+ },
+ {
+  "id": "l21",
+  "shot": "last",
+  "text": "And you... are the last one who remembers us.",
+  "key": [
+   "last",
+   "remembers"
+  ]
+ },
+ {
+  "id": "l22",
+  "shot": "twist",
+  "text": "The world doesn't need us. But we need each other.",
+  "gap": 0.3,
+  "key": [
+   "each",
+   "other."
+  ]
+ },
+ {
+  "id": "l23",
+  "shot": "text",
+  "text": "So message someone you miss. Right now.",
+  "key": [
+   "Right",
+   "now."
+  ]
+ },
+ {
+  "id": "l24",
+  "shot": "cta",
+  "text": "Comment: what's the first thing you'd do if you were the last one left?",
+  "key": [
+   "first",
+   "last"
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.1
+ }
+]

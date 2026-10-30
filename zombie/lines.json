@@ -1,0 +1,160 @@
+[
+ {
+  "id": "h1",
+  "shot": "rush",
+  "text": "Zombie outbreak sa mall. 5 rules... para mabuhay ka.",
+  "key": [
+   "Zombie",
+   "rules...",
+   "mabuhay"
+  ],
+  "gap": 0.05,
+  "say": "Zombie outbreak sa mall. Five rules... para mabuhay ka."
+ },
+ {
+  "id": "l02",
+  "shot": "atrium",
+  "text": "Sabado, alas-8 ng gabi. Punuan ang mall. Libo-libong tao sa loob.",
+  "key": [
+   "Punuan",
+   "Libo-libong"
+  ],
+  "say": "Sabado, alas-otso ng gabi. Punuan ang mall. Libo-libong tao sa loob."
+ },
+ {
+  "id": "l03",
+  "shot": "scream",
+  "text": "Tapos, may sumigaw sa may entrance.",
+  "key": [
+   "sumigaw"
+  ],
+  "counter": "0:00"
+ },
+ {
+  "id": "l04",
+  "shot": "lunge",
+  "text": "Isang lalaki ang sumunggab sa guard. Tapos, isa pa.",
+  "key": [
+   "sumunggab",
+   "isa"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "well",
+  "text": "Sa loob ng 10 segundo, tumatakbo na ang lahat... papunta sa main entrance.",
+  "key": [
+   "10",
+   "entrance."
+  ],
+  "say": "Sa loob ng sampung segundo, tumatakbo na ang lahat... papunta sa main entrance.",
+  "counter": "0:10"
+ },
+ {
+  "id": "l08",
+  "shot": "crush",
+  "text": "Barado ang pinto. Nagtutulakan, may natutumba.",
+  "key": [
+   "Barado",
+   "natutumba."
+  ],
+  "counter": "0:45"
+ },
+ {
+  "id": "l09",
+  "shot": "noise",
+  "text": "At lahat ng sigawan na 'yan... doon sila papunta.",
+  "key": [
+   "sigawan",
+   "papunta."
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r1",
+  "text": "Rule number 1: huwag kang sumabay sa crowd.",
+  "key": [
+   "Rule",
+   "crowd."
+  ],
+  "say": "Rule number one: huwag kang sumabay sa crowd."
+ },
+ {
+  "id": "l11",
+  "shot": "map",
+  "text": "Rule number 2: fire exit ang hanapin mo, hindi ang entrance.",
+  "key": [
+   "Rule",
+   "fire",
+   "exit"
+  ],
+  "say": "Rule number two: fire exit ang hanapin mo, hindi ang entrance."
+ },
+ {
+  "id": "l12",
+  "shot": "r3",
+  "text": "Rule number 3: tumahimik ka. Tunog ang sinusundan nila.",
+  "key": [
+   "Rule",
+   "tumahimik",
+   "Tunog"
+  ],
+  "say": "Rule number three: tumahimik ka. Tunog ang sinusundan nila."
+ },
+ {
+  "id": "r4",
+  "shot": "phone",
+  "text": "Rule number 4: patayin mo ang phone mo. Sa dilim... ilaw ang hinahanap nila.",
+  "key": [
+   "Rule",
+   "patayin",
+   "ilaw"
+  ],
+  "say": "Rule number four: patayin mo ang phone mo. Sa dilim... ilaw ang hinahanap nila."
+ },
+ {
+  "id": "r5",
+  "shot": "bitten",
+  "text": "Rule number 5: ang nakagat... hindi mo na kaibigan. Kahit sino pa siya.",
+  "key": [
+   "Rule",
+   "nakagat...",
+   "kaibigan."
+  ],
+  "say": "Rule number five: ang nakagat... hindi mo na kaibigan. Kahit sino pa siya."
+ },
+ {
+  "id": "l13",
+  "shot": "exit",
+  "text": "Habang nag-aagawan ang lahat sa harap... ikaw, sa pintong walang pumapansin.",
+  "key": [
+   "ikaw,",
+   "walang"
+  ],
+  "counter": "1:30"
+ },
+ {
+  "id": "q1",
+  "shot": "think",
+  "text": "Isa lang ang pwede mong isama palabas. Sino siya? Comment mo.",
+  "key": [
+   "Isa",
+   "Sino",
+   "Comment"
+  ]
+ },
+ {
+  "id": "q2",
+  "shot": "share",
+  "text": "I-share mo 'to sa taong isasama mo.",
+  "key": [
+   "I-share",
+   "isasama"
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]

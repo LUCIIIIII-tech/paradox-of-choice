@@ -1,0 +1,11 @@
+Mag-isa (The Last Human) — stickman scenario reel (Tagalog) · asset sources & licences
+
+Voice        Narrator: Microsoft Edge online neural voice fil-PH-AngeloNeural (Filipino, male), via edge-tts
+             (run from the Lemo-Opuscar library's voice tier). Check Microsoft's terms before commercial use.
+Sound        Everything synthesised in code (score.py, numpy). No samples.
+Fonts        Anton (Vernon Adams), Creepster (Sideshow) — Google Fonts, SIL Open Font License 1.1, licences in fonts/.
+Artwork      Every character, city, animal and effect drawn procedurally in code (main.js; shared helpers from ../bangungot).
+Facts        Grid and infrastructure failure without operators, subway flooding without pumps and the decay timeline follow
+             the well-known "world without us" scenarios (e.g. Alan Weisman, The World Without Us, 2007), simplified.
+             Sensory deprivation: Mason & Brady (2009), 15 minutes in an anechoic dark room produced perceptual distortions
+             and hallucinations (faces, presences) in some participants.

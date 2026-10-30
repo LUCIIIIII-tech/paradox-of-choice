@@ -1,0 +1,234 @@
+[
+ {
+  "id": "l01",
+  "shot": "hook",
+  "text": "If this happens tonight... you won't make it three days.",
+  "key": [
+   "tonight...",
+   "three"
+  ],
+  "gap": 0.1
+ },
+ {
+  "id": "l01b",
+  "shot": "hook",
+  "text": "One explosion on the sun... and every light in the world goes out at once.",
+  "key": [
+   "explosion",
+   "out"
+  ]
+ },
+ {
+  "id": "l02",
+  "shot": "stamp",
+  "text": "This isn't a movie. It almost happened... and it can happen again, any day.",
+  "key": [
+   "almost",
+   "any"
+  ]
+ },
+ {
+  "id": "l03",
+  "shot": "phone",
+  "text": "Nine o'clock at night. You're watching your phone, just like this... then suddenly, nothing.",
+  "key": [
+   "this...",
+   "nothing."
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "dark",
+  "text": "No lights. No signal.",
+  "key": [
+   "No"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "sun",
+  "text": "A solar storm. Billions of tons of fire from the sun... straight at Earth.",
+  "key": [
+   "solar",
+   "straight"
+  ],
+  "stat": [
+   "SOLAR STORM",
+   "BILLIONS OF TONS",
+   "of burning gas · NASA"
+  ]
+ },
+ {
+  "id": "l06",
+  "shot": "day1",
+  "text": "Day one. No internet. You can't reach your family.",
+  "key": [
+   "reach",
+   "family."
+  ],
+  "counter": "DAY 1"
+ },
+ {
+  "id": "l07",
+  "shot": "atm",
+  "text": "The ATMs are dead. Your money is locked inside.",
+  "key": [
+   "ATMs",
+   "locked"
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "day2",
+  "text": "Day two. The food is rotting. Every store is closed.",
+  "key": [
+   "rotting.",
+   "closed."
+  ],
+  "counter": "DAY 2"
+ },
+ {
+  "id": "l09",
+  "shot": "faucet",
+  "text": "Then the water stops. Electricity was running that too.",
+  "key": [
+   "water",
+   "Electricity"
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "day3",
+  "text": "Day three. Everything runs out. This is where the chaos starts.",
+  "key": [
+   "runs",
+   "chaos"
+  ],
+  "counter": "DAY 3"
+ },
+ {
+  "id": "l11",
+  "shot": "hospital",
+  "text": "In hospitals, the last generators are keeping patients alive.",
+  "key": [
+   "last",
+   "alive."
+  ]
+ },
+ {
+  "id": "l12",
+  "shot": "day7",
+  "text": "Day seven. The world is silent... but you can see every star.",
+  "key": [
+   "silent...",
+   "star."
+  ],
+  "counter": "DAY 7"
+ },
+ {
+  "id": "l13",
+  "shot": "radio",
+  "text": "But here's the scarier part.",
+  "key": [
+   "scarier"
+  ]
+ },
+ {
+  "id": "l14",
+  "shot": "carrington",
+  "text": "In 1859, telegraph wires caught fire, and the northern lights reached the Caribbean.",
+  "key": [
+   "fire,",
+   "lights"
+  ],
+  "stat": [
+   "CARRINGTON EVENT · 1859",
+   "TELEGRAPHS CAUGHT FIRE",
+   "the strongest ever recorded"
+  ]
+ },
+ {
+  "id": "l15",
+  "shot": "quebec",
+  "text": "In 1989, six million people in Quebec lost power.",
+  "key": [
+   "six",
+   "million"
+  ],
+  "stat": [
+   "QUEBEC · 1989",
+   "6 MILLION PEOPLE",
+   "9 hours without power"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "miss",
+  "text": "In 2012, a storm just as strong... missed us by nine days.",
+  "key": [
+   "missed",
+   "nine"
+  ],
+  "stat": [
+   "JULY 2012",
+   "9 DAYS",
+   "was all that separated us · NASA"
+  ]
+ },
+ {
+  "id": "l17",
+  "shot": "chance",
+  "text": "The chance it happens again? One in eight, every ten years.",
+  "key": [
+   "One",
+   "eight,"
+  ],
+  "stat": [
+   "CHANCE EVERY 10 YEARS",
+   "1 IN 8",
+   "Riley, 2012"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "kit",
+  "text": "So get ready now. Water, a flashlight, canned food, and cash.",
+  "key": [
+   "ready",
+   "cash."
+  ]
+ },
+ {
+  "id": "l20",
+  "shot": "battery",
+  "text": "Look at your battery. That's all you have left.",
+  "key": [
+   "battery.",
+   "left."
+  ]
+ },
+ {
+  "id": "l21",
+  "shot": "comment",
+  "text": "How many days would you last? Comment it, be honest.",
+  "key": [
+   "days",
+   "Comment"
+  ]
+ },
+ {
+  "id": "l22",
+  "shot": "cta",
+  "text": "Now, send this to the person you'd want with you in the dark.",
+  "key": [
+   "Send",
+   "dark."
+  ],
+  "seed": 11
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]

@@ -1,0 +1,161 @@
+[
+ {
+  "id": "h1",
+  "shot": "rush",
+  "text": "Zombie outbreak in the mall. 5 rules... to stay alive.",
+  "key": [
+   "Zombie",
+   "rules...",
+   "alive."
+  ],
+  "gap": 0.05,
+  "say": "Zombie outbreak in the mall. Five rules... to stay alive."
+ },
+ {
+  "id": "l02",
+  "shot": "atrium",
+  "text": "Saturday, 8 PM. The mall is packed. Thousands of people inside.",
+  "key": [
+   "packed.",
+   "Thousands"
+  ],
+  "say": "Saturday, eight P.M. The mall is packed. Thousands of people inside."
+ },
+ {
+  "id": "l03",
+  "shot": "scream",
+  "text": "Then someone screams near the entrance.",
+  "key": [
+   "screams"
+  ],
+  "counter": "0:00"
+ },
+ {
+  "id": "l04",
+  "shot": "lunge",
+  "text": "A man lunges at the guard. Then another one.",
+  "key": [
+   "lunges",
+   "another"
+  ]
+ },
+ {
+  "id": "l05",
+  "shot": "well",
+  "text": "Within 10 seconds, everyone's running... straight for the main entrance.",
+  "key": [
+   "10",
+   "entrance."
+  ],
+  "say": "Within ten seconds, everyone's running... straight for the main entrance.",
+  "counter": "0:10"
+ },
+ {
+  "id": "l08",
+  "shot": "crush",
+  "text": "The doors jam. People push, people go down.",
+  "key": [
+   "jam.",
+   "down."
+  ],
+  "counter": "0:45"
+ },
+ {
+  "id": "l09",
+  "shot": "noise",
+  "text": "And all that screaming... that's what they follow.",
+  "key": [
+   "screaming...",
+   "follow."
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r1",
+  "text": "Rule number 1: don't follow the crowd.",
+  "key": [
+   "Rule",
+   "don't",
+   "crowd."
+  ],
+  "say": "Rule number one: don't follow the crowd."
+ },
+ {
+  "id": "l11",
+  "shot": "map",
+  "text": "Rule number 2: look for the fire exit, not the entrance.",
+  "key": [
+   "Rule",
+   "fire",
+   "exit,"
+  ],
+  "say": "Rule number two: look for the fire exit, not the entrance."
+ },
+ {
+  "id": "l12",
+  "shot": "r3",
+  "text": "Rule number 3: stay quiet. They hunt by sound.",
+  "key": [
+   "Rule",
+   "quiet.",
+   "sound."
+  ],
+  "say": "Rule number three: stay quiet. They hunt by sound."
+ },
+ {
+  "id": "r4",
+  "shot": "phone",
+  "text": "Rule number 4: turn off your phone. In the dark... they hunt the light.",
+  "key": [
+   "Rule",
+   "off",
+   "light."
+  ],
+  "say": "Rule number four: turn off your phone. In the dark... they hunt the light."
+ },
+ {
+  "id": "r5",
+  "shot": "bitten",
+  "text": "Rule number 5: the bitten... are not your friends anymore. No matter who they are.",
+  "key": [
+   "Rule",
+   "bitten...",
+   "friends"
+  ],
+  "say": "Rule number five: the bitten... are not your friends anymore. No matter who they are."
+ },
+ {
+  "id": "l13",
+  "shot": "exit",
+  "text": "While everyone fights for the front doors... you take the one nobody's looking at.",
+  "key": [
+   "you",
+   "nobody's"
+  ],
+  "counter": "1:30"
+ },
+ {
+  "id": "q1",
+  "shot": "think",
+  "text": "You can only take one person out with you. Who is it? Comment below.",
+  "key": [
+   "one",
+   "Who",
+   "Comment"
+  ]
+ },
+ {
+  "id": "q2",
+  "shot": "share",
+  "text": "Share this with the one you'd take.",
+  "key": [
+   "Share",
+   "take."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]
