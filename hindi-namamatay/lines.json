@@ -1,0 +1,364 @@
+[
+ {
+  "id": "h1",
+  "shot": "fall",
+  "text": "Tumalon ka mula sa nasusunog na gusali. Apatnapung palapag.",
+  "key": [
+   "Tumalon",
+   "Apatnapung"
+  ],
+  "style": "urgent, intense, breathless",
+  "gap": 0.05
+ },
+ {
+  "id": "h2",
+  "shot": "fall",
+  "text": "Lahat ng nakakita, sigurado: patay ka na.",
+  "key": [
+   "patay"
+  ]
+ },
+ {
+  "id": "h3",
+  "shot": "rise",
+  "text": "Pero tumayo ka. Pinagpag mo ang bubog sa damit mo... at umuwi.",
+  "key": [
+   "tumayo",
+   "umuwi."
+  ]
+ },
+ {
+  "id": "h4",
+  "shot": "rise",
+  "text": "Doon nagsimula ang pinakamahabang sumpa sa kasaysayan.",
+  "key": [
+   "sumpa"
+  ],
+  "style": "slow, ominous, low"
+ },
+ {
+  "id": "s1",
+  "shot": "viral",
+  "text": "Kinabukasan, apatnapung milyon ang nanood ng video mo. 'Yung lalaking hindi namamatay.",
+  "key": [
+   "milyon",
+   "namamatay."
+  ],
+  "gap": 0.4
+ },
+ {
+  "id": "s2",
+  "shot": "accidents",
+  "text": "Hindi pa doon natapos. Sinalpok ka ng truck. Tinamaan ka ng kidlat. Natabunan ka sa lindol. Bumangon ka sa lahat.",
+  "key": [
+   "truck.",
+   "kidlat.",
+   "lindol.",
+   "Bumangon"
+  ]
+ },
+ {
+  "id": "s3",
+  "shot": "family",
+  "text": "Kaya namuhay ka na lang nang normal. Nag-asawa ka. Nagkaanak ka ng babae. Si Ligaya.",
+  "key": [
+   "Ligaya."
+  ],
+  "style": "warm, gentle, smiling",
+  "gap": 0.5
+ },
+ {
+  "id": "L1",
+  "shot": "family",
+  "voice": "bata",
+  "text": "Pa... bakit hindi ka tumatanda?",
+  "key": [
+   "tumatanda?"
+  ],
+  "gap": 0.4
+ },
+ {
+  "id": "B4",
+  "shot": "family",
+  "beat": 0.8
+ },
+ {
+  "id": "s4",
+  "shot": "mirror",
+  "text": "Tatlumpung taon ang lumipas. Kulubot na ang asawa mo. Ikaw... pareho pa rin ang mukha.",
+  "key": [
+   "Tatlumpung",
+   "pareho"
+  ],
+  "style": "soft, melancholic",
+  "gap": 0.5
+ },
+ {
+  "id": "s5",
+  "shot": "funeral",
+  "text": "Una mong inilibing si Nanay. Sumunod ang asawa mo.",
+  "key": [
+   "Nanay.",
+   "asawa"
+  ],
+  "style": "slow, heavy with grief",
+  "gap": 0.5
+ },
+ {
+  "id": "B5",
+  "shot": "funeral",
+  "beat": 0.8
+ },
+ {
+  "id": "s6",
+  "shot": "deathbed",
+  "text": "Pagkatapos, ang anak mo. Mas matanda na siya sa'yo. Puti na ang buhok. Nanginginig ang kamay.",
+  "key": [
+   "anak",
+   "matanda"
+  ],
+  "style": "voice breaking, holding back tears"
+ },
+ {
+  "id": "L2",
+  "shot": "deathbed",
+  "voice": "lola",
+  "text": "Pa... huwag mo akong kakalimutan, ha?",
+  "key": [
+   "kakalimutan,"
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "B1",
+  "shot": "deathbed",
+  "beat": 1.2
+ },
+ {
+  "id": "s7",
+  "shot": "graves",
+  "text": "Siyamnapung taon pa lang... wala ka nang pamilya.",
+  "key": [
+   "wala"
+  ],
+  "style": "quiet, hollow, sad"
+ },
+ {
+  "id": "B6",
+  "shot": "graves",
+  "beat": 1.0
+ },
+ {
+  "id": "s8",
+  "shot": "names",
+  "text": "Kada dalawampung taon, nagpapalit ka ng pangalan. Lumilipat ng bayan. Bawal kang mapalapit kahit kanino.",
+  "key": [
+   "pangalan.",
+   "Bawal"
+  ],
+  "gap": 0.4
+ },
+ {
+  "id": "s8b",
+  "shot": "names",
+  "text": "Nakita mo ang mga apo ng apo mo sa kalye. Hindi ka nila kilala.",
+  "key": [
+   "apo",
+   "kilala."
+  ],
+  "style": "sad, quiet"
+ },
+ {
+  "id": "cta",
+  "shot": "cta",
+  "text": "Kung ikaw 'to... gugustuhin mo pa bang hindi mamatay? I-comment mo: OO o HINDI.",
+  "key": [
+   "OO",
+   "HINDI."
+  ]
+ },
+ {
+  "id": "s9",
+  "shot": "flood",
+  "text": "Isang libong taon. Lubog na ang Maynila. Ang krus ng simbahan ng Quiapo na lang ang nakalitaw sa dagat.",
+  "key": [
+   "libong",
+   "Maynila.",
+   "Quiapo"
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "s10",
+  "shot": "flood",
+  "text": "At ikaw na lang ang nakakaalala... kung saan nakatayo ang bahay ninyo.",
+  "key": [
+   "bahay"
+  ],
+  "style": "soft, wistful"
+ },
+ {
+  "id": "s11",
+  "shot": "future",
+  "text": "Isang milyong taon. Iba na ang hitsura ng tao. Wala nang nagsasalita ng Tagalog... maliban sa'yo.",
+  "key": [
+   "milyong",
+   "Tagalog..."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "s12",
+  "shot": "future",
+  "text": "Kinakausap mo ang sarili mo gabi-gabi, para lang hindi mo makalimutan ang boses ng anak mo.",
+  "key": [
+   "boses",
+   "anak"
+  ],
+  "style": "sad, lonely, quiet"
+ },
+ {
+  "id": "s12b",
+  "shot": "future",
+  "text": "Pero unti-unti... nakakalimutan mo na ang mukha niya.",
+  "key": [
+   "mukha"
+  ],
+  "style": "voice breaking, almost a whisper"
+ },
+ {
+  "id": "s13",
+  "shot": "sun",
+  "text": "Isang bilyong taon. Lumalaki ang araw. Kumukulo ang mga dagat. Ikaw na lang ang buhay sa buong mundo.",
+  "key": [
+   "bilyong",
+   "araw.",
+   "Ikaw"
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "s14",
+  "shot": "swallow",
+  "text": "Limang bilyong taon. Nilamon ng araw ang Earth. At lumutang ka... mag-isa sa kalawakan.",
+  "key": [
+   "Limang",
+   "Earth.",
+   "mag-isa"
+  ],
+  "style": "awed, slow, grave"
+ },
+ {
+  "id": "B7",
+  "shot": "swallow",
+  "beat": 1.0
+ },
+ {
+  "id": "s15",
+  "shot": "drift",
+  "text": "Walang hangin. Walang tunog. Pero hindi ka namamatay.",
+  "key": [
+   "namamatay."
+  ],
+  "style": "hushed, slow"
+ },
+ {
+  "id": "s15b",
+  "shot": "drift",
+  "text": "Daan-daang milyong taon kang lumulutang sa dilim. Gising. Mag-isa.",
+  "key": [
+   "Gising.",
+   "Mag-isa."
+  ],
+  "style": "hollow, slow"
+ },
+ {
+  "id": "B8",
+  "shot": "drift",
+  "beat": 1.2
+ },
+ {
+  "id": "s16",
+  "shot": "stars",
+  "text": "Isang daang trilyong taon. Isa-isang namatay ang mga bituin.",
+  "key": [
+   "trilyong",
+   "bituin."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "B9",
+  "shot": "stars",
+  "beat": 0.8
+ },
+ {
+  "id": "s17",
+  "shot": "dark",
+  "text": "Hanggang sa wala nang liwanag. Wala nang kahit ano. Ikaw lang... at ang dilim.",
+  "key": [
+   "dilim."
+  ],
+  "style": "hushed, hollow, very slow"
+ },
+ {
+  "id": "B2",
+  "shot": "dark",
+  "beat": 1.4
+ },
+ {
+  "id": "s18",
+  "shot": "memory",
+  "text": "Pero sa dilim, may isa ka pang naaalala.",
+  "key": [
+   "naaalala."
+  ],
+  "style": "trembling, almost a whisper"
+ },
+ {
+  "id": "L3",
+  "shot": "memory",
+  "voice": "bata",
+  "text": "Pa... laro tayo.",
+  "key": [
+   "laro"
+  ],
+  "gap": 0.6,
+  "seed": 11
+ },
+ {
+  "id": "B3",
+  "shot": "memory",
+  "beat": 1.0
+ },
+ {
+  "id": "s19",
+  "shot": "end",
+  "text": "Doon mo naintindihan. Ang kamatayan... hindi pala sumpa. Iyon ang dahilan kung bakit mahalaga ang bawat sandali.",
+  "key": [
+   "kamatayan...",
+   "mahalaga"
+  ],
+  "style": "emotional, warm, slow"
+ },
+ {
+  "id": "s20",
+  "shot": "end",
+  "text": "Kaya yakapin mo sila ngayon... habang may oras pa.",
+  "key": [
+   "yakapin",
+   "oras"
+  ],
+  "style": "gentle, heartfelt"
+ },
+ {
+  "id": "B10",
+  "shot": "end",
+  "beat": 1.5
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 2.0
+ }
+]
