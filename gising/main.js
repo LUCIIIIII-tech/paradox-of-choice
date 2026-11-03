@@ -282,6 +282,6 @@ window.renderAt = t => {
   if (s.name === 'hook') title(ss(seg(u, .3, 1.0)) * (1 - ss(seg(t, s.b - .5, s.b))));
   if (s.name === 'cta') { const a = ss(seg(u, .3, 1)) * (1 - ss(seg(t, s.b - .5, s.b))); ctx.save(); ctx.globalAlpha = a; textC('IKAW,', W / 2, 520, 110, '#f4f1ea'); textC('ANO ANG GAGAWIN MO?', W / 2, 650, 84, '#a8f0de', 'rgba(110,230,200,.7)', 12); textC('I-COMMENT MO', W / 2, 1000, 70, '#ffd27a', 'rgba(255,200,90,.6)', 10); ctx.restore(); }
   if (s.name === 'end') { const a = ss(seg(u, .5, 1.3)) * (1 - ss(seg(t, DUR - .6, DUR))); ctx.save(); ctx.globalAlpha = a; textC('GISING KA', W / 2, H * .45, 130, '#d8d4cc'); textC('HABANG INOOPERAHAN', W / 2, H * .45 + 110, 62, '#8fd8c6', null, 10); ctx.restore(); }
-  if (s.name !== 'end') captions(t);
+  if (s.name !== 'end' && s.name !== 'cta') captions(t);
 };
 window.fontsReady = Promise.all([document.fonts.load('80px Anton')]).then(() => true);

@@ -20,16 +20,16 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="88.4" data-width="1080" data-height="1920">
-      <video id="film" class="clip" src="assets/video.mp4" muted playsinline data-start="0" data-duration="88.4" data-track-index="0"></video>
-      <audio id="mix" class="clip" src="assets/mix.wav" data-start="0" data-duration="88.4" data-track-index="1"></audio>
-      <div id="vignette" class="clip" data-start="0" data-duration="88.4" data-track-index="2"></div>
-      <div id="grain" class="clip" data-start="0" data-duration="88.4" data-track-index="3"></div>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="89.5" data-width="1080" data-height="1920">
+      <video id="film" class="clip" src="assets/video.mp4" muted playsinline data-start="0" data-duration="89.5" data-track-index="0"></video>
+      <audio id="mix" class="clip" src="assets/mix.wav" data-start="0" data-duration="89.5" data-track-index="1"></audio>
+      <div id="vignette" class="clip" data-start="0" data-duration="89.5" data-track-index="2"></div>
+      <div id="grain" class="clip" data-start="0" data-duration="89.5" data-track-index="3"></div>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
       // the grain drifts in small seeded steps (no strobe: opacity stays fixed, only the position moves)
-      for (let i = 0; i < 88; i++) tl.set("#grain", { x: ((i * 37) % 23) - 11, y: ((i * 53) % 19) - 9 }, i);
+      for (let i = 0; i < 89; i++) tl.set("#grain", { x: ((i * 37) % 23) - 11, y: ((i * 53) % 19) - 9 }, i);
       window.__timelines["main"] = tl;
       tl.seek(0);
     </script>
