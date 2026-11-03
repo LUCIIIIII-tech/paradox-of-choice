@@ -1,0 +1,366 @@
+[
+ {
+  "id": "h1",
+  "shot": "hook",
+  "text": "Totoong kwento 'to. Taxi driver ako noon. At may isang pasahero... na hanggang ngayon, hindi ko makalimutan.",
+  "key": [
+   "Totoong",
+   "pasahero..."
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "h2",
+  "shot": "hook",
+  "text": "Kasi nung sinilip ko siya sa salamin... walang nakaupo sa likod.",
+  "key": [
+   "salamin...",
+   "walang"
+  ]
+ },
+ {
+  "id": "B2",
+  "shot": "hook",
+  "beat": 0.8
+ },
+ {
+  "id": "s1",
+  "shot": "city",
+  "text": "Alas-dos ng madaling-araw. Malakas ang ulan sa Quezon City.",
+  "key": [
+   "Alas-dos",
+   "ulan"
+  ],
+  "gap": 0.6
+ },
+ {
+  "id": "s2",
+  "shot": "rule",
+  "text": "Sa aming mga driver, may isang bilin. Kapag dumaan ka sa Balete Drive pagkalipas ng hatinggabi...",
+  "key": [
+   "bilin.",
+   "Balete"
+  ]
+ },
+ {
+  "id": "s3",
+  "shot": "rule",
+  "text": "Huwag kang magpapasakay ng babaeng nakaputi. At huwag na huwag kang titingin sa salamin.",
+  "key": [
+   "nakaputi.",
+   "salamin."
+  ]
+ },
+ {
+  "id": "s4",
+  "shot": "boundary",
+  "text": "Pero gabing 'yon, kulang pa ang boundary ko. Kaya dumaan pa rin ako.",
+  "key": [
+   "boundary"
+  ]
+ },
+ {
+  "id": "s5",
+  "shot": "tree",
+  "text": "Sa ilalim ng malaking puno ng balete... may babaeng nakaputi. Nakataas ang kamay. Pinapara ako.",
+  "key": [
+   "balete...",
+   "nakaputi."
+  ],
+  "gap": 0.4
+ },
+ {
+  "id": "s6",
+  "shot": "dry",
+  "text": "Ang lakas ng ulan... pero tuyo ang buhok niya. Tuyo ang damit niya.",
+  "key": [
+   "tuyo"
+  ]
+ },
+ {
+  "id": "B3",
+  "shot": "dry",
+  "beat": 0.7
+ },
+ {
+  "id": "s7",
+  "shot": "getin",
+  "text": "Huminto ako. Sumakay siya sa likod. At biglang lumamig sa loob ng taxi.",
+  "key": [
+   "likod.",
+   "lumamig"
+  ]
+ },
+ {
+  "id": "L1",
+  "shot": "back",
+  "voice": "babae",
+  "text": "Kuya... pakihatid mo ako pauwi.",
+  "key": [
+   "pauwi."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "s8",
+  "shot": "back",
+  "text": "Saan po, Ma'am?",
+  "key": [],
+  "seed": 11
+ },
+ {
+  "id": "L2",
+  "shot": "back",
+  "voice": "babae",
+  "text": "Diretso lang. Ituturo ko.",
+  "key": [
+   "Diretso"
+  ],
+  "gap": 0.4
+ },
+ {
+  "id": "s9",
+  "shot": "circle",
+  "text": "Diretso. Kaliwa. Diretso ulit. Pero napansin ko... paikot-ikot lang kami.",
+  "key": [
+   "paikot-ikot"
+  ]
+ },
+ {
+  "id": "s10",
+  "shot": "pass",
+  "text": "At tuwing dadaan kami sa puno ng balete... nandoon pa rin siya. Nakatayo. Nakataas ang kamay.",
+  "key": [
+   "nandoon",
+   "Nakataas"
+  ]
+ },
+ {
+  "id": "s11",
+  "shot": "mirror",
+  "text": "Kahit bawal... sumilip ako sa salamin.",
+  "key": [
+   "bawal...",
+   "salamin."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "s12",
+  "shot": "mirror",
+  "text": "Walang tao sa likod. Pero lubog ang upuan... na parang may nakaupo.",
+  "key": [
+   "Walang",
+   "lubog"
+  ]
+ },
+ {
+  "id": "B4",
+  "shot": "mirror",
+  "beat": 0.6
+ },
+ {
+  "id": "L3",
+  "shot": "why",
+  "voice": "babae",
+  "text": "Kuya... bakit ka tumingin?",
+  "key": [
+   "tumingin?"
+  ],
+  "gap": 0.6
+ },
+ {
+  "id": "B5",
+  "shot": "why",
+  "beat": 1.3
+ },
+ {
+  "id": "s13",
+  "shot": "smell",
+  "text": "Doon ko naamoy. Kandila. Lupa. Amoy ng sementeryo.",
+  "key": [
+   "Kandila.",
+   "sementeryo."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "cta",
+  "shot": "cta",
+  "text": "Kung ikaw ang driver... lilingon ka ba? O magdadasal ka na lang? I-comment mo.",
+  "key": [
+   "lilingon",
+   "magdadasal"
+  ]
+ },
+ {
+  "id": "s14",
+  "shot": "pray",
+  "text": "Hindi ako lumingon. Pumikit ako, at nagdasal nang malakas.",
+  "key": [
+   "Pumikit"
+  ]
+ },
+ {
+  "id": "L4",
+  "shot": "beside",
+  "voice": "babae",
+  "text": "Kuya... nandito na tayo.",
+  "key": [
+   "nandito"
+  ],
+  "gap": 0.6
+ },
+ {
+  "id": "B6",
+  "shot": "beside",
+  "beat": 1.1
+ },
+ {
+  "id": "s15",
+  "shot": "house",
+  "text": "Pagdilat ko, nakahinto na ang taxi. Sa harap ng isang lumang bahay. Patay ang lahat ng ilaw.",
+  "key": [
+   "lumang",
+   "bahay."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "s16",
+  "shot": "empty",
+  "text": "Bumukas ang pinto sa likod. Sumara. Pagtingin ko... wala nang tao. Sa upuan, may naiwang sampaguita.",
+  "key": [
+   "wala",
+   "sampaguita."
+  ]
+ },
+ {
+  "id": "B1",
+  "shot": "empty",
+  "beat": 1.0
+ },
+ {
+  "id": "s17",
+  "shot": "morning",
+  "text": "Kinabukasan, bumalik ako para singilin ang pamasahe. Isang matandang babae ang nagbukas ng gate.",
+  "key": [
+   "pamasahe.",
+   "matandang"
+  ]
+ },
+ {
+  "id": "s18",
+  "shot": "photo",
+  "text": "Pagkakita niya sa sampaguita... umiyak siya. Itinuro niya ang litrato sa altar.",
+  "key": [
+   "umiyak",
+   "litrato"
+  ]
+ },
+ {
+  "id": "s19",
+  "shot": "photo",
+  "text": "'Yung babae sa taxi ko. Ang anak niya. Si Elena.",
+  "key": [
+   "Elena."
+  ]
+ },
+ {
+  "id": "s20",
+  "shot": "accident",
+  "text": "Namatay siya, dalawampung taon na ang nakaraan. Pauwi siya, sakay ng taxi... at bumangga sila sa puno ng balete.",
+  "key": [
+   "Namatay",
+   "balete."
+  ]
+ },
+ {
+  "id": "s21",
+  "shot": "count",
+  "text": "Sabi ng matanda, ako na ang ikalabing-apat na driver na kumatok sa gate niya. Lahat, may dalang sampaguita.",
+  "key": [
+   "ikalabing-apat",
+   "sampaguita."
+  ]
+ },
+ {
+  "id": "s22",
+  "shot": "count",
+  "text": "'Yung iba raw... hindi na nakauwi.",
+  "key": [
+   "nakauwi."
+  ]
+ },
+ {
+  "id": "B7",
+  "shot": "count",
+  "beat": 1.0
+ },
+ {
+  "id": "s23",
+  "shot": "handprint",
+  "text": "Pagbalik ko sa taxi... may bakas ng kamay sa salamin. Mula sa loob.",
+  "key": [
+   "kamay",
+   "loob."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "s23b",
+  "shot": "handprint",
+  "text": "Maliit ang palad. Mahahaba ang mga daliri. At nakaharap ito... sa upuan ko.",
+  "key": [
+   "daliri.",
+   "upuan"
+  ]
+ },
+ {
+  "id": "s24",
+  "shot": "end",
+  "text": "Hindi na ako nag-taxi mula noon. Pero minsan, kapag umuulan... may babaeng nakaputi sa gilid ng kalsada. Nakataas ang kamay.",
+  "key": [
+   "nakaputi",
+   "kamay."
+  ]
+ },
+ {
+  "id": "s24b",
+  "shot": "end",
+  "text": "Minsan, kahit nakasakay lang ako sa jeep... may bumubulong pa rin sa likod ko.",
+  "key": [
+   "bumubulong"
+  ]
+ },
+ {
+  "id": "L5",
+  "shot": "end",
+  "voice": "babae",
+  "text": "Kuya... ihatid mo ulit ako.",
+  "key": [
+   "ulit"
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "B8",
+  "shot": "end",
+  "beat": 1.0
+ },
+ {
+  "id": "s25",
+  "shot": "final",
+  "text": "Kapag dumaan ka sa Balete Drive... huwag kang hihinto.",
+  "key": [
+   "Balete",
+   "hihinto."
+  ],
+  "gap": 0.5
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 2.2
+ }
+]

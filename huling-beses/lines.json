@@ -1,0 +1,18 @@
+[
+ {"id": "h1", "shot": "hook", "text": "Imagine habang kumakain kayo ngayong gabi, nag-vibrate ang phone mo: Ito na ang huling hapunan na buo kayo.", "key": ["nag-vibrate", "huling", "buo"], "gap": 0.05, "seed": 11},
+ {"id": "h2", "shot": "table", "text": "Tumingin ka sa mesa. Si Tatay, nagkukuwento. Si Nanay, naglalagay ng ulam sa plato mo. Si Ate, tumatawa. Walang nakakaalam... kundi ikaw.", "key": ["Tatay,", "Nanay,", "Ate,", "ikaw."]},
+ {"id": "n0", "shot": "flood", "text": "Tapos sunod-sunod na silang dumating. Mga notification ng bawat huling beses... na huli mo nang nabasa.", "key": ["notification", "huli"], "gap": 1.0},
+ {"id": "n1", "shot": "jeep", "text": "Huling beses kang binuhat ni Tatay. Nakatulog ka sa jeep. Siyam na taon ka. Hindi mo na naalala.", "key": ["binuhat", "jeep.", "naalala."], "gap": 0.9},
+ {"id": "n2", "shot": "kalye", "text": "Huling beses kayong naglaro ng barkada sa kalye. Tinawag kayo para kumain. Hindi na kayo bumalik.", "key": ["barkada", "bumalik."], "gap": 0.9},
+ {"id": "n3", "shot": "lola", "text": "Huling beses kang tinawag ni Lola sa palayaw mo. Hindi ka lumingon. Nagmamadali ka.", "key": ["palayaw", "lumingon."], "gap": 0.9},
+ {"id": "n4", "shot": "payong", "text": "Huling beses kang sinundo ni Nanay sa eskwela, may dalang payong. Nahiya ka pa sa mga kaklase mo.", "key": ["sinundo", "payong.", "Nahiya"], "gap": 0.9},
+ {"id": "n5", "shot": "barkada", "text": "Huling litrato na kumpleto ang barkada. Kalahati sa kanila, nasa ibang bansa na.", "key": ["litrato", "ibang"], "gap": 0.9},
+ {"id": "r1", "shot": "ordinary", "text": "Walang notification sa totoong buhay. Ang huling beses... mukhang ordinaryong araw lang.", "key": ["Walang", "ordinaryong"], "gap": 1.1},
+ {"id": "r2", "shot": "ordinary", "text": "Ordinaryong yakap. Ordinaryong hapunan. Ordinaryong: sige, bukas na lang.", "key": ["yakap.", "hapunan.", "bukas"]},
+ {"id": "cta", "shot": "cta", "text": "Bago ang huli... i-comment mo ang huling beses na hindi mo alam na huli na pala. At i-share mo 'to sa taong kasabay mong kumain mamaya.", "key": ["i-comment", "i-share", "kumain"], "gap": 1.0},
+ {"id": "e1", "shot": "suitcase", "text": "Bumalik ka sa mesa. Saka mo naintindihan. Bukas ng umaga, lilipad na si Ate papuntang Dubai. Dalawang taong kontrata.", "key": ["naintindihan.", "Dubai.", "kontrata."], "gap": 1.0},
+ {"id": "e2", "shot": "cry", "text": "Napansin ni Nanay. O, bakit ka umiiyak? Wala po, 'Nay. Pahingi pa po ng kanin.", "key": ["umiiyak?", "kanin."], "gap": 0.9, "seed": 23, "say": "Napansin ni Nanay. O, bakit ka umiiyak? Wala po, Nay. Pahingi pa po... ng kanin."},
+ {"id": "e3", "shot": "midnight", "text": "Ngayong gabi, walang tumayo agad. Nagkuwentuhan kayo hanggang hatinggabi. Kahit lumamig na ang ulam.", "key": ["walang", "hatinggabi.", "lumamig"], "gap": 0.9},
+ {"id": "end", "shot": "phone", "text": "Kaya mamayang hapunan... ibaba mo muna ang phone. Baka ito na 'yon.", "key": ["ibaba", "phone.", "ito"], "gap": 1.0},
+ {"id": "tail", "shot": "endcard", "beat": 3.0}
+]

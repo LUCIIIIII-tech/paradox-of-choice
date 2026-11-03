@@ -1,0 +1,26 @@
+What If You Could Hear Everyone's Thoughts? — 16:9 long-form "what if" story for YouTube (English hear-thoughts_en.mp4,
+Tagalog hear-thoughts.mp4) · asset sources & licences
+
+Voice        Narrator: VoxCPM2 (OpenBMB, Apache-2.0), run offline; every line cloned from one reference clip
+             (../voice-tests/18_Vox_deep_narrator.mp3). Word timings: faster-whisper (MIT).
+Sound        Everything synthesised in code (score.py, numpy; toolkit from ../puyat and ../huling-tren). No samples.
+             The crowd of other people's thoughts is the narrator's own lines with their phase randomised (whispers).
+Fonts        Anton (Vernon Adams), Caveat (Impallari Type) — Google Fonts, SIL Open Font License 1.1, licences in fonts/.
+Artwork      Every character, place, texture and light drawn procedurally in code (main.js; engine from ../puyat).
+Facts        ~6,200 new thoughts a day: Tseng & Poppenk, "Brain meta-state transitions demarcate thoughts across task
+             contexts exposing the mental noise of trait neuroticism", Nature Communications 11 (2020). (Counts new
+             "thought worms", not every passing idea.)
+             The white bear: Wegner, Schneider, Carter & White, "Paradoxical effects of thought suppression",
+             Journal of Personality and Social Psychology 53 (1987).
+             Mind-wandering ~47% of waking hours: Killingsworth & Gilbert, "A wandering mind is an unhappy mind",
+             Science 330 (2010).
+             The spotlight effect (the embarrassing T-shirt: ~50% predicted, ~23-25% noticed): Gilovich, Medvec &
+             Savitsky, Journal of Personality and Social Psychology 78 (2000).
+             The liking gap: Boothby, Cooney, Sandstrom & Clark, "The Liking Gap in Conversations: Do People Like Us
+             More Than We Think?", Psychological Science 29 (2018).
+             The illusion of transparency: Gilovich, Savitsky & Medvec, Journal of Personality and Social Psychology
+             75 (1998).
+             Intrusive thoughts in 13 countries, ~94% of people: Radomsky et al., "Part 1—You can run but you can't hide:
+             Intrusive thoughts on six continents", Journal of Obsessive-Compulsive and Related Disorders 3 (2014).
+             No inner voice ("anendophasia"): Nedergaard & Lupyan, "Not Everybody Has an Inner Voice", Psychological
+             Science (2024).

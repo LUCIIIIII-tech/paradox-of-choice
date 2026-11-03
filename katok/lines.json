@@ -1,0 +1,180 @@
+[
+ {
+  "id": "l01",
+  "shot": "door",
+  "text": "Kung may kumatok sa pinto mo ngayong gabi... huwag mong bubuksan.",
+  "key": [
+   "kumatok",
+   "huwag"
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "l02",
+  "shot": "door",
+  "text": "Alas tres ng madaling-araw. Tatlong katok. Mabagal.",
+  "key": [
+   "tres",
+   "Tatlong"
+  ]
+ },
+ {
+  "id": "l03",
+  "shot": "file",
+  "text": "Kung mangyari 'to, sundin mo ang mga patakarang ito. Huwag kang lalaktaw.",
+  "key": [
+   "patakarang",
+   "lalaktaw."
+  ]
+ },
+ {
+  "id": "l04",
+  "shot": "r1",
+  "text": "Una. Huwag kang sasagot. Ang boses mo ang magsasabing may tao sa loob.",
+  "key": [
+   "sasagot.",
+   "boses"
+  ],
+  "counter": "PATAKARAN 1"
+ },
+ {
+  "id": "l05",
+  "shot": "r2",
+  "text": "Pangalawa. Huwag mong bubuksan ang ilaw. Kita ang anino mo sa ilalim ng pinto.",
+  "key": [
+   "ilaw.",
+   "anino"
+  ],
+  "counter": "PATAKARAN 2"
+ },
+ {
+  "id": "l06",
+  "shot": "r3",
+  "text": "Pangatlo. Sumilip ka sa peephole... pero huwag mong idikit ang mata mo.",
+  "key": [
+   "peephole...",
+   "idikit"
+  ],
+  "counter": "PATAKARAN 3"
+ },
+ {
+  "id": "l07",
+  "shot": "twist",
+  "text": "Walang tao sa labas. Pero kumatok ulit... mas mababa. Parang galing sa sahig.",
+  "key": [
+   "Walang",
+   "sahig."
+  ]
+ },
+ {
+  "id": "l08",
+  "shot": "r4",
+  "text": "Pang-apat. Kung sabihin nilang pulis sila, o taga-kuryente... huwag kang maniwala.",
+  "key": [
+   "pulis",
+   "maniwala."
+  ],
+  "counter": "PATAKARAN 4"
+ },
+ {
+  "id": "l09",
+  "shot": "fake",
+  "text": "Totoo 'to. Maraming magnanakaw ang nagpapanggap na pulis, delivery, o taga-utility. Tawagan mo mismo ang opisina nila.",
+  "key": [
+   "nagpapanggap",
+   "Tawagan"
+  ],
+  "stat": [
+   "TOTOONG MODUS",
+   "NAGPAPANGGAP",
+   "pulis · delivery · taga-utility"
+  ]
+ },
+ {
+  "id": "l10",
+  "shot": "r5",
+  "text": "Panlima. Huwag mong sasabihing mag-isa ka. Sumigaw ka: Pa, may tao!",
+  "key": [
+   "mag-isa",
+   "Sumigaw"
+  ],
+  "counter": "PATAKARAN 5"
+ },
+ {
+  "id": "l11",
+  "shot": "r6",
+  "text": "Pang-anim. Ang kadena sa pinto, hindi ka nito ililigtas. Isang tulak lang, bigay na.",
+  "key": [
+   "kadena",
+   "bigay"
+  ],
+  "counter": "PATAKARAN 6"
+ },
+ {
+  "id": "l12",
+  "shot": "r7",
+  "text": "Pampito. Tumawag ka agad sa 911. Huwag mong hintaying makapasok sila.",
+  "key": [
+   "911.",
+   "makapasok"
+  ],
+  "counter": "PATAKARAN 7",
+  "say": "Pampito. Tumawag ka agad sa nine one one. Huwag mong hintaying makapasok sila."
+ },
+ {
+  "id": "l13",
+  "shot": "quiet",
+  "text": "Huminto ang katok. Tahimik ang lahat.",
+  "key": [
+   "Huminto",
+   "Tahimik"
+  ]
+ },
+ {
+  "id": "l14",
+  "shot": "last",
+  "text": "Huling patakaran. Ang pinakamahalaga.",
+  "key": [
+   "Huling",
+   "pinakamahalaga."
+  ],
+  "counter": "PATAKARAN 8"
+ },
+ {
+  "id": "l15",
+  "shot": "last",
+  "text": "Kapag huminto ang katok... huwag mong isiping umalis na sila.",
+  "key": [
+   "huminto",
+   "umalis"
+  ]
+ },
+ {
+  "id": "l16",
+  "shot": "sting",
+  "beat": 2.2
+ },
+ {
+  "id": "l17",
+  "shot": "rules",
+  "text": "Ano'ng una mong gagawin? Comment mo ang numero ng patakaran.",
+  "key": [
+   "una",
+   "numero"
+  ]
+ },
+ {
+  "id": "l18",
+  "shot": "cta",
+  "text": "I-send mo 'to sa kaibigan mong nakatira mag-isa.",
+  "key": [
+   "I-send",
+   "mag-isa."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.8
+ }
+]

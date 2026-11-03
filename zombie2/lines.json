@@ -1,0 +1,168 @@
+[
+ {
+  "id": "h1",
+  "shot": "rush",
+  "text": "Imagine nasa mall ka. 5 choices. Isang mali lang... patay ka.",
+  "say": "Imagine nasa mall ka. Five choices. Isang mali lang... patay ka.",
+  "key": [
+   "Imagine",
+   "mali",
+   "patay"
+  ],
+  "gap": 0.05
+ },
+ {
+  "id": "s1",
+  "shot": "scream",
+  "text": "Sabado ng gabi. Biglang may sumigaw sa entrance.",
+  "key": [
+   "sumigaw"
+  ]
+ },
+ {
+  "id": "s2",
+  "shot": "lunge",
+  "text": "Tapos, may sumunggab sa guard.",
+  "key": [
+   "sumunggab"
+  ]
+ },
+ {
+  "id": "c1q",
+  "shot": "well",
+  "text": "Choice number 1: lahat tumatakbo sa entrance. Sasabay ka ba?",
+  "say": "Choice number one: lahat tumatakbo sa entrance. Sasabay ka ba?",
+  "key": [
+   "Choice",
+   "Sasabay"
+  ]
+ },
+ {
+  "id": "c1a",
+  "shot": "a1",
+  "text": "Kung sumabay ka... naipit ka na sa pinto. Humiwalay ka.",
+  "key": [
+   "naipit",
+   "Humiwalay"
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c2q",
+  "shot": "map",
+  "text": "Choice number 2: entrance, o fire exit?",
+  "say": "Choice number two: entrance, o fire exit?",
+  "key": [
+   "Choice",
+   "fire",
+   "exit?"
+  ]
+ },
+ {
+  "id": "c2a",
+  "shot": "a2",
+  "text": "Fire exit. Kasi ang entrance... doon sila nanggaling.",
+  "key": [
+   "Fire",
+   "exit.",
+   "nanggaling."
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c3q",
+  "shot": "noise",
+  "text": "Choice number 3: may zombie sa harap mo. Tatakbo ka, o tatahimik?",
+  "say": "Choice number three: may zombie sa harap mo. Tatakbo ka, o tatahimik?",
+  "key": [
+   "Choice",
+   "zombie",
+   "tatahimik?"
+  ]
+ },
+ {
+  "id": "c3a",
+  "shot": "r3",
+  "text": "Tumahimik ka. Tunog ang sinusundan nila.",
+  "key": [
+   "Tumahimik",
+   "Tunog"
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c4q",
+  "shot": "dark",
+  "text": "Choice number 4: sobrang dilim. Bubuksan mo ang flashlight mo?",
+  "say": "Choice number four: sobrang dilim. Bubuksan mo ang flashlight mo?",
+  "key": [
+   "Choice",
+   "dilim.",
+   "flashlight"
+  ]
+ },
+ {
+  "id": "c4a",
+  "shot": "phone",
+  "text": "Huwag. Sa dilim... ilaw ang hinahanap nila.",
+  "key": [
+   "Huwag.",
+   "ilaw"
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "c5q",
+  "shot": "friend",
+  "text": "Choice number 5: nakagat ang bestfriend mo. Isasama mo pa ba siya?",
+  "say": "Choice number five: nakagat ang bestfriend mo. Isasama mo pa ba siya?",
+  "key": [
+   "Choice",
+   "nakagat",
+   "Isasama"
+  ]
+ },
+ {
+  "id": "c5a",
+  "shot": "bitten",
+  "text": "Sa loob ng 10 segundo... hindi na siya 'yan.",
+  "say": "Sa loob ng sampung segundo... hindi na siya 'yan.",
+  "key": [
+   "10",
+   "hindi"
+  ],
+  "gap": 1.6
+ },
+ {
+  "id": "o1",
+  "shot": "exit",
+  "text": "Kung lima ang tama mo... nakalabas ka.",
+  "key": [
+   "lima",
+   "nakalabas"
+  ]
+ },
+ {
+  "id": "o2",
+  "shot": "think",
+  "text": "Ilan ang tama mo? Comment mo ang score mo.",
+  "key": [
+   "Ilan",
+   "score"
+  ]
+ },
+ {
+  "id": "o3",
+  "shot": "share",
+  "text": "I-share mo sa kaibigang unang mamamatay.",
+  "key": [
+   "I-share",
+   "mamamatay."
+  ]
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 1.6
+ }
+]

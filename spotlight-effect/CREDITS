@@ -1,0 +1,15 @@
+Spotlight Effect — Art Deco reel (Tagalog) · asset sources & licences
+
+Music        Original score, synthesised in code (score.py, numpy). No samples.
+Sound FX     Synthesised in code (score.py). No samples.
+Voice        Narrator: Microsoft Edge online neural voice fil-PH-AngeloNeural (Filipino, male), generated with the
+             Lemo-Opuscar library's core/tts/tts_zh.py (edge-tts). Check Microsoft's terms before commercial use.
+             Script and timings: narration.json / NARRATION.md.
+Fonts        Limelight (Eben Sorkin), Poiret One (Denis Masharov), Josefin Sans (Santiago Orozco), Italiana (Santiago Orozco)
+             — Google Fonts, SIL Open Font License 1.1. Unmodified copies from github.com/google/fonts (ofl/), licences in fonts/.
+Artwork      All characters, sets and props drawn procedurally in code (chars.js / main.js).
+Engine       engine/ (deco.js, type.js, bulbs.js, cam.js) copied from the Art Deco style of the Lemo-Opuscar library
+             (MIT License, github.com/lemomo-ai/lemo-opuscar).
+Fact         Gilovich, T., Medvec, V. H., & Savitsky, K. (2000). The spotlight effect in social judgment.
+             Journal of Personality and Social Psychology, 78(2), 211–222. Cited on screen.
+Style        Art Deco grammar (Cassandre posters, Busby Berkeley overheads). Nothing copied from any poster, film or building.

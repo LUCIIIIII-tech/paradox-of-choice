@@ -1,0 +1,11 @@
+Bangungot — dark stickman horror reel (Tagalog) · asset sources & licences
+
+Voice        Narrator: Microsoft Edge online neural voice fil-PH-AngeloNeural (Filipino, male), via edge-tts
+             (run from the Lemo-Opuscar library's voice tier). Check Microsoft's terms before commercial use.
+Sound        Drone, heartbeat, hits, whispers, scream, static and music box synthesised in code (score.py, numpy). No samples.
+Fonts        Anton (Vernon Adams), Creepster (Sideshow) — Google Fonts, SIL Open Font License 1.1, licences in fonts/.
+Artwork      Every character, room and effect drawn procedurally in code (main.js).
+Facts        Sleep paralysis: waking during REM sleep while REM muscle atonia persists; hallucinated "intruder" and chest pressure.
+             Lifetime prevalence ~7.6% in the general population (Sharpless & Barber, Sleep Medicine Reviews, 2011).
+             Folk names: batibat (Philippines, Ilocano), kanashibari (Japan), the Old Hag (Newfoundland, Canada).
+Format       Inspired by choose-A-or-B horror story reels; nothing copied.

@@ -1,0 +1,200 @@
+[
+ {
+  "id": "h1",
+  "shot": "hook",
+  "text": "Imagine nasa probinsya ka. Alas-3 ng madaling-araw. Biglang tumigil ang tahol ng mga aso... nandito na ang aswang.",
+  "key": [
+   "Alas-3",
+   "aso...",
+   "aswang."
+  ],
+  "say": "Imagine nasa probinsya ka. Alas-tres ng madaling-araw. Biglang tumigil ang tahol ng mga aso... nandito na ang aswang.",
+  "gap": 0.05,
+  "seed": 11
+ },
+ {
+  "id": "s1",
+  "shot": "arrive",
+  "text": "Bakasyon ka sa bahay ni Lola. Walang signal. Walang kuryente. Brownout.",
+  "key": [
+   "Lola.",
+   "Brownout."
+  ],
+  "gap": 1.0
+ },
+ {
+  "id": "s2",
+  "shot": "kubo",
+  "text": "Tulog na ang lahat sa loob ng kulambo... maliban kay Lola. Hawak ang rosaryo. Nakatingin sa bintana.",
+  "key": [
+   "kulambo...",
+   "Lola.",
+   "bintana."
+  ]
+ },
+ {
+  "id": "s3",
+  "shot": "whisper",
+  "text": "Bago ka matulog, may ibinulong siya. 5 rules. Kapag sinunod mo... aabot ka ng umaga.",
+  "key": [
+   "5",
+   "umaga."
+  ],
+  "say": "Bago ka matulog, may ibinulong siya. Five rules. Kapag sinunod mo... aabot ka ng umaga."
+ },
+ {
+  "id": "s4",
+  "shot": "neighbor",
+  "text": "Hindi lahat ng aswang mukhang halimaw. 'Yung iba... mukhang kapitbahay. Mabait. Laging nagdadala ng ulam.",
+  "key": [
+   "halimaw.",
+   "kapitbahay."
+  ]
+ },
+ {
+  "id": "r1",
+  "shot": "roof",
+  "text": "Rule number 1: makinig sa tik-tik. Kapag malakas, malayo pa siya. Kapag mahina... nasa bubong mo na.",
+  "key": [
+   "Rule",
+   "tik-tik.",
+   "bubong"
+  ],
+  "say": "Rule number one: makinig sa tik-tik. Kapag malakas, malayo pa siya. Kapag mahina... nasa bubong mo na.",
+  "gap": 0.7
+ },
+ {
+  "id": "r2",
+  "shot": "call",
+  "text": "Rule number 2: kapag may tumawag sa pangalan mo mula sa labas... huwag kang sasagot. Kahit boses pa ni Nanay.",
+  "key": [
+   "Rule",
+   "sasagot.",
+   "Nanay."
+  ],
+  "say": "Rule number two: kapag may tumawag sa pangalan mo mula sa labas... huwag kang sasagot. Kahit boses pa ni Nanay."
+ },
+ {
+  "id": "r2b",
+  "shot": "nanay",
+  "text": "Kasi si Nanay... katabi mong natutulog.",
+  "key": [
+   "Nanay...",
+   "natutulog."
+  ],
+  "gap": 1.2
+ },
+ {
+  "id": "r3",
+  "shot": "visitor",
+  "text": "Rule number 3: kapag may bisitang kumatok, humihingi ng tubig... tingnan mo ang mata niya.",
+  "key": [
+   "Rule",
+   "tubig...",
+   "mata"
+  ],
+  "say": "Rule number three: kapag may bisitang kumatok, humihingi ng tubig... tingnan mo ang mata niya."
+ },
+ {
+  "id": "r3b",
+  "shot": "eye",
+  "text": "Kapag baliktad ang repleksyon mo... aswang 'yan. Huwag mong papasukin.",
+  "key": [
+   "baliktad",
+   "aswang"
+  ],
+  "gap": 0.8
+ },
+ {
+  "id": "mid",
+  "shot": "floor",
+  "text": "Alas-3 y medya. May kumakaluskos sa ilalim ng bahay. At sa siwang ng sahig... may nakatingin sa'yo.",
+  "key": [
+   "ilalim",
+   "nakatingin"
+  ],
+  "say": "Alas-tres y medya. May kumakaluskos sa ilalim ng bahay. At sa siwang ng sahig... may nakatingin sa'yo.",
+  "gap": 0.6
+ },
+ {
+  "id": "cta",
+  "shot": "cta",
+  "text": "Bago ang huling dalawang rules... i-share mo muna 'to sa pinsan mong matatakutin. Para may kasama siya.",
+  "key": [
+   "i-share",
+   "pinsan"
+  ],
+  "gap": 0.9
+ },
+ {
+  "id": "r4",
+  "shot": "garlic",
+  "text": "Rule number 4: bawang sa bintana, asin sa pinto. At ang buntot pagi ni Lola... huwag mong itatago.",
+  "key": [
+   "Rule",
+   "bawang",
+   "asin",
+   "pagi"
+  ],
+  "say": "Rule number four: bawang sa bintana, asin sa pinto. At ang buntot pagi ni Lola... huwag mong itatago.",
+  "gap": 0.6
+ },
+ {
+  "id": "r5",
+  "shot": "grove",
+  "text": "Rule number 5, ang pinakamahalaga: kapag manananggal... huwag mo siyang habulin. Hanapin mo ang kalahati ng katawan niya.",
+  "key": [
+   "Rule",
+   "manananggal...",
+   "kalahati"
+  ],
+  "say": "Rule number five, ang pinakamahalaga: kapag manananggal... huwag mo siyang habulin. Hanapin mo ang kalahati ng katawan niya.",
+  "gap": 0.6
+ },
+ {
+  "id": "r5b",
+  "shot": "salt",
+  "text": "Budburan mo ng asin at abo. Bago sumikat ang araw... hindi na siya makakabalik.",
+  "key": [
+   "asin",
+   "abo.",
+   "makakabalik."
+  ],
+  "gap": 0.6
+ },
+ {
+  "id": "dawn",
+  "shot": "dawn",
+  "text": "Buong gabi siyang sumisigaw sa langit... hanggang tumilaok ang manok.",
+  "key": [
+   "sumisigaw",
+   "manok."
+  ],
+  "gap": 0.8
+ },
+ {
+  "id": "s5",
+  "shot": "morning",
+  "text": "Kinaumagahan... may bakas ng paa sa putik. Papunta sa bahay ng kapitbahay.",
+  "key": [
+   "bakas",
+   "kapitbahay."
+  ],
+  "gap": 1.5
+ },
+ {
+  "id": "end",
+  "shot": "end",
+  "text": "Kaya kapag tumahimik ang mga aso ngayong gabi... alam mo na ang gagawin.",
+  "key": [
+   "tumahimik",
+   "gagawin."
+  ],
+  "gap": 1.0
+ },
+ {
+  "id": "tail",
+  "shot": "loop",
+  "beat": 2.2
+ }
+]

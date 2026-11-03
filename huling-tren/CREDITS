@@ -1,0 +1,18 @@
+Huling Tren (The Last Train) — dark zombie-outbreak scenario reel (Tagalog huling-tren.mp4, English huling-tren_en.mp4) · asset sources & licences
+
+Voice        Narrator: VoxCPM2 (OpenBMB, Apache-2.0), run offline; every line cloned from one reference clip
+             (../voice-tests/18_Vox_deep_narrator.mp3). Word timings: faster-whisper (MIT).
+Sound        Everything synthesised in code (score.py, numpy; toolkit from ../puyat). No samples. The whispers are the
+             narrator's own lines with their phase randomised; the scream and the moans are formant synthesis.
+Fonts        Anton (Vernon Adams), Creepster (Sideshow) — Google Fonts, SIL Open Font License 1.1, licences in fonts/.
+Artwork      Every character, place, texture and light drawn procedurally in code (main.js; engine from ../puyat).
+Facts        Freezing in emergencies: John Leach, "Why people 'freeze' in an emergency", Aviation, Space, and Environmental
+             Medicine 75 (2004): roughly 10–15% stay calm, about 75% are stunned and bewildered, 10–15% act
+             counterproductively. (The reel says "halos 3 sa bawat 4".)
+             Zombie outbreak simulation: Alemi, Bierbaum, Myers & Sethna, "You Can Run, You Can Hide: The Epidemiology
+             and Statistical Mechanics of Zombies", Cornell University (2015): dense cities are overrun first, remote
+             areas last.
+             Ophiocordyceps unilateralis ("zombie-ant fungus"): infects ants, steers them up vegetation to bite down,
+             then grows a fruiting stalk from the head (tropical forests).
+             Rabies: aggression and hydrophobia, spread by bites; virtually 100% fatal once symptoms appear (WHO).
+             Normalcy bias: the tendency to underestimate a threat and assume things will stay normal.
